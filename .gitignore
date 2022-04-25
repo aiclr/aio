@@ -1,3 +1,14 @@
+# IDE
+.idea/
+.vscode/
+.gradle/
+
+*.iml
+
+# Compiled class dir
+out/
+build/
+
 # Compiled class file
 *.class
 
