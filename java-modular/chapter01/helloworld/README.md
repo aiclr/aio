@@ -17,6 +17,11 @@ java -p out/helloworld -m helloworld/org.bougainvilleas.helloworld.HelloWorld
 
 ```shell
 mkdir -p out/mods
+# -c, --create               创建档案
+# -v, --verbose              在标准输出中生成详细输出
+# -f, --file=FILE            档案文件名。省略时, 基于操作 使用 stdin 或 stdout
+# -e, --main-class=CLASSNAME 捆绑到模块化或可执行 jar 档案的独立应用程序 的应用程序入口点
+# -C DIR                     更改为指定的目录并包含 以下文件
 jar -cvfe out/mods/helloworld.jar org.bougainvilleas.helloworld.HelloWorld -C out/helloworld .
 ```
 
@@ -30,16 +35,16 @@ java -p out/mods -m helloworld
 
 ```shell
 mkdir -p out/jlink
-jlink --module-path out/mods/:$JAVA_HOME/jmods --add-modules helloworld --launcher hello=helloworld --output out/jlink/helloworld-image
+jlink --module-path out/mods/:$JAVA_HOME/jmods --add-modules helloworld --launcher app=helloworld --output out/jlink/image
 ```
 
 ## jlink run 
 
 ```shell
 # linux
-./out/jlink/helloworld-image/bin/hello
-./out/jlink/helloworld-image/bin/java --list-modules
+./out/jlink/image/bin/app
+./out/jlink/image/bin/java --list-modules
 # windows
-.\out\jlink\helloworld-image\bin\hello.bat
-.\out\jlink\helloworld-image\bin\java --list-modules
+.\out\jlink\image\bin\app.bat
+.\out\jlink\image\bin\java --list-modules
 ```
