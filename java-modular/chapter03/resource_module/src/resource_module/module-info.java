@@ -1,0 +1,2 @@
+module resource_module {
+}
