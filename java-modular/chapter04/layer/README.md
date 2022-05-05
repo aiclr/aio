@@ -46,10 +46,3 @@ jlink -v -p out/mods/:$JAVA_HOME/jmods --add-modules boot_layer --launcher app=b
 .\out\jlink\image\bin\app.bat
 .\out\jlink\image\bin\java --list-modules
 ```
-
-## 构建 ModuleLayer 
-
-> 构建 ModuleLayer 之前 必须在该层中创建一个描述模块图的 Configuration \
-> 对于 boot layer 该过程是在启动时隐式完成的 \
-> 在构建 Configuration 时，需要提供一个 ModuleFinder 来定位各个模块 \
-> 设置一连串类 以创建一个新的 ModuleLayer 
