@@ -1,0 +1,18 @@
+apply plugin: 'application'
+
+application {
+    mainModule = 'cli'
+    mainClass = 'org.bougainvilleas.ilj.cli.Client'
+}
+
+dependencies {
+    implementation(project(":api"))
+    implementation fileTree(dir: 'libs', include: '*.jar')
+//    implementation(project(":facade_abc"))
+//    implementation(project(":facade_ac"))
+//    implementation(project(":facade_bc"))
+    implementation(project(":facade_ab"))
+//    implementation(project(":svc_a"))
+//    implementation(project(":svc_b"))
+//    implementation(project(":svc_c"))
+}

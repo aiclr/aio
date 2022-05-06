@@ -1,0 +1,5 @@
+dependencies {
+    implementation(project(":svc_a"))
+    implementation(project(":svc_b"))
+    implementation(project(":svc_c"))
+}

@@ -1,0 +1,12 @@
+rootProject.name = 'java-modular-svc'
+include 'api'
+include 'cli'
+include 'svc_a'
+include 'svc_b'
+include 'svc_c'
+include 'facade_ab'
+include 'facade_ac'
+include 'facade_bc'
+include 'facade_abc'
+
+
