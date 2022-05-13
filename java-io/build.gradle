@@ -1,0 +1,49 @@
+buildscript {
+    ext {
+        set('appVersion', "1.0.0")
+
+        set('junitVersion', "5.7.0")
+    }
+}
+
+plugins {
+    id 'java'
+}
+
+group 'org.bougainvilleas.base'
+version = "${appVersion}" as Object
+
+repositories {
+    mavenLocal()
+    maven {
+        url 'https://maven.aliyun.com/repository/public/'
+    }
+    mavenCentral()
+}
+
+
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(8)
+    }
+}
+
+tasks.withType(JavaCompile) {
+    //启用所有警告信息 -Xlint:all 关闭 -Xlint:none
+    options.compilerArgs << '-Xlint:all'
+    options.encoding = "UTF-8"
+}
+
+tasks.withType(Javadoc) {
+    options.encoding = "UTF-8"
+}
+
+dependencies {
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+}
+
+test {
+    useJUnitPlatform()
+}

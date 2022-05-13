@@ -1,12 +1,10 @@
 buildscript {
     ext {
         set('appVersion', "1.0.0")
-
-        set('lombokVersion', "1.18.12")
-        set('lang3Version', "3.8")
-        set('gsonVersion', "2.8.5")
-        set('guavaVersion', "29.0-jre")
-        set('cglibVersion', "3.3.0")
+        
+        set('lang3Version', "3.12.0")
+        set('gsonVersion', "2.9.0")
+        set('guavaVersion', "31.1-jre")
 
         set('junitVersion', "5.7.0")
     }
@@ -28,7 +26,6 @@ repositories {
 }
 
 
-
 java {
     toolchain {
         languageVersion = JavaLanguageVersion.of(8)
@@ -46,20 +43,14 @@ tasks.withType(Javadoc) {
 }
 
 dependencies {
-    compileOnly("org.projectlombok:lombok:${lombokVersion}")
     implementation("org.apache.commons:commons-lang3:${lang3Version}")
     implementation("com.google.code.gson:gson:${gsonVersion}")
     implementation("com.google.guava:guava:${guavaVersion}")
 
-    // https://mvnrepository.com/artifact/cglib/cglib
-    implementation("cglib:cglib:${cglibVersion}")
 
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
 
-    //lombok注解gradle识别不到, 1.16.16可以编译，其他版本编译报错
-    annotationProcessor("org.projectlombok:lombok:${lombokVersion}")
-    testAnnotationProcessor("org.projectlombok:lombok:${lombokVersion}")
 }
 
 test {

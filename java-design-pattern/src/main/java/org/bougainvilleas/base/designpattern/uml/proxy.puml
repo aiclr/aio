@@ -1,0 +1,17 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+
+interface ServiceI{
+ void doSth()
+}
+
+class Service implements ServiceI{
+ void doSth()
+}
+
+class Proxy implements ServiceI{
+ ServiceI service
+ void doSth()
+}
+@enduml

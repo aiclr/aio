@@ -40,6 +40,7 @@ class AfBase{
 
 //覆写方法参数显示形式已父类方法不一致，向上转型
 class SubAfBase extends AfBase{
+
     @Override
     void fun(int price, int[] discounts) {
         System.err.println("123-123");
