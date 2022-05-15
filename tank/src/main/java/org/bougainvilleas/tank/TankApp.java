@@ -19,7 +19,12 @@ import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.util.Duration;
+
+import java.util.ArrayList;
+import java.util.Map;
 
 public class TankApp extends GameApplication
 {
@@ -50,8 +55,56 @@ public class TankApp extends GameApplication
     }
 
     @Override
+    protected void initGameVars(Map<String, Object> vars)
+    {
+        //int
+        vars.put("score",0);
+        // double
+        vars.put("double",0D);
+        // Object
+        vars.put("list",new ArrayList<>());
+        // 字符串 不能 null
+        vars.put("String","");
+    }
+
+    @Override
+    protected void onPreInit()
+    {
+        //初始化加载资源
+
+        //初始化游戏音效
+        FXGL.getSettings().setGlobalMusicVolume(0.5);
+        FXGL.getSettings().setGlobalSoundVolume(0.8);
+        FXGL.loopBGM("AllsFairInLove.mp3");
+    }
+
+    @Override
     protected void initGame()
     {
+
+        // int
+        FXGL.geti("score");
+        FXGL.getip("score");
+        // double
+        FXGL.getd("double");
+        FXGL.getdp("double");
+        // 字符串 不能 null
+        FXGL.gets("String");
+        FXGL.getsp("String");
+        // Object
+        FXGL.geto("list");
+        FXGL.getop("list");
+
+        FXGL.getip("score").addListener((ob,ov,nv)->{
+            if(0 == nv.intValue()%20)
+            {
+                String ch="哈哈哈哈";
+                System.err.println(ch);
+                //中文字体bug 安装中文字体可以解决
+                //sudo pacman -S adobe-source-han-sans-cn-fonts adobe-source-han-sans-tw-fonts adobe-source-han-serif-cn-fonts adobe-source-han-serif-tw-fonts wqy-microhei wqy-zenhei wqy-bitmapfont ttf-arphic-ukai ttf-arphic-uming opendesktop-fonts ttf-hannom
+                FXGL.getNotificationService().pushNotification(ch);
+            }
+        });
         localTimer=FXGL.newLocalTimer();
         tank = FXGL.entityBuilder()
 //                //view tank实体的大小
@@ -89,12 +142,9 @@ public class TankApp extends GameApplication
                 point=up;
 
                 tank.translateY(-5);
-                System.err.println(tank.getCenter());
                 tank.setRotation(270);
                 bulletX=tank.getCenter().getX();
                 bulletY=tank.getCenter().getY()-60;
-                Point2D center = tank.getCenter();
-                System.err.println(center);
             }
         }, KeyCode.UP);
         FXGL.getInput().addAction(new UserAction("move down") {
@@ -109,12 +159,9 @@ public class TankApp extends GameApplication
                 point=down;
 
                 tank.translateY(5);
-                System.err.println(tank.getCenter());
                 tank.setRotation(90);
                 bulletX=tank.getCenter().getX()-20;
                 bulletY=tank.getCenter().getY()+50;
-                Point2D center = tank.getCenter();
-                System.err.println(center);
             }
         }, KeyCode.DOWN);
         FXGL.getInput().addAction(new UserAction("move left") {
@@ -129,13 +176,9 @@ public class TankApp extends GameApplication
                 point=left;
 
                 tank.translateX(-5);
-                System.err.println(tank.getCenter());
                 tank.setRotation(180);
                 bulletX=tank.getCenter().getX()-60;
                 bulletY=tank.getCenter().getY()-20;
-
-                Point2D center = tank.getCenter();
-                System.err.println(center);
             }
         }, KeyCode.LEFT);
         FXGL.getInput().addAction(new UserAction("move right") {
@@ -150,12 +193,10 @@ public class TankApp extends GameApplication
                 isMoving=true;
                 point=right;
                 tank.translateX(5);
-                System.err.println(tank.getCenter());
                 tank.setRotation(0);
 
                 bulletX=tank.getCenter().getX()+50;
                 bulletY=tank.getCenter().getY();
-                System.err.println(tank.getCenter());
             }
         }, KeyCode.RIGHT);
 
@@ -168,8 +209,8 @@ public class TankApp extends GameApplication
                     return;
                 }
                 localTimer.capture();
+                FXGL.play("WeaponWhips01.wav");
                 createBullet(bulletX,bulletY);
-//                createCircle();
             }
         }, KeyCode.SPACE);
     }
@@ -215,18 +256,6 @@ public class TankApp extends GameApplication
                 .buildAndAttach();
     }
 
-//    private Entity createCircle()
-//    {
-//        Circle c=new Circle(10,Color.RED);
-//        return FXGL.entityBuilder()
-//                .type(GameType.BULLET)
-//                .at(tank.getCenter())
-//                .viewWithBBox(c)
-//                .with(new ProjectileComponent(point,600))
-//                .with(new OffscreenCleanComponent())
-//                .collidable()
-//                .buildAndAttach();
-//    }
 
     @Override
     protected void initPhysics()
@@ -237,6 +266,12 @@ public class TankApp extends GameApplication
                     @Override
                     protected void onCollisionBegin(Entity bullet, Entity enemy)
                     {
+
+
+//                        int score=FXGL.geti("score")+10;
+//                        FXGL.set("score",score);
+                        FXGL.inc("score",10);
+
                         bullet.removeFromWorld();
                         Point2D enemyCenter = enemy.getCenter();
                         enemy.removeFromWorld();
@@ -264,6 +299,23 @@ public class TankApp extends GameApplication
                 }
 
         );
+    }
+
+    @Override
+    protected void initUI()
+    {
+        Text text=FXGL.addVarText("score",20,40);
+        text.setFill(Color.BLACK);
+        text.fontProperty().unbind();
+        text.setFont(Font.font(35));
+
+        Text score = FXGL.getUIFactoryService()
+                .newText(FXGL.getip("score").asString("Score:%d"));
+        score.setLayoutX(20);
+        score.setLayoutY(80);
+        score.setFill(Color.BLUE);
+        FXGL.addUINode(score);
+
     }
 
     @Override
