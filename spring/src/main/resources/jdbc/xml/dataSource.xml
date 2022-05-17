@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                           http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <!--    引入context名称空间-->
+    <!--    开启组件扫描-->
+    <context:component-scan base-package="org.bougainvilleas.spring.jdbc"/>
+    <!--    引入外部属性文件-->
+    <context:property-placeholder location="classpath:jdbc/datasource.properties"/>
+
+    <!-- 配置德鲁伊数据库连接池-->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close">
+        <property name="driverClassName" value="${jdbc.driverClass}"></property>
+        <property name="url" value="${jdbc.url}"></property>
+        <property name="username" value="${jdbc.username}"></property>
+        <property name="password" value="${jdbc.password}"></property>
+    </bean>
+    <!-- 配置JdbcTemplate-->
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!--   1.配置事务管理器 -->
+    <bean id="datasourceTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <!--    2.配置增强,配置通知-->
+    <tx:advice id="txAdvice" transaction-manager="datasourceTransactionManager">
+        <!--        配置事务参数-->
+        <tx:attributes>
+            <!-- 设置事务传播行为 指定添加事务的方法 -->
+            <tx:method name="age" propagation="REQUIRED"/>
+        </tx:attributes>
+    </tx:advice>
+    <!--    3.配置切入点和切面-->
+    <aop:config>
+<!--        配置切入点-->
+        <aop:pointcut id="pt" expression="execution(* org.bougainvilleas.spring.jdbc.service.transaction.xml.ServiceImpl2.*(..))"/>
+<!--        配置切面-->
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="pt"/>
+    </aop:config>
+
+    <bean id="userDao" class="org.bougainvilleas.spring.jdbc.dao.UserDaoImpl">
+    </bean>
+
+    <bean id="serviceImpl" class="org.bougainvilleas.spring.jdbc.service.transaction.xml.ServiceImpl2">
+        <property name="userDao" ref="userDao" />
+    </bean>
+</beans>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                           http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+
+    <bean id="userDao" class="org.bougainvilleas.spring.aop.xml.UserDao"></bean>
+    <bean id="userProxy" class="org.bougainvilleas.spring.aop.xml.UserProxy"></bean>
+
+    <!--    配置aop增强-->
+    <aop:config>
+        <!--        配置切入点-->
+        <aop:pointcut id="add" expression="execution(* org.bougainvilleas.spring.aop.xml.UserDao.add(..))"/>
+        <aop:pointcut id="all" expression="execution(* org.bougainvilleas.spring.aop.xml.UserDao.*(..))"/>
+
+        <aop:aspect ref="userProxy">
+            <aop:before method="before" pointcut-ref="add"/>
+            <aop:around method="around" pointcut-ref="add"/>
+            <aop:after-returning method="afterReturning" pointcut-ref="all"/>
+            <aop:after method="after" pointcut-ref="all"/>
+            <aop:after-throwing method="afterThrowing" throwing="e" pointcut-ref="all"/>
+        </aop:aspect>
+    </aop:config>
+
+
+</beans>

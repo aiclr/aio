@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 注入内部bean-->
+    <bean id="emp" class="org.bougainvilleas.spring.ioc.xml.Emp">
+        <property name="name" value="李二狗"/>
+        <!-- 内部bean注入-->
+        <property name="dept">
+            <bean id="dept" class="org.bougainvilleas.spring.ioc.xml.Dept">
+                <property name="name" value="人事"/>
+            </bean>
+        </property>
+    </bean>
+
+</beans>

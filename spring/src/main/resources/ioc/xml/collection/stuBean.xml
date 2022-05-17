@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+    <!-- 公用集合 引入util名称空间 -->
+    <util:list id="strList">
+        <value>哈哈</value>
+        <value>嘻嘻</value>
+        <value>嘿嘿</value>
+    </util:list>
+
+    <!-- 注入内部bean-->
+    <bean id="stu" class="org.bougainvilleas.spring.ioc.xml.collection.Stu">
+        <property name="courses">
+            <array>
+                <value>英语</value>
+                <value>数学</value>
+            </array>
+        </property>
+
+        <property name="courseList">
+            <list>
+                <ref bean="course"></ref>
+                <ref bean="course1"></ref>
+            </list>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="班级" value="101"/>
+                <entry key="班级" value="102"/>
+            </map>
+        </property>
+        <property name="list" ref="strList"></property>
+    </bean>
+
+    <bean id="course" class="org.bougainvilleas.spring.ioc.xml.collection.Course">
+        <property name="name" value="物理"></property>
+    </bean>
+    <bean id="course1" class="org.bougainvilleas.spring.ioc.xml.collection.Course">
+        <property name="name" value="物理"></property>
+    </bean>
+
+</beans>

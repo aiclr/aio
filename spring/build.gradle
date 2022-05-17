@@ -1,0 +1,105 @@
+buildscript {
+    ext {
+        set('appVersion', "1.0.0")
+
+        set('loggingVersion', "1.2")
+        set('hamcrestVersion', "2.2")
+        set('druidVersion', "1.2.9")
+        set('springVersion', "5.3.20")
+
+        set('cglibVersion', "3.3.0")
+        set('aopallianceVersion', "1.0")
+        set('aspectjweaverVersion', "1.9.9.1")
+
+        set('mysqlVersion', "8.0.29")
+
+        set('log4jVersion', "2.17.2")
+        set('slf4jVersion', "1.7.36")
+
+        set('junit4Version', "4.13.2")
+        set('junit5Version', "5.8.2")
+    }
+}
+
+plugins {
+    id 'java'
+}
+
+group 'org.bougainvilleas.spring'
+version = "${appVersion}" as Object
+
+repositories {
+    mavenLocal()
+    maven {
+        url 'https://maven.aliyun.com/repository/public/'
+    }
+    mavenCentral()
+}
+
+
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(8)
+    }
+}
+
+tasks.withType(JavaCompile) {
+    //启用所有警告信息 -Xlint:all 关闭 -Xlint:none
+    options.compilerArgs << '-Xlint:all'
+    options.encoding = "UTF-8"
+}
+
+tasks.withType(Javadoc) {
+    options.encoding = "UTF-8"
+}
+
+dependencies {
+    //    IOC
+    implementation("commons-logging:commons-logging:${loggingVersion}")
+    implementation("org.hamcrest:hamcrest-core:${hamcrestVersion}")
+    implementation("com.alibaba:druid:${druidVersion}")
+
+    implementation("org.springframework:spring-beans:${springVersion}")
+    implementation("org.springframework:spring-context:${springVersion}")
+    implementation("org.springframework:spring-core:${springVersion}")
+    implementation("org.springframework:spring-expression:${springVersion}")
+
+
+    //    AOP
+    implementation("org.springframework:spring-aspects:${springVersion}")
+
+    implementation("cglib:cglib:${cglibVersion}")
+    implementation("aopalliance:aopalliance:${aopallianceVersion}")
+    implementation("org.aspectj:aspectjweaver:${aspectjweaverVersion}")
+
+    //  jdbc
+    implementation("org.springframework:spring-jdbc:${springVersion}")
+    implementation("org.springframework:spring-tx:${springVersion}")
+    implementation("org.springframework:spring-orm:${springVersion}")
+    implementation("mysql:mysql-connector-java:${mysqlVersion}")
+
+    //log4j2
+    implementation("org.apache.logging.log4j:log4j-api:${log4jVersion}")
+    implementation("org.apache.logging.log4j:log4j-core:${log4jVersion}")
+    implementation("org.apache.logging.log4j:log4j-slf4j-impl:${log4jVersion}")
+    implementation("org.slf4j:slf4j-api:${slf4jVersion}")
+
+
+    //  spring-test
+    testImplementation("org.springframework:spring-test:${springVersion}")
+
+    //  junit4
+    testImplementation("junit:junit:${junit4Version}")
+    testRuntimeOnly("junit:junit:${junit4Version}")
+
+    //  junit5
+    testImplementation("org.junit.jupiter:junit-jupiter-api:${junit5Version}")
+    testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junit5Version}")
+}
+
+
+test {
+    //MARk 使用junit4 时 注释掉 useJUnitPlatform()
+    useJUnitPlatform()
+}

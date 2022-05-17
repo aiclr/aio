@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="order" class="org.bougainvilleas.spring.ioc.xml.lifecycle.Order"
+          init-method="initMethod" destroy-method="destroyMethod" >
+        <property name="name" value="购物单"></property>
+    </bean>
+
+    <bean id="book" class="org.bougainvilleas.spring.ioc.xml.Book" scope="singleton">
+        <constructor-arg name="bname" value="水浒"/>
+        <constructor-arg name="bauthor" value="施耐庵"/>
+    </bean>
+
+    <bean id="orderPost" class="org.bougainvilleas.spring.ioc.xml.lifecycle.OrderPost"></bean>
+</beans>

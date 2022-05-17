@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!-- 配置User对象创建 并且使用set方法注入name属性-->
+    <bean id="user" class="org.bougainvilleas.spring.ioc.xml.User">
+        <!--
+        set方法注入
+        name属性：属性名
+        value属性：属性值
+        -->
+        <property name="name" value="盘古"/>
+        <property name="hand">
+            <!--注入空值-->
+            <null/>
+        </property>
+        <property name="book">
+            <value><![CDATA[<<西游记>>]]></value>
+        </property>
+    </bean>
+
+</beans>
