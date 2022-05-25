@@ -1,0 +1,62 @@
+plugins {
+    id 'org.bougainvilleas.ilj.common'
+}
+
+ext{
+    set('projectVersion',"0.0.0")
+
+    set('springdoc', "1.6.6")
+}
+
+version = "${projectVersion}" as Object
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+}
+
+tasks.withType(JavaCompile) {
+    //启用所有警告信息 -Xlint:all 关闭 -Xlint:none
+    options.compilerArgs << '-Xlint:all'
+    options.encoding = "UTF-8"
+}
+
+tasks.withType(Javadoc) {
+    options.encoding = "UTF-8"
+}
+
+
+configurations {
+    compileOnly {
+        extendsFrom annotationProcessor
+    }
+}
+
+
+repositories {
+    mavenLocal()
+    maven {
+        url 'https://maven.aliyun.com/repository/public/'
+    }
+    mavenCentral()
+}
+
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter'
+    implementation("org.springdoc:springdoc-openapi-ui:${springdoc}")
+
+    compileOnly 'org.projectlombok:lombok'
+    annotationProcessor 'org.projectlombok:lombok'
+
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+    useJUnitPlatform()
+}
+
+compileTestJava.enabled(false)
+processTestResources.enabled(false)
+testClasses.enabled(false)
+test.enabled(false)
+jar.enabled(false)

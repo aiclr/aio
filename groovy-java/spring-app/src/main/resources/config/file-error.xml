@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<included>
+    <appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder>
+            <pattern>${FILE_LOG_PATTERN}</pattern>
+            <charset>${FILE_LOG_CHARSET}</charset>
+        </encoder>
+        <file>${LOG_PATH}/error/error-${LOG_FILE}</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+            <fileNamePattern>${LOG_PATH}/error/error-${LOG_FILE}.%d{yyyy-MM-dd}.%i.gz</fileNamePattern>
+            <cleanHistoryOnStart>${LOGBACK_ROLLINGPOLICY_CLEAN_HISTORY_ON_START:-false}</cleanHistoryOnStart>
+            <maxFileSize>${LOGBACK_ROLLINGPOLICY_MAX_FILE_SIZE:-10MB}</maxFileSize>
+            <maxHistory>${LOGBACK_ROLLINGPOLICY_MAX_HISTORY:-7}</maxHistory>
+            <totalSizeCap>${LOGBACK_ROLLINGPOLICY_TOTAL_SIZE_CAP:-10GB}</totalSizeCap>
+        </rollingPolicy>
+        <!-- 筛选 ERROR 日志 只记录系统输出的error级别日志 -->
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <!-- 匹配到就收集-->
+            <onMatch>ACCEPT</onMatch>
+            <!-- 没有匹配到就拒绝收集-->
+            <onMismatch>DENY</onMismatch>
+        </filter>
+
+        <!--  收集INFO 及其更高 info，warn，error级别日志 调试专用 -->
+        <!--        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">-->
+        <!--            <level>INFO</level>-->
+        <!--        </filter>-->
+
+    </appender>
+</included>

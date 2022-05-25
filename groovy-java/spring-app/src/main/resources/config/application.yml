@@ -1,0 +1,47 @@
+server:
+  port: 10002
+spring:
+  application:
+    name: spring-app
+  output:
+    ansi:
+      enabled: detect #Try to detect whether ANSI coloring capabilities are available.
+
+management:
+  endpoints:
+    enabled-by-default: true
+    web:
+      base-path: /actuator
+      exposure:
+        include: "health,info,prometheus,caches"
+    jmx:
+      exposure:
+        include: "health,info,prometheus"
+
+logging:
+  charset:
+    file: UTF-8
+    console: UTF-8
+  file:
+    path: logs
+    name: spring-app.log
+  level:
+    root: DEBUG
+  logback:
+    rollingpolicy:
+      max-file-size: 100MB
+      max-history: 180
+      total-size-cap: 10GB
+      clean-history-on-start: false
+
+springdoc:
+  show-actuator: true # To display the actuator endpoints
+  use-management-port: false # To expose the swagger-ui on the actuator management port
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: true
+  api-docs:
+    enabled: true
+    path: /v3/api-docs # For custom path of the OpenAPI documentation in Json format
+    groups:
+      enabled: true
