@@ -17,4 +17,5 @@ include(
         'groovy-app',
         'groovy-list',
         'groovy-utilities',
+        'groovy-study'
 )
