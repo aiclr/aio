@@ -351,12 +351,15 @@ dependencies {
 
 #### 整合JUnit5 
 
-> 测试类和方法 不需要声明为 public
+> [junit5 user-guide docs](https://junit.org/junit5/docs/current/user-guide/) \
+> 测试类和方法 不需要声明为 public \
+> [添加测试参数](https://junit.org/junit5/docs/current/user-guide/#writing-tests-parameterized-tests-sources)
 
 ```groovy
 dependencies {
 //  junit5
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junit5Version}")
+    testImplementation("org.junit.jupiter:junit-jupiter-params:${junit5Version}")//添加测试参数
     testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junit5Version}")
 }
 test {
