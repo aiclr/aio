@@ -25,7 +25,8 @@
 ### JavaBean
 
 > groovy 自动创建 getter setter\
-> groovy 默认public 且不区分 public private protected
+> groovy 默认public 且不区分 public private protected\
+> `groovyc` 会忽略 `@Override`
 
 ### boolean
 
@@ -42,3 +43,5 @@
 |Matcher|至少有一个匹配|
 |Object[]|长度大于0|
 |其他任何类型|引用不为null|
+
+### 
