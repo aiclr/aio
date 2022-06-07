@@ -44,4 +44,8 @@
 |Object[]|长度大于0|
 |其他任何类型|引用不为null|
 
-### 
+### 注意
+
+> Groovy 的 == 映射到 equals() 方法 \
+> 当实现 Comparable 接口时 会将 ==  映射到 compareTo() 方法 \
+> groovy 的 is() 是 比较 内存地址
