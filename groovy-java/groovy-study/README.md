@@ -46,6 +46,40 @@
 
 ### 注意
 
-> Groovy 的 == 映射到 equals() 方法 \
-> 当实现 Comparable 接口时 会将 ==  映射到 compareTo() 方法 \
-> groovy 的 is() 是 比较 内存地址
+> groovy ==
+> > Groovy 的 == 映射到 equals() 方法 \
+> > 当实现 Comparable 接口时 会将 == 映射到 compareTo() 方法 \
+> > groovy 的 is() 是 比较 内存地址
+>
+> 类型检查默认关闭
+> > groovy 中 x=y 在语义上等价于 x=(ClassOfx)y 强制类型转换 \
+> > groovy编译器不会验证类型,只是进行强制类型转换,然后将其留给运行时处理 可能出现 GroovyCastException 异常 \
+> > 通过 javap -c CLassFileName 分析字节码验证上述内容 \
+> > 如果调用一个不存在的方法,也不会出现编译错误,运行时会出现 MissingMethodException \
+> > 利用上诉内容,可以在代码编译时和执行时动态注入缺失的方法
+
+
+> groovy 方法内不能有任何代码块 如下
+> > java的代码块,groovy编译器会错误地认为要定义一个闭包,并给出编译错误
+
+```jshelllanguage
+public void method()
+{
+    System.out.println("hello");
+    //groovy编译器会错误地认为 下面的代码块 是要定义一个闭包,并给出编译错误
+    {
+        System.out.println("hello");
+    }
+}
+```
+
+
+
+### groovy 新关键字
+
+> `def` 用于定义方法,属性,局部变量
+>
+> `in` 用于在for循环中指定循环的区间
+>
+> `it` 虽然不是关键字,但是 闭包内默认使用此变量名
+
