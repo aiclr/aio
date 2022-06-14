@@ -1,5 +1,6 @@
 package org.bougainvilleas.spring.aop.annotation;
 
+import org.bougainvilleas.spring.aop.annotation.AOPAnnotation.PK;
 import org.springframework.stereotype.Component;
 
 /**
@@ -8,6 +9,8 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class UserDao {
+
+
 
     public void add(int age) {
         System.out.println("AOP Annotation");
@@ -19,4 +22,10 @@ public class UserDao {
         System.out.println("AOP Annotation");
         return id;
     }
+
+    @PK(12)
+    public void del(int age) {
+        System.out.println("AOP Annotation");
+    }
+
 }

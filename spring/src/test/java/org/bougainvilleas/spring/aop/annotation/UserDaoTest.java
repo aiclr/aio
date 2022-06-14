@@ -37,4 +37,18 @@ class UserDaoTest {
     }
 
 
+    /**
+     * 获取切点上的注解
+     */
+    @Test
+    @DisplayName("获取切点上的注解")
+    void testProxy3(){
+        ApplicationContext context=new AnnotationConfigApplicationContext(AOPConfig.class);
+        UserDao userDao = context.getBean("userDao", UserDao.class);
+        System.out.println("获取切点上的注解");
+
+        userDao.del(20);
+    }
+
+
 }
