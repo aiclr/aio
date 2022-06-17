@@ -1,6 +1,7 @@
 # JAVA 基础
 
-## java 反射 
+## java 反射
+
 > [javase8 docs](https://docs.oracle.com/javase/8/docs/api/) \
 > `java.lang.Class`
 
@@ -11,27 +12,64 @@
 |Field	getField(String name)|获取名称为 name 的 **public** 属性对象|
 |Field[]    getFields()|获取全部 **public** 的属性对象|
 |Field	getDeclaredField(String name)|获取名称为 name 的 **public和非public** 属性对象|
-|Field[]	getDeclaredFields()|获取全部 **public和非public** 的属性对象|
+|Field[]    getDeclaredFields()|获取全部 **public和非public** 的属性对象|
 
 ### 获取方法 `Method`
 
 |方法|描述|
 |:---|:---| 
 |Method	getMethod(String name, Class<?>... parameterTypes)|获取名称为 name,与参数类型parameterTypes匹配 的 **public** 方法对象|
-|Method[]	getMethods()|获取全部 **public** 方法对象|
-|Method	getDeclaredMethod(String name, Class<?>... parameterTypes)|获取名称为 name,与参数类型parameterTypes匹配 的 **public和非public** 方法对象|
-|Method[]	getDeclaredMethods()|获取全部 **public和非public** 方法对象|
-
+|Method[]    getMethods()|获取全部 **public** 方法对象|
+|Method	getDeclaredMethod(String name, Class<?>... parameterTypes)|获取名称为 name,与参数类型parameterTypes匹配 的 **
+public和非public** 方法对象|
+|Method[]    getDeclaredMethods()|获取全部 **public和非public** 方法对象|
 
 ### 获取构造器 `Constructor<T>`
 
 |方法|描述|
 |:---|:---| 
-|Constructor<T>	getConstructor(Class<?>... parameterTypes)|获取与参数类型parameterTypes匹配 的 **public** 构造器对象|
-|Constructor<?>[]	getConstructors()|获取全部 **public** 构造器对象|
-|Constructor<T>	getDeclaredConstructor(Class<?>... parameterTypes))|获取与参数类型parameterTypes匹配 的 **public和非public** 构造器对象|
-|Constructor<?>[]	getDeclaredConstructors()|获取全部 **public和非public** 构造器对象|
+|Constructor<T>    getConstructor(Class<?>... parameterTypes)|获取与参数类型parameterTypes匹配 的 **public** 构造器对象|
+|Constructor<?>[]    getConstructors()|获取全部 **public** 构造器对象|
+|Constructor<T>    getDeclaredConstructor(Class<?>... parameterTypes))|获取与参数类型parameterTypes匹配 的 **
+public和非public** 构造器对象|
+|Constructor<?>[]    getDeclaredConstructors()|获取全部 **public和非public** 构造器对象|
 
+## java 注解
+
+- 定义
+	- 注解名称
+	- 使用范围
+	- 有效期
+	- 是否可被继承
+- 使用
+	- 定义后在允许的地方使用标注即可
+- **读取（注入灵魂）**
+	- 只有获取到注解，才可以使用注解，注解才有用
+
+### 元注解 java 提供 可以类比为元数据
+
+- `@Documented` : java.lang.annotation.Documented 此注解会被javadoc工具提取成文档
+- `@Retention` : java.lang.annotation.Retention 生效期
+	- `java.lang.annotation.RetentionPolicy.SOURCE` : 编译期有效，如@Override 只做编译时的提示，不会写入字节码中
+	- `java.lang.annotation.RetentionPolicy.CLASS` **default** : 类加载阶段有效 会保存到 字节码文件内，运行class文件被丢弃，大Class对象获取不到
+	- `java.lang.annotation.RetentionPolicy.RUNTIME` : 运行时有效，只有运行时，代码才可以进行反射执行相关操作
+- `@Target` : java.lang.annotation.Target 注解运行使用的位置
+	- `java.lang.annotation.ElementType.TYPE` ：类，接口，注解，枚举 ;Class, interface (including annotation type), or enum
+	  declaration
+	- `java.lang.annotation.ElementType.FIELD` ： 字段，枚举常量 ;Field declaration (includes enum constants)
+	- `java.lang.annotation.ElementType.METHOD` : 方法 ;Method declaration
+	- `java.lang.annotation.ElementType.PARAMETER` : 参数 ;Formal parameter declaration
+	- `java.lang.annotation.ElementType.CONSTRUCTOR` ： 构造器 ;Constructor declaration
+	- `java.lang.annotation.ElementType.LOCAL_VARIABLE` ： 局部变量 ;Local variable declaration
+	- `java.lang.annotation.ElementType.ANNOTATION_TYPE` ： 注解 ;Annotation type declaration
+	- `java.lang.annotation.ElementType.PACKAGE` ： 包 ;Package declaration
+	- `java.lang.annotation.ElementType.TYPE_PARAMETER` jdk1.8新增 **类型参数**的声明语句中 ;Type parameter declaration
+		- 如泛型 List<@tp T>
+		- Predict<@tp T>
+	- `java.lang.annotation.ElementType.TYPE_USE` jdk1.8新增 任何用到类型的地方 ;Use of a type
+		- @typeuse Integer a;
+		- @typeuse String str;
+- `@Inherited` : 表示子类可以继承该类的注解
 
 ## 《改善Java程序的151个建议》
 
