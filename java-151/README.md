@@ -1,6 +1,42 @@
 # JAVA 基础
-##《改善Java程序的151个建议》
+
+## java 反射 
+> [javase8 docs](https://docs.oracle.com/javase/8/docs/api/) \
+> `java.lang.Class`
+
+### 获取属性 `Field`
+
+|方法|描述|
+|:---|:---| 
+|Field	getField(String name)|获取名称为 name 的 **public** 属性对象|
+|Field[]    getFields()|获取全部 **public** 的属性对象|
+|Field	getDeclaredField(String name)|获取名称为 name 的 **public和非public** 属性对象|
+|Field[]	getDeclaredFields()|获取全部 **public和非public** 的属性对象|
+
+### 获取方法 `Method`
+
+|方法|描述|
+|:---|:---| 
+|Method	getMethod(String name, Class<?>... parameterTypes)|获取名称为 name,与参数类型parameterTypes匹配 的 **public** 方法对象|
+|Method[]	getMethods()|获取全部 **public** 方法对象|
+|Method	getDeclaredMethod(String name, Class<?>... parameterTypes)|获取名称为 name,与参数类型parameterTypes匹配 的 **public和非public** 方法对象|
+|Method[]	getDeclaredMethods()|获取全部 **public和非public** 方法对象|
+
+
+### 获取构造器 `Constructor<T>`
+
+|方法|描述|
+|:---|:---| 
+|Constructor<T>	getConstructor(Class<?>... parameterTypes)|获取与参数类型parameterTypes匹配 的 **public** 构造器对象|
+|Constructor<?>[]	getConstructors()|获取全部 **public** 构造器对象|
+|Constructor<T>	getDeclaredConstructor(Class<?>... parameterTypes))|获取与参数类型parameterTypes匹配 的 **public和非public** 构造器对象|
+|Constructor<?>[]	getDeclaredConstructors()|获取全部 **public和非public** 构造器对象|
+
+
+## 《改善Java程序的151个建议》
+
 ### Chapter01:Java开发中通用的方法和准则
+
     1. Aa不要在常量和变量中出现易混淆的字母
     2. Ab莫让常量蜕变成变量
     3. Ac三元操作符的类型务必一致
@@ -21,7 +57,9 @@
     18. Ar避免instanceof非预期结果
     19. As断言绝对不是鸡肋
     20. At不要只替换一个类
+
 ### Chapter02：基本类型
+
     21. Au用偶判断，不用奇判断
     22. Av用整数类型处理货币
     23. Aw不要让类型默默转换
@@ -32,7 +70,9 @@
     28. Bb优先使用整型池
     29. Bc优先选择基本类型
     30. Bd不要随便设置随机种子
+
 ### Chapter03：对象及方法
+
     31. Be在接口中不要存在实现代码
     32. Bf静态变量一定要先声明后赋值
     33. Bg不要覆写静态方法
@@ -54,7 +94,9 @@
     49. Bw推荐覆写toString方法
     50. Bx使用package-info类为包服务
     51. By不要主动进行垃圾回收
+
 ### Chapter04：字符串
+
     52. Bz推荐使用String直接量赋值
     53. Ca注意方法中传递的参数要求
     54. Cb正确使用String、StringBuffer、StringBuilder
@@ -63,7 +105,9 @@
     57. Ce推荐在复杂字符串操作中使用正则表达式
     58. Cf强烈建议使用UTF编码
     59. Cg对字符串排序持一种宽容的心态
+
 ### Chapter05：数组和集合
+
     60. Ch性能考虑，数组是首选
     61. Ci若有必要，使用变长数组
     62. Cj警惕数组的浅拷贝
@@ -87,7 +131,9 @@
     80. Db多线程使用Vector或HashTable
     81. Dc非稳定排序推荐使用List
     82. Dd由点及面，一叶知秋—集合大家族
+
 ### Chapter06：枚举和注解
+
     83. De推荐使用枚举定义常量
     84. Df使用构造函数协助描述枚举项
     85. Dg小心switch带来的空值异常
@@ -98,7 +144,9 @@
     90. Dl小心注解继承
     91. Dm枚举和注解结合使用威力更大
     92. Dn注意@Override不同版本的区别
+
 ### Chapter07：泛型和反射
+
     93. Do Java的泛型是类型擦除的
     94. Dp不能初始化泛型参数和数组
     95. Dq强制声明泛型的实际类型
@@ -116,7 +164,9 @@
     107. Ec使用反射增加装饰模式的普适性
     108. Ed反射让模板方法模式更强大
     109. Ee不需要太多关注反射效率
+
 ### Chapter08：异常
+
     110. Ef提倡异常封装
     111. Eg采用异常链传递异常
     112. Eh受检异常尽可能转化为非受检异常
@@ -125,7 +175,9 @@
     115. Ek使用Throwable获得栈信息
     116. El异常只为异常服务
     117. Em多使用异常，把性能问题放一边
+
 ### Chapter09：多线程和并发
+
     118. En不推荐覆写start方法
     119. Eo启动线程前stop方法是不可靠的
     120. Ep不使用stop方法停止线程
@@ -140,7 +192,9 @@
     129. Ey适当设置阻塞队列长度
     130. Ez使用CountDownLatch协调子线程
     131. Fa CyclicBarrier让多线程齐步走
+
 ### Chapter10：性能和效率
+
     132. Fb提升Java性能的基本方法
     133. Fc若非必要，不要克隆对象
     134. Fd推荐使用“望闻问切”的方式诊断性能
@@ -148,13 +202,17 @@
     136. Fg枪打出头鸟—解决首要系统性能问题
     137. Fh调整JVM参数以提升性能
     138. Fi性能是个大“咕咚”
+
 ### Chapter11：开源世界
+
     139. Fj大胆采用开源工具
     140. Fk推荐使用Guava扩展工具包
     141. Fl Apache扩展包
     142. Fm推荐使用Joda日期时间扩展包
     143. Fn可以选择多种Collections扩展
+
 ### Chapter12：思想为源
+
     144. Fo提倡良好的代码风格
     145. Fp不要完全依靠单元测试来发现问题
     146. Fq让注释正确、清晰、简洁
@@ -163,39 +221,57 @@
     149. Ft依赖抽象而不是实现
     150. Fu抛弃7条不良的编码习惯
     151. Fv以技术员自律而不是工人
-##《改善Java程序的151个建议》笔记
+
+## 《改善Java程序的151个建议》笔记
+
 1. 包名全小写、类名首字母全大写、常量全部大写并用下划线分隔、变量采用驼峰命名法（Camel Case）;
 2. 不要将易混字母混合使用iIlL10Oo(小写字母i、大写字母I、小写字母l、大写字母L、数字1、数字0、大写字母O、小写字母o)
 1. 在面向对象编程（Object-Oriented Programming，OOP）的世界里，类和对象是真实世界的描述工具，方法是行为和动作的展示形式，封装、继承、多态则是其多姿多彩的主要实现方式
 1. 枚举和注解都是在Java 1.5中引入的。枚举改变了常量的声明方式;注解耦合了数据和代码.
-1. Java从1.5版开始引入了注解（Annotation），其目的是在不影响代码语义的情况下增强代码的可读性，并且不改变代码的执行逻辑，对于注解始终有两派争论，正方认为注解有益于数据与代码的耦合，“在有代码的周边集合数据”；反方认为注解把代码和数据混淆在一起，增加了代码的易变性，削弱了程序的健壮性和稳定性
+1.
+
+Java从1.5版开始引入了注解（Annotation），其目的是在不影响代码语义的情况下增强代码的可读性，并且不改变代码的执行逻辑，对于注解始终有两派争论，正方认为注解有益于数据与代码的耦合，“在有代码的周边集合数据”；反方认为注解把代码和数据混淆在一起，增加了代码的易变性，削弱了程序的健壮性和稳定性
+
 1. 泛型可以减少强制类型的转换，可以规范集合的元素类型，还可以提高代码的安全性和可读性，正是因为有这些优点，自从Java引入泛型后，项目的编码规则上便多了一条：优先使用泛型
 1. 反射可以“看透”程序的运行情况，可以让我们在运行期知晓一个类或实例的运行状况，可以动态地加载和调用，虽然有一定的性能忧患，但它带给我们的便利远远大于其性能缺陷
 1. java内存模型-线程读取变量示意图![image](src/main/resources/img/123_1.png)
 1. java内存模型-volatile变量操作示意图![image](src/main/resources/img/123_2.png)
-##枚举
+
+## 枚举
+
 ```text
 枚举的每一项，都相当于是枚举类的子类
 ```
+
 ## 建议使用UTF编码
+
 ### java文件编码
+
 ```text
 使用记事本创建.java后缀的文件，则文件的编码格式就是操作系统默认的格式。
 如果是使用IDE工具创建的，则依赖于IDE的设置
 ```
+
 ### class文件编码
+
 ```text
 通过javac命令生成的.class字节码文件是UTF-8编码的UNICODE文件,与操作系统无关
 UTF是UNICODE的存储和传输格式，是为了解决UNICODE的高位占用冗余空间而产生的
 使用UTF编码就标志着字符集使用的是UNICODE
 ```
+
 ### javac
+
 - 不指定encoding 默认使用系统的编码，windows=GBK，java文件编码格式最好与encoding指定的一致，否则class文件里的中文是乱码
+
 ```shell script
 javac -encoding GBK GBKCode.java
 ```
-### javap 
+
+### javap
+
 - 读class文件，有点像反编译，但是不够完整 可以借助IDEA阅读
+
 ```shell script
 javap GBKCode
 ```
