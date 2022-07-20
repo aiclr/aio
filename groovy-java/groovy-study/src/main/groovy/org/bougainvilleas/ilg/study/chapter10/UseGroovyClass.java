@@ -1,7 +1,7 @@
 package org.bougainvilleas.ilg.study.chapter10;
 
 /**
- * 在Java中创建于传递Groovy闭包
+ * 在Java中创建传递Groovy闭包
  *
  * Groovy调用闭包时，只是使用了一个名为call() 的特殊方法
  * 在java中创建闭包，只需要一个包含 call()方法的类
