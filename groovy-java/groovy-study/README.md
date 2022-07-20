@@ -91,3 +91,17 @@ public void method()
 > > 借助动态类型,可以用比Java更少的代码创建灵活的设计 \
 > > 将实参的类型验证推迟到**运行时**这一特性为Groovy中的多态注入了活力 \
 > > 利用**多方法**(multimethods)这一工具,可以为与实参的运行时类型相关的操作提供替换行为
+
+ 
+## java 和 groovy 混合
+
+![混合使用java类、groovy类和脚本](src/main/resources/Image00008.jpg)
+
+> 在groovy代码中使用groovy类，无需额外操作，直接可以工作
+> > 需要确保所依赖的类在类路径 classpath 下；是字节码、源代码
+> 
+> java类中使用groovy脚本
+> > JSR 223 提供的 ScriptEngine API
+> 
+> Java中使用groovy类 或者 groovy中使用java类
+> > 利用groovy 联合编译工具（joint-compilation）
