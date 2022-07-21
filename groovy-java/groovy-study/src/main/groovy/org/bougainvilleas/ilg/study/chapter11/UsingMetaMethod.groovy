@@ -46,7 +46,7 @@ println String.metaClass.respondsTo(str,'compareTo',"test")?'yes':'no'
 println String.metaClass.invokeStaticMethod(str,staticMethodName,"%s-world",str)
 /**
  * 如果要找一个static 方法 使用 getStaticMetaMethod()
- * java.lang.IllegalArgumentException: argument type mismatch
+ * FIXME java.lang.IllegalArgumentException: argument type mismatch
  */
 //staticMethodOfInterest=str.metaClass.getStaticMetaMethod(staticMethodName,"test","test")
 //println staticMethodOfInterest.invoke(str,"%s-world",'hi')
