@@ -224,3 +224,12 @@ public interface GroovyInterceptable extends GroovyObject {
 > 默认情况下 groovy 目前并没有使用 groovy.lang.ExpandoMetaClass \
 > 当我们向 metaClass 添加一个方法时，默认的 metaClass 会被用一个 groovy.lang.ExpandoMetaClass 实例替换掉 \
 > [eg](src/main/groovy/org/bougainvilleas/ilg/study/chapter12/MetaClassUsed.groovy)
+
+## MOP
+
+- Groovy 的 MOP 支持以下3种技术注入行为种的任何一种
+  - 分类category
+  - ExpandoMetaClass
+  - Mixin
+
+### 
