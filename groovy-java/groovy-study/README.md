@@ -15,12 +15,12 @@
 2. 尽管可以使用分号分隔语句,但它几乎总是可选的
 3. 方法和类默认是`public`的
 4. `?.`操作符只有对象引用不为空时才会分派调用
-    1. [Ease.groovy](src/main/groovy/org/bougainvilleas/ilg/study/chapter02/Ease.groovy)
+	1. [Ease.groovy](src/main/groovy/org/bougainvilleas/ilg/study/chapter02/Ease.groovy)
 5. 可以使用具名参数初始化`JavaBean`
 6. `Groovy`不强迫我们捕获自己不关心的异常,这些异常会被传递给代码的调用者
-    1. [ExceptionHandling.groovy](src/main/groovy/org/bougainvilleas/ilg/study/chapter02/ExceptionHandling.groovy)
+	1. [ExceptionHandling.groovy](src/main/groovy/org/bougainvilleas/ilg/study/chapter02/ExceptionHandling.groovy)
 7. `静态方法`内可以使用`this`来引用`CLass`对象
-    1. [Wizard.groovy](src/main/groovy/org/bougainvilleas/ilg/study/chapter02/Wizard.groovy)
+	1. [Wizard.groovy](src/main/groovy/org/bougainvilleas/ilg/study/chapter02/Wizard.groovy)
 
 ### JavaBean
 
@@ -73,8 +73,6 @@ public void method()
 }
 ```
 
-
-
 ### groovy 新关键字
 
 > `def` 用于定义方法,属性,局部变量
@@ -92,20 +90,31 @@ public void method()
 > > 将实参的类型验证推迟到**运行时**这一特性为Groovy中的多态注入了活力 \
 > > 利用**多方法**(multimethods)这一工具,可以为与实参的运行时类型相关的操作提供替换行为
 
- 
+## 闭包三属性 this owner delegate
+
+> 用于确定哪个对象处理该闭包内的方法调用 \
+> 闭包内引用的变量和方法都会绑定到 this \ 
+> this负责处理任何方法调用,以及任何属性和变量的访问 \
+> 如果 this 无法处理,则转向 owner 最后是 delegate
+
+- this 上下文 脚本实例
+- owner
+- delegate 
+  - delegate 会设置为 owner
+  - with函数会修改 delegate 以执行动态路由
+
 ## java 和 groovy 混合
 
 ![混合使用java类、groovy类和脚本](src/main/resources/Image00008.jpg)
 
 > 在groovy代码中使用groovy类，无需额外操作，直接可以工作
 > > 需要确保所依赖的类在类路径 classpath 下；是字节码、源代码
-> 
+>
 > java类中使用groovy脚本
 > > JSR 223 提供的 ScriptEngine API
-> 
+>
 > Java中使用groovy类 或者 groovy中使用java类
 > > 利用groovy 联合编译工具（joint-compilation）
-
 
 ## Groovy 对象
 
@@ -135,7 +144,8 @@ public interface GroovyObject {
      * @param args the arguments to use for the method call
      * @return the result of invoking the method
      */
-    @Internal // marked as internal just for backward compatibility, e.g. AbstractCallSite.createGroovyObjectGetPropertySite will check `isMarkedInternal`
+    @Internal
+    // marked as internal just for backward compatibility, e.g. AbstractCallSite.createGroovyObjectGetPropertySite will check `isMarkedInternal`
     default Object invokeMethod(String name, Object args) {
         return getMetaClass().invokeMethod(this, name, args);
     }
@@ -146,7 +156,8 @@ public interface GroovyObject {
      * @param propertyName the name of the property of interest
      * @return the given property
      */
-    @Internal // marked as internal just for backward compatibility, e.g. AbstractCallSite.createGroovyObjectGetPropertySite will check `isMarkedInternal`
+    @Internal
+    // marked as internal just for backward compatibility, e.g. AbstractCallSite.createGroovyObjectGetPropertySite will check `isMarkedInternal`
     default Object getProperty(String propertyName) {
         return getMetaClass().getProperty(this, propertyName);
     }
@@ -155,9 +166,10 @@ public interface GroovyObject {
      * Sets the given property to the new value.
      *
      * @param propertyName the name of the property of interest
-     * @param newValue     the new value for the property
+     * @param newValue the new value for the property
      */
-    @Internal // marked as internal just for backward compatibility, e.g. AbstractCallSite.createGroovyObjectGetPropertySite will check `isMarkedInternal`
+    @Internal
+    // marked as internal just for backward compatibility, e.g. AbstractCallSite.createGroovyObjectGetPropertySite will check `isMarkedInternal`
     default void setProperty(String propertyName, Object newValue) {
         getMetaClass().setProperty(this, propertyName, newValue);
     }
@@ -194,7 +206,7 @@ public interface GroovyInterceptable extends GroovyObject {
 }
 ```
 
-## Groovy 支持对POJO和POGO进行元编程 
+## Groovy 支持对POJO和POGO进行元编程
 
 > 当调用一个方法时Groovy会检查目标对象时一个POJO还是POGO，不同类型，groovy方法处理不同 \
 > 对于POJO Groovy 维护了MetaClass的一个 MetaClassRegistry
@@ -210,11 +222,11 @@ public interface GroovyInterceptable extends GroovyObject {
 > > 如果对象未实现GroovyInterceptable,会先查找其MetaClass中的方法
 > > > 如果没有则查找POGO自身上的方法，如果该POGO没有这样的方法，Groovy会以方法名查找属性或字段 \
 > > > 如果属性或字段使Closure类型的（闭包），Groovy会调用它，代替方法调用 \
-> > >如果没有找到这样的属性或字段，会做最后两次尝试
-> > > >如果POGO有一个名为methodMissing()的方法，则调用该方法 \
-> > > >否则调用POGO的invokeMethod()
-> > > > >如果POGO实现了invokeMethod(),会被调用 \
-> > > > >invokeMethod()默认实现会抛出 MissingMethodException异常，说明调用失败
+> > > 如果没有找到这样的属性或字段，会做最后两次尝试
+> > > > 如果POGO有一个名为methodMissing()的方法，则调用该方法 \
+> > > > 否则调用POGO的invokeMethod()
+> > > > > 如果POGO实现了invokeMethod(),会被调用 \
+> > > > > invokeMethod()默认实现会抛出 MissingMethodException异常，说明调用失败
 
 ![Groovy处理POGO上的方法调用流程](src/main/resources/Image00010.jpg)
 
@@ -228,8 +240,8 @@ public interface GroovyInterceptable extends GroovyObject {
 ## MOP
 
 - Groovy 的 MOP 支持以下3种技术注入行为种的任何一种
-  - 分类category
-  - ExpandoMetaClass
-  - Mixin
+	- 分类category
+	- ExpandoMetaClass
+	- Mixin
 
-### 
+###  
