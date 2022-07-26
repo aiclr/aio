@@ -1,27 +1,23 @@
 package org.bougainvilleas.ilg.study.chapter13;
 
-import org.bougainvilleas.ilg.study.chapter10.DynamicGroovyClass;
-
-import java.util.Calendar;
-
 /**
- * @author renqiankun
- * 2022-07-25 18:25:12 星期一
+ * 限制:
+ * ExpandoMetaClass 注入的方法 只能从 Groovy 代码内调用
+ * 不能从编译过的java代码中调用
+ * 不能从java代码中通过反射来使用
  */
 public class CallDynamicMethod
 {
     public static void main(String[] args)
     {
-        groovy.lang.GroovyObject instance=new DynamicGroovyClass();
+        groovy.lang.GroovyObject instance= new org.bougainvilleas.ilg.study.chapter13.User(0,1000,0);
 
-        Object result1=instance.invokeMethod("squeak",new Object[]{});
-        System.err.println("Received: "+result1);
+        System.err.println(instance.getClass());
 
-        Object result2=instance.invokeMethod("quack",new Object[]{"like","a","duck"});
-        System.err.println("Received: "+result2);
+        final Object all = instance.invokeMethod("all", new Object[]{});
+        System.err.println("all salary: "+ all);
 
-        groovy.lang.GroovyObject instance2 = new UsingEMCDSL();
-        instance2.invokeMethod("daysFirNow",new Object[]{Calendar.getInstance()});
-
+        final Object isFemale = instance.invokeMethod("isFemale", new Object[]{});
+        System.err.println("isFemale? "+ isFemale);
     }
 }
