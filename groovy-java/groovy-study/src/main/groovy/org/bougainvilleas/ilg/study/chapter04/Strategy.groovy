@@ -67,6 +67,8 @@ new FileWriter('/tmp/output.txt')
         }
 
 /**
+ * 与AST 自动创建 use() 对比 {@link org.bougainvilleas.ilg.study.chapter16.eam.EAMTransformation}
+ *
  *  Execute Around Method 模式
  *  自定义闭包清理资源
  *  如果有一对必须连续执行的动作
