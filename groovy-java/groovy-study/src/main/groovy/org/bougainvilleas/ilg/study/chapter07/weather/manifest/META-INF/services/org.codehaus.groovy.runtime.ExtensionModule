@@ -1,0 +1,4 @@
+moduleName=weather-module
+moduleVersion=1.0-test
+extensionClasses=org.bougainvilleas.ilg.study.chapter07.weather.extension.TempExtension
+staticExtensionClasses=org.bougainvilleas.ilg.study.chapter07.weather.extension.TempStaticExtension

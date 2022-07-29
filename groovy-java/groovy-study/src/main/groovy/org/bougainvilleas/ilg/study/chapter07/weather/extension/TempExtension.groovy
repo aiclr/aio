@@ -1,4 +1,4 @@
-package org.bougainvilleas.ilg.study.chapter07.extension
+package org.bougainvilleas.ilg.study.chapter07.weather.extension
 
 import groovy.json.JsonSlurper
 

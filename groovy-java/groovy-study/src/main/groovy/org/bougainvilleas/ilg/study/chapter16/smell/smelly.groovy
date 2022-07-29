@@ -1,4 +1,4 @@
-package org.bougainvilleas.ilg.study.chapter16
+package org.bougainvilleas.ilg.study.chapter16.smell
 /**
  * canVote() 方法接收一个表示年龄的参数，确定这个人是否可以投票
  * 但是使用只有一个字母的变量名是不符合编程规范的

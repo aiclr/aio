@@ -1,4 +1,4 @@
-package org.bougainvilleas.ilg.study.chapter16
+package org.bougainvilleas.ilg.study.chapter16.smell
 
 
 import org.codehaus.groovy.ast.ASTNode
@@ -25,16 +25,16 @@ import org.codehaus.groovy.transform.GroovyASTTransformation
  *
  * 测试方法：
  * 需要创建清单文件 声明 AST 变换的类名
- * src/main/groovy/manifest/META-INF/services/org.codehaus.groovy.transform.ASTTransformation
- * 内容 org.bougainvilleas.ilg.study.chapter16.CodeCheck
+ * src/main/groovy/org.bougainvilleas.ilg.study.chapter07.weather.manifest/META-INF/services/org.codehaus.groovy.transform.ASTTransformation
+ * 内容 org.bougainvilleas.ilg.study.chapter16.smell.CodeCheck
  *
- * 目录切换到 src/main/groovy下
+ * 目录切换到 src/main/groovy/org/bougainvilleas/ilg/study/chapter16/smell下
  * 编译
- * groovyc -d classes org/bougainvilleas/ilg/study/chapter16/CodeCheck.groovy
+ * groovyc -d classes CodeCheck.groovy
  * 打包
- * jar -cf checkcode.jar -C classes org -C manifest .
+ * jar -cf checkcode.jar -C classes org -C org.bougainvilleas.ilg.study.chapter07.weather.manifest .
  * 编译测试功能
- * groovyc -classpath checkcode.jar org/bougainvilleas/ilg/study/chapter16/smelly.groovy
+ * groovyc -classpath checkcode.jar smelly.groovy
  */
 
 
