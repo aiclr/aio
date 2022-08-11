@@ -4,6 +4,8 @@ package org.bougainvilleas.ilg.study.chapter17
  * BuilderSupport 提供用于识别节点结构的便捷方法
  * 不用编写处理结构的逻辑，只需要监听调用，groovy 会遍历结构并采取相应的动作
  * 在解析结构时，会触发处理器上的事件 createNode nodeCompleted propertyMissing
+ *
+ * 适合层次式结构
  */
 class TodoBuilderWithSupport extends BuilderSupport{
 
