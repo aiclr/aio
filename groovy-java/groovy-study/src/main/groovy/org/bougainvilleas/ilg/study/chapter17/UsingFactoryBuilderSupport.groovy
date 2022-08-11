@@ -66,6 +66,8 @@ class RobotFactory extends AbstractFactory{
 }
 
 class ForwardMoveFactory extends AbstractFactory{
+
+    @Override
     boolean isLeaf(){true}
 
     @Override
@@ -85,6 +87,8 @@ class ForwardMoveFactory extends AbstractFactory{
 }
 
 class LeftTurnFactory extends AbstractFactory{
+
+    @Override
     boolean isLeaf(){true}
 
     @Override
