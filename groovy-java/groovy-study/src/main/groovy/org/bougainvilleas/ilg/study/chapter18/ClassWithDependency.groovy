@@ -82,3 +82,38 @@ class TestUsingMap extends GroovyTestCase{
         assertEquals "The value is 1.",text
     }
 }
+
+/**
+ * 使用 StubFor 为 File 创建存根
+ * 创建 StubFor 时 提供想创建存根的类 FileWriter
+ * 之后为 writer() 方法的存根实现创建闭包
+ * fileMock.use 此时会将 FileWriter 的 MetaClass 替换为一个 ProxyMetaClass
+ * 在 use后的闭包内，对FileWriter 实例的任何调用都会被路由到该存根
+ * 然而 存根和模拟不会帮助拦截器对构造器的调用，下面的例子会在磁盘创建 output.txt 文件
+ *
+ * StubFor 帮助测试的是 methodB() 是否创建了一个正常的FileWriter 实例，并将期望的内容写入该实例
+ * 不过有局限性，没有测试当关闭文件时，这个方法的表现是否正常
+ * 即使存根上要求了close() 方法，fileMock.demand.close{}
+ * 也不会检查该方法是否真的倍调用
+ * 存根只能简单地代替协作者并验证状态
+ *
+ * 要验证行为，必须使用模拟
+ * 使用 MockFor 类
+ */
+class TestUsingStubFor extends GroovyTestCase{
+
+    void testMethodB(){
+        def testObj=new ClassWithDependency()
+        def fileMock=new groovy.mock.interceptor.StubFor(java.io.FileWriter)
+        def text
+        fileMock.demand.write{text=it.toString()}
+        fileMock.demand.close{}
+        fileMock.use{
+            testObj.methodB(1)
+        }
+        assertEquals "The value is 1.",text
+    }
+
+}
+
+
