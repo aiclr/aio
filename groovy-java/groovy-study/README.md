@@ -265,3 +265,16 @@ public interface GroovyInterceptable extends GroovyObject {
 > AST描述了程序中的表达式和语句，使用节点表示 \
 > 随着编译过程的进行，AST会被变换,包括节点的插入、删除和重新排列 \
 > 在编译过程中，可以随着AST的演进对他进行检查，以及命令编译器去标记警告或错误
+ 
+## 单元测试
+
+> 通过 extends 重写方法 模拟 groovy 和 java 代码，使用现有的单元测试和模拟框架来测试 
+> 
+> 对 groovy 代码进行单元测试，可以使用分类和ExpandoMetaClass。 二者都支持通过拦截方法调用，实现模拟。\
+> 如果使用 ExpandoMetaClass 不必创建额外的类，测试会很简洁
+> 
+> 对与参数对象的简单模拟可以使用 Map 或 Expando
+> 
+> 如果想对多个方法设置测试预期，以及想模拟被测方法内部的依赖，可以使用 StubFor
+> 
+> 要测试状态以及行为，可以使用MockFor
