@@ -50,7 +50,6 @@ class HandTossedFileMock{
 }
 
 
-
 /**
  * Expando 更简便写法
  * 当向被测方法传递依赖对象时，Expando 很有用
@@ -66,5 +65,20 @@ class TestUsingExpando extends GroovyTestCase{
         def testObj = new ClassWithDependency()
         testObj.methodA(1,fileMock)
         assertEquals "The value is 1.",fileMock.text
+    }
+}
+
+/**
+ * 使用Map 模拟对象 与 Expando 类似
+ * 然而 如果方法会在内部创建依赖的对象 如methodB methodC 将于事无补
+ */
+class TestUsingMap extends GroovyTestCase{
+    void testMethodA()
+    {
+        def text=''
+        def fileMock=[write:{text=it}]
+        def testObj=new ClassWithDependency()
+        testObj.methodA(1,fileMock)
+        assertEquals "The value is 1.",text
     }
 }
