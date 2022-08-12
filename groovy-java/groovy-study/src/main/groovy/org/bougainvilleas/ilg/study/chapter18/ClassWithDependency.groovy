@@ -28,7 +28,7 @@ class ClassWithDependency {
 
     def methodC(val) {
         def file = new java.io.FileWriter("output.txt")
-        file.write "The value is ${val}"
+        file.write "The value is ${val}."
         file.close()
     }
 }
@@ -94,7 +94,7 @@ class TestUsingMap extends GroovyTestCase{
  * StubFor 帮助测试的是 methodB() 是否创建了一个正常的FileWriter 实例，并将期望的内容写入该实例
  * 不过有局限性，没有测试当关闭文件时，这个方法的表现是否正常
  * 即使存根上要求了close() 方法，fileMock.demand.close{}
- * 也不会检查该方法是否真的倍调用
+ * 也不会检查该方法是否真的被调用 methodB 没调用 close() 方法
  * 存根只能简单地代替协作者并验证状态
  *
  * 要验证行为，必须使用模拟
@@ -113,7 +113,42 @@ class TestUsingStubFor extends GroovyTestCase{
         }
         assertEquals "The value is 1.",text
     }
+}
 
+/**
+ * methodB 没调用 close() 测试会失败
+ * 与存根不同，模拟指出 纵然代码产生了指定结果，但是表现与预期不符
+ * methodB 没有调用 demand在测试预期中设置的 close() 方法
+ * junit.framework.AssertionFailedError: verify[1]: expected 1..1 call(s) to 'close' but was called 0 time(s).
+ */
+class TestMethodBUsingMock extends GroovyTestCase{
+    void testMethodC(){
+        def testObj=new ClassWithDependency()
+        def fileMock=new groovy.mock.interceptor.MockFor(java.io.FileWriter)
+        def text
+        fileMock.demand.write{text=it.toString()}
+        fileMock.demand.close{}
+        fileMock.use{
+            testObj.methodB(1)
+        }
+        assertEquals "The value is 1.",text
+    }
+}
+/**
+ * methodC 调用 close() 测试通过
+ */
+class TestMethodCUsingMock extends GroovyTestCase{
+    void testMethodC(){
+        def testObj=new ClassWithDependency()
+        def fileMock=new groovy.mock.interceptor.MockFor(java.io.FileWriter)
+        def text
+        fileMock.demand.write{text=it.toString()}
+        fileMock.demand.close{}
+        fileMock.use{
+            testObj.methodC(1)
+        }
+        assertEquals "The value is 1.",text
+    }
 }
 
 
