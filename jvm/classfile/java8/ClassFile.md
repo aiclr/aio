@@ -30,15 +30,15 @@
 # magic
 
 > The magic item supplies the magic number identifying the class file format;\
-> it has the value **0xCAFEBABE** . [:back:](#world_map)
+> it has the value **0xCAFEBABE** . [:world_map:](#world_map)
 
 # minor_version,major_version
 
 > all in one: **k ≥ 2, 1.K = 44 + K.0 = version**
 > > 1.8 = 44 + 8.0 = 52.0\
-1.6 = 44 + 6.0 = 50.0 [:back:](#world_map)
+1.6 = 44 + 6.0 = 50.0 [:world_map:](#world_map)
 
-<details><summary>CLICK ME</summary>
+<details><summary>:sparkles:</summary>
 
 > The values of the minor_version and major_version items are the minor and major version numbers of this class file.\
 Together, a major and a minor version number determine the version of the class file format.\
@@ -57,7 +57,7 @@ JDK releases 1.1.* support class file format versions in the range 45.0 through 
 
 > The value of the ***this_class*** item must be a valid<sub>有效的</sub> index into the constant_pool table.\
 The constant_pool entry at that index must be a **CONSTANT_Class_info** structure <sub>结构</sub> ([§constant_pool_info](constant_pool_info.md)) \
-representing <sub>意味着</sub> the class or interface defined<sub>定义</sub>  by this class file. [:back:](#world_map)
+representing <sub>意味着</sub> the class or interface defined<sub>定义</sub>  by this class file. [:world_map:](#world_map)
 
 # super_class
 
@@ -72,6 +72,6 @@ Neither the direct superclass nor any of its superclasses may have the ACC_FINAL
 > If the value of the super_class item is zero, then this class file must represent <sub>等于</sub> the class Object, the only class or interface without a direct <sub>直接的</sub> superclass.
 
 > For an interface, the value of the super_class item must always be a valid <sub>有效的</sub> index into the constant_pool table.\
-The constant_pool entry at that index must be a CONSTANT_Class_info structure representing <sub>代表</sub> the class Object. [:back:](#world_map)
+The constant_pool entry at that index must be a CONSTANT_Class_info structure representing <sub>代表</sub> the class Object. [:world_map:](#world_map)
 
-[:anchor:](../../README.md)
+[HOME :anchor:](../../README.md)
