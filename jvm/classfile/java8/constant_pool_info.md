@@ -1,5 +1,13 @@
 # [constant_pool_info](ClassFile.md)
 
+> The constant_pool is a table of structures (§4.4) \
+representing various string constants, \
+class and interface names, field names, \
+and other constants that are referred to within the ClassFile structure and its substructures.\
+The format of each constant_pool table entry is indicated by its ***first "tag" byte***.
+
+> The constant_pool table is indexed from ***1 to constant_pool_count - 1***.
+
 > CONSTANT_Utf8_info
 > > u1 0x01 \
 > > u2 length \
@@ -64,3 +72,5 @@
 > > u1 0x12 \
 > > u2 bootstrap_method_attr_index \
 > > u2 name_and_type_index
+
+[:back:](ClassFile.md)
