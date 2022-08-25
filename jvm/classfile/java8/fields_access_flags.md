@@ -13,3 +13,6 @@
 | ACC_TRANSIENT | 0x0080 | Declared transient; not written or read by a persistent object manager.           |
 | ACC_SYNTHETIC | 0x1000 | Declared synthetic; not present in the source code.                               |
 | ACC_ENUM	     | 0x4000 | Declared as an element of an enum.                                                |
+
+
+[:anchor:](ClassFile.md)

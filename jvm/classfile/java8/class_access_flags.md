@@ -44,4 +44,4 @@ If the ACC_ANNOTATION flag is set, the ACC_INTERFACE flag must also be set.
 > All bits of the access_flags item not assigned <sub>指定</sub> in Table access_flags are reserved <sub>保留</sub> for future use.\
 They should be set to zero in generated <sub>生成</sub> class files and should be ignored by Java Virtual Machine implementations.
 
-[:back:](ClassFile.md)
+[:anchor:](ClassFile.md)

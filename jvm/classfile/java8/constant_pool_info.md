@@ -1,4 +1,4 @@
-# [constant_pool_info](ClassFile.md)
+# constant_pool_info
 
 > The constant_pool is a table of structures (§4.4) \
 representing various string constants, \
@@ -73,4 +73,4 @@ The format of each constant_pool table entry is indicated by its ***first "tag" 
 > > u2 bootstrap_method_attr_index \
 > > u2 name_and_type_index
 
-[:back:](ClassFile.md)
+[:anchor:](ClassFile.md)
