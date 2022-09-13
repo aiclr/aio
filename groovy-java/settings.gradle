@@ -13,6 +13,7 @@ include(
         'spring-app',
         'java-app',
         'java-list',
+        'java-agent',
         'java-utilities',
         'groovy-app',
         'groovy-list',
