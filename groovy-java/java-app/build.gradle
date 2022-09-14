@@ -3,9 +3,22 @@
  *
  * This project uses @Incubating APIs which are subject to change.
  */
+buildscript {
+    repositories {
+        mavenLocal()
+        maven {
+            url 'https://maven.aliyun.com/repository/public/'
+        }
+        mavenCentral()
+    }
+    dependencies {
+        classpath("org.bougainvilleas:gradle-tasks:0.0.1")
+    }
+}
 
 plugins {
     id 'org.bougainvilleas.ilj.application'
+    id 'org.bougainvilleas.ilg.plugin' version '0.0.1'
 }
 
 dependencies {
@@ -16,4 +29,89 @@ dependencies {
 application {
     // Define the main class for the application.
     mainClass = 'org.bougainvilleas.ilj.app.App'
+}
+
+/**
+ * task
+ */
+
+//abstract class GreetingTask extends DefaultTask {
+//
+//    @Input
+//    abstract Property<String> getGreeting()
+//
+//    GreetingTask() {
+//        //默认值 ？
+//        greeting.convention('hello from GreetingTask')
+//    }
+//
+//    @TaskAction
+//    def greet() {
+//        println greeting.get()
+//    }
+//}
+//tasks.register('hello', GreetingTask)
+//
+//tasks.register('greeting',GreetingTask){
+//    greeting='greetings from GreetingTask'
+//}
+
+
+tasks.register('greeting2',org.bougainvilleas.ilg.task.GreetingTask){
+    greeting ='howdy!'
+}
+
+/**
+ * plugin
+ */
+
+//abstract class GreetingPluginExtension {
+//    abstract Property<String> getMessage()
+//
+//    GreetingPluginExtension() {
+//        message.convention('Hello from GreetingPlugin')
+//    }
+//}
+//
+//
+//class GreetingPlugin implements Plugin<Project> {
+//    void apply(Project project){
+//        // Add the 'greeting' extension object
+//        def extension = project.extensions.create('greeting', GreetingPluginExtension)
+//        // Add a task that uses configuration from the extension object
+//        project.task('hello') {
+//            doLast {
+//                println extension.message.get()
+//            }
+//        }
+//    }
+//}
+//
+//apply plugin:GreetingPlugin
+//greeting.message='Hi from Gradle'
+
+
+//interface GreetingPluginExtension {
+//    Property<String> getMessage()
+//    Property<String> getGreeter()
+//}
+//
+//class GreetingPlugin implements Plugin<Project> {
+//    void apply(Project project) {
+//        def extension = project.extensions.create('greeting', GreetingPluginExtension)
+//        project.task('hello') {
+//            doLast {
+//                println "${extension.message.get()} from ${extension.greeter.get()}"
+//            }
+//        }
+//    }
+//}
+
+//apply plugin: GreetingPlugin
+//apply plugin: org.bougainvilleas.ilg.plugin.GreetingPlugin
+
+// Configure the extension using a DSL block
+greeting {
+    message = 'Hi'
+    greeter = 'Gradle'
 }
