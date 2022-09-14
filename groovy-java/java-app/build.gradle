@@ -108,8 +108,6 @@ tasks.register('greeting2',org.bougainvilleas.ilg.task.GreetingTask){
 //}
 
 //apply plugin: GreetingPlugin
-//apply plugin: org.bougainvilleas.ilg.plugin.GreetingPlugin
-
 // Configure the extension using a DSL block
 greeting {
     message = 'Hi'

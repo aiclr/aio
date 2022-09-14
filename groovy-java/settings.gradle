@@ -9,10 +9,10 @@
  */
 pluginManagement{
     repositories {
-        //gradle 默认 plugin 仓库
-        gradlePluginPortal()
         //本地仓库
         mavenLocal()
+        //gradle 默认 plugin 仓库
+        gradlePluginPortal()
     }
 }
 
