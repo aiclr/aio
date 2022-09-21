@@ -18,7 +18,7 @@ class GreetingPlugin implements Plugin<Project> {
 
     void apply(Project project) {
 
-        def extension = project.extensions.create('greeting', GreetingPluginExtension)
+        def extension = project.extensions.create('greeting', GreetingPluginExtension.class)
 
         project.getTasks().register('hello', GreetingTask.class, task -> {
             message = "${extension.message.get()}"
