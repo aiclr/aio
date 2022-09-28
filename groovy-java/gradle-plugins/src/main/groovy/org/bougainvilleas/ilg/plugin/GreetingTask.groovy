@@ -7,6 +7,12 @@ import org.gradle.api.tasks.TaskAction
 class GreetingTask extends DefaultTask{
 
     @Input
+    List<String> skip
+
+    @Input
+    Map<String,String> kv
+
+    @Input
     String message = 'Hello'
 
     @Input
@@ -14,6 +20,8 @@ class GreetingTask extends DefaultTask{
 
     @TaskAction
     def greet(){
+        println(kv)
+        println(skip)
         println message +' from '+greeter
     }
 }

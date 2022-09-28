@@ -1,6 +1,7 @@
 package org.bougainvilleas.ilg.plugin
 
-import javafx.beans.property.Property
+import org.gradle.api.provider.Property
+
 
 /**
  * default  配置
