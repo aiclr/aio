@@ -32,83 +32,99 @@ application {
 }
 
 /**
- * task
+ * script task
  */
 
-//abstract class GreetingTask extends DefaultTask {
-//
-//    @Input
-//    abstract Property<String> getGreeting()
-//
-//    GreetingTask() {
-//        //默认值 ？
-//        greeting.convention('hello from GreetingTask')
-//    }
-//
-//    @TaskAction
-//    def greet() {
-//        println greeting.get()
-//    }
-//}
-//tasks.register('hello', GreetingTask)
-//
-//tasks.register('greeting',GreetingTask){
-//    greeting='greetings from GreetingTask'
-//}
+abstract class GreetingTask_Script extends DefaultTask {
 
+    @Input
+    abstract Property<String> getGreeting()
 
-tasks.register('greeting2',org.bougainvilleas.ilg.task.GreetingTask){
+    GreetingTask_Script() {
+        //默认值
+        greeting.convention('hello_script from GreetingTask_Script')
+    }
+
+    @TaskAction
+    def greet() {
+        println greeting.get()
+    }
+}
+tasks.register('hello_script', GreetingTask_Script)
+
+tasks.register('greeting_script',GreetingTask_Script){
+    greeting='greetings_script from GreetingTask_Script'
+}
+
+/**
+ * a standalone project task
+ * model ---> gradle-tasks
+ */
+
+tasks.register('greeting_standalone_project_task',org.bougainvilleas.ilg.task.GreetingTask){
     greeting ='howdy!'
 }
 
 /**
- * plugin
+ * plugin script
  */
 
-//abstract class GreetingPluginExtension {
-//    abstract Property<String> getMessage()
-//
-//    GreetingPluginExtension() {
-//        message.convention('Hello from GreetingPlugin')
-//    }
-//}
-//
-//
-//class GreetingPlugin implements Plugin<Project> {
-//    void apply(Project project){
-//        // Add the 'greeting' extension object
-//        def extension = project.extensions.create('greeting', GreetingPluginExtension)
-//        // Add a task that uses configuration from the extension object
-//        project.task('hello') {
-//            doLast {
-//                println extension.message.get()
-//            }
-//        }
-//    }
-//}
-//
-//apply plugin:GreetingPlugin
-//greeting.message='Hi from Gradle'
+abstract class GreetingPluginScriptExtension {
+    abstract Property<String> getMessage()
+
+    GreetingPluginScriptExtension() {
+        message.convention('Hello from GreetingPluginScript')
+    }
+}
 
 
-//interface GreetingPluginExtension {
-//    Property<String> getMessage()
-//    Property<String> getGreeter()
-//}
-//
-//class GreetingPlugin implements Plugin<Project> {
-//    void apply(Project project) {
-//        def extension = project.extensions.create('greeting', GreetingPluginExtension)
-//        project.task('hello') {
-//            doLast {
-//                println "${extension.message.get()} from ${extension.greeter.get()}"
-//            }
-//        }
-//    }
-//}
+class GreetingPluginScript implements Plugin<Project> {
+    void apply(Project project){
+        // Add the 'greeting_extension_script' extension object
+        def extension = project.extensions.create('greeting_extension_script', GreetingPluginScriptExtension)
+        // Add a task that uses configuration from the extension object
+        project.task('hello_plugins_script') {
+            doLast {
+                println extension.message.get()
+            }
+        }
+    }
+}
 
-//apply plugin: GreetingPlugin
-// Configure the extension using a DSL block
+apply plugin:GreetingPluginScript
+greeting_extension_script.message='Hi from Gradle'
+
+/**
+ * plugin script multi params
+ */
+
+interface GreetingPluginScriptExtensionForMulti {
+    Property<String> getMessage()
+    Property<String> getGreeter()
+}
+
+class GreetingPluginScriptForMulti implements Plugin<Project> {
+    void apply(Project project) {
+        def extension = project.extensions.create('greeting_extension_script_for_multi', GreetingPluginScriptExtensionForMulti)
+        project.task('hello_plugins_script_for_multi') {
+            doLast {
+                println "${extension.message.get()} from ${extension.greeter.get()}"
+            }
+        }
+    }
+}
+
+apply plugin: GreetingPluginScriptForMulti
+greeting_extension_script_for_multi{
+    message = 'Hi script'
+    greeter = 'Gradle script'
+}
+
+/**
+ *  a standalone project
+ *  gradle-plugins
+ *  Configure the extension using a DSL block
+ */
 greeting {
     def mp=new HashMap<String,String>()
     mp.put("kkk","vvv")
@@ -123,4 +139,25 @@ greeting {
 
     message = 'Hi'
     greeter = 'Gradle'
+}
+
+/**
+ * buildSrc tasks
+ */
+tasks.register('javaGreet', org.bougainvilleas.ilj.JTask) {
+
+    def mp=new HashMap<String,String>()
+    mp.put("kkk","vvv")
+    map=mp
+
+    def lst = new ArrayList<String>()
+    lst.add("ParkingApplication.class")
+    lst.add("DeviceApplication.class")
+    lst.add("WatchApplication.class")
+    lst.add("SyncApplication.class")
+    skip = lst
+
+
+    greeter='buildSrc/src/main/java/org/bougainvilleas/ilj/Task#getGreeter()'
+    message='buildSrc/src/main/java/org/bougainvilleas/ilj/Task#getMessage()'
 }
