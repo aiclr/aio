@@ -1,4 +1,4 @@
-package org.bougainvilleas.ilj;
+package org.bougainvilleas.ilj.tasks;
 
 import org.gradle.api.DefaultTask;
 import org.gradle.api.provider.ListProperty;

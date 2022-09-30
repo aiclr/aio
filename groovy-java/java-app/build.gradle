@@ -19,6 +19,7 @@ buildscript {
 plugins {
     id 'org.bougainvilleas.ilj.application'
     id 'org.bougainvilleas.ilg.plugin' version '0.0.1'
+    id 'org.bougainvilleas.ilj.build-src-plugin'
 }
 
 dependencies {
@@ -144,7 +145,7 @@ greeting {
 /**
  * buildSrc tasks
  */
-tasks.register('javaGreet', org.bougainvilleas.ilj.JTask) {
+tasks.register('buildSrcTasks', org.bougainvilleas.ilj.tasks.JTask) {
 
     def mp=new HashMap<String,String>()
     mp.put("kkk","vvv")
@@ -160,4 +161,29 @@ tasks.register('javaGreet', org.bougainvilleas.ilj.JTask) {
 
     greeter='buildSrc/src/main/java/org/bougainvilleas/ilj/Task#getGreeter()'
     message='buildSrc/src/main/java/org/bougainvilleas/ilj/Task#getMessage()'
+}
+
+/**
+ * buildSrc plugins
+ * 引入 plugins
+
+ plugins {
+    id 'org.bougainvilleas.ilj.build-src-plugin'
+ }
+
+ */
+buildSrcGreeting {
+    def mp=new HashMap<String,String>()
+    mp.put("kkk","vvv")
+    kv=mp
+
+    def lst = new ArrayList<String>()
+    lst.add("ParkingApplication.class")
+    lst.add("DeviceApplication.class")
+    lst.add("WatchApplication.class")
+    lst.add("SyncApplication.class")
+    skip = lst
+
+    message = 'Hi'
+    greeter = 'Gradle'
 }
