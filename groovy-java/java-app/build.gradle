@@ -163,6 +163,19 @@ tasks.register('buildSrcTasks', org.bougainvilleas.ilj.tasks.JTask) {
     message='buildSrc/src/main/java/org/bougainvilleas/ilj/Task#getMessage()'
 }
 
+tasks.register('buildSrcPOJOTasks', org.bougainvilleas.ilj.tasks.POJOTask) {
+
+    def lst = new ArrayList<String>()
+    lst.add("ParkingApplication.class")
+    lst.add("DeviceApplication.class")
+    lst.add("WatchApplication.class")
+    lst.add("SyncApplication.class")
+    skipFiles = lst
+
+
+    password='buildSrc/src/main/java/org/bougainvilleas/ilj/Task#getGreeter()'
+}
+
 /**
  * buildSrc plugins
  * 引入 plugins
