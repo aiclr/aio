@@ -21,10 +21,10 @@ public class Test13 {
         System.out.printf("capacity=%d,limit=%d,position=%d \n", byteBuffer2.capacity(), byteBuffer2.limit(), byteBuffer2.position());
         display(byteBuffer1);
         display(byteBuffer2);
-        byteBuffer1.put((byte)11);
-        byteBuffer1.put(2,(byte)11);
-        System.err.println(byteBuffer1.get());
-        System.err.println(byteBuffer1.get(2));
+        byteBuffer1.put((byte)11);//会移动 position
+        byteBuffer1.put(2,(byte)11);//不会移动 position
+        System.err.println(byteBuffer1.get());//会移动 position
+        System.err.println(byteBuffer1.get(2));//不会移动 position
 
         display(byteBuffer1);
         display(byteBuffer2);
