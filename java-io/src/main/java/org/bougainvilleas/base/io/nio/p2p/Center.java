@@ -14,7 +14,6 @@ import java.util.List;
 import java.util.Set;
 
 public class Center {
-
   private static final int port = 6666;
   private static final boolean blocking = false;
 
@@ -44,6 +43,8 @@ public class Center {
           //获取SelectionKey--事件
           SelectionKey selectionKey = keyIterator.next();
           System.err.println("有事件发生" + selectionKey.hashCode());
+          System.err.println("有事件发生" + selectionKey.readyOps());
+          System.err.println("有事件发生" + selectionKey.interestOps());
           //连接事件发生才会生成socketChannel
           if (selectionKey.isAcceptable()) {
             //获取客户端 SocketChannel 此处已经确认知道发生了连接事件，所以accept不会阻塞
@@ -75,10 +76,13 @@ public class Center {
             int read = socketChannel.read(byteBuffer);//position 会移动
             //-1标识读完数据可以关闭通道，一次网络连接中断
             if (read == -1) {
+
               //注销事件，会将key从selector中移除
-//              selectionKey.channel();
+//              selectionKey.cancel();
               //关闭通道
+              keyIterator.remove();
               socketChannel.close();
+              continue;
             } else {
               byteBuffer.flip();
               byte[] readBytes = new byte[byteBuffer.limit()];
@@ -88,27 +92,31 @@ public class Center {
               pList.add(readStr);
               P2PUtils.showPList(pList);
               System.err.println("get data from " + socketChannel);
-//              socketChannel.register(selector, SelectionKey.OP_WRITE, byteBuffer);
+              socketChannel.register(selector, SelectionKey.OP_WRITE, byteBuffer);
             }
           }
           //写事件发生
-//          if (selectionKey.isWritable()) {
-//            //获取客户端 SocketChannel 此处已经确认知道发生了连接事件，所以accept不会阻塞
-//            SocketChannel socketChannel = serverSocketChannel.accept();
-//            //获取绑定的buffer
-//            ByteBuffer buffer = (ByteBuffer) selectionKey.attachment();
-//            for (String p : pList) {
-//              buffer.clear();
-//              byte[] bytes = p.getBytes(StandardCharsets.UTF_8);
-//              buffer.put(bytes);
-//              //设置 数据长度
-//              buffer.limit(bytes.length);
-//              socketChannel.write(buffer);
-//              //读事件发生后 才写入数据到客户端
-//              socketChannel.register(selector, SelectionKey.OP_READ, buffer);
-//            }
-//            System.err.println("send data to " + socketChannel);
-//          }
+          if (selectionKey.isWritable()) {
+            //通过事件selectionKey反向获取channel
+            SocketChannel socketChannel = (SocketChannel) selectionKey.channel();
+            //获取绑定的buffer
+            ByteBuffer byteBuffer = (ByteBuffer) selectionKey.attachment();
+            for (String p : pList) {
+              //清空从头开始 写入
+              byteBuffer.clear();
+              byte[] bytes = p.getBytes(StandardCharsets.UTF_8);
+              byteBuffer.put(bytes);
+              //设置 数据长度
+              byteBuffer.limit(bytes.length);
+              byteBuffer.flip();
+              socketChannel.write(byteBuffer);
+            }
+            //写完 clear 设置 OP_READ 事件读 buffer
+            byteBuffer.clear();
+            //将生成的socketchannel注册到selector,设置为OP_READ事件，绑定buffer 之后从客户端读取数据
+            socketChannel.register(selector, SelectionKey.OP_READ, byteBuffer);
+            System.err.println("send data to " + socketChannel);
+          }
           keyIterator.remove();
         }
       }
