@@ -64,15 +64,21 @@ public class Ew {
 
     public static void main(String[] args) throws Exception {
         //看运行的时间戳，显式锁是同时运行的，
+        // 显式锁是对象级别的锁，Lock锁是跟随对象的 此处创建了三个  TaskWithLock 对象
         // 很显然在pool-1-thread-1线程执行到sleep时，
         // 其他两个线程也会运行到这里，一起等待，然后一起输出
         runTasks(TaskWithLock.class);
         //内部锁的输出则是我们的预期结果：
+        //而内部锁是类级别的锁，synchronized锁是跟随类的 大 Class 对象
         // pool-2-thread-1线程在运行时其他线程处于等待状态，
         // pool-2-thread-1执行完毕后，
         // JVM从等待线程池中随机获得一个线程pool-2-thread-3执行，
         // 最后再执行pool-2-thread-2
         runTasks(TaskWithSync.class);
+
+        // 显式锁是对象级别的锁，Lock锁是跟随对象的 此处只有一个 TaskWithLock 对象
+        // 结果与 synchronized锁 相似
+        runTasks2(TaskWithLock.class);
     }
 
     public static void runTasks(Class<? extends Runnable> clz) throws Exception {
@@ -80,6 +86,18 @@ public class Ew {
         System.err.println("开始" + clz.getSimpleName());
         for (int i = 0; i < 3; i++) {
             es.submit(clz.newInstance());
+        }
+        TimeUnit.SECONDS.sleep(10);
+        System.err.println(clz.getSimpleName() + "结束");
+        es.shutdown();
+    }
+
+    public static void runTasks2(Class<? extends Runnable> clz) throws Exception {
+        ExecutorService es = Executors.newCachedThreadPool();
+        System.err.println("开始" + clz.getSimpleName());
+        Runnable instance = clz.newInstance();
+        for (int i = 0; i < 3; i++) {
+            es.submit(instance);
         }
         TimeUnit.SECONDS.sleep(10);
         System.err.println(clz.getSimpleName() + "结束");
@@ -139,6 +157,7 @@ class TaskWithLock extends TaskEw implements Runnable {
     //确保即使出现运行期异常也能正常释放锁，保证其他线程能够顺利执行
     @Override
     public void run() {
+
         //开始锁定
         lock.lock();
         try {

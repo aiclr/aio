@@ -1,5 +1,6 @@
 package org.bougainvilleas.base.juc;
 
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -37,18 +38,30 @@ class Ticket implements Runnable {
 
     private int ticketNum = 100;
 
-    Lock lock = new ReentrantLock();
+    Lock lock = new ReentrantLock(true);
 
     @Override
     public void run() {
-        lock.lock();
-        try {
-            while (ticketNum > 0) {
-                System.out.println(Thread.currentThread().getName() + "完成售票，余票为：" + --ticketNum);
+        while (ticketNum > 0) {
+            try {
+                //增加延迟 提高锁竞争效果
+                TimeUnit.MILLISECONDS.sleep(200L);
+            } catch (InterruptedException e) {
+                throw new RuntimeException(e);
             }
-        } finally {
-            lock.unlock();
+            if(lock.tryLock()){
+                try {
+                    if (ticketNum > 0) {
+                        System.out.println(Thread.currentThread().getName() + "完成售票，余票为：" + --ticketNum);
+                    }
+                } finally {
+                    lock.unlock();
+                }
+            }else {
+                System.out.println(Thread.currentThread().getName() + "未抢到锁不能售票，余票为：" + ticketNum);
+            }
         }
+
     }
 }
 
