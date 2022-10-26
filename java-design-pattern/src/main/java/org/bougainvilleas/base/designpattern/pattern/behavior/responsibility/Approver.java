@@ -1,5 +1,7 @@
 package org.bougainvilleas.base.designpattern.pattern.behavior.responsibility;
 
+import java.util.concurrent.TimeUnit;
+
 public abstract class Approver {
 
     Approver approvr;
@@ -17,7 +19,7 @@ public abstract class Approver {
         this.approvr = approvr;
     }
 
-    abstract void processRequest(PurchaseRequest purchaseRequest);
+    abstract void processRequest(PurchaseRequest purchaseRequest) throws InterruptedException;
 }
 
 /**
@@ -29,7 +31,8 @@ class Department extends Approver{
     }
 
     @Override
-    void processRequest(PurchaseRequest purchaseRequest) {
+    void processRequest(PurchaseRequest purchaseRequest) throws InterruptedException {
+        TimeUnit.SECONDS.sleep(3);
             if(purchaseRequest.getPrice()<=5000){
                 System.err.println(name+"处理了"+purchaseRequest.getId());
             }else {
@@ -48,7 +51,8 @@ class College extends Approver{
     }
 
     @Override
-    void processRequest(PurchaseRequest purchaseRequest) {
+    void processRequest(PurchaseRequest purchaseRequest) throws InterruptedException {
+        TimeUnit.SECONDS.sleep(3);
         if(purchaseRequest.getPrice()<=10000){
             System.err.println(name+"处理了"+purchaseRequest.getId());
         }else {
@@ -67,7 +71,8 @@ class ViceSchoolMaster extends Approver{
     }
 
     @Override
-    void processRequest(PurchaseRequest purchaseRequest) {
+    void processRequest(PurchaseRequest purchaseRequest) throws InterruptedException {
+        TimeUnit.SECONDS.sleep(3);
         if(purchaseRequest.getPrice()<=30000){
             System.err.println(name+"处理了"+purchaseRequest.getId());
         }else {
@@ -86,7 +91,8 @@ class SchoolMaster extends Approver{
     }
 
     @Override
-    void processRequest(PurchaseRequest purchaseRequest) {
+    void processRequest(PurchaseRequest purchaseRequest) throws InterruptedException {
+        TimeUnit.SECONDS.sleep(3);
         if(purchaseRequest.getPrice()>30000){
             System.err.println(name+"处理了"+purchaseRequest.getId());
         }else {

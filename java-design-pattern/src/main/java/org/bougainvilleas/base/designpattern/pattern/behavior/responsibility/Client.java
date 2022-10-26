@@ -19,7 +19,9 @@ package org.bougainvilleas.base.designpattern.pattern.behavior.responsibility;
  */
 public class Client {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
+
+        long start=System.currentTimeMillis();
         PurchaseRequest purchaseRequest = new PurchaseRequest(1, 20000.0f, 100);
 
         Department department = new Department("教学主任");
@@ -32,12 +34,12 @@ public class Client {
         viceSchoolMaster.setApprovr(schoolMaster);
         schoolMaster.setApprovr(department);
 
-        department.processRequest(purchaseRequest);
-        college.processRequest(purchaseRequest);
-        viceSchoolMaster.processRequest(purchaseRequest);
+//        department.processRequest(purchaseRequest);
+//        college.processRequest(purchaseRequest);
+//        viceSchoolMaster.processRequest(purchaseRequest);
         schoolMaster.processRequest(purchaseRequest);
 
 
-
+        System.err.println(System.currentTimeMillis()-start);
     }
 }

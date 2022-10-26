@@ -1,3 +1,56 @@
+## websocket
+
+### Frame
+
+> FIN 1bit 
+> > 1=最后一帧 0=还有后续帧
+> 
+> RSV1 RSV2 RSV3 每个都是 1bit
+> > 除非一个扩展经过协商赋予了非零值以某种含义，否则必须为0。如果没有定义非零值，并且受到了非0的 RSV 则 websocket 链接会失败
+> 
+> opcode 4bit 
+> > 标记 Payload Data 的用途/功能 如果收到未知的opcode 最后会断开链接\
+> > > 0000=连续帧 \
+> > > 0001=text帧 \
+> > > 0010=binary 帧 \
+> > > 0011~0111=为非控制帧而预留 数据帧 \
+> > > 1000=关闭握手帧 \
+> > > 1001=ping帧 \
+> > > 1010=pong帧 \
+> > > 1011=保留值 \
+> > > 1100=保留值 \
+> > > 1101=保留值 \
+> > > 1110=保留值 \
+> > > 1111=保留值
+> 
+> MASK 1bit
+> > 定义 `Payload Data` 是否被添加掩码 \
+> > 设置为1 `Masking-key` 会被赋值，所有从客户端发往服务器的帧都会被置1
+> 
+> Payload length: 7 bit | 7+16bit | 7+64bit
+> > 标识 `Payload Data` 的长度 单位 byte \
+> > `Payload Data` 的长度如果在 0～125 bytes
+> > > `Extended payload length` 0 bit ,Payload length 上的 7 bit 表示的无符号整型 为 `Payload Data` 的长度
+> >
+> > `Payload Data` 的长度如果是 126 bytes
+> > > `Extended payload length` 16 bit 表示的无符号整型 是 `Payload Data` 的长度
+> >
+> > `Payload Data` 的长度如果是 127 bytes
+> > > `Extended payload length` 64 bit 表示的无符号整型 是 `Payload Data` 的长度
+> 
+> Masking-key `0 bit` 或 `32 bit`
+> > 如果 MASK 设置为1 所有从客户端发送到服务器的帧都包含一个 32bit 的掩码 \
+> > 掩码设置后，所有接收到的 payload data 都必须与该值以一种算法做异或运算来获取真实值
+> 
+> Payload Data: (x+y) bytes
+> > `Extension data` 和 `Application data` 的总和,一般 `Extension data` 为空 \
+> > Extension data: x bytes
+> > > 除非扩展被定义 否则就是 0 byte \
+> > > 任何扩展必须指定其 Extension data 的长度
+> >
+> > Application data: y bytes
+> > > 占据 "Extension data" 之后的剩余帧的空间
+
 ## java IO
 
 ### socket
