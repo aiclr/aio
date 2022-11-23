@@ -125,6 +125,11 @@
         - 自定义java.lang.String.main():Error: Main method not found in class java.lang.String
         - 自定义类java.lang.MyBougainvillea:Exception in thread "main" java.lang.SecurityException: Prohibited package name:
           java.lang
+    3. 类隔离说明： A1,A2类 由 ExtClassLoader 加载，B1,B2类 由 AppClassLoader 加载。
+        - B1 可以访问 A1 A2 B2
+        - B2 可以访问 A1 A2 B1
+        - A1 可以访问 A2
+        - A2 可以访问 A1
 
 ## 沙箱安全机制
 
