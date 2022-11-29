@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<title>标题</title>
+<body background="../img/geometry2.png">
+<canvas id="myCanvas" width="200" height="100" style="border:1px solid #c3c3c3;">
+    Your browser does not support the canvas element.
+</canvas>
+<canvas id="myCanvas1" width="200" height="200" style="border:1px solid #c3c3c3;">
+    Your browser does not support the canvas element.
+</canvas>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" height="190">
+    <polygon points="100,10 40,180 190,60 10,60 160,180"
+             style="fill:red;stroke:blue;stroke-width:3;fill-rule:evenodd;" />
+</svg>
+<a href="song.mp3">Play Sound</a>
+
+
+<script type="text/javascript">
+
+    var c=document.getElementById("myCanvas");
+    var cxt=c.getContext("2d");
+    cxt.moveTo(10,10);
+    cxt.lineTo(150,50);
+    cxt.lineTo(10,50);
+    cxt.stroke();
+
+    cxt.fillStyle="#FF0000";
+    cxt.beginPath();
+    cxt.arc(150,30,20,0,Math.PI*2,true);
+    cxt.closePath();
+    cxt.fill();
+
+    var grd=cxt.createLinearGradient(0,60,200,120);
+    grd.addColorStop(0,"#FF0000");
+    grd.addColorStop(1,"#00FF00");
+    cxt.fillStyle=grd;
+    cxt.fillRect(0,60,200,120);
+
+    var c=document.getElementById("myCanvas1");
+    var cxt=c.getContext("2d");
+    var img=new Image()
+    img.src="img/小章鱼.png"
+    cxt.drawImage(img,0,0);
+</script>
+<script type="text/javascript" src="http://mediaplayer.yahoo.com/js">
+</script>
+</body>
+</html>

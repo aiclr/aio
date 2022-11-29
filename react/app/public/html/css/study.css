@@ -1,0 +1,13 @@
+body {
+    background: #ffffff url('../img/geometry2.png');
+}
+
+h1 {
+    text-align: center;
+    font-family: verdana;
+}
+
+h5 {
+    text-align:center;
+    color: brown;
+}

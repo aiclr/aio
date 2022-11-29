@@ -1,0 +1,41 @@
+/* 派生选择器*/
+li strong {
+    font-style: italic;
+    font-weight: normal;
+}
+strong {
+    color: red;
+}
+
+h2 {
+    color: red;
+}
+
+h2 strong {
+    color: blue;
+}
+
+/* id 选择器*/
+#red {
+    color: red;
+}
+#green {
+    color: green;
+}
+#id_select h2{
+    color: cyan;
+}
+
+/* 类 选择器*/
+.red {
+    color: blue;
+}
+.green {
+    color: red;
+}
+.id_select h2{
+    color: cyan;
+}
+li.green {
+    color: green;
+}

@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<title>20201013生产项目对接物资系统</title>
+<style>
+    body {
+        font-family: Tahoma,Verdana,Arial,"Hiragino Sans GB","\5b8b\4f53",sans-serif;
+        font-size: 0.8em;
+    }
+
+    header, footer, section, article {
+        border: 1px solid grey;
+        margin: 5px;
+        margin-bottom: 15px;
+        padding: 8px;
+        background-color: white;
+    }
+
+    header, footer {
+        color: white;
+        background-color: #444;
+        margin-bottom: 5px;
+    }
+
+    b.red {
+        color: red;
+    }
+    b.blue {
+        color: blue;
+    }
+
+    nav ul {
+        margin: 0;
+        padding: 0;
+    }
+
+    nav ul li {
+        display: inline;
+        margin: 5px;
+    }
+</style>
+<body>
+<header>
+    <h1>20201013生产项目对接物资系统</h1>
+</header>
+
+<section>
+<h2>接口</h2>
+<article>
+    <h2>(1)物资系统将领料同步生产项目管理系统
+        (<b class="blue">生产提供接口文档，物资系统确认</b>)</h2>
+    <p>
+        此处领料同步是将物资系统领料数据同步到生产项目管理系统
+    <blockquote>
+        物资系统同步第三方系统都是异步形式<br/>
+        比如：领料单审批完成将领料单信息同步到中间表，写定时任务每半小时将中间表信息同步给第三方系统<br/>
+        默认设置同步次数为10，如果第一次同步失败，下次继续将同步失败的信息再次同步<br/>
+        如果同步10次还失败，需要运维介入数据原因
+    </blockquote>
+
+    </p>
+</article>
+<article>
+    <h2>(2)由生产项目管理系统进行施工现场项目物资管理，
+        形成的退库或者现场物资再利用结果同步至物资管理系统(<b class="blue">物资提供接口文档，生产确认)</b></h2>
+    <h3>退库：</h3><ol>
+        <li>进行物资鉴定:<ol>
+            <li>工程余料在物资管理系统登记鉴定</li>
+            <li>拆旧物资在生产管理系统进行鉴定</li>
+        </ol></li>
+        <li>根据鉴定结果在物资系统起退库业务单：<ol>
+            <li>闲置物资进行闲置物资入库（闲置入库完成后调拨至“闲置项目”）</li>
+            <li>报废物资进行报废物资入库</li>
+        </ol></li>
+        <li>提交需求部门领导审批</li>
+        <li>需求部门将物资运送到仓库，仓库仓管员核查完成后将物资放置到仓库中</li>
+        <li>将系统退库单结束流程</li>
+    </ol>
+    <h3>退库类型：</h3><ol>
+        <li>工程余料退库：<blockquote>
+            工程余料需要鉴定的，需要在物资管理系统根据领料完成工程物资登记（鉴定）流程，根据鉴定结果，鉴定为闲置的在物资系统进行闲置物资入库（闲置入库完成后调拨至“闲置项目”），鉴定报废的进行报废物资入库
+        </blockquote></li>
+        <li>拆旧物资（退运的设备物资）退库：<blockquote>
+            退运的设备物资，需要在生产管理系统走退役鉴定流程（线下），根据鉴定结果，鉴定为报废的物资系统进行报废物资入库，鉴定为闲置的，物资系统进行闲置物资入库
+        </blockquote></li>
+    </ol>
+    <h3>调拨：</h3><ol>
+        <li>冲红调拨<blockquote>
+            A项目领出，A不用或者剩余<br/>
+            确定可以给到B项目，B项目现在不用，需要先放到仓库存放一段时间<br/>
+            需要使用的时候，在物资系统领用，会生成B项目的一张领料单
+        </blockquote></li>
+        <li>冲红调拨并领用<blockquote>
+            A项目领出，A不用或者剩余<br/>
+            确定可以给到B项目，B项目立即使用这批物资<br/>
+            自动生成B项目的一张领料单
+        </blockquote></li>
+    </ol>
+</article>
+<article>
+    <h2>(3)物资系统完成退库或者领用冲红业务后，
+        需将退库和冲红完成结果同步至生产项目管理系统(<b class="blue">生产提供接口文档，物资系统确认)</b></h2>
+    <p><h3>问题：</h3>
+    <ol>
+        <li>物资系统将业务结果同步到生产项目管理系统，推模式</li>
+        <li>同步的业务结果是多个业务</li>
+        <li>业务结果有2种<ol>
+            <li>审批完成</li>
+            <li>删除（<b class="blue">业务单据有误、审批不通过驳回、用户误删除，需要重新起单申请业务</b>）</li>
+        </ol></li>
+        <li>如果一直收不到业务结果，生产项目管理系统能否主动查询业务结果</li>
+    </ol>
+    </p>
+</article>
+</section>
+<footer>
+    <p>© 2020 Monday Times. All rights reserved.</p>
+</footer>
+</body>
+</html>

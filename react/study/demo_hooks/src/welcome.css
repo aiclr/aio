@@ -1,0 +1,27 @@
+.welcome {
+    color: white;
+    padding: 50px;
+    text-align: center;
+    font-size: 50px;
+    background-image: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
+}
+
+.welcomecss {
+    color: white;
+    padding: 50px;
+    text-align: center;
+    font-size: 50px;
+    background-image: radial-gradient(circle, rgba(63, 94, 251, 1) 0%, rgba(252, 70, 107, 1) 100%);
+
+    animation: fadeIn 1000ms;
+}
+
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en"  manifest="/example/html5/demo_html.appcache">
+<meta charset="utf-8">
+<title>应用缓存</title>
+<body>
+<p>
+HTML5 引入了应用程序缓存（Application Cache），这意味着可对 web 应用进行缓存，并可在没有因特网连接时进行访问。<br/>
+应用程序缓存为应用带来三个优势：
+<ol>
+    <li>离线浏览 - 用户可在应用离线时使用它们</li>
+    <li>速度 - 已缓存资源加载得更快</li>
+    <li>减少服务器负载 - 浏览器将只从服务器下载更新过或更改过的资源</li>
+</ol>
+</p>
+
+
+<p id="timePara"><button onclick="getDateTime()">获得日期和事件</button></p>
+
+<p><img src="../img/小章鱼.png" /></p>
+<p>请打开<a href="../quick.html" target="_blank">这个页面</a>，然后脱机浏览，重新加载页面。页面中的脚本和图像依然可用。</p>
+
+<script type="text/javascript">
+    function getDateTime()
+    {
+        var d=new Date();
+        document.getElementById('timePara').innerHTML=d;
+    }
+</script>
+</body>
+</html>

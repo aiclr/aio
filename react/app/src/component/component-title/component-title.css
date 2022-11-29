@@ -1,0 +1,16 @@
+.jumbotron{
+    background-color: rgba(255,255,255,0);
+}
+.jumbotron h1{
+    font-size: 36px;
+    color: #f2ffff;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+.jumbotron h2{
+    font-size: 24px;
+    color: #f2ffff;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+.site-header{
+    background-color: rgba(255,255,255,0);
+}

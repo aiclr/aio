@@ -1,0 +1,33 @@
+li{
+    transition: .5s;
+    overflow: hidden;
+}
+
+.list-group-item{
+    padding: 0px 50px;
+    background-color: rgba(255,255,255,0);
+}
+
+.handle{
+    background-color: rgba(255,255,255,0.2);
+    width: 40px;
+    border: 1px solid #ccc;
+    position: absolute;
+    right: 10px;
+    top: 1px;
+    text-align: center;
+}
+
+.handle a{
+    display: block;
+    text-decoration: none;
+}
+
+.centence{
+    padding: 0px 50px;
+    background-color: rgba(255,255,255,0.2);
+}
+.user{
+    background-color: rgba(255,255,255,0.2);
+    font-size: 22px;
+}

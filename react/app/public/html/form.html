@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+</head>
+<body background="img/geometry2.png">
+<h1>fieldset元素组合表单中的相关数据 legend 元素为 fieldset 元素定义标题</h1>
+<form action="/demo/demo_form.asp">
+    <fieldset>
+        <legend>Personal information:</legend>
+        First name:<br>
+        <input type="text" name="firstname" value="Mickey">
+        <br>
+        Last name:<br>
+        <input type="text" name="lastname" value="Mouse">
+        <br><br>
+        <input type="submit" value="Submit">
+    </fieldset>
+
+    <fieldset>
+        <legend>Select</legend>
+        <select name="cars">
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="fiat">Fiat</option>
+            <option value="audi" selected>Audi</option>
+        </select>
+    </fieldset>
+
+    <fieldset>
+        <legend>Textarea</legend>
+        <textarea name="message" rows="10" cols="30">
+        The cat was playing in the garden.
+        </textarea>
+    </fieldset>
+
+    <fieldset>
+        <legend>Button</legend>
+        <button type="button" onclick="alert('Hello World!')">Click Me!</button>
+    </fieldset>
+
+    <fieldset>
+        <legend>H5 list</legend>
+        <input list="browsers">
+        <datalist id="browsers">
+            <option value="Internet Explorer">
+            <option value="Firefox">
+            <option value="Chrome">
+            <option value="Opera">
+            <option value="Safari">
+        </datalist>
+    </fieldset>
+    <fieldset>
+        <legend>multiple</legend>
+        Select images:规定允许用户在 input 元素中输入一个以上的值<br/>
+        multiple 属性适用于以下输入类型：email 和 file <input type="file" name="img" multiple>
+        <input type="submit"/>
+        <p>请尝试在浏览文件时选取一个以上的文件。</p>
+    </fieldset>
+    <fieldset>
+        <legend>pattern </legend>
+        国家代码：<input type="text" name="country_code" pattern="[A-z]{3}"
+                    title="三个字母的国家代码"/>
+        <input type="submit"/>
+        <p>pattern 属性规定用于检查 input 元素值的正则表达式。<br/>
+            pattern 属性适用于以下输入类型：text、search、url、tel、email、and password</p>
+    </fieldset>
+    <fieldset>
+        <legend>placeholder</legend>
+        <input type="search" name="user_search" placeholder="这里填内容" />
+        <input type="submit" />
+    </fieldset>
+    <fieldset>
+        <legend>required</legend>
+        Name: <input type="text" name="usr_name" required="required" />
+        <input type="submit" value="提交" />
+    </fieldset>
+</form>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+</head>
+<body background="img/geometry2.png">
+
+<h1>formtarget 属性</h1>
+<p>
+    formtarget 属性规定的名称或关键词指示提交表单后在何处显示接收到的响应<br/>
+    formtarget 属性会覆盖 form 元素的 target 属性<br/>
+    formtarget 属性可与 type="submit" 和 type="image" 使用<br/>
+    height 和 width 属性规定 input 元素的高度和宽度。<br/>
+    height 和 width 属性仅用于 input type="image">。<br/>
+</p>
+<form action="action_page.php">
+    First name: <input type="text" name="fname"><br>
+    Last name: <input type="text" name="lname"><br>
+    <input type="submit" value="Submit as normal">
+    <input type="submit" formtarget="_blank"
+           value="Submit to a new window">
+    <input type="image" src="img/小章鱼.png" alt="Submit" width="48" height="48">
+</form>
+<h1>formnovalidate  属性</h1>
+<p>
+    novalidate 属性是布尔属性,设置，则规定在提交表单时不对 input 元素进行验证<br/>
+    formnovalidate 属性覆盖 form 元素的 novalidate 属性。<br/>
+    formnovalidate 属性可用于 type="submit"。<br/>
+</p>
+<form action="action_page.php">
+    E-mail: <input type="email" name="userid"><br>
+    <input type="submit" value="Submit"><br>
+    <input type="submit" formnovalidate value="Submit without validation">
+</form>
+<h1>formmethod  属性</h1>
+<p>
+    formmethod 属性定义用以向 action URL 发送表单数据（form-data）的 HTTP 方法。<br/>
+    formmethod 属性覆盖 form 元素的 method 属性。<br/>
+    formmethod 属性适用于 type="submit" 以及 type="image"<br/>
+</p>
+<form action="action_page.php" method="get">
+    First name: <input type="text" name="fname"><br>
+    Last name: <input type="text" name="lname"><br>
+    <input type="submit" value="Submit">
+    <input type="submit" formmethod="post" formaction="demo_post.asp"
+           value="Submit using POST">
+</form>
+<h1>formenctype 属性</h1>
+<p>
+    formenctype 属性规定当把表单数据（form-data）提交至服务器时如何对其进行编码（仅针对 method="post" 的表单）。<br/>
+    formenctype 属性覆盖 form 元素的 enctype 属性。<br/>
+    formenctype 属性适用于 type="submit" 以及 type="image"。<br/>
+    Content-Type: application/x-www-form-urlencoded<br/>
+    Content-Type: multipart/form-data
+</p>
+<form action="demo_post_enctype.asp" method="post">
+    First name: <input type="text" name="fname"><br>
+    <input type="submit" value="Submit">
+    <input type="submit" formenctype="multipart/form-data"
+           value="Submit as Multipart/form-data">
+</form>
+<h1>HTML input formaction</h1>
+<p>formaction 属性覆盖 form 元素的 action 属性<br/>
+    formaction 属性适用于 type="submit" 以及 type="image"
+</p>
+<form action="/example/html5/demo_form.asp" method="get">
+    First name: <input type="text" name="fname" /><br />
+    Last name: <input type="text" name="lname" /><br />
+    <input type="submit" value="提交" /><br />
+    <input type="submit" formaction="/example/html5/demo_admin.asp" value="以管理员身份提交" />
+</form>
+
+<h1>HTML id</h1>
+<form action="action_page.php" id="form1">
+    First name: <input type="text" name="fname"><br>
+    <input type="submit" value="Submit">
+</form>
+<p>下面的 "Last name" 字段位于 form 元素之外，但仍然是表单的一部分。</p>
+Last name: <input type="text" name="lname" form="form1">
+
+<h1>HTML</h1>
+<h2> form autocomplete 属性规定表单或输入字段是否应该自动完成 会基于用户之前的输入值自动填写值,适用于text、search、url、tel、email、password、datepickers、range 以及 color</h2>
+<h2> novalidate 规定在提交表单时不对表单数据进行验证</h2>
+<form autocomplete="on" novalidate>
+    E-mail: <input type="email" name="user_email">
+    <input type="submit">
+</form>
+
+<h1>HTML</h1>
+<form action="/demo/demo_form.asp" autocomplete="on" >
+    <fieldset>
+        <legend>Text</legend>
+        First name:<br>size 属性规定输入框的尺寸（以字符计）
+        <input type="text" name="firstname" size="40" autocomplete="off">
+        <br>
+        Last name:<br>maxlength 属性规定输入字段允许的最大长度，字数
+        <input type="text" name="lastname" maxlength="10">
+    </fieldset>
+
+    <fieldset>
+        <legend>Password</legend>
+        User name:<br>当页面加载时 input 元素应该自动获得焦点
+        <input type="text" name="username" autofocus>
+        <br>
+        User password:<br>
+        <input type="password" name="psw">
+    </fieldset>
+
+    <fieldset>
+        <legend>submit</legend>
+        First name:<br>readonly 属性规定输入字段为只读（不能修改）
+        <input type="text" name="firstname" value="Mickey" readonly>
+        <br>
+        Last name:<br> disabled 属性规定输入字段是禁用的,被禁用的元素是不可用和不可点击的,不会被提交
+        <input type="text" name="lastname" value="Mouse" disabled>
+        <br><br>
+        <input type="submit" value="Submit">
+        <br><br>
+        <input type="submit">
+    </fieldset>
+    <fieldset>
+        <legend>radio</legend>
+        <input type="radio" name="sex" value="male" checked>Male
+        <br>
+        <input type="radio" name="sex" value="female">Female
+    </fieldset>
+    <fieldset>
+        <legend>checkbox</legend>
+        <input type="checkbox" name="vehicle" value="Bike">I have a bike
+        <br>
+        <input type="checkbox" name="vehicle" value="Car">I have a car
+    </fieldset>
+
+</form>
+
+<h1>HTML5</h1>
+<form>
+    <fieldset>
+        <legend>number</legend>
+        Quantity (between 1 and 5):限制输入字段
+        <input type="number" name="quantity" min="1" max="5"> <br>
+        Quantity:
+        <input type="number" name="points" min="0" max="100" step="10" value="30">
+    </fieldset>
+
+    <fieldset>
+        <legend>date</legend>
+        Birthday: 日期选择器
+        <input type="date" name="bday"><br>
+        Enter a date before 1980-01-01:
+        <input type="date" name="bday" max="1979-12-31"><br>
+        Enter a date after 2000-01-01:
+        <input type="date" name="bday" min="2000-01-02"><br>
+    </fieldset>
+    <fieldset>
+        <legend>color</legend>
+        Select your favorite color:颜色选择器
+        <input type="color" name="favcolor">
+    </fieldset>
+
+    <fieldset>
+        <legend>range</legend>
+        一定范围内的值的输入字段,输入字段显示为滑块控件
+        <input type="range" name="points" min="0" max="10">
+    </fieldset>
+    <fieldset>
+        <legend>month</legend>
+        Birthday (month and year):
+        <input type="month" name="bdaymonth">
+    </fieldset>
+    <fieldset>
+        <legend>week</legend>
+        Select a week:
+        <input type="week" name="week_year">
+    </fieldset>
+    <fieldset>
+        <legend>time</legend>
+        Select a time:
+        <input type="time" name="usr_time">
+    </fieldset>
+
+    <fieldset>
+        <legend>datetime</legend>
+        Birthday (date and time): Chrome、Firefox 或 Internet Explorer 不支持 type="datetime"
+        <input type="datetime" name="bdaytime">
+    </fieldset>
+
+    <fieldset>
+        <legend>datetime-local</legend>
+        Birthday (date and time):
+        <input type="datetime-local" name="bdaytime">
+    </fieldset>
+
+    <fieldset>
+        <legend>email</legend>
+        E-mail: 被提交时自动对电子邮件地址进行验证,某些智能手机会识别 email 类型，并在键盘增加 ".com" 以匹配电子邮件输入
+        <input type="email" name="email">
+    </fieldset>
+    <fieldset>
+        <legend>search</legend>
+        Search Google: 用于搜索字段（搜索字段的表现类似常规文本字段）
+        <input type="search" name="googlesearch">
+    </fieldset>
+    <fieldset>
+        <legend>tel</legend>
+        Telephone: 目前只有 Safari 8 支持 tel 类型
+        <input type="tel" name="usrtel">
+    </fieldset>
+    <fieldset>
+        <legend>url</legend>
+        Add your homepage: 提交时能够自动验证 url 字段,某些智能手机识别 url 类型，并向键盘添加 ".com" 以匹配 url 输入
+        <input type="url" name="homepage">
+    </fieldset>
+</form>
+</body>
+</html>

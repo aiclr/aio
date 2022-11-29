@@ -1,0 +1,269 @@
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <!-- 内部样式表-->
+    <style type="text/css">
+        h6 {
+            text-align: center;
+            color: #02b3e4;
+        }
+    </style>
+    <!-- 外部样式表-->
+    <link rel="stylesheet" type="text/css" href="css/study.css">
+</head>
+<body background="img/geometry2.png">
+<!--内联样式-->
+<h1 style="text-align:center;font-family:verdana">标题h1-h6</h1>
+<h2 style="text-align:center;background: #02b3e4;">This is heading 2</h2>
+<h3 style="text-align:center;">This is heading 3</h3>
+<h4 style="text-align:center">This is heading 4</h4>
+<h5>This is heading 5</h5>
+<h6>This is heading 6</h6>
+
+<h1 style="text-align:center;font-family:verdana">段落p/换行br/线hr</h1>
+<p style="text-align:center;font-family:arial;color:red;font-size:20px;">请仅仅把标题标签用于标题文本。<br/>不要仅仅为了产生粗体文本而使用它们。请使用其它标签或
+    CSS 代替。</p>
+<p>这是段落。</p>
+<hr/>
+​<p>这是段落。</p>
+<p>段落元素由 p 标签定义。</p>
+
+<h1 style="text-align:center;font-family:verdana">超链接a/图片img</h1>
+<a href="http://www.w3school.com.cn/" target="_blank">Visit W3School!</a>
+<br/>
+<a href="http://www.w3school.com.cn/">Visit W3School</a>
+<br/>
+<!--锚点-->
+<a href="#tips1">锚点1</a><br/>
+<a href="#tips2">锚点2</a>
+<br/>
+<a name="tips1">
+    锚点经常用于在大型文档开始位置上创建目录。可以为每个章节赋予一个命名锚<br/>
+    然后把链接到这些锚的链接放到文档的上部<br/>
+    假如浏览器找不到已定义的命名锚，那么就会定位到文档的顶端。不会有错误发生
+</a>
+<br/>
+<a name="tips2">
+    锚点经常用于在大型文档开始位置上创建目录。可以为每个章节赋予一个命名锚<br/>
+    然后把链接到这些锚的链接放到文档的上部<br/>
+    假如浏览器找不到已定义的命名锚，那么就会定位到文档的顶端。不会有错误发生
+</a>
+<br/>
+<p>alt 属性用来为图像定义一串预备的可替换的文本。浏览器无法载入图像时，浏览器将显示这个替代性的文本而不是图像<img src="boat.gif" alt="Big Boat"></p>
+<h2>未设置对齐方式的图像：</h2>
+<p>图像 <img src="img/小章鱼.png"> 在文本中</p>
+<hr/>
+<h2>已设置对齐方式的图像：</h2>
+<p>图像 <img src="img/小章鱼.png" align="bottom"> 在文本中</p>
+<hr/>
+<p>图像 <img src="img/小章鱼.png" align="middle"> 在文本中</p>
+<hr/>
+<p>图像 <img src="img/小章鱼.png" align="top"> 在文本中</p>
+<hr/>
+<p>请注意，bottom 对齐方式是默认的对齐方式。</p>
+<p>
+    <img src="img/小章鱼.png" align="left">
+    带有图像的一个段落。图像的 align 属性设置为 "left"。图像将浮动到文本的左侧。
+</p>
+<hr/>
+
+<p>
+    <img src="img/小章鱼.png" align="right">
+    带有图像的一个段落。图像的 align 属性设置为 "right"。图像将浮动到文本的右侧。
+</p>
+<hr/>
+<p>
+    您也可以把图像作为链接来使用：
+    <a href="#tips2">
+        <img border="0" align="middle" src="img/小章鱼.png" alt="#tips2"/>
+    </a>
+</p>
+<hr/>
+
+<p>请点击图像上的星球，把它们放大。</p>
+
+<img
+        src="img/小章鱼.png"
+        border="0" usemap="#planetmap"
+        alt="Planets"/>
+
+<map name="planetmap" id="planetmap">
+<!--
+coords 属性规定区域的 x 和 y 坐标
+coords 属性与 shape 属性配合使用，来规定区域的尺寸、形状和位置。
+圆形：shape="circle"，coords="x,y,z" xy为圆心z为半径
+多边形：shape="polygon"，coords="x1,y1,x2,y2,x3,y3,..."
+矩形：shape="rectangle"，coords="x1,y1,x2,y2" 对角坐标
+-->
+    <area
+            shape="circle"
+            coords="135,23,15"
+            href="#tips2"
+            target="_blank"
+            alt="tips2"/>
+
+    <area
+            shape="circle"
+            coords="41,96,15"
+            href="#tips1"
+            target="_blank"
+            alt="tips1"/>
+
+    <area
+            shape="rect"
+            coords="138,205,103,185"
+            href="#tips1"
+            target="_blank"
+            alt="tips1"/>
+    <area
+            shape="polygon"
+            coords="140,133,155,128,164,136,165,148,158,149,143,145"
+            href="#tips1"
+            target="_blank"
+            alt="tips1"/>
+
+</map>
+
+<p><b>注释：</b>img 元素中的 "usemap" 属性引用 map 元素中的 "id" 或 "name" 属性（根据浏览器），所以我们同时向 map 元素添加了 "id" 和 "name" 属性。</p>
+
+
+<p>请把鼠标移动到图像上，看一下状态栏的坐标如何变化。可以辅助设置坐标</p>
+
+<a href="#tips1">
+    <img src="img/小章鱼.png" ismap />
+</a>
+
+<h1 style="text-align:center;font-family:verdana">唐诗排版</h1>
+<h2 style="text-align: center">春晓</h2>
+<p style="text-align: center">春眠不觉晓，<br/>处处闻啼鸟。<br/>夜来风雨声，<br/>花落知多少。
+</p>
+<p style="text-align: center">
+    春眠不觉晓，
+    处处闻啼鸟。
+    夜来风雨声，
+    花落知多少。
+</p>
+<p>注意，浏览器忽略了源代码中的排版（省略了多余的空格和换行）。</p>
+
+
+<h1 style="text-align:center;font-family:verdana">文本格式化</h1>
+<b>粗体文本</b>
+<br/>
+<strong>加重语气</strong>
+<br/>
+<big>大号文字</big>
+<br/>
+<em>着重字</em>
+<br/>
+<i>斜体字</i>
+<br/>
+<small>小号文字</small>
+<br/>
+春眠不觉晓
+<sub>下标</sub>
+<br/>
+春眠不觉晓
+<sup>上标</sup>
+<br/>
+log<sub>3</sub>9=2
+<br/>
+3<sup>2</sup>=9
+<br/>
+<p>Einstein wrote:</p>
+<p><var>E = m c<sup>2</sup></var></p>
+<del>删除文字</del>
+<ins>插入文字</ins>
+<p>大多数浏览器会改写为
+    <del>删除文本</del>
+    和
+    <ins>下划线文本</ins>
+    。
+</p>
+
+<h1 style="text-align:center;font-family:verdana">预格式文本，放代码</h1>
+<pre>
+这是
+预格式文本。
+它保留了      空格
+和换行。
+</pre>
+<p>pre 标签很适合显示计算机代码：</p>
+<pre style="background: #2e3d49;color: cadetblue">
+//注释
+if(!CollectionUtils.isEmpty(h3bpmUserPOS)){
+    for(H3bpmUserPO h3bpmUserPO : h3bpmUserPOS){
+        if(h3bpmUserPO.getCode()==0){
+            allSign.setProjectLeader(h3bpmUserPO.getName());
+            break;
+        }
+    }
+}
+</pre>
+<p>Coding Example:</p>
+
+<h1 style="text-align:center;font-family:verdana">缩写</h1>
+<abbr title="etcetera">etc.</abbr>
+<br/>
+<acronym title="World Wide Web">WWW</acronym>
+<br/>
+<p><abbr title="World Health Organization">WHO</abbr> 成立于 1948 年。</p>
+
+<p><dfn title="World Health Organization">WHO</dfn> 成立于 1948 年。</p>
+
+<p><dfn><abbr title="World Health Organization">WHO</abbr></dfn> 成立于 1948 年。</p>
+
+<p><dfn>WHO</dfn> World Health Organization 成立于 1948 年。</p>
+
+<p><cite>The Scream</cite> by Edward Munch. Painted in 1893.</p>
+
+<p>在某些浏览器中，当您把鼠标移至缩略词语上时，title 可用于展示表达的完整版本。</p>
+<p>仅对于 IE 5 中的 acronym 元素有效。</p>
+<p>对于 Netscape 6.2 中的 abbr 和 acronym 元素都有效。</p>
+<p>
+    如果您的浏览器支持 bi-directional override (bdo)，下一行会从右向左输出 (rtl)；
+</p>
+
+<h1 style="text-align:center;font-family:verdana">从左到右输出，从右到左输出</h1>
+<bdo dir="rtl">
+    紫气东来
+</bdo>
+<br/>
+<bdo dir="ltr">
+    紫气东来
+</bdo>
+
+<h1 style="text-align:center;font-family:verdana">长短引用</h1>
+这是长的引用：
+<blockquote>
+    这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。这是长的引用。
+</blockquote>
+
+这是短的引用：
+<q>
+    这是短的引用。
+</q>
+<p>
+    使用 blockquote 元素的话，浏览器会插入换行和外边距，而 q 元素不会有任何特殊的呈现。
+</p>
+
+
+
+<h1 style="text-align:center;font-family:verdana">内联框架</h1>
+<iframe src="img/小章鱼.png" frameborder="0"></iframe>
+<iframe src="img/小章鱼.png" ></iframe>
+<iframe src="img/小章鱼.png" name="iframe_a"></iframe>
+<p><a href="http://www.w3school.com.cn" target="iframe_a">W3School.com.cn</a></p>
+<p>一些老的浏览器不支持 iframe。</p>
+<p>如果得不到支持，iframe 是不可见的。</p>
+
+
+<h1 style="text-align:center;font-family:verdana">地址</h1>
+<address>
+    Written by <a href="mailto:1584114193@qq.com">Caddy</a>.<br/>
+    Visit us at:<br/>
+    github.com<br/>
+    Tianhe , Guangzhou<br/>
+    China
+</address>
+</body>
+</html>

@@ -1,0 +1,50 @@
+footer {
+    color: #fff;
+}
+table
+{
+    border-collapse:collapse;
+}
+
+table,th, td
+{
+    border: 1px solid gray;
+}
+pre{
+    background-color: rgba(0,0,0,0.1);
+}
+code{
+    font-style:italic;
+    font-weight:bold;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+.row {
+    padding-bottom: 50px;
+}
+#markdown {
+    height: 80vh;
+    width: 100%;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    border: none;
+    outline: none;
+    resize: none;
+    overflow: auto;
+    -webkit-box-shadow: 10px 10px 15px #333;
+    -moz-box-shadow: 10px 10px 15px #333;
+    box-shadow: 10px 10px 15px #333;
+    padding: 25px 30px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+.htmlArea {
+    height: 80vh;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    background: #fff;
+    overflow: auto;
+    -webkit-box-shadow: 10px 10px 15px #333;
+    -moz-box-shadow: 10px 10px 15px #333;
+    box-shadow: 10px 10px 15px #333;
+    padding: 1px 25px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}

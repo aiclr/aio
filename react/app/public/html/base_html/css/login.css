@@ -1,0 +1,19 @@
+body {
+    background: #ffffff url('../img/geometry2.png');
+}
+div.container-fluid{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+div.form{
+    background-color: #cccccc;
+}
+p {
+    text-align: center;
+}
+button {
+    width: 70%;
+    height: 100%;
+}

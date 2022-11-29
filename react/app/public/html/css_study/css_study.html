@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<title>css study</title>
+<body>
+<h1>css 派生选择器</h1>
+<div>
+<p><strong>我是粗体字，不是斜体字，因为不在列表 &lt;li&gt; 当中，所以这个规则对我不起作用</strong></p>
+<ol>
+    <li><strong>我是斜体字。这是因为 strong 元素位于 li 元素内。</strong></li>
+    <li>正常的字体。</li>
+</ol>
+<p>定义了strong颜色为红 <strong>red</strong>.</p>
+<h2>定义h2颜色为红</h2>
+<h2>定义h2 下的strong为蓝 <strong>blue</strong>.</h2>
+</div>
+
+<h1>id选择器</h1>
+<div id="id_select">
+    <p id="red">这个段落是红色。</p>
+    <p id="green">这个段落是绿色。</p>
+    <h2>这个标题h2青色</h2>
+</div>
+
+<h1>类选择器</h1>
+<div class="id_select">
+    <p class="red">这个段落是蓝色。</p>
+    <p class="green">这个段落是红色。</p>
+    <h2>这个标题h2青色</h2>
+    <ol>
+        <li>默认黑色</li>
+        <li class="green">类选择器设置为绿色</li>
+    </ol>
+</div>
+
+
+</body>
+
+<link rel="stylesheet" type="text/css" href="../css/css_study.css">
+</html>

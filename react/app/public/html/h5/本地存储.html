@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="utf-8">
+<title>本地缓存</title>
+<body>
+
+<div id="result3"></div>
+<div id="result2"></div>
+<div id="result1">
+    window.localStorage - 存储没有截止日期的数据<br/>
+    window.sessionStorage - 针对一个 session 来存储数据（当关闭浏览器标签页时数据会丢失）
+</div>
+<p><button onclick="clickCounter()" type="button">请点击这里！</button></p>
+<div id="result4"></div>
+<p>请点击按钮使计数器递增。</p>
+<p>请关闭浏览器或标签页，然后再试一次，计数器将继续计数（不会重置）。</p>
+
+
+<p><button onclick="clickCounter2()" type="button">请点击这里</button></p>
+<div id="result"></div>
+<p>请点击按钮使计数器递增。</p>
+<p>请关闭浏览器或标签页，然后再试一次，计数器会重置。</p>
+<script>
+    // Check browser support
+    if (typeof(Storage) !== "undefined") {
+        //写法1
+        // Store
+        localStorage.setItem("lastname", "这是缓存数据");
+        // Retrieve
+        document.getElementById("result3").innerHTML = localStorage.getItem("lastname");
+
+        //写法2
+        localStorage.lastname1="这也是缓存数据";
+        document.getElementById("result2").innerHTML=localStorage.lastname1;
+
+        //删除缓存（页面已渲染，只会删除缓存）
+        localStorage.removeItem("lastname");
+    } else {
+        document.getElementById("result3").innerHTML = "抱歉！您的浏览器不支持 Web Storage ...";
+    }
+
+
+    function clickCounter() {
+        if(typeof(Storage) !== "undefined") {
+            if (localStorage.clickcount1) {
+                localStorage.clickcount1 = Number(localStorage.clickcount1)+1;
+            } else {
+                localStorage.clickcount1 = 1;
+            }
+            document.getElementById("result4").innerHTML = "您已经点击这个按钮 " + localStorage.clickcount1 + " 次。";
+        } else {
+            document.getElementById("result4").innerHTML = "抱歉！您的浏览器不支持 Web Storage ...";
+        }
+    }
+
+    //sessionStorage 关闭标签页后会删除数据
+    function clickCounter2() {
+        if(typeof(Storage) !== "undefined") {
+            if (sessionStorage.clickcount) {
+                sessionStorage.clickcount = Number(sessionStorage.clickcount)+1;
+            } else {
+                sessionStorage.clickcount = 1;
+            }
+            document.getElementById("result").innerHTML = "在本 session 中，您已经点击这个按钮 " + sessionStorage.clickcount + " 次。";
+        } else {
+            document.getElementById("result").innerHTML = "抱歉！您的浏览器不支持 Web Storage ...";
+        }
+    }
+</script>
+
+</body>
+</html>
