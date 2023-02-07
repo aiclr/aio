@@ -8,11 +8,17 @@ public class Duck {
     public String name;
     public Fly fly;
     public Quack quack;
+    public Eat eat;
+
+    public Duck(Eat eat) {
+        this.eat = eat;
+    }
 
     public void disPlay() {
         System.err.println(name+" : ");
         this.fly();
         this.quack();
+        System.err.println(eat.eat());
     }
 
     public void fly(){
@@ -35,7 +41,8 @@ public class Duck {
 
 class ToyDuck extends Duck {
 
-    public ToyDuck() {
+    public ToyDuck(Eat eat) {
+        super(eat);
         name="玩具鸭";
         fly=new NoFly();
         quack=new JiJi();
@@ -45,7 +52,8 @@ class ToyDuck extends Duck {
 
 class PekingDuck extends Duck {
 
-    public PekingDuck() {
+    public PekingDuck(Eat eat) {
+        super(eat);
         name="北京鸭";
         fly=new BadFly();
         quack=new GaGa();
@@ -54,7 +62,8 @@ class PekingDuck extends Duck {
 
 class WildDuck extends Duck {
 
-    public WildDuck() {
+    public WildDuck(Eat eat) {
+        super(eat);
         name="野鸭";
         fly=new GoodFly();
         quack=new NoQuack();
