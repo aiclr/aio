@@ -13,26 +13,60 @@ package org.bougainvilleas.base.designpattern.pattern.behavior.command;
  */
 public class Client {
 
-    public static void main(String[] args) {
-        LightReceiver lightReceiver = new LightReceiver();
-        LightOffCommand lightOffCommand = new LightOffCommand(lightReceiver);
-        LightOnCommand lightOnCommand = new LightOnCommand(lightReceiver);
+  public static void main(String[] args) {
+    LightReceiver lightReceiver = new LightReceiver();
+    LightOffCommand lightOffCommand = new LightOffCommand(lightReceiver);
+    LightOnCommand lightOnCommand = new LightOnCommand(lightReceiver);
 
-        RemoteController remoteController = new RemoteController();
+    RemoteController remoteController = new RemoteController();
 
-        remoteController.setCommand(0, lightOnCommand, lightOffCommand);
+    remoteController.setCommand(0, lightOnCommand, lightOffCommand);
 
-        // remoteController.onButtonWasPushed(0);
-        remoteController.offButtonWasPushed(0);
-        remoteController.undoButtonWasPushed();
-        remoteController.undoButtonWasPushed();
-        remoteController.undoButtonWasPushed();
-        remoteController.undoButtonWasPushed();
-        remoteController.undoButtonWasPushed();
-        remoteController.undoButtonWasPushed();
-        remoteController.undoButtonWasPushed();
-        remoteController.undoButtonWasPushed();
+    // remoteController.onButtonWasPushed(0);
+    remoteController.offButtonWasPushed(0);
+    remoteController.undoButtonWasPushed();
+    remoteController.undoButtonWasPushed();
+    remoteController.undoButtonWasPushed();
+    remoteController.undoButtonWasPushed();
+    remoteController.undoButtonWasPushed();
+    remoteController.undoButtonWasPushed();
+    remoteController.undoButtonWasPushed();
+    remoteController.undoButtonWasPushed();
 
+  }
 
-    }
+  /**
+   * 匿名内部类版本
+   * Command 存在多个方法 无法使用 lambda 简化
+   */
+  public void anonymousDemo() {
+    LightReceiver lightReceiver = new LightReceiver();
+
+    RemoteController remoteController = new RemoteController();
+
+    remoteController.setCommand(0, new Command() {
+      @Override
+      public void execute() {
+        lightReceiver.on();
+      }
+
+      @Override
+      public void undo() {
+        lightReceiver.off();
+      }
+    }, new Command() {
+      @Override
+      public void execute() {
+        lightReceiver.off();
+      }
+
+      @Override
+      public void undo() {
+        lightReceiver.on();
+      }
+    });
+    // remoteController.onButtonWasPushed(0);
+    remoteController.offButtonWasPushed(0);
+    remoteController.undoButtonWasPushed();
+  }
 }
