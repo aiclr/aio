@@ -18,6 +18,11 @@ public class Client {
         weatherData.setData("12345");
         weatherData.registerObserver(test1);
         weatherData.registerObserver(test2);
+        //lambda 简化观察者模式 可以省略 Test1 Test2 等具体观察者 直接在lambda中编写业务代码
+        weatherData.registerObserver(data -> {
+            String concat = data.concat("------");
+            System.err.println(concat);
+        });
         weatherData.notifyObserver();
 
     }
