@@ -76,7 +76,7 @@ func main() {
 	// 10 个 goroutines 每个 goroutines 停顿 1ms 主程序运行 1000ms
 	// 10 * 1000 =10 000
 	//We start 10 writes as well, using a similar(相似的) approach(方法).
-	for w := 0; w < 10; w++ {
+	for w := 0; w < 100; w++ {
 		go func() {
 			// 当main线程结束时，goroutines 即使未执行完毕也会退出
 			for {
@@ -128,3 +128,4 @@ func main() {
 //For this particular(特别的) case the goroutine-based approach(方法) was a bit more involved(复杂的) than the mutex-based one.
 //It might be useful in certain(某种) cases though, for example where you have other channels involved or when managing multiple such mutexes would be error-prone(易于出错的).
 //You should use whichever approach feels most natural, especially with respect to(关于) understanding the correctness(正确性) of your program
+// 一秒钟能执行多少次 atomic.AddUint64(&readOps, 1) 和 atomic.AddUint64(&writeOps, 1)
