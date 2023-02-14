@@ -19,5 +19,20 @@ func main() {
 //If you’d like to exit with a non-zero status you should use os.Exit
 
 // If you run exit.go using go run, the exit will be picked up by go and printed.
+//go run exit.go
+//echo $?
+//1
 
 //By building and executing a binary you can see the status in the terminal.
+//go build exit.go
+//./exit
+// echo $?
+// 3
+
+//$$ is the PID of the current process.
+
+//$? is the return code of the last executed command.
+
+//$# is the number of arguments in $*
+
+//$* is the list of arguments passed to the current proces
