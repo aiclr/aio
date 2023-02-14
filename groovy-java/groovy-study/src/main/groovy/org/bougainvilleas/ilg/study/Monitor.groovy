@@ -163,6 +163,28 @@ def getFS(){
     }
 }
 
+
+def getNetQuality(){
+    def process = Runtime.getRuntime().exec("ping www.baidu.com -c 5")
+    def inputStreamReader = new InputStreamReader(process.getInputStream())
+    def lineNumberReader = new LineNumberReader(inputStreamReader)
+    String line,temp=""
+    int i=0
+    while((line=lineNumberReader.readLine())!=null || i<10){
+        temp=line
+        System.err.println(line)
+        i++
+    }
+    System.err.println("===>"+temp)
+    // [参考](https://linux.cn/article-1481-1.html)
+    //[min, avg, max, mdev] mdev 平均偏差 mean deviation 值越大说明网速越不稳定
+    //[4.385, 4.489, 4.706, 0.113]
+    def key=temp.substring(temp.indexOf("min"),temp.indexOf("=")).trim().split("/")
+    def val=temp.substring(temp.indexOf("=")+1,temp.indexOf("ms")).trim().split("/")
+    System.err.println(Arrays.toString(key))
+    System.err.println(Arrays.toString(val))
+}
+
 getGC()
 println()
 getOS()
@@ -176,3 +198,4 @@ println()
 getIP()
 println()
 getFS()
+getNetQuality()
