@@ -90,10 +90,10 @@ public void method()
 > > 将实参的类型验证推迟到**运行时**这一特性为Groovy中的多态注入了活力 \
 > > 利用**多方法**(multimethods)这一工具,可以为与实参的运行时类型相关的操作提供替换行为
 
-## 闭包三属性 this owner delegate
+## 闭包三属性 this owner delegate [参考：ThisOwnerDelegate.groovy](src/main/groovy/org/bougainvilleas/ilg/study/chapter04/ThisOwnerDelegate.groovy)
 
 > 用于确定哪个对象处理该闭包内的方法调用 \
-> 闭包内引用的变量和方法都会绑定到 this \ 
+> 闭包内引用的变量和方法都会绑定到 this \
 > this负责处理任何方法调用,以及任何属性和变量的访问 \
 > 如果 this 无法处理,则转向 owner 最后是 delegate
 

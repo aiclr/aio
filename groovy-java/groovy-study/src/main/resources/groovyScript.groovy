@@ -1,4 +1,3 @@
-package org.bougainvilleas.ilg.study.chapter19
 /**
  * groovy 命令链接特性 用于创建相当流畅的简单 DSL 非常容易
  */
@@ -24,13 +23,3 @@ def jump(speed, dir) {
 
 move forward and then turn left
 jump fast, forward and then turn right
-
-System.out.println("解析")
-
-move(forward).and(then).turn(left)
-jump(fast,forward).and(then).turn(right)
-
-System.out.println("解析")
-
-move('forward').and('').turn('left')
-jump('fast','forward').and('').turn('right')
