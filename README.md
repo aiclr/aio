@@ -3,11 +3,15 @@
 > all in one \
 > 每个文件夹作为独立 project 分开导入 idea
 
+## [C](c/README.md)
+
+> [c primer plus](c/cprimerplus/README.md)
+
 ## java-modular
 
 > java9 模块化
 
-## java-modular-gradle
+## [java-modular-gradle](java-modular-gradle/java-modular-svc/README.md)
 
 > gradle manage java9 modular
 
