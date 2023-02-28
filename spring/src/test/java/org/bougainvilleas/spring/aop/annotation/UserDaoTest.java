@@ -50,5 +50,19 @@ class UserDaoTest {
         userDao.del(20);
     }
 
+    /**
+     * 类注解
+     */
+    @Test
+    @DisplayName("类注解切面")
+    void testProxy4(){
+        ApplicationContext context=new AnnotationConfigApplicationContext(AOPConfig.class);
+        UserDao2 userDao = context.getBean("userDao2", UserDao2.class);
+        System.out.println("获取切点上的注解");
+        userDao.add(20);
+        userDao.update("20");
+        userDao.del(20);
+    }
+
 
 }
