@@ -85,6 +85,23 @@
 
 > 程序状态<sub>program state</sub>是在程序的执行过程中，某给定点上所有变量值的集合。是计算机当前状态的一个快照<sub>snapshot</sub>
 
-## 关键字和保留标识符
+## 关键字<sub>keyword</sub>和保留标识符<sub>reserved identifier</sub>
+
+> 关键字是C语言的词汇，不能用他们作为标识符。 \
+> 粗体表示C90标准新增的关键字，斜体表示的C99标准新增的关键字，粗斜体表示的是C11标准新增的关键字
+
+|||||
+|:---|:---|:---|:---|
+|auto|extern|short|while|
+|break|float|**signed**|***_Alignas***|
+|case|for|sizeof|***_Alignof***|
+|char|goto|static|***_Atomic***|
+|**const**|if|struct|***_Bool***|
+|continue|inline|switch|***_Complex***|
+|defaut|int|typedef|***_Generic***|
+|do|long|union|***_Imaginary***|
+|double|register|unsigned|***_Noreturn***|
+|else|restrict|void|***_Static_assert***|
+|**enum**|return|**volatile**|***_Thread_local***|
 
 [return](../README.md)|[top](#chapter02)
