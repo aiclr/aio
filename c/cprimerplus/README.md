@@ -4,7 +4,7 @@
 >
 > 01. [初始C语言](chapter01/README.md#chapter01)
 > 02. [C语言概述](chapter02/README.md#chapter02)
-> 03. 数据和C
+> 03. [数据和C](chapter03/README.md#chapter03)
 > 04. 字符串和格式化输入输出
 > 05. 运算符、表达式和语句
 > 06. C控制语句： 循环
@@ -19,3 +19,5 @@
 > 15. 位操作
 > 16. C预处理器和C库
 > 17. 高级数据表示
+
+[return](../README.md)
