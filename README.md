@@ -5,7 +5,8 @@
 
 ## [C](c/README.md)
 
-> [c primer plus](c/cprimerplus/README.md)
+> [c primer plus](c/cprimerplus/README.md) \
+> [Linux程序设计](c/linuxprogramming/README.md)
 
 ## java-modular
 
