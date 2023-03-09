@@ -75,8 +75,22 @@
 > > > 如文件`/lib/libm.so`是对实际库文件修订版本<sub>/lib/libm.so.N N代表主版本号</sub>的符号链接 \
 > > > 当Linux启动应用程序时，会考虑应用程序需要的函数库版本，以防止函数库的新版本致使旧的应用程序不能使用。
 > >
+> > 共享库除了比静态库占用空间小之外，方便更新<sub>共享库发生变化后，程序不需要再次编译</sub>，但相比于静态库执行效率略低 \
+> > 对于Linux系统，负责装载共享库并解析客户程序函数引用的程序<sub>动态装载器</sub>是`ld.so`，也可能是`ld-linux.so.2`、`ld-lsb.so.2`、`ld-lsd.so.3` \
+> > 用于搜索共享库的额外位置可以在文件`/etc/ld.so.conf`中配置，如果修改了这个文件，需要执行`ldconfig`来处理 \
 > > `ldd a.out` 查看一个程序需要的共享库 \
 > > 共享库在许多方面类似Windows中使用的动态链接库。`.so`库对应于`.DLL`文件，它们都是在程序运行时加载，而`.a`库类似于`.LIB`文件，它们都包含在可执行程序中。
+>
+> 共享库实验
+> > `-fPIC`或`-fpic`参数，编译出位置无关的目标文件`gcc -c -fPIC bill.c fred.c` \
+> > 链接生成共享库`libfoo.so`，`gcc -shared bill.o fred.o -o libfoo.so` \
+> > 生成目标文件`gcc -c program.c` \
+> > 使用绝对路径调用共享库`gcc program.o /home/leo/libfoo.so` \
+> > 使用相对路径调用共享库`gcc program.o ../lib/libfoo.so` \
+> > **不太好使**：*调用者与共享库在同一目录下，调用共享库不好使`gcc program.o libfoo.so`* \
+> > 将库文件所在目录添加到`LD_LIBRARY_PATH`环境变量中`export LD_LIBRARY_PATH=./`调用共享库`gcc program.o -L. -lfoo` \
+> > 将库文件移动到默认的动态库路径 `/lib`、`/usr/lib`中，调用共享库`gcc program.o -L. -lfoo` \
+> > 修改[bill.c](source/bill.c)源文件，重新生成so库，直接运行`a.out`可以发现调用的是更新后的`bill.c`，即共享库发生变化后，程序不需要再次编译
 
 |项目|UNIX|Windows|
 |:---|:---|:---|
