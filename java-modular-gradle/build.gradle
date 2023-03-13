@@ -1,0 +1,11 @@
+tasks.register('clean') {
+    dependsOn gradle.includedBuild('java-modular-svc').task(':api:clean')
+    dependsOn gradle.includedBuild('java-modular-svc').task(':cli:clean')
+    dependsOn gradle.includedBuild('java-modular-svc').task(':facade_ab:clean')
+    dependsOn gradle.includedBuild('java-modular-svc').task(':facade_abc:clean')
+    dependsOn gradle.includedBuild('java-modular-svc').task(':facade_ac:clean')
+    dependsOn gradle.includedBuild('java-modular-svc').task(':facade_bc:clean')
+    dependsOn gradle.includedBuild('java-modular-svc').task(':svc_a:clean')
+    dependsOn gradle.includedBuild('java-modular-svc').task(':svc_b:clean')
+    dependsOn gradle.includedBuild('java-modular-svc').task(':svc_c:clean')
+}

@@ -1,0 +1,26 @@
+//tasks.register('run') {
+//    dependsOn gradle.includedBuild('my-app').task(':app:run')
+//}
+
+tasks.register('clean') {
+    dependsOn gradle.includedBuild('groovy-java').task(':gradle-plugins:clean')
+    dependsOn gradle.includedBuild('groovy-java').task(':gradle-tasks:clean')
+    dependsOn gradle.includedBuild('groovy-java').task(':groovy-app:clean')
+    dependsOn gradle.includedBuild('groovy-java').task(':groovy-list:clean')
+    dependsOn gradle.includedBuild('groovy-java').task(':groovy-study:clean')
+    dependsOn gradle.includedBuild('groovy-java').task(':groovy-utilities:clean')
+    dependsOn gradle.includedBuild('groovy-java').task(':java-agent:clean')
+    dependsOn gradle.includedBuild('groovy-java').task(':java-app:clean')
+    dependsOn gradle.includedBuild('groovy-java').task(':java-list:clean')
+    dependsOn gradle.includedBuild('groovy-java').task(':java-utilities:clean')
+    dependsOn gradle.includedBuild('groovy-java').task(':spring-app:clean')
+    dependsOn gradle.includedBuild('java-151').task(':clean')
+    dependsOn gradle.includedBuild('java-data-structure-algorithm').task(':clean')
+    dependsOn gradle.includedBuild('java-design-pattern').task(':clean')
+    dependsOn gradle.includedBuild('java-io').task(':clean')
+    dependsOn gradle.includedBuild('java-juc').task(':clean')
+    dependsOn gradle.includedBuild('java-modular-gradle').task(':clean')
+    dependsOn gradle.includedBuild('jvm').task(':clean')
+    dependsOn gradle.includedBuild('spring').task(':clean')
+    dependsOn gradle.includedBuild('tank').task(':clean')
+}
