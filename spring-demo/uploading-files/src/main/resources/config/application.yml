@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: uploading_files
+  main:
+    banner-mode: log
+  servlet:
+    multipart:
+      max-file-size: 128KB
+      max-request-size: 128KB
+

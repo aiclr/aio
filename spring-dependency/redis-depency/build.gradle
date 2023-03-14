@@ -1,0 +1,24 @@
+plugins{
+    id 'org.springframework.boot' apply false
+    id 'io.spring.dependency-management'
+    id 'maven-publish'
+}
+
+dependencyManagement {
+    imports {
+        mavenBom org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES
+    }
+}
+
+dependencies {
+    implementation("org.bougainvilleas.spring:commons:${projectVersion}")
+    api 'org.springframework.boot:spring-boot-starter-data-redis'
+}
+//    发布 jar 到 maven 本地仓库
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+        }
+    }
+}

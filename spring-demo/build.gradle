@@ -1,0 +1,85 @@
+plugins {
+    id 'org.springframework.boot' version "${springBootVersion}" apply false
+    id 'io.spring.dependency-management' version "${springManageVersion}" apply false
+    id "org.owasp.dependencycheck" version "${dependencycheckVersion}" apply false
+}
+
+allprojects {
+    apply plugin: 'java'
+
+    java {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    tasks.withType(JavaCompile) {
+        //启用所有警告信息 -Xlint:all 关闭 -Xlint:none
+        options.compilerArgs << '-Xlint:all'
+        options.encoding = "UTF-8"
+    }
+
+    tasks.withType(Javadoc) {
+        options.encoding = "UTF-8"
+    }
+
+    repositories {
+        mavenLocal()
+        maven {
+            url 'https://maven.aliyun.com/repository/public/'
+        }
+        mavenCentral()
+    }
+
+    compileTestJava.enabled(true)
+    processTestResources.enabled(true)
+    testClasses.enabled(true)
+    jar.enabled(false)
+    test.enabled(false)
+
+}
+
+subprojects {
+    apply plugin: 'java-library'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'org.owasp.dependencycheck'
+
+    group = 'org.bougainvilleas.spring'
+    version = "${projectVersion}" as Object
+
+    bootJar.manifest {
+        attributes('Implementation-Version':"${projectVersion}", 'Implementation-Title':"${project.name}")
+    }
+
+    //漏洞扫描
+//https://jeremylong.github.io/DependencyCheck/dependency-check-gradle/configuration.html
+    dependencyCheck {
+        analyzedTypes=['jar']
+        format='html'
+        analyzers {
+            retirejs {
+                enabled=false
+            }
+        }
+    }
+
+    dependencies {
+        //junit test
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+        testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+        testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+
+
+        compileOnly "org.projectlombok:lombok"
+        testCompileOnly "org.projectlombok:lombok"
+
+
+        annotationProcessor "org.projectlombok:lombok"
+        testAnnotationProcessor "org.projectlombok:lombok"
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+
+}

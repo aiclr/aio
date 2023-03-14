@@ -1,0 +1,44 @@
+swagger:
+  enable: true
+  info:
+    title: hello springdoc
+    description: 希君生羽翼 一化北溟鱼
+    termsOfService: http://localhost:${PORT}
+    version: 0.0.3
+    contact:
+      name: caddy
+      url: https://bougainvilleas.github.io/lotus/
+      email: caddyren@qq.com
+    license:
+      name: MIT
+      url: https://github.com/caddyRen/spring/blob/develop-2.0x/LICENSE
+    external:
+      description: external
+      url: http://localhost:${PORT}
+
+
+springdoc:
+  show-actuator: true # To display the actuator endpoints
+  use-management-port: false # To expose the swagger-ui on the actuator management port
+  swagger-ui:
+    path: /swagger-ui.html
+    enabled: ${swagger.enable:false}
+  api-docs:
+    enabled: ${swagger.enable:false}
+    path: /v3/api-docs # For custom path of the OpenAPI documentation in Json format
+    groups:
+      enabled: true
+  group-configs:
+    - group: default
+      packages-to-scan: org.bougainvilleas.spring
+#      参考以下配置  packages-to-scan paths-to-match 交集
+#    - group: default1
+#      packages-to-scan: org.bougainvilleas.spring.default1
+#      packages-to-exclude: org.bougainvilleas.spring.default2
+#      paths-to-match: /default1/**
+#      paths-to-exclude: /default2/**
+#    - group: default2
+#      packages-to-scan: org.bougainvilleas.spring.default2
+#      packages-to-exclude: org.bougainvilleas.spring.default1
+#      paths-to-match: /default2/**
+#      paths-to-exclude: /default1/**

@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: authenticating-ldap
+  main:
+    banner-mode: log
+  ldap:
+    embedded:
+      ldif: classpath:ldif/test-server.ldif
+      port: 8389
+      base-dn: dc=springframework,dc=org

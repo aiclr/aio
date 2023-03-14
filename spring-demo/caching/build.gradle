@@ -1,0 +1,6 @@
+dependencies {
+    implementation("org.bougainvilleas.spring:spring-depency:${projectVersion}")
+    implementation 'org.springframework.boot:spring-boot-starter-cache'
+    //For Java 11 or above, use 3.x otherwise use 2.x.
+    implementation 'com.github.ben-manes.caffeine:caffeine:2.9.3'
+}

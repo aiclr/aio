@@ -1,0 +1,48 @@
+plugins{
+    id 'org.springframework.boot' apply false
+    id 'io.spring.dependency-management'
+    id 'maven-publish'
+}
+
+dependencyManagement {
+    imports {
+        mavenBom org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES
+    }
+}
+
+ext {
+    set('webName', 'undertow') // 'tomcat' 'jetty' 'undertow'
+}
+
+version "${webName}." + "${springBootVersion}"
+
+dependencies {
+    switch ("${webName}") {
+        case 'jetty':
+            api("org.springframework.boot:spring-boot-starter-web") {
+                exclude group: "org.springframework.boot", module: "spring-boot-starter-tomcat"
+            }
+            api("org.springframework.boot:spring-boot-starter-jetty")
+            break
+        case 'undertow':
+            api("org.springframework.boot:spring-boot-starter-web") {
+                exclude group: "org.springframework.boot", module: "spring-boot-starter-tomcat"
+            }
+            api("org.springframework.boot:spring-boot-starter-undertow")
+            break
+        default:
+            api("org.springframework.boot:spring-boot-starter-web")
+            break
+    }
+    // springdoc swagger3.0 与springboot2.6 存在冲突 使用更好的springdoc代替swagger
+    api("org.springdoc:springdoc-openapi-ui:${springdoc}")
+}
+
+//    发布 jar 到 maven 本地仓库
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+        }
+    }
+}

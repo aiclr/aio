@@ -1,7 +1,11 @@
 # aio
 
 > all in one \
-> 每个文件夹作为独立 project 分开导入 idea
+> gradle 8.0 includeBuild 支持复合项目 \
+> 相互依赖模块可以不发布到本地maven仓库进行关联
+> > 例如：spring-demo下的jpa依赖 spring-dependency 部分模块
+> > > 在目录 `spring-demo/` 下执行build `gradle --include-build ../spring-dependency :jpa:build` \
+> > > 在目录 `spring-demo/jpa` 下执行build `gradle --include-build ../../spring-dependency build` 
 
 ## [C](c/README.md)
 

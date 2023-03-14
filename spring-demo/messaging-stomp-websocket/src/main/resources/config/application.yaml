@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: messaging-stomp-websocket
+  main:
+    banner-mode: log

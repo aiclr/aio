@@ -1,0 +1,10 @@
+ext {
+    set('webName', 'undertow') // 'tomcat' 'jetty' 'undertow'
+}
+
+dependencies {
+    implementation("org.bougainvilleas.spring:spring-depency:${projectVersion}")
+    implementation("org.bougainvilleas.spring:spring-web:${webName}.${springBootVersion}")
+    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+    testImplementation('org.springframework.boot:spring-boot-starter-test')
+}

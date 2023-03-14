@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+File appender logback configuration provided for import, equivalent to the programmatic
+initialization performed by Boot
+-->
+
+<included>
+	<appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<encoder>
+            <charset>UTF-8</charset>
+			<pattern>${FILE_LOG_PATTERN}</pattern>
+		</encoder>
+		<file>${LOG_PATH}/error-${LOG_FILE}</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedRollingPolicy">
+			<fileNamePattern>${LOG_PATH}/error-${LOG_FILE}.%d{yyyy-MM-dd}.%i.gz</fileNamePattern>
+			<cleanHistoryOnStart>${LOG_FILE_CLEAN_HISTORY_ON_START:-false}</cleanHistoryOnStart>
+			<maxFileSize>${LOG_FILE_MAX_SIZE:-10MB}</maxFileSize>
+			<maxHistory>${LOG_FILE_MAX_HISTORY:-7}</maxHistory>
+			<totalSizeCap>${LOG_FILE_TOTAL_SIZE_CAP:-0}</totalSizeCap>
+		</rollingPolicy>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+	</appender>
+</included>

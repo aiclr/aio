@@ -1,0 +1,57 @@
+spring:
+  application:
+    name: gateway
+  profiles:
+    active: ${PROFILES_ACTIVE:dev},ec,base
+  main:
+    banner-mode: log
+  lifecycle:
+    timeout-per-shutdown-phase: 30s #缓冲期
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: true
+      routes:
+        - id: gateway
+          uri: lb://gateway
+          predicates:
+            - Path=/gateway/**
+          filters:
+            - StripPrefix=1
+        - id: user
+          uri: lb://user
+          predicates:
+            - Path=/security/login,/security/index/*
+          filters:
+            - StripPrefix=1
+#        - id: security-swagger
+#          uri: http://localhost:8086
+#          predicates: # param(参数)和可选的regexp(正则表达式)断言判断（其是Java正则表达式
+#            - Query=swagger,.*
+        - id: security-after
+          uri: https://music.163.com
+          predicates: # 断言 2022-06-22之后能访问 http://blackbox:9997/?m --> https://music.163.com
+            - After=2022-06-22T00:00:00.000-23:00[Asia/Shanghai]
+            - Query=m
+        - id: config-client
+          uri: lb://config-client
+          predicates:
+            - Path=/config-client/**
+          filters:
+            - StripPrefix=1
+        - id: config-center
+          uri: lb://config-server
+          predicates:
+            - Path=/config-center/**
+          filters:
+            - StripPrefix=1
+
+server:
+  port: ${PORT:9997}
+
+#eureka
+eureka:
+  client: #eureka客户端配置
+    healthcheck:
+      enabled: true #开启健康检查 eureka.client.healthcheck.enabled=true should only be set in application.yml. Setting the value in bootstrap.yml causes undesirable side effects, such as registering in Eureka with an UNKNOWN status

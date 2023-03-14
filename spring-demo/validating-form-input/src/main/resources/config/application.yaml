@@ -1,0 +1,5 @@
+spring:
+  application:
+    name: validating-form-input
+  main:
+    banner-mode: log

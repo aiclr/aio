@@ -1,0 +1,8 @@
+rootProject.name = 'spring-dependency'
+include 'commons'
+include 'spring-depency'
+include 'eureka-client'
+include 'spring-web'
+include 'redis-depency'
+include 'database-depency'
+include 'springboot-hottask-starter'

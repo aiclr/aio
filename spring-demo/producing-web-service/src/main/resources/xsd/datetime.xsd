@@ -1,0 +1,27 @@
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://bougainvilleas.org/spring/producingwebservice"
+           targetNamespace="http://bougainvilleas.org/spring/producingwebservice" elementFormDefault="qualified">
+
+    <xs:element name="getDatetimeRequest">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="format" type="xs:string"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:element name="getDatetimeResponse">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="datetime" type="tns:datetime"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+    <xs:complexType name="datetime">
+        <xs:sequence>
+            <xs:element name="unix" type="xs:long"/>
+            <xs:element name="format" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+
+</xs:schema>

@@ -1,0 +1,9 @@
+{
+  "groups": [
+    {
+      "name": "hottask",
+      "type": "org.bougainvilleas.spring.hottask.config.HotTaskProperties",
+      "sourceType": "org.bougainvilleas.spring.hottask.config.HotTaskProperties"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/"
+                  xmlns:gs="http://bougainvilleas.org/spring/producingwebservice">
+    <soapenv:Header/>
+    <soapenv:Body>
+        <gs:getDatetimeRequest>
+            <gs:format>"yyyy-MM-dd HH:mm:ss"</gs:format>
+        </gs:getDatetimeRequest>
+    </soapenv:Body>
+</soapenv:Envelope>

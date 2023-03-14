@@ -1,0 +1,54 @@
+spring:
+  application:
+    name: jpa
+  main:
+    banner-mode: log
+  datasource:
+    enable: true
+    druid:
+      url: jdbc:mysql://${mysql.ip}:${mysql.port}/${mysql.database}?useUnicode=true&characterEncoding=utf8&useSSL=false&allowMultiQueries=true
+      username: ${mysql.user}
+      password: ${mysql.pwd}
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      #数据库连接池的配置信息
+      initial-size: 6
+      min-idle: 6
+      max-active: 66
+      max-wait: 60000
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: SELECT 1 FROM DUAL
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: true
+      max-pool-prepared-statement-per-connection-size: 20
+      #数据库连接失败进行重连，次数2次
+      break-after-acquire-failure: false
+      connection-error-retry-attempts: 2
+      #禁用druid监控页面
+      stat-view-servlet:
+        enabled: false
+      web-stat-filter:
+        enabled: false
+      filter:
+        config:
+          enabled: false
+  jpa:
+    hibernate:
+      # create 每次 run 没有表格会新建，表内数据会清空
+      # create-drop 每次程序结束时候清空表
+      # update 每次 run 没有表格会新建，表内数据不会清空，会更新表格
+      # create 每次 run 校验 Entity 与 数据库的字段 是否匹配 不匹配则报错
+      # none  Disable DDL handling
+      ddl-auto: create-drop
+    show-sql: true
+
+
+
+mysql:
+  ip: ${MYSQL_IP:192.168.1.131}
+  port: ${MYSQL_PORT:3306}
+  database: ${MYSQL_DB:security}
+  user: ${MYSQL_USER:park}
+  pwd: ${MYSQL_PWD:park123}

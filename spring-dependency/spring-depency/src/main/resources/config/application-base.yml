@@ -1,0 +1,41 @@
+# 管理接口
+management:
+  endpoints:
+    web:
+      base-path: ${MPATH:/admin}
+      exposure:
+        include: logfile,loggers,health,configprops,info,scheduledtasks,metrics,shutdown
+  endpoint:
+    shutdown:
+      enabled: true
+
+# 日志配置 springboot2.4改动较大
+logging:
+  config: classpath:config/log/logback.xml
+  charset:
+    file: UTF-8
+    console: UTF-8
+  file:
+    path: logs
+    name: ${spring.application.name:spring}.log
+  level:
+    root: ${LOGLEV:INFO}
+  logback:
+    rollingpolicy:
+      max-file-size: 100MB
+      max-history: 180
+      total-size-cap: 10GB
+      clean-history-on-start: false
+# 加密配置文件
+jasypt:
+  encryptor:
+    password: ${KEY:bougainvillea}
+
+info:
+  app:
+    name: ${APPDESC:spring}
+    shortName: ${spring.application.name:spring}
+    version: ${VERSION:0.0.3}
+    encoding: UTF-8
+    java.source: 1.8
+    java.traget: 1.8

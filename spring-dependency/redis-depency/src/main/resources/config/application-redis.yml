@@ -1,0 +1,30 @@
+spring:
+  redis:
+    password:
+    timeout: 30000
+    database: 0
+    cluster:
+      max-redirects: 3 # 获取失败 最大重定向次数
+      nodes:
+        - 127.0.0.1:6379
+        - 127.0.0.1:6380
+        - 127.0.0.1:6381
+        - 127.0.0.1:6382
+        - 127.0.0.1:6383
+        - 127.0.0.1:6384
+    lettuce:  # 底层netty 多线程并发安全
+      pool:
+        #连接池最大连接数（使用负值表示没有限制）
+        max-active: 8
+        #连接池中的最大空闲连接
+        max-idle: 8
+        #连接池中的最小空闲连接
+        min-idle: 1
+        #连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-wait: 300
+      # 在关闭客户端连接之前等待任务处理完成的最长时间，在这之后，无论任务是否执行完成，都会被执行器关闭
+      shutdown-timeout: 100
+      cluster:
+        refresh: # 拓扑动态感应即客户端能够根据 redis cluster 集群的变化，动态改变客户端的节点情况，完成故障转移
+          adaptive: true
+          period: 10000 # ms

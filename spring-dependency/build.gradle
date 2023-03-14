@@ -1,0 +1,76 @@
+buildscript {
+    ext {
+        set('projectVersion', "0.0.3")
+
+        set('LombokVersion', "1.18.20")
+        set('junitVersion', "5.8.1")
+
+        set('springCloudVersion', "2021.0.1")
+        set('springBootVersion', "2.6.4")
+        set('springdoc', "1.6.6")//org.springdoc:springdoc-openapi-ui
+        set('jasypt', "3.0.5")//"com.github.ulisesbocchio:jasypt-spring-boot-starter
+        set('springManageVersion', "1.0.11.RELEASE")
+
+    }
+}
+
+plugins {
+    id 'org.springframework.boot' version "${springBootVersion}" apply false
+    id 'io.spring.dependency-management' version "${springManageVersion}" apply false
+}
+
+allprojects {
+    apply plugin: 'java'
+
+    java {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    tasks.withType(JavaCompile) {
+        //启用所有警告信息 -Xlint:all 关闭 -Xlint:none
+        options.compilerArgs << '-Xlint:all'
+        options.encoding = "UTF-8"
+    }
+
+    tasks.withType(Javadoc) {
+        options.encoding = "UTF-8"
+    }
+
+    repositories {
+        mavenLocal()
+        maven {
+            url 'https://maven.aliyun.com/repository/public/'
+        }
+        mavenCentral()
+    }
+
+}
+
+subprojects {
+    apply plugin: 'java-library'
+
+    group = 'org.bougainvilleas.spring'
+    version = "${projectVersion}" as Object
+
+
+    dependencies {
+        //junit test
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+        testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
+        testRuntimeOnly("org.junit.jupiter:junit-jupiter-engine:${junitVersion}")
+
+
+        compileOnly "org.projectlombok:lombok:${LombokVersion}"
+        testCompileOnly "org.projectlombok:lombok:${LombokVersion}"
+
+
+        annotationProcessor "org.projectlombok:lombok:${LombokVersion}"
+        testAnnotationProcessor "org.projectlombok:lombok:${LombokVersion}"
+    }
+
+    test {
+        useJUnitPlatform()
+    }
+
+}

@@ -1,0 +1,8 @@
+spring:
+  application:
+    name: caching
+  main:
+    banner-mode: log
+
+# 用于观察 CacheManager 实现
+debug: true

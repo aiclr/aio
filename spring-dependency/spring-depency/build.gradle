@@ -1,0 +1,30 @@
+plugins{
+    id 'org.springframework.boot' apply false
+    id 'io.spring.dependency-management'
+    id 'maven-publish'
+}
+
+dependencyManagement {
+    imports {
+        mavenBom org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES
+    }
+}
+
+dependencies {
+    api("org.springframework.boot:spring-boot-starter")
+    api("org.springframework.boot:spring-boot-starter-aop")
+    api 'org.springframework.boot:spring-boot-starter-actuator'
+    api("com.github.ulisesbocchio:jasypt-spring-boot-starter:${jasypt}")
+    annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+    testAnnotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+
+}
+
+//    发布 jar 到 maven 本地仓库
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+        }
+    }
+}

@@ -7,7 +7,9 @@ plugins {
     // Apply the java Plugin to add support for Java.
     id 'java'
 }
-
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+}
 repositories {
     // Use Maven Central for resolving dependencies.
     mavenCentral()

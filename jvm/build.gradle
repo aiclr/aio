@@ -57,7 +57,7 @@ task getJavaHome {
     if (System.properties['os.name'].toLowerCase().contains('windows')) {
         ext.javaHome = "${System.getenv("JAVA_HOME")}"
     } else {
-        ext.javaHome = "/usr/lib/jvm/jdk1.8.0_321"
+        ext.javaHome = "/usr/lib/jvm/java-8-openjdk"
     }
     println "${System.getenv("JAVA_HOME")}"
     println getJavaHome.javaHome

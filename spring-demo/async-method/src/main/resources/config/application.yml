@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: asynchronous
+  main:
+    banner-mode: log
+
+server:
+  port: ${PORT:30000}
+
+#debug: true

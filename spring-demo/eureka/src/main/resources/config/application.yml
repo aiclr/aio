@@ -1,0 +1,37 @@
+spring:
+  application:
+    name: eureka
+  profiles:
+    active: dev,ec,base
+  main:
+    banner-mode: log
+#--------开启安全模块-------#
+  security: #开启服务注册认证机制
+    basic:
+      enabled: true #确认开启认证，默认true
+    user:
+      name: mumu
+      password: 66
+#---------安全模块------------#
+
+server:
+  port: ${PORT}
+#It seems to be a socket read timeout exception,
+#it will retry later.
+#if it continues to happen and some eureka node occupied all the cpu time,
+#you should set property 'eureka.server.peer-node-read-timeout-ms' to a bigger value
+#eureka配置 eureka.server.peer-node-read-timeout-ms
+eureka:
+  instance:
+    registry:
+      default-open-for-traffic-count: 6 #该实例，注册服务中心，默认打开的通信数量
+      expected-number-of-clients-sending-renews: 6  #每分钟续约次数
+  client: #eureka客户端配置
+    healthcheck:
+      enabled: true #开启健康检查，没有服务注册进去会异常,且必须放到application.yml
+    register-with-eureka: ${REGISTER-WITH-EUREKA:true} #实例是否在eureka服务器上注册自己的信息以供其他服务发现，默认为true 注册中心可设为false
+    fetch-registry: ${FETCH_REGISTRY:true} #此客户端是否获取eureka服务器注册表上的注册信息，默认为true 注册中心可设为false
+  server:
+    enable-self-preservation: false #服务端开启自我保护模式。无论什么情况，服务端都会保持一定数量的服务。避免client与server的网络问题，而出现大量的服务被清除。本地开发设为false
+    eviction-interval-timer-in-ms: 30000 #开启清除无效服务的定时任务，时间间隔。默认1分钟
+    peer-node-read-timeout-ms: 30000

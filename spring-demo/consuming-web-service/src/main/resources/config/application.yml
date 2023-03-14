@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: consuming-web-service
+  main:
+    banner-mode: log
+
+logging:
+  level:
+    org.org.bougainvilleas.spring: INFO
+    org:
+      springframework:
+        ws: DEBUG

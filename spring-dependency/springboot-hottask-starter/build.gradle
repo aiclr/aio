@@ -1,0 +1,27 @@
+plugins{
+    id 'org.springframework.boot' apply false
+    id 'io.spring.dependency-management'
+    id 'maven-publish'
+}
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+}
+dependencyManagement {
+    imports {
+        mavenBom org.springframework.boot.gradle.plugin.SpringBootPlugin.BOM_COORDINATES
+    }
+}
+
+dependencies {
+      compileOnly('org.springframework.boot:spring-boot-starter-json')
+}
+
+//bootJar.enabled(false)
+//发布 jar 到 maven 本地仓库
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+        }
+    }
+}
