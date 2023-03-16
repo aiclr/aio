@@ -1,6 +1,6 @@
 spring:
   application:
-    name: uploading_files
+    name: producing-web-service
   main:
     banner-mode: log
   servlet:

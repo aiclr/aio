@@ -1,3 +1,24 @@
+plugins {
+    id 'org.springframework.boot' version "${springBootVersion}"
+    id 'io.spring.dependency-management' version "${springManageVersion}"
+    id 'java'
+}
+
+group = 'org.bougainvilleas'
+version = '0.0.0'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+}
+
+repositories {
+    mavenLocal()
+    maven {
+        url 'https://maven.aliyun.com/repository/public/'
+    }
+    mavenCentral()
+}
+
 // tag::configurations[]
 configurations {
     jaxb
@@ -9,7 +30,6 @@ task genJaxb {
     ext.sourcesDir = "${buildDir}/generated-sources/jaxb"
     ext.classesDir = "${buildDir}/classes/jaxb"
     ext.schema = "http://localhost:8080/ws/countries.wsdl"
-    ext.datetime = new URL("http://localhost:8080/ws/datetime.wsdl")
 
     outputs.dir classesDir
 
@@ -46,7 +66,8 @@ task genJaxb {
 task genJaxb_datetime {
     ext.sourcesDir = "${buildDir}/generated-sources/jaxb"
     ext.classesDir = "${buildDir}/classes/jaxb"
-    ext.schema = "http://localhost:8080/ws/datetime.wsdl"
+//    ext.schema = "http://localhost:8080/ws/datetime.wsdl"
+    ext.schema = new URL("http://localhost:8080/ws/datetime.wsdl")
 
     outputs.dir classesDir
 
@@ -80,6 +101,7 @@ task genJaxb_datetime {
     }
 }
 
+compileJava.dependsOn(genJaxb,genJaxb_datetime)
 // end::wsdl[]
 
 dependencies {
@@ -97,9 +119,17 @@ dependencies {
     testImplementation('org.springframework.boot:spring-boot-starter-test')
 }
 
+test {
+    useJUnitPlatform()
+}
+
 // tag::bootjar[]
 bootJar {
-    archiveBaseName = 'consuming-web-service'
-    archiveVersion =  '0.0.1'
+    archiveBaseName = "${project.name}"
+    archiveVersion = "${projectVersion}"
+    // MANIFEST.MF 增加属性
+    manifest{
+        attributes('Implementation-Version':"${projectVersion}", 'Implementation-Title':"${project.name}")
+    }
 }
 // end::bootjar[]

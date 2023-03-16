@@ -1,3 +1,32 @@
+plugins {
+//    id 'org.springframework.boot' version '3.0.1'
+//    id 'io.spring.dependency-management' version '1.1.0'
+    id 'org.springframework.boot' version "${springBootVersion}"
+    id 'io.spring.dependency-management' version "${springManageVersion}"
+    id 'java'
+}
+
+group = 'org.bougainvilleas'
+version = '0.0.0'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+}
+
+repositories {
+    mavenLocal()
+    maven {
+        url 'https://maven.aliyun.com/repository/public/'
+    }
+    mavenCentral()
+}
+
+// tag::jaxb[]
+configurations {
+    jaxb
+}
+// end::jaxb[]
+
 // tag::xsd[]
 sourceSets {
     main {
@@ -35,16 +64,7 @@ task genJaxb {
 compileJava.dependsOn genJaxb
 // end::xsd[]
 
-// tag::jaxb[]
-configurations {
-    jaxb
-}
 
-bootJar {
-    archiveBaseName = 'producing-web-service'
-    archiveVersion = '0.1.0'
-}
-// end::jaxb[]
 
 // tag::dependencies[]
 dependencies {
@@ -56,4 +76,13 @@ dependencies {
 }
 // end::dependencies[]
 
-test.enabled(true)
+// tag::bootjar[]
+bootJar {
+    archiveBaseName = "${project.name}"
+    archiveVersion = "${projectVersion}"
+    // MANIFEST.MF 增加属性
+    manifest{
+        attributes('Implementation-Version':"${projectVersion}", 'Implementation-Title':"${project.name}")
+    }
+}
+// end::bootjar[]

@@ -19,5 +19,6 @@ includeBuild('jvm')
 includeBuild('spring')
 includeBuild('spring-demo')
 includeBuild('spring-dependency')
+includeBuild('spring-guides')
 //includeBuild('tank')
 
