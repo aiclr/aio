@@ -48,7 +48,7 @@ task genJaxb {
 
             javac(destdir: classesDir, source: 1.8, target: 1.8, debug: true,
                     debugLevel: "lines,vars,source",
-                    classpath: configurations.jaxb.asPath) {
+                    classpath: configurations.jaxb.asPath, includeantruntime:false) {
                 src(path: sourcesDir)
                 include(name: "**/*.java")
                 include(name: "*.java")
@@ -86,7 +86,7 @@ task genJaxb_datetime {
 
             javac(destdir: classesDir, source: 1.8, target: 1.8, debug: true,
                     debugLevel: "lines,vars,source",
-                    classpath: configurations.jaxb.asPath) {
+                    classpath: configurations.jaxb.asPath, includeantruntime:false) {
                 src(path: sourcesDir)
                 include(name: "**/*.java")
                 include(name: "*.java")
@@ -114,7 +114,7 @@ dependencies {
     implementation 'org.glassfish.jaxb:jaxb-runtime'
     implementation(files(genJaxb.classesDir).builtBy(genJaxb))
 
-    jaxb "com.sun.xml.bind:jaxb-xjc:2.1.7"
+    jaxb "com.sun.xml.bind:jaxb-xjc:${jaxbVersion}"
 // end::dependency[]
     testImplementation('org.springframework.boot:spring-boot-starter-test')
 }

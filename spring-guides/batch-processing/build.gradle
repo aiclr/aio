@@ -25,8 +25,8 @@ repositories {
 
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-batch'
-    implementation("com.alibaba:druid-spring-boot-starter:1.2.5")
-    runtimeOnly("mysql:mysql-connector-java")
+    implementation "com.alibaba:druid-spring-boot-starter:${druidVersion}"
+    runtimeOnly "mysql:mysql-connector-java:${mysqlVersion}"
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
     testImplementation 'org.springframework.batch:spring-batch-test'
 }
