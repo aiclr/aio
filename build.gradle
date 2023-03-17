@@ -22,8 +22,8 @@ tasks.register('clean') {
 //    dependsOn gradle.includedBuild('java-modular-gradle').task(':clean')
     dependsOn gradle.includedBuild('jvm').task(':clean')
     dependsOn gradle.includedBuild('spring').task(':clean')
+
     dependsOn gradle.includedBuild('spring-demo').task(':async-method:clean')
-    dependsOn gradle.includedBuild('spring-demo').task(':authenticating-ldap:clean')
     dependsOn gradle.includedBuild('spring-demo').task(':batch-processing:clean')
     dependsOn gradle.includedBuild('spring-demo').task(':caching:clean')
     dependsOn gradle.includedBuild('spring-demo').task(':config-client:clean')
@@ -32,6 +32,7 @@ tasks.register('clean') {
     dependsOn gradle.includedBuild('spring-demo').task(':gateway:clean')
     dependsOn gradle.includedBuild('spring-demo').task(':jpa:clean')
     dependsOn gradle.includedBuild('spring-demo').task(':user:clean')
+
     dependsOn gradle.includedBuild('spring-dependency').task(':commons:clean')
     dependsOn gradle.includedBuild('spring-dependency').task(':database-depency:clean')
     dependsOn gradle.includedBuild('spring-dependency').task(':eureka-client:clean')
@@ -39,10 +40,12 @@ tasks.register('clean') {
     dependsOn gradle.includedBuild('spring-dependency').task(':spring-depency:clean')
     dependsOn gradle.includedBuild('spring-dependency').task(':spring-web:clean')
     dependsOn gradle.includedBuild('spring-dependency').task(':springboot-hottask-starter:clean')
+
     dependsOn gradle.includedBuild('spring-guides').task(':consuming-web-service:clean')
     dependsOn gradle.includedBuild('spring-guides').task(':producing-web-service:clean')
     dependsOn gradle.includedBuild('spring-guides').task(':uploading-files:clean')
     dependsOn gradle.includedBuild('spring-guides').task(':validating-form-input:clean')
     dependsOn gradle.includedBuild('spring-guides').task(':messaging-stomp-websocket:clean')
+    dependsOn gradle.includedBuild('spring-guides').task(':authenticating-ldap:clean')
 //    dependsOn gradle.includedBuild('tank').task(':clean')
 }
