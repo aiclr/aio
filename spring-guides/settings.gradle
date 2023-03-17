@@ -10,4 +10,5 @@
 rootProject.name = 'spring-guides'
 include('producing-web-service')
 include('consuming-web-service')
+include('uploading-files')
 include('validating-form-input')
