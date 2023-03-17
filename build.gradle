@@ -23,7 +23,7 @@ tasks.register('clean') {
     dependsOn gradle.includedBuild('jvm').task(':clean')
     dependsOn gradle.includedBuild('spring').task(':clean')
 
-    dependsOn gradle.includedBuild('spring-demo').task(':batch-processing:clean')
+//    dependsOn gradle.includedBuild('spring-demo').task(':batch-processing:clean')
     dependsOn gradle.includedBuild('spring-demo').task(':config-client:clean')
     dependsOn gradle.includedBuild('spring-demo').task(':config-server:clean')
     dependsOn gradle.includedBuild('spring-demo').task(':eureka:clean')
@@ -47,5 +47,6 @@ tasks.register('clean') {
     dependsOn gradle.includedBuild('spring-guides').task(':jpa:clean')
     dependsOn gradle.includedBuild('spring-guides').task(':async-method:clean')
     dependsOn gradle.includedBuild('spring-guides').task(':caching:clean')
+    dependsOn gradle.includedBuild('spring-guides').task(':batch-processing:clean')
 //    dependsOn gradle.includedBuild('tank').task(':clean')
 }

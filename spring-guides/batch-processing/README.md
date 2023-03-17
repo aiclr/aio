@@ -1,9 +1,10 @@
 # 批处理 将csv数据持久化到数据库
 
-# 参考
-## https://github.com/spring-guides/gs-batch-processing
-## https://spring.io/guides/gs/batch-processing/
-## https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#features.spring-application.application-exit
+# 参考文档
+
+- [spring demo](https://github.com/spring-guides/gs-batch-processing.git)
+- [spring guides](https://spring.io/guides/gs/batch-processing/)
+- [spring docs](https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/#features.spring-application.application-exit)
 
 # csv 文件与 excel 可以自由转换
 

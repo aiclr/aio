@@ -1,7 +1,0 @@
-dependencies {
-    implementation("org.bougainvilleas.spring:spring-depency:${projectVersion}")
-    implementation("com.alibaba:druid-spring-boot-starter:1.2.5")
-    runtimeOnly("mysql:mysql-connector-java")
-    implementation 'org.springframework.boot:spring-boot-starter-batch'
-    testImplementation 'org.springframework.batch:spring-batch-test'
-}
