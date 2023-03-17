@@ -1,0 +1,45 @@
+plugins {
+//    id 'org.springframework.boot' version '3.0.0'
+//    id 'io.spring.dependency-management' version '1.1.0'
+    id 'org.springframework.boot' version "${springBootVersion}"
+    id 'io.spring.dependency-management' version "${springManageVersion}"
+    id 'java'
+}
+
+group = 'org.bougainvilleas'
+version = '0.0.0'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+//    sourceCompatibility = JavaVersion.VERSION_17
+}
+
+repositories {
+    mavenLocal()
+    maven {
+        url 'https://maven.aliyun.com/repository/public/'
+    }
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation("com.alibaba:druid-spring-boot-starter:1.2.5")
+    runtimeOnly("mysql:mysql-connector-java")
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+// tag::bootjar[]
+bootJar {
+    archiveBaseName = "${project.name}"
+    archiveVersion = "${projectVersion}"
+    // MANIFEST.MF 增加属性
+    manifest{
+        attributes('Implementation-Version':"${projectVersion}", 'Implementation-Title':"${project.name}")
+    }
+}
+// end::bootjar[]
