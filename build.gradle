@@ -37,16 +37,7 @@ tasks.register('clean') {
     dependsOn gradle.includedBuild('spring-dependency').task(':spring-depency:clean')
     dependsOn gradle.includedBuild('spring-dependency').task(':spring-web:clean')
     dependsOn gradle.includedBuild('spring-dependency').task(':springboot-hottask-starter:clean')
+    dependsOn gradle.includedBuild('spring-guides').task(':clean')
 
-    dependsOn gradle.includedBuild('spring-guides').task(':consuming-web-service:clean')
-    dependsOn gradle.includedBuild('spring-guides').task(':producing-web-service:clean')
-    dependsOn gradle.includedBuild('spring-guides').task(':uploading-files:clean')
-    dependsOn gradle.includedBuild('spring-guides').task(':validating-form-input:clean')
-    dependsOn gradle.includedBuild('spring-guides').task(':messaging-stomp-websocket:clean')
-    dependsOn gradle.includedBuild('spring-guides').task(':authenticating-ldap:clean')
-    dependsOn gradle.includedBuild('spring-guides').task(':jpa:clean')
-    dependsOn gradle.includedBuild('spring-guides').task(':async-method:clean')
-    dependsOn gradle.includedBuild('spring-guides').task(':caching:clean')
-    dependsOn gradle.includedBuild('spring-guides').task(':batch-processing:clean')
 //    dependsOn gradle.includedBuild('tank').task(':clean')
 }

@@ -8,13 +8,13 @@
  */
 
 rootProject.name = 'spring-guides'
-include('producing-web-service')
-include('consuming-web-service')
-include('uploading-files')
-include('validating-form-input')
-include('messaging-stomp-websocket')
-include('authenticating-ldap')
-include('jpa')
-include('async-method')
-include('caching')
-include('batch-processing')
+includeBuild('producing-web-service')
+includeBuild('consuming-web-service')
+includeBuild('uploading-files')
+includeBuild('validating-form-input')
+includeBuild('messaging-stomp-websocket')
+includeBuild('authenticating-ldap')
+includeBuild('jpa')
+includeBuild('async-method')
+includeBuild('caching')
+includeBuild('batch-processing')
