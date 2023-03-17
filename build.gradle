@@ -31,7 +31,6 @@ tasks.register('clean') {
     dependsOn gradle.includedBuild('spring-demo').task(':eureka:clean')
     dependsOn gradle.includedBuild('spring-demo').task(':gateway:clean')
     dependsOn gradle.includedBuild('spring-demo').task(':jpa:clean')
-    dependsOn gradle.includedBuild('spring-demo').task(':messaging-stomp-websocket:clean')
     dependsOn gradle.includedBuild('spring-demo').task(':user:clean')
     dependsOn gradle.includedBuild('spring-dependency').task(':commons:clean')
     dependsOn gradle.includedBuild('spring-dependency').task(':database-depency:clean')
@@ -44,5 +43,6 @@ tasks.register('clean') {
     dependsOn gradle.includedBuild('spring-guides').task(':producing-web-service:clean')
     dependsOn gradle.includedBuild('spring-guides').task(':uploading-files:clean')
     dependsOn gradle.includedBuild('spring-guides').task(':validating-form-input:clean')
+    dependsOn gradle.includedBuild('spring-guides').task(':messaging-stomp-websocket:clean')
 //    dependsOn gradle.includedBuild('tank').task(':clean')
 }
