@@ -2,7 +2,8 @@
 //    dependsOn gradle.includedBuild('my-app').task(':app:run')
 //}
 
-tasks.register('clean') {
+tasks.register('clean-groovy-java'){
+    group 'build'
     dependsOn gradle.includedBuild('groovy-java').task(':gradle-plugins:clean')
     dependsOn gradle.includedBuild('groovy-java').task(':gradle-tasks:clean')
     dependsOn gradle.includedBuild('groovy-java').task(':groovy-app:clean')
@@ -14,6 +15,49 @@ tasks.register('clean') {
     dependsOn gradle.includedBuild('groovy-java').task(':java-list:clean')
     dependsOn gradle.includedBuild('groovy-java').task(':java-utilities:clean')
     dependsOn gradle.includedBuild('groovy-java').task(':spring-app:clean')
+}
+
+tasks.register('clean-spring-guides'){
+    group 'build'
+    dependsOn gradle.includedBuild('spring-guides').task(':async-method:clean')
+    dependsOn gradle.includedBuild('spring-guides').task(':authenticating-ldap:clean')
+    dependsOn gradle.includedBuild('spring-guides').task(':batch-processing:clean')
+    dependsOn gradle.includedBuild('spring-guides').task(':caching:clean')
+    dependsOn gradle.includedBuild('spring-guides').task(':consuming-web-service:clean')
+    dependsOn gradle.includedBuild('spring-guides').task(':jpa:clean')
+    dependsOn gradle.includedBuild('spring-guides').task(':messaging-stomp-websocket:clean')
+    dependsOn gradle.includedBuild('spring-guides').task(':producing-web-service:clean')
+    dependsOn gradle.includedBuild('spring-guides').task(':springboot-hottask-starter:clean')
+    dependsOn gradle.includedBuild('spring-guides').task(':uploading-files:clean')
+    dependsOn gradle.includedBuild('spring-guides').task(':validating-form-input:clean')
+}
+
+tasks.register('clean-spring-dependency'){
+    group 'build'
+    dependsOn gradle.includedBuild('spring-dependency').task(':commons:clean')
+    dependsOn gradle.includedBuild('spring-dependency').task(':database-depency:clean')
+    dependsOn gradle.includedBuild('spring-dependency').task(':eureka-client:clean')
+    dependsOn gradle.includedBuild('spring-dependency').task(':redis-depency:clean')
+    dependsOn gradle.includedBuild('spring-dependency').task(':spring-depency:clean')
+    dependsOn gradle.includedBuild('spring-dependency').task(':spring-web:clean')
+}
+
+tasks.register('clean-spring-demo'){
+    group 'build'
+    dependsOn gradle.includedBuild('spring-demo').task(':config-client:clean')
+    dependsOn gradle.includedBuild('spring-demo').task(':config-server:clean')
+    dependsOn gradle.includedBuild('spring-demo').task(':eureka:clean')
+    dependsOn gradle.includedBuild('spring-demo').task(':gateway:clean')
+    dependsOn gradle.includedBuild('spring-demo').task(':user:clean')
+}
+
+tasks.register('clean') {
+    group 'build'
+    dependsOn 'clean-groovy-java'
+    dependsOn 'clean-spring-guides'
+    dependsOn 'clean-spring-demo'
+    dependsOn 'clean-spring-dependency'
+
     dependsOn gradle.includedBuild('java-151').task(':clean')
     dependsOn gradle.includedBuild('java-data-structure-algorithm').task(':clean')
     dependsOn gradle.includedBuild('java-design-pattern').task(':clean')
@@ -23,21 +67,25 @@ tasks.register('clean') {
     dependsOn gradle.includedBuild('jvm').task(':clean')
     dependsOn gradle.includedBuild('spring').task(':clean')
 
-//    dependsOn gradle.includedBuild('spring-demo').task(':batch-processing:clean')
-    dependsOn gradle.includedBuild('spring-demo').task(':config-client:clean')
-    dependsOn gradle.includedBuild('spring-demo').task(':config-server:clean')
-    dependsOn gradle.includedBuild('spring-demo').task(':eureka:clean')
-    dependsOn gradle.includedBuild('spring-demo').task(':gateway:clean')
-    dependsOn gradle.includedBuild('spring-demo').task(':user:clean')
-
-    dependsOn gradle.includedBuild('spring-dependency').task(':commons:clean')
-    dependsOn gradle.includedBuild('spring-dependency').task(':database-depency:clean')
-    dependsOn gradle.includedBuild('spring-dependency').task(':eureka-client:clean')
-    dependsOn gradle.includedBuild('spring-dependency').task(':redis-depency:clean')
-    dependsOn gradle.includedBuild('spring-dependency').task(':spring-depency:clean')
-    dependsOn gradle.includedBuild('spring-dependency').task(':spring-web:clean')
-
-    dependsOn gradle.includedBuild('spring-guides').task(':clean')
-
 //    dependsOn gradle.includedBuild('tank').task(':clean')
+}
+
+tasks.register('build-spring-guides'){
+    group 'build'
+    dependsOn gradle.includedBuild('spring-guides').task(':async-method:build')
+    dependsOn gradle.includedBuild('spring-guides').task(':authenticating-ldap:build')
+    dependsOn gradle.includedBuild('spring-guides').task(':batch-processing:build')
+    dependsOn gradle.includedBuild('spring-guides').task(':caching:build')
+//    dependsOn gradle.includedBuild('spring-guides').task(':consuming-web-service:build')
+    dependsOn gradle.includedBuild('spring-guides').task(':jpa:build')
+    dependsOn gradle.includedBuild('spring-guides').task(':messaging-stomp-websocket:build')
+    dependsOn gradle.includedBuild('spring-guides').task(':producing-web-service:build')
+    dependsOn gradle.includedBuild('spring-guides').task(':springboot-hottask-starter:build')
+    dependsOn gradle.includedBuild('spring-guides').task(':uploading-files:build')
+    dependsOn gradle.includedBuild('spring-guides').task(':validating-form-input:build')
+}
+
+tasks.register('build') {
+    group 'build'
+    dependsOn 'build-spring-guides'
 }
