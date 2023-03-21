@@ -36,7 +36,7 @@ tasks.register('clean') {
     dependsOn gradle.includedBuild('spring-dependency').task(':redis-depency:clean')
     dependsOn gradle.includedBuild('spring-dependency').task(':spring-depency:clean')
     dependsOn gradle.includedBuild('spring-dependency').task(':spring-web:clean')
-    dependsOn gradle.includedBuild('spring-dependency').task(':springboot-hottask-starter:clean')
+
     dependsOn gradle.includedBuild('spring-guides').task(':clean')
 
 //    dependsOn gradle.includedBuild('tank').task(':clean')

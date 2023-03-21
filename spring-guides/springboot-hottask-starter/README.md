@@ -2,19 +2,23 @@
 
 | version | org.springframework.boot | io.spring.dependency-management | jdk |
 |:--------|:-------------------------|:--------------------------------|:----|
-| 0.0.3   | 2.7.1                    | 1.0.11.RELEASE                  | 1.8 |
+| 0.0.0   | 2.7.9                    | 1.1.0                           | 1.8 |
 
 ## 使用
 
 ### 发布到本地maven仓库
 
 1. gradle publishMavenPublicationToMavenLocal 发布到本地仓库
-2. gradle 引入 `implementation 'org.bougainvilleas.spring:springboot-hottask-starter:x.x.x'`
+2. gradle 引入 `implementation 'org.bougainvilleas:springboot-hottask-starter:x.x.x'`
 
 ### 直接导入本地jar包
 
-1. gradle build ***springboot-hottask-starter-x.x.x-plain.jar***
+1. gradle build 打包 ***springboot-hottask-starter-x.x.x.jar*** 放到项目libs目录下
 2. `implementation fileTree(dir: 'libs', include: '*.jar')`
+
+### gradle-8.0
+
+1. 借助复合项目<sub>gradle8.0新特性</sub>gradle直接引入模块且不需要版本号 `implementation 'spring-guides:springboot-hottask-starter'`
 
 ### 配置
 

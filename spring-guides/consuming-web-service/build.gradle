@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'org.bougainvilleas'
-version = '0.0.0'
+version = "${projectVersion}"
 
 java {
     sourceCompatibility = JavaVersion.VERSION_1_8
