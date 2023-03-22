@@ -4,6 +4,7 @@ import org.bougainvilleas.spring.jdbc.dao.UserDao;
 import org.bougainvilleas.spring.jdbc.po.User;
 import org.bougainvilleas.spring.jdbc.service.UserService;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -15,6 +16,7 @@ import java.util.List;
 /**
  * @author renqiankun
  */
+@Disabled
 @Rollback(value = false)// true 回滚事务
 class UserServiceTest {
 

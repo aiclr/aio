@@ -32,7 +32,6 @@ spring:
           enabled: false
   flyway: #flyway相关配置
 #    locations: classpath:db/migration/mysql/dev  #${spring.profiles.active}
-    check-location: true
     enabled: true #是否启用
     encoding: UTF-8 #编码
     sql-migration-prefix: V #脚本前缀，默认V大写

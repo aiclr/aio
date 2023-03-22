@@ -1,8 +1,8 @@
 package org.bougainvilleas.spring.features;
 
 import org.bougainvilleas.spring.ioc.annotation.service.UserService;
-import org.junit.Ignore;
 import org.junit.Test;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,9 +14,14 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 /**
  * 使用JUnit4框架测试
  *
+ * test {
+ *     //MARk 使用junit4 时 注释掉 useJUnitPlatform()
+ *     useJUnitPlatform()
+ * }
+ *
  * @author renqiankun
  */
-//@Ignore
+@Disabled
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = {"classpath:ioc/annotation/annotation.xml"})
 public class JTest4

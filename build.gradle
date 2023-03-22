@@ -85,7 +85,56 @@ tasks.register('build-spring-guides'){
     dependsOn gradle.includedBuild('spring-guides').task(':validating-form-input:build')
 }
 
+tasks.register('build-groovy-java'){
+    group 'build'
+    dependsOn gradle.includedBuild('groovy-java').task(':gradle-plugins:build')
+    dependsOn gradle.includedBuild('groovy-java').task(':gradle-tasks:build')
+    dependsOn gradle.includedBuild('groovy-java').task(':groovy-app:build')
+    dependsOn gradle.includedBuild('groovy-java').task(':groovy-list:build')
+    dependsOn gradle.includedBuild('groovy-java').task(':groovy-study:build')
+    dependsOn gradle.includedBuild('groovy-java').task(':groovy-utilities:build')
+    dependsOn gradle.includedBuild('groovy-java').task(':java-agent:build')
+    dependsOn gradle.includedBuild('groovy-java').task(':java-app:build')
+    dependsOn gradle.includedBuild('groovy-java').task(':java-list:build')
+    dependsOn gradle.includedBuild('groovy-java').task(':java-utilities:build')
+    dependsOn gradle.includedBuild('groovy-java').task(':spring-app:build')
+}
+
+tasks.register('build-spring-dependency'){
+    group 'build'
+    dependsOn gradle.includedBuild('spring-dependency').task(':commons:build')
+    dependsOn gradle.includedBuild('spring-dependency').task(':database-depency:build')
+    dependsOn gradle.includedBuild('spring-dependency').task(':eureka-client:build')
+    dependsOn gradle.includedBuild('spring-dependency').task(':redis-depency:build')
+    dependsOn gradle.includedBuild('spring-dependency').task(':spring-depency:build')
+    dependsOn gradle.includedBuild('spring-dependency').task(':spring-web:build')
+}
+
+tasks.register('build-spring-demo'){
+    group 'build'
+    dependsOn gradle.includedBuild('spring-demo').task(':config-client:build')
+    dependsOn gradle.includedBuild('spring-demo').task(':config-server:build')
+    dependsOn gradle.includedBuild('spring-demo').task(':eureka:build')
+    dependsOn gradle.includedBuild('spring-demo').task(':gateway:build')
+    dependsOn gradle.includedBuild('spring-demo').task(':user:build')
+}
+
 tasks.register('build') {
     group 'build'
+    dependsOn 'clean'
     dependsOn 'build-spring-guides'
+    dependsOn 'build-groovy-java'
+    dependsOn 'build-spring-dependency'
+    dependsOn 'build-spring-demo'
+
+    dependsOn gradle.includedBuild('java-151').task(':build')
+    dependsOn gradle.includedBuild('java-data-structure-algorithm').task(':build')
+    dependsOn gradle.includedBuild('java-design-pattern').task(':build')
+    dependsOn gradle.includedBuild('java-io').task(':build')
+    dependsOn gradle.includedBuild('java-juc').task(':build')
+//    dependsOn gradle.includedBuild('java-modular-gradle').task(':build')
+    dependsOn gradle.includedBuild('jvm').task(':build')
+    dependsOn gradle.includedBuild('spring').task(':build')
+
+//    dependsOn gradle.includedBuild('tank').task(':build')
 }

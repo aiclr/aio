@@ -11,5 +11,8 @@ class GreetingTaskTest {
         Project project = ProjectBuilder.builder().build()
         def task = project.task('greeting', type: GreetingTask)
         Assert.assertTrue(task instanceof GreetingTask)
+
+        def task2 = project.tasks.register('greeting2',GreetingTask).get()
+        Assert.assertTrue(task2 instanceof GreetingTask)
     }
 }

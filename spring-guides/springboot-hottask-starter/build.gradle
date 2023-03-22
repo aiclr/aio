@@ -31,7 +31,11 @@ dependencyManagement {
 }
 
 dependencies {
-      compileOnly('org.springframework.boot:spring-boot-starter-json')
+    compileOnly('org.springframework.boot:spring-boot-starter-json')
+    // jdk9+
+    compileOnly 'javax.xml.bind:jaxb-api:2.3.1'
+    compileOnly 'com.sun.xml.bind:jaxb-core:4.0.2'
+    compileOnly 'com.sun.xml.bind:jaxb-impl:4.0.2'
 }
 
 //bootJar.enabled(false)

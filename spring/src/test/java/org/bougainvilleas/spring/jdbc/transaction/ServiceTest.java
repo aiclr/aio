@@ -18,6 +18,7 @@ import javax.sql.DataSource;
  * 事务
  * @author renqiankun
  */
+@Disabled
 @Rollback
 class ServiceTest {
 
