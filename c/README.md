@@ -4,6 +4,7 @@
 |:---|
 |[C Primer Plus 第6版 中文版](cprimerplus/README.md#c-primer-plus)|
 |[Linux程序设计 第4版](linuxprogramming/README.md#Beginning-Linux-Programming)|
+|[CMake](cmake/README.md)|
 
 ## gcc
 
