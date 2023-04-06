@@ -12,6 +12,10 @@
 > [c primer plus](c/cprimerplus/README.md) \
 > [Linux程序设计](c/linuxprogramming/README.md)
 
+## algorithms
+
+> 算法学习，并使用c、go、groovy实现
+
 ## java-modular
 
 > java9 模块化
