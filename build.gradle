@@ -31,6 +31,7 @@ tasks.register('clean-spring-guides'){
     dependsOn gradle.includedBuild('spring-guides').task(':uploading-files:clean')
     dependsOn gradle.includedBuild('spring-guides').task(':validating-form-input:clean')
     dependsOn gradle.includedBuild('spring-guides').task(':actuator-service:clean')
+    dependsOn gradle.includedBuild('spring-guides').task(':securing-web:clean')
 }
 
 tasks.register('clean-spring-dependency'){
@@ -85,6 +86,7 @@ tasks.register('build-spring-guides'){
     dependsOn gradle.includedBuild('spring-guides').task(':uploading-files:build')
     dependsOn gradle.includedBuild('spring-guides').task(':validating-form-input:build')
     dependsOn gradle.includedBuild('spring-guides').task(':actuator-service:build')
+    dependsOn gradle.includedBuild('spring-guides').task(':securing-web:build')
 }
 
 tasks.register('build-groovy-java'){
