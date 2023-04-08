@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: actuator-service
+  main:
+    banner-mode: log
+
+server:
+  port: ${PORT:9000}
+
+management:
+  server:
+    port: 9001
+    address: 127.0.0.1
+
+#debug: true
