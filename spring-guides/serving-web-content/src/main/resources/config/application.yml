@@ -1,6 +1,6 @@
 spring:
   application:
-    name: securing-web
+    name: serving-web-content
   main:
     banner-mode: log
 
