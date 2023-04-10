@@ -33,6 +33,7 @@ tasks.register('clean-spring-guides'){
     dependsOn gradle.includedBuild('spring-guides').task(':actuator-service:clean')
     dependsOn gradle.includedBuild('spring-guides').task(':securing-web:clean')
     dependsOn gradle.includedBuild('spring-guides').task(':integration:clean')
+    dependsOn gradle.includedBuild('spring-guides').task(':serving-web-content:clean')
 }
 
 tasks.register('clean-spring-dependency'){
@@ -89,6 +90,7 @@ tasks.register('build-spring-guides'){
     dependsOn gradle.includedBuild('spring-guides').task(':actuator-service:build')
     dependsOn gradle.includedBuild('spring-guides').task(':securing-web:build')
     dependsOn gradle.includedBuild('spring-guides').task(':integration:build')
+    dependsOn gradle.includedBuild('spring-guides').task(':serving-web-content:build')
 }
 
 tasks.register('build-groovy-java'){
