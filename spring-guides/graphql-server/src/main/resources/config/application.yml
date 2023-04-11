@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: graphql-server
+  main:
+    banner-mode: log
+  graphql:
+    graphiql:
+      enabled: true
+
+server:
+  port: ${PORT:8080}
+
+#debug: true

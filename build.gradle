@@ -38,6 +38,7 @@ tasks.register('clean-spring-guides'){
     dependsOn gradle.includedBuild('spring-guides').task(':testing-web:clean')
     dependsOn gradle.includedBuild('spring-guides').task(':testing-restdocs:clean')
     dependsOn gradle.includedBuild('spring-guides').task(':reactive-rest-service:clean')
+    dependsOn gradle.includedBuild('spring-guides').task(':graphql-server:clean')
 }
 
 tasks.register('clean-spring-dependency'){
@@ -99,6 +100,7 @@ tasks.register('build-spring-guides'){
     dependsOn gradle.includedBuild('spring-guides').task(':testing-web:build')
     dependsOn gradle.includedBuild('spring-guides').task(':testing-restdocs:build')
     dependsOn gradle.includedBuild('spring-guides').task(':reactive-rest-service:build')
+    dependsOn gradle.includedBuild('spring-guides').task(':graphql-server:build')
 }
 
 tasks.register('build-groovy-java'){
