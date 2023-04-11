@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: reactive-rest-service
+  main:
+    banner-mode: log
+
+server:
+  port: ${PORT:8080}
+
+#debug: true
