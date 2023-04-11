@@ -1,0 +1,62 @@
+plugins {
+//    id 'org.springframework.boot' version '3.0.0'
+//    id 'io.spring.dependency-management' version '1.1.0'
+    id 'org.springframework.boot' version "${springBootVersion}"
+    id 'io.spring.dependency-management' version "${springManageVersion}"
+    id 'org.asciidoctor.convert' version "${asciidoctorVersion}"
+    id 'java'
+}
+
+group = 'org.bougainvilleas'
+version = "${projectVersion}"
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+//    sourceCompatibility = JavaVersion.VERSION_17
+}
+
+repositories {
+    mavenLocal()
+    maven {
+        url 'https://maven.aliyun.com/repository/public/'
+    }
+    mavenCentral()
+}
+
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    // tag::test[]
+    testImplementation 'org.springframework.restdocs:spring-restdocs-mockmvc'
+    // end::test[]
+
+}
+
+ext {
+    set('snippetsDir', file("build/generated-snippets"))
+}
+
+test {
+    outputs.dir snippetsDir
+    useJUnitPlatform()
+}
+
+tasks.named('asciidoctor') {
+    inputs.dir snippetsDir
+    dependsOn test
+    sourceDir 'src/main/asciidoc'
+    attributes  \
+       'snippets': file('target/snippets')
+}
+
+// tag::bootjar[]
+bootJar {
+    archiveBaseName = "${project.name}"
+    archiveVersion = "${projectVersion}"
+    // MANIFEST.MF 增加属性
+    manifest {
+        attributes('Implementation-Version': "${projectVersion}", 'Implementation-Title': "${project.name}")
+    }
+}
+// end::bootjar[]

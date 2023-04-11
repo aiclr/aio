@@ -36,6 +36,7 @@ tasks.register('clean-spring-guides'){
     dependsOn gradle.includedBuild('spring-guides').task(':serving-web-content:clean')
     dependsOn gradle.includedBuild('spring-guides').task(':rest-service-cors:clean')
     dependsOn gradle.includedBuild('spring-guides').task(':testing-web:clean')
+    dependsOn gradle.includedBuild('spring-guides').task(':testing-restdocs:clean')
 }
 
 tasks.register('clean-spring-dependency'){
@@ -95,6 +96,7 @@ tasks.register('build-spring-guides'){
     dependsOn gradle.includedBuild('spring-guides').task(':serving-web-content:build')
     dependsOn gradle.includedBuild('spring-guides').task(':rest-service-cors:build')
     dependsOn gradle.includedBuild('spring-guides').task(':testing-web:build')
+    dependsOn gradle.includedBuild('spring-guides').task(':testing-restdocs:build')
 }
 
 tasks.register('build-groovy-java'){

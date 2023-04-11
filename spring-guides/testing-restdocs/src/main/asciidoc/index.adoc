@@ -1,0 +1,11 @@
+= Getting Started With Spring REST Docs
+
+This is an example output for a service running at http://localhost:30000:
+
+.request
+include::../../../build/snippets/home/http-request.adoc[]
+
+.response
+include::../../../build/snippets/home/http-response.adoc[]
+
+As you can see the format is very simple. In fact, you always get the same message.

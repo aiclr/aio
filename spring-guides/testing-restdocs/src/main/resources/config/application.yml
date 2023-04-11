@@ -1,0 +1,10 @@
+spring:
+  application:
+    name: testing-restdocs
+  main:
+    banner-mode: log
+
+server:
+  port: ${PORT:30000}
+
+#debug: true
