@@ -1,4 +1,4 @@
-HOSTNAME: blackbox # 本服务实例域名
+HOSTNAME: mi # 本服务实例域名
 PORT: 10001 # 本服务实例端口
 GZ_IP: 127.0.0.1 # eureka 注册中心ip
 GZ_PORT: 8761 # eureka 注册中心端口

@@ -1,16 +1,18 @@
 buildscript {
     ext {
-        set('projectVersion', "0.0.3")
+        set('projectVersion', "0.0.4")
 
-        set('LombokVersion', "1.18.20")
-        set('junitVersion', "5.8.1")
+        set('LombokVersion', "1.18.26")
+        set('junitVersion', "5.8.2")
 
-        set('springCloudVersion', "2021.0.1")
-        set('springBootVersion', "2.6.4")
-        set('springdoc', "1.6.6")//org.springdoc:springdoc-openapi-ui
+        set('springCloudVersion', "2021.0.3")
+        set('springBootVersion', "2.7.9")
+        set('springdoc', "1.6.15")//org.springdoc:springdoc-openapi-ui
         set('jasypt', "3.0.5")//"com.github.ulisesbocchio:jasypt-spring-boot-starter
-        set('springManageVersion', "1.0.11.RELEASE")
+        set('springManageVersion', "1.1.0")
 
+        set('mysqlVersion', "8.0.32")
+        set('druidVersion', "1.2.16")
     }
 }
 

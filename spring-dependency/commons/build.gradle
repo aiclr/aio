@@ -13,9 +13,9 @@ dependencyManagement {
 dependencies {
     api("org.apache.commons:commons-lang3")
     api("com.google.code.gson:gson")
-    api('org.bouncycastle:bcpg-jdk15on:1.69')
+    api('org.bouncycastle:bcpg-jdk15on:1.70')
     api("io.jsonwebtoken:jjwt:0.9.1")
-    api('org.yaml:snakeyaml:1.29')
+    api('org.yaml:snakeyaml:2.0')
 }
 
 //    发布 jar 到 maven 本地仓库
