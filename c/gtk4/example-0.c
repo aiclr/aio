@@ -16,22 +16,38 @@ static void activate(GtkApplication *app, gpointer user_date)
 	window = gtk_application_window_new(app);
 	/**
 	 * A window title is set using gtk_window_set_title().
-	 * 
-	 * This function takes a GtkWindow pointer and a string as input. 
-	 * As our window pointer is a GtkWidget pointer, 
+	 *
+	 * This function takes a GtkWindow pointer and a string as input.
+	 * As our window pointer is a GtkWidget pointer,
 	 * we need to cast it to GtkWindow;
-	 * instead of casting window via a typical C cast like (GtkWindow*), 
+	 * instead of casting window via a typical C cast like (GtkWindow*),
 	 * window can be cast using the macro(宏) GTK_WINDOW().
-	 * 
-	 * GTK_WINDOW() will check if the pointer is an instance of the GtkWindow class, before casting, 
-	 * and emit(发出)) a warning if the check fails. 
+	 *
+	 * GTK_WINDOW() will check if the pointer is an instance of the GtkWindow class, before casting,
+	 * and emit(发出)) a warning if the check fails.
 	 * More information about this convention can be found in the GObject documentation https://docs.gtk.org/gobject/concepts.html#conventions.
 	 */
 	gtk_window_set_title(GTK_WINDOW(window), "Window");
 	/* the window size is set using gtk_window_set_default_size() */
 	gtk_window_set_default_size(GTK_WINDOW(window), 200, 200);
-	/* the window is then shown by GTK via gtk_widget_show() */
-	gtk_widget_show(window);
+	/**
+	 * deprecated: 4.10
+	 * ‘gtk_widget_show’ is deprecated: Use 'gtk_widget_set_visible or gtk_window_present' instead
+	 *
+	 *  the window is then shown by GTK via gtk_widget_show()
+	 *
+	 *  void gtk_widget_show (GtkWidget* widget)
+	 *  gtk_widget_show(window);
+	 *
+	 *  void gtk_widget_set_visible (GtkWidget* widget,gboolean visible)
+	 *  gtk_widget_set_visible(window, TRUE);
+	 *  https://docs.gtk.org/gtk4/method.Widget.set_visible.html
+	 *
+	 *  void gtk_window_present(GtkWindow* window)
+	 *  gtk_window_present(GTK_WINDOW(window));
+	 *
+	 */
+	gtk_window_present(GTK_WINDOW(window));
 }
 
 int main(int argc, char **argv)
@@ -67,10 +83,10 @@ int main(int argc, char **argv)
 	status = g_application_run(G_APPLICATION(app), argc, argv);
 	/**
 	 * When you close the window, by (for example) pressing the X button,
-	 * the g_application_run() call returns with a number which is saved inside an integer variable named status. 
-	 * Afterwards, the GtkApplication object is freed from memory with g_object_unref(). 
+	 * the g_application_run() call returns with a number which is saved inside an integer variable named status.
+	 * Afterwards, the GtkApplication object is freed from memory with g_object_unref().
 	 * Finally the status integer is returned and the application exits
-	*/
+	 */
 	g_object_unref(app);
 	return status;
 }

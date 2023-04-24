@@ -1,3 +1,4 @@
+/* Packing buttons */
 #include <gtk/gtk.h>
 
 static void print_hello(GtkWidget *widget, gpointer data)
@@ -45,8 +46,24 @@ static void activate(GtkApplication *app, gpointer user_data)
      */
     gtk_grid_attach(GTK_GRID(grid), button, 0, 1, 2, 1);
 
-    /* the window is then shown by GTK via gtk_widget_show() */
-    gtk_widget_show(window);
+    /**
+     * deprecated: 4.10
+     * ‘gtk_widget_show’ is deprecated: Use 'gtk_widget_set_visible or gtk_window_present' instead
+     *
+     *  the window is then shown by GTK via gtk_widget_show()
+     *
+     *  void gtk_widget_show (GtkWidget* widget)
+     *  gtk_widget_show(window);
+     *
+     *  void gtk_widget_set_visible (GtkWidget* widget,gboolean visible)
+     *  gtk_widget_set_visible(window, TRUE);
+     *  https://docs.gtk.org/gtk4/method.Widget.set_visible.html
+     *
+     *  void gtk_window_present(GtkWindow* window)
+     *  gtk_window_present(GTK_WINDOW(window));
+     *
+     */
+    gtk_window_present(GTK_WINDOW(window));
 }
 
 int main(int argc, char **argv)

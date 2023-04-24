@@ -13,13 +13,14 @@ static void quit_cb(GtkWindow *window)
 /**
  * GtkBuilder can also be used to construct objects that are not widgets, such as tree models, adjustments, etc.
  * That is the reason the method we use here is called gtk_builder_get_object() and returns a GObject instead of a GtkWidget
- * 
- * Using GResource it is possible to combine the best of both worlds: 
+ *
+ * Using GResource it is possible to combine the best of both worlds:
  *      you can keep the UI definition files separate inside your source code repository,
  *      and then ship them embedded(把...嵌入) into your application.
  */
 static void activate(GtkApplication *app, gpointer user_data)
 {
+    /* Construct a GtkBuilder instance and load our UI description */
     GtkBuilder *builder = gtk_builder_new();
     /**
      * Normally, you would pass a full path to gtk_builder_add_from_file() to make the execution of your program independent of the current directory.
@@ -32,7 +33,7 @@ static void activate(GtkApplication *app, gpointer user_data)
      *   it is easier to restructure your UI into separate classes using composite widget templates
      */
     gtk_builder_add_from_file(builder, "builder.ui", NULL);
-
+    /* Connect signal handlers to the constructed widgets. */
     GObject *window = gtk_builder_get_object(builder, "window");
     gtk_window_set_application(GTK_WINDOW(window), app);
 
@@ -45,8 +46,25 @@ static void activate(GtkApplication *app, gpointer user_data)
     button = gtk_builder_get_object(builder, "quit");
     g_signal_connect_swapped(button, "clicked", G_CALLBACK(quit_cb), window);
 
-    gtk_widget_show(GTK_WINDOW(window));
+    /**
+     * deprecated: 4.10
+     * ‘gtk_widget_show’ is deprecated: Use 'gtk_widget_set_visible or gtk_window_present' instead
+     *
+     *  the window is then shown by GTK via gtk_widget_show()
+     *
+     *  void gtk_widget_show (GtkWidget* widget)
+     *  gtk_widget_show(GTK_WINDOW(window));
+     *
+     *  void gtk_widget_set_visible (GtkWidget* widget,gboolean visible)
+     *  gtk_widget_set_visible(GTK_WINDOW(window), TRUE);
+     *  https://docs.gtk.org/gtk4/method.Widget.set_visible.html
+     *
+     *  void gtk_window_present(GtkWindow* window)
+     *
+     */
+    gtk_window_present(GTK_WINDOW(window));
 
+    /* We do not need the builder any more */
     g_object_unref(builder);
 }
 
