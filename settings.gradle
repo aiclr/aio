@@ -9,11 +9,12 @@
 
 rootProject.name = 'aio'
 includeBuild('groovy-java')
-includeBuild('java-151')
-includeBuild('java-data-structure-algorithm')
-includeBuild('java-design-pattern')
-includeBuild('java-io')
-includeBuild('java-juc')
+includeBuild('java-records')
+//includeBuild('java-151')
+//includeBuild('java-data-structure-algorithm')
+//includeBuild('java-design-pattern')
+//includeBuild('java-io')
+//includeBuild('java-juc')
 //includeBuild('java-modular-gradle')
 includeBuild('jvm')
 includeBuild('spring')

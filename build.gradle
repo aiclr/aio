@@ -120,7 +120,7 @@ tasks.register('build-spring-demo'){
 }
 
 tasks.register('clean-design-pattern') {
-    group 'clean'
+    group 'build'
     dependsOn gradle.includedBuild('design-pattern').task(':iljava:clean')
     dependsOn gradle.includedBuild('design-pattern').task(':ilgroovy:clean')
 }
@@ -131,20 +131,35 @@ tasks.register('build-design-pattern') {
     dependsOn gradle.includedBuild('design-pattern').task(':ilgroovy:build')
 }
 
+tasks.register('clean-java-records') {
+    group 'build'
+    dependsOn gradle.includedBuild('java-records').task(':java-151:clean')
+    dependsOn gradle.includedBuild('java-records').task(':java-io:clean')
+    dependsOn gradle.includedBuild('java-records').task(':java-juc:clean')
+    dependsOn gradle.includedBuild('java-records').task(':java-design-pattern:clean')
+    dependsOn gradle.includedBuild('java-records').task(':java-data-structure-algorithm:clean')
+}
+
+tasks.register('build-java-records') {
+    group 'build'
+    dependsOn gradle.includedBuild('java-records').task(':java-151:build')
+    dependsOn gradle.includedBuild('java-records').task(':java-io:build')
+    dependsOn gradle.includedBuild('java-records').task(':java-juc:build')
+    dependsOn gradle.includedBuild('java-records').task(':java-design-pattern:build')
+    dependsOn gradle.includedBuild('java-records').task(':java-data-structure-algorithm:build')
+}
+
 
 tasks.register('clean') {
     group 'build'
+    dependsOn 'clean-java-records'
     dependsOn 'clean-design-pattern'
     dependsOn 'clean-groovy-java'
     dependsOn 'clean-spring-guides'
     dependsOn 'clean-spring-demo'
     dependsOn 'clean-spring-dependency'
 
-    dependsOn gradle.includedBuild('java-151').task(':clean')
-    dependsOn gradle.includedBuild('java-data-structure-algorithm').task(':clean')
-    dependsOn gradle.includedBuild('java-design-pattern').task(':clean')
-    dependsOn gradle.includedBuild('java-io').task(':clean')
-    dependsOn gradle.includedBuild('java-juc').task(':clean')
+
 //    dependsOn gradle.includedBuild('java-modular-gradle').task(':clean')
     dependsOn gradle.includedBuild('jvm').task(':clean')
     dependsOn gradle.includedBuild('spring').task(':clean')
@@ -155,17 +170,14 @@ tasks.register('clean') {
 tasks.register('build') {
     group 'build'
     dependsOn 'clean'
+    dependsOn 'build-java-records'
     dependsOn 'build-design-pattern'
     dependsOn 'build-spring-guides'
     dependsOn 'build-groovy-java'
-//    dependsOn 'build-spring-dependency'
+    dependsOn 'build-spring-dependency'
     dependsOn 'build-spring-demo'
 
-    dependsOn gradle.includedBuild('java-151').task(':build')
-    dependsOn gradle.includedBuild('java-data-structure-algorithm').task(':build')
-    dependsOn gradle.includedBuild('java-design-pattern').task(':build')
-    dependsOn gradle.includedBuild('java-io').task(':build')
-    dependsOn gradle.includedBuild('java-juc').task(':build')
+
 //    dependsOn gradle.includedBuild('java-modular-gradle').task(':build')
     dependsOn gradle.includedBuild('jvm').task(':build')
     dependsOn gradle.includedBuild('spring').task(':build')
