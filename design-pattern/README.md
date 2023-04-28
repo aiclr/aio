@@ -1,6 +1,6 @@
 # design pattern
 
-## [Groovy](ilgroovy)
+## [Groovy](ilgroovy/README.md)
 
 > [Groovy官网](http://www.groovy-lang.org/design-patterns.html)
 
