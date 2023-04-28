@@ -5,48 +5,42 @@
 > 相互依赖模块可以不发布到本地maven仓库进行关联
 > > 例如：spring-demo下的jpa依赖 spring-dependency 部分模块
 > > > 在目录 `spring-demo/` 下执行build `gradle --include-build ../spring-dependency :jpa:build` \
-> > > 在目录 `spring-demo/jpa` 下执行build `gradle --include-build ../../spring-dependency build` 
+> > > 在目录 `spring-demo/jpa` 下执行build `gradle --include-build ../../spring-dependency build`
 
 ## [C](c/README.md)
 
-> [c primer plus](c/cprimerplus/README.md) \
-> [Linux程序设计](c/linuxprogramming/README.md)
+> [《C Primer Plus 第6版 中文版》](c/cprimerplus/README.md) \
+> [Linux程序设计 第4版](c/linuxprogramming/README.md) \
+> [GTK4](c/gtk4/README.md) \
+> [CMake](c/cmake/README.md) \
+> [C实现简单工厂模式](c/cmake/simple_factory/README.md)
 
-## algorithms
+## [algorithms](algorithms/README.md)
 
 > 算法学习，并使用c、go、groovy实现
 
-## java-modular
+## JVM
 
-> java9 模块化
+> [java 虚拟机](jvm/README.md)
 
-## [java-modular-gradle](java-modular-gradle/java-modular-svc/README.md)
+## java
 
-> gradle manage java9 modular
+> [java9 模块化](java-modular) \
+> [gradle 管理 java9 模块](java-modular-gradle/java-modular-svc/README.md) \
+> [《改善Java程序的151个建议》笔记](java-151/README.md) \
+> [java IO NIO](java-io/README.md) \
+> [java juc 多线程](java-juc/README.md) \
+> [设计模式 java](java-design-pattern/README.md) \
+> [数据结构与算法 java](java-data-structure-algorithm/README.md) \
 
-## [java-151](java-151/README.md)
+## [Groovy](groovy-java/README.md)
 
-> 《改善Java程序的151个建议》笔记
-
-## [java-io](java-io/README.md)
-
-> java IO NIO
-
-## [java-juc](java-juc/README.md)
-
-> java juc 多线程
-
-## [java-design-pattern](java-design-pattern/README.md)
-
-> 设计模式 java 实现
-
-## [java-data-structure-algorithm](java-data-structure-algorithm/README.md)
-
-> java 数据结构与算法
-
-## [jvm](jvm/README.md)
-
-> java 虚拟机
+> [《Groovy 程序设计》](groovy-java/groovy-study/README.md) \
+> [Groovy 官网设计模式](groovy-java/groovy-design-pattern/README.md) \
+> [javaagent 解密 JAVASE jar](groovy-java/java-agent/README.md) \
+> gradle 插件开发
+> > [gradle-plugins](groovy-java/gradle-plugins/README.md) \
+> > [gradle-tasks](groovy-java/gradle-tasks/README.md)
 
 ## [react](react/README.md)
 

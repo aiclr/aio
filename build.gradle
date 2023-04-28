@@ -15,6 +15,7 @@ tasks.register('clean-groovy-java'){
     dependsOn gradle.includedBuild('groovy-java').task(':java-list:clean')
     dependsOn gradle.includedBuild('groovy-java').task(':java-utilities:clean')
     dependsOn gradle.includedBuild('groovy-java').task(':spring-app:clean')
+    dependsOn gradle.includedBuild('groovy-java').task(':groovy-design-pattern:clean')
 }
 
 tasks.register('clean-spring-guides'){
@@ -116,6 +117,7 @@ tasks.register('build-groovy-java'){
     dependsOn gradle.includedBuild('groovy-java').task(':java-list:build')
     dependsOn gradle.includedBuild('groovy-java').task(':java-utilities:build')
     dependsOn gradle.includedBuild('groovy-java').task(':spring-app:build')
+    dependsOn gradle.includedBuild('groovy-java').task(':groovy-design-pattern:build')
 }
 
 tasks.register('build-spring-dependency'){

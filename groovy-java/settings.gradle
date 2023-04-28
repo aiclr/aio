@@ -28,5 +28,6 @@ include(
         'groovy-utilities',
         'groovy-study',
         'gradle-plugins',
-        'gradle-tasks'
+        'gradle-tasks',
+        'groovy-design-pattern'
 )
