@@ -21,4 +21,4 @@ includeBuild('spring-demo')
 includeBuild('spring-dependency')
 includeBuild('spring-guides')
 //includeBuild('tank')
-
+includeBuild('design-pattern')

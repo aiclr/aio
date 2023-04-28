@@ -1,0 +1,25 @@
+plugins {
+    // Apply the groovy Plugin to add support for Groovy.
+    id 'groovy'
+}
+
+repositories {
+    mavenLocal()
+    maven {
+        url 'https://maven.aliyun.com/repository/public/'
+    }
+    mavenCentral()
+}
+
+dependencies {
+    // Use the latest Groovy version for building this library
+    implementation 'org.codehaus.groovy:groovy-all:3.0.13'
+
+    // Use the awesome Spock testing and specification framework even with Java
+    testImplementation 'org.spockframework:spock-core:2.2-groovy-3.0'
+    testImplementation 'junit:junit:4.13.2'
+}
+tasks.named('test') {
+    // Use JUnit Platform for unit tests.
+    useJUnitPlatform()
+}

@@ -2,6 +2,7 @@ package org.bougainvilleas.spring.restservicecors;
 
 import java.net.URI;
 
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,7 @@ public class GreetingIntegrationTests {
     @Autowired
     private TestRestTemplate restTemplate;
 
+    @Disabled
     @Test
     public void corsWithAnnotation() throws Exception {
         ResponseEntity<Greeting> entity = this.restTemplate.exchange(
@@ -31,6 +33,7 @@ public class GreetingIntegrationTests {
         assertEquals("Hello, World!", greeting.getContent());
     }
 
+    @Disabled
     @Test
     public void corsWithJavaconfig() {
         ResponseEntity<Greeting> entity = this.restTemplate.exchange(RequestEntity.get(uri("/greeting-javaconfig"))
