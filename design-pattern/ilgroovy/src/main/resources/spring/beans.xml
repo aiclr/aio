@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:lang="http://www.springframework.org/schema/lang"
+       xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang.xsd">
+
+    <bean id="performanceInterceptor" autowire="no"
+          class="org.springframework.aop.interceptor.PerformanceMonitorInterceptor">
+        <property name="loggerName" value="performance"/>
+    </bean>
+    <bean id="calc" class="CalcImpl"/>
+    <bean class="org.springframework.aop.framework.autoproxy.BeanNameAutoProxyCreator">
+        <property name="beanNames" value="calc"/>
+        <property name="interceptorNames" value="performanceInterceptor"/>
+    </bean>
+</beans>

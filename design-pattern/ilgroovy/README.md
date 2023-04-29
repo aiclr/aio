@@ -15,3 +15,8 @@
 ## [Chain of Responsibility Pattern](src/main/groovy/org/bougainvilleas/ilg/designpattern/responsibility.groovy)
 
 > 责任链模式
+
+## [Decorator Pattern](src/main/groovy/org/bougainvilleas/ilg/designpattern/decorator.groovy)
+
+> 装饰器模式
+> [Decorating with Spring](src/main/resources/spring/decorator.groovy)

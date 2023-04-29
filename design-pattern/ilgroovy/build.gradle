@@ -14,6 +14,8 @@ repositories {
 dependencies {
     // Use the latest Groovy version for building this library
     implementation 'org.codehaus.groovy:groovy-all:3.0.13'
+    // @Grab 需要 apache ivy
+    implementation 'org.apache.ivy:ivy:2.5.1'
 
     // Use the awesome Spock testing and specification framework even with Java
     testImplementation 'org.spockframework:spock-core:2.2-groovy-3.0'
