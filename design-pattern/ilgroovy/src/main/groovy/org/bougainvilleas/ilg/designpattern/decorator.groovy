@@ -116,3 +116,13 @@ logger.log('new GenericTimeStampingDecorator(new UpperLogger(new Logger()))')
 
 logger =new GenericUpperDecorator(new GenericTimeStampingDecorator(new Logger()))
 logger.log('new GenericUpperDecorator(new GenericTimeStampingDecorator(new Logger()))')
+
+
+/**
+ * Runtime behaviour embellishment
+ */
+//current mechanism(机制) to enable ExpandoMetaClass
+//GroovySystem.metaClassRegistry.metaClassCreationHandle=new ExpandoMetaClassCreationHandle()
+logger=new Logger()
+logger.metaClass.log={String m-> println 'message: '+m.toUpperCase()}
+logger.log('Runtime behaviour embellishment')

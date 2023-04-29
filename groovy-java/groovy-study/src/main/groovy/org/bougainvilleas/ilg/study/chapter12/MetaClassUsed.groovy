@@ -10,9 +10,6 @@ package org.bougainvilleas.ilg.study.chapter12
  *  groovy.lang.ExpandoMetaClass 是 MetaClass 接口的众多不同实现之一
  *  默认情况下 groovy 目前并没有使用 groovy.lang.ExpandoMetaClass
  *  当我们向 metaClass 添加一个方法时，默认的 metaClass 会被用一个 groovy.lang.ExpandoMetaClass 实例替换掉
- *
- *
- *
  */
 
 def printMetaClassInfo(instance){
