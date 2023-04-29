@@ -1,5 +1,10 @@
 package org.bougainvilleas.ilg.designpattern
 
+import groovy.sql.Sql
+
+import java.lang.reflect.InvocationHandler
+import java.sql.Connection
+
 /**
  * 装饰器模式
  * 传统写法
@@ -187,5 +192,20 @@ logger = new Logger()
 logger.metaClass.log = { String m -> println 'message: ' + m.toUpperCase() }
 logger.log('GroovySystem.metaClassRegistry.metaClassCreationHandle=new ExpandoMetaClassCreationHandle()')
 
-
+/**
+ *  Decorating with java.lang.reflect.Proxy
+ */
+protected Sql getGroovySql(){
+    final Connection con = session.connection()
+    def invoker = { object,method,args->
+        if(method.name=="close"){
+            log.debug("ignoring call to Connection.close() for use by groovy.sql.Sql")
+        }else{
+            log.trace("delegating $method")
+            return con.invokeMethod(method.name,args)
+        }
+    } as InvocationHandler;
+    def proxy = Proxy.newProxyInstance(getClass().getClassLoader(),[Connection]as Class[],invoker)
+    return new Sql(proxy)
+}
 
