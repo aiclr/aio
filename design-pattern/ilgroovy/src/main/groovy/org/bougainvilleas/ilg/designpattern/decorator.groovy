@@ -44,8 +44,10 @@ logger.log("Hi There")
 /**
  * a touch of dynamic behaviour
  * 闭包三属性 this owner delegate
- * 利用delegate 动态写法
+ * 利用 delegate 动态写法
  */
+println "\n利用 delegate 动态写法"
+
 class GenericLowerDecorator {
     private delegate
 
@@ -108,21 +110,82 @@ class GenericTimeStampingDecorator {
 }
 
 
-logger =new GenericLowerDecorator(new TimeStampingLogger(new Logger()))
+logger = new GenericLowerDecorator(new TimeStampingLogger(new Logger()))
 logger.log('new GenericLowerDecorator(new TimeStampingLogger(new Logger()))')
 
-logger =new GenericTimeStampingDecorator(new UpperLogger(new Logger()))
+logger = new GenericTimeStampingDecorator(new UpperLogger(new Logger()))
 logger.log('new GenericTimeStampingDecorator(new UpperLogger(new Logger()))')
 
-logger =new GenericUpperDecorator(new GenericTimeStampingDecorator(new Logger()))
+logger = new GenericUpperDecorator(new GenericTimeStampingDecorator(new Logger()))
 logger.log('new GenericUpperDecorator(new GenericTimeStampingDecorator(new Logger()))')
 
+/**
+ * More dynamic decorating
+ */
+println "\n利用 delegate 动态写法"
+
+class Calc {
+    def add(a, b) { a + b }
+}
+
+class TracingDecorator {
+    private delegate
+
+    TracingDecorator(delegate) {
+        this.delegate = delegate
+    }
+
+    def invokeMethod(String name, args) {
+        println "Calling $name$args"
+        def before = System.currentTimeMillis()
+        def result = delegate.invokeMethod(name, args)
+        println "Got $result in ${System.currentTimeMillis() - before} ms"
+        result
+    }
+}
+
+def traceCalc = new TracingDecorator(new Calc())
+assert 15 == traceCalc.add(3, 12)
+
+/**
+ * Decorating with an Interceptor
+ * 用拦截器装饰
+ */
+println "\n利用ProxyMetaClass和TracingInterceptor，用拦截器装饰"
+
+class TimingInterceptor extends TracingInterceptor {
+    private beforeTime
+
+    def beforeInvoke(object, String methodName, Object[] arguments) {
+        super.beforeInvoke(object, methodName, arguments)
+        beforeTime = System.currentTimeMillis()
+    }
+
+    Object afterInvoke(Object object, String methodName, Object[] arguments, Object result) {
+        super.afterInvoke(object, methodName, arguments, result)
+        def duration = System.currentTimeMillis() - beforeTime
+        writer.write("Duration: $duration ms\n")
+        writer.flush()
+        result
+    }
+}
+
+def proxy = ProxyMetaClass.getInstance(Calc)
+proxy.interceptor = new TimingInterceptor()
+proxy.use {
+    assert 7 == new Calc().add(1, 6)
+}
 
 /**
  * Runtime behaviour embellishment
+ * 利用 ExpandoMetaClass 动态写法
  */
-//current mechanism(机制) to enable ExpandoMetaClass
-//GroovySystem.metaClassRegistry.metaClassCreationHandle=new ExpandoMetaClassCreationHandle()
-logger=new Logger()
-logger.metaClass.log={String m-> println 'message: '+m.toUpperCase()}
-logger.log('Runtime behaviour embellishment')
+println "\n利用 ExpandoMetaClass 动态写法"
+//下面一行 current mechanism(机制) to enable ExpandoMetaClass，注释掉也可以正常执行
+GroovySystem.metaClassRegistry.metaClassCreationHandle = new ExpandoMetaClassCreationHandle()
+logger = new Logger()
+logger.metaClass.log = { String m -> println 'message: ' + m.toUpperCase() }
+logger.log('GroovySystem.metaClassRegistry.metaClassCreationHandle=new ExpandoMetaClassCreationHandle()')
+
+
+
