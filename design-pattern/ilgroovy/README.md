@@ -18,5 +18,9 @@
 
 ## [Decorator Pattern](src/main/groovy/org/bougainvilleas/ilg/designpattern/decorator.groovy)
 
-> 装饰器模式
+> 装饰器模式 \
 > [Decorating with Spring](src/main/resources/spring/decorator.groovy)
+
+## [Delegation Pattern](src/main/groovy/org/bougainvilleas/ilg/designpattern/delegation.groovy)
+
+> 委托模式
