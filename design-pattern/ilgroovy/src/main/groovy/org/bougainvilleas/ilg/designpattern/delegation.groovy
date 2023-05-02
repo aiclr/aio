@@ -3,6 +3,7 @@ package org.bougainvilleas.ilg.designpattern
  * Delegation Pattern
  * 委托模式
  */
+println "Implement Delegation Pattern using ExpandoMetaClass"
 class Delegator {
     private targetClass
     private delegate
@@ -61,3 +62,24 @@ def p = new Person()
 
 println p.borrowFor('persent')
 println p.getMoney(50)
+
+/**
+ * @Delegate annotation
+ */
+println "Implement Delegation Pattern using @Delegate annotation"
+
+class Person2{
+    def name
+    @Delegate MortgageLender2 mortgageLender = new MortgageLender2()
+}
+class MortgageLender2{
+    def borrowAmount(amount){
+        "borrow \$$amount"
+    }
+    def borrowFor(thing){
+        "buy $thing"
+    }
+}
+def p2=new Person2()
+assert "buy present"==p2.borrowFor('present')
+assert "borrow \$50"==p2.borrowAmount(50)
