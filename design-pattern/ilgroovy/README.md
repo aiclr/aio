@@ -44,3 +44,9 @@
 ## [Null Object Pattern](src/main/groovy/org/bougainvilleas/ilg/designpattern/nullobject.groovy)
 
 > 空对象模式
+
+## [Pimp my Library Pattern](src/main/groovy/org/bougainvilleas/ilg/designpattern/pimpmylib.groovy)
+
+> 扩展库模式
+
+
