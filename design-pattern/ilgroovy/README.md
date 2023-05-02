@@ -40,3 +40,7 @@
 ## [Loan My Resource Pattern](src/main/groovy/org/bougainvilleas/ilg/designpattern/loanmyresource.groovy)
 
 > 出借资源模式
+
+## [Null Object Pattern](src/main/groovy/org/bougainvilleas/ilg/designpattern/nullobject.groovy)
+
+> 空对象模式
