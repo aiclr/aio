@@ -49,4 +49,8 @@
 
 > 扩展库模式
 
+## Proxy Pattern
 
+> 代理模式 \
+> [server](src/main/groovy/org/bougainvilleas/ilg/designpattern/proxyserver.groovy) \
+> [client](src/main/groovy/org/bougainvilleas/ilg/designpattern/proxyclient.groovy)
