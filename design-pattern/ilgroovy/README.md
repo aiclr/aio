@@ -16,6 +16,10 @@
 
 > 责任链模式
 
+## [Composite Pattern](src/main/groovy/org/bougainvilleas/ilg/designpattern/composite.groovy)
+
+> 组合模式
+
 ## [Decorator Pattern](src/main/groovy/org/bougainvilleas/ilg/designpattern/decorator.groovy)
 
 > 装饰器模式 \
@@ -24,3 +28,15 @@
 ## [Delegation Pattern](src/main/groovy/org/bougainvilleas/ilg/designpattern/delegation.groovy)
 
 > 委托模式
+
+## [Flyweight Pattern](src/main/groovy/org/bougainvilleas/ilg/designpattern/flyweight.groovy)
+
+> 蝇量模式/享元模式
+
+## [Iterator Pattern](src/main/groovy/org/bougainvilleas/ilg/designpattern/iterator.groovy)
+
+> 迭代器模式
+
+## [Loan My Resource Pattern](src/main/groovy/org/bougainvilleas/ilg/designpattern/loanmyresource.groovy)
+
+> 出借资源模式
