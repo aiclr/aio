@@ -54,3 +54,16 @@
 > 代理模式 \
 > [server](src/main/groovy/org/bougainvilleas/ilg/designpattern/proxyserver.groovy) \
 > [client](src/main/groovy/org/bougainvilleas/ilg/designpattern/proxyclient.groovy)
+
+## [Singleton Pattern](src/main/groovy/org/bougainvilleas/ilg/designpattern/singleton.groovy)
+
+> 单例模式 \
+> [Guice Example](src/main/resources/guice/singleton.groovy) \
+> [Spring Example](src/main/resources/spring/singleton.groovy)
+
+## [State Pattern](src/main/groovy/org/bougainvilleas/ilg/designpattern/state.groovy)
+
+> 状态模式 \
+> 变体1：利用面向接口的设计
+> 变体2：提取状态模式逻辑 \
+> 变体3：启用DSL
