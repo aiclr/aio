@@ -71,3 +71,7 @@
 ## [Strategy Pattern](src/main/groovy/org/bougainvilleas/ilg/designpattern/strategy.groovy)
 
 > 策略模式
+
+## [Template Method Pattern](src/main/groovy/org/bougainvilleas/ilg/designpattern/templatemethod.groovy)
+
+> 模板方法模式
