@@ -67,3 +67,7 @@
 > 变体1：利用面向接口的设计
 > 变体2：提取状态模式逻辑 \
 > 变体3：启用DSL
+
+## [Strategy Pattern](src/main/groovy/org/bougainvilleas/ilg/designpattern/strategy.groovy)
+
+> 策略模式
