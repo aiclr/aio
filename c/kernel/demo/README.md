@@ -8,7 +8,7 @@
 > 装载内核 `sudo insmod hello_world.ko` \
 > 装载内核附带参数 `sudo insmod hello_world.ko name="Caddy"` \
 > 卸载内核 `sudo rmmod hello_world.ko` \
-> 查看内核日志验证 `sudo journalctl -b -r`
+> 查看内核日志验证 `sudo journalctl -k -f`
 
 ## Makefile
 
