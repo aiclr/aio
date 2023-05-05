@@ -75,3 +75,7 @@
 ## [Template Method Pattern](src/main/groovy/org/bougainvilleas/ilg/designpattern/templatemethod.groovy)
 
 > 模板方法模式
+
+## [Vosotor Pattern](src/main/groovy/org/bougainvilleas/ilg/designpattern/visitor.groovy)
+
+> 访问者模式
