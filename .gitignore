@@ -92,3 +92,12 @@ debug.log*
 *.so
 *.so.*
 *.dylib
+
+# makefile
+*.o
+*.ko
+*.mod
+*.mod.c
+.*.cmd
+*.order
+*.symvers
