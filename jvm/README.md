@@ -1,13 +1,12 @@
 # JVM
 
-## 所需插件
-
-### javap
-
-- javap -c xxx.class
-- javap -l xxx.class
-
-### IDEA jclasslib 插件
+> 所需插件
+> > `javap` 
+> > > `javap <options> <classes>`\
+> > > `javap -c xxx.class` Disassemble<sub>反汇编</sub> the code\
+> > > `javap -l xxx.class` Print `line number` and `local variable tables`
+> >
+> > IntelliJ IDEA `jclasslib` 插件
 
 ## 指令集架构
 
@@ -35,7 +34,7 @@
 ## JVM架构
 
 - Class Loader subSystem 类加载子系统
-    - ![image](img/ClassLoaderSubSystem.png)
+    - ![image](img/类加载子系统.svg)
     - loading 加载
         - Bootstrap ClassLoader c和c++实现的 引导/启动 类加载器（Java核心类库默认使用）
             1. 出于安全考虑Bootstrap只加载包名为java、javax、sun等开头的类
@@ -63,8 +62,7 @@
         - Resolve 解析
     - Initialization 初始化
 - Runtime Data Areas 运行时数据区
-    - ![image](img/runtime_data_area.png)
-    - 阿里巴巴![image](img/runtime_data_area_jdk8.png)
+    - ![image](img/运行时数据区jdk8.svg)
     - Program Counter Register 程序计数器 pc寄存器 每个线程一份
     - Stack Area 虚拟机栈 每个线程一份
         - stack frame 栈帧
@@ -80,7 +78,7 @@
             - jdk6&7 为永久代 PermGen space
             - Method Area是JVM规范 metaspace、PermGen为method area的落地实现
         - J9（IBM）和JRockit（Oracle）没有Method Area
-- Execution Engine 执行引擎![image](img/execution_engine.png)
+- Execution Engine 执行引擎![image](img/执行引擎.svg)
     - Interpreter 解释器
     - JIT Compiler 即时编译器
         - Intermediate Code Generator 中间代码生成器
@@ -92,10 +90,21 @@
 - Native Method Library 本地方法库
 
 ## [classloader_subSystem.md](classloader_subSystem.md)
+
 ## [runtime_data_area.md](runtime_data_area.md)
-### [program_counter_register.md](program_counter_register.md)
-### [stack.md](stack.md)
-### [native method stack](native_method.md)
-### [heap.md](heap.md)
-### [method_area.md](method_area.md)
-## [执行引擎]
+
+- [The pc Register](https://bougainvilleas.github.io/lotus/jvm/pcregister.html)
+- [JVM Stack](https://bougainvilleas.github.io/lotus/jvm/jvmstack.html)
+  - [Stack Frame](#stack-frame)
+    - [Local Variable](#local-variables)
+    - [Operand Stack](#operand-stacks)
+    - [Dynamic Linking](#dynamic-linking)
+    - [Normal Method Invocation Completion](#normal-method-invocation-completion)
+    - [Abrupt Method Invocation Completion](#abrupt-method-invocation-completion)
+- [native method stack](native_method.md)
+- [heap.md](heap.md)
+- [method_area.md](method_area.md)
+- [Java 对象的实例化](https://bougainvilleas.github.io/lotus/jvm/对象的实例化.html)
+
+## [执行引擎]()
+

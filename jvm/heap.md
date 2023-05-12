@@ -97,7 +97,8 @@
     - Garbage Collection频繁在Young区收集，很少在Old区收集，几乎不在Perm/Meta收集
     - 对象可能直接分配在Old区
     - Eden区和To区满了，对象即使没达到阈值，也可能直接晋升到Old区
-- ![image](img/young_old.png)
+
+![image](img/GC.svg)
 
 ```text
 1. new的对象优先尝试放Eden区，Eden区可能已有对象
