@@ -44,3 +44,13 @@ class UTFCode3 {
         System.err.println(new String(b,"GB18030"));
     }
 }
+
+class Code4{
+    public static void main(String[] args) throws UnsupportedEncodingException{
+        String str=new String("我是谁".getBytes("UTF-8"),"UTF-8");
+        System.err.println(str);
+        String str2=new String(str.getBytes("GBK"),"GBK");
+        System.err.println(str2);
+        System.err.println(System.getProperty("file.encoding"));
+    }
+}
