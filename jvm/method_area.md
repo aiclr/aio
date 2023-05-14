@@ -47,7 +47,7 @@ request, the Java Virtual Machine throws an OutOfMemoryError.
     - 大量动态的生成反射类
 - 关闭JVM就会释放这个方法区的内存
 
-## [设置method area大小](JVMOptions.md)与[OOM](OOM.md)
+## [设置method area大小](https://bougainvilleas.github.io/lotus/jvm/jvmoptions.html)与[OOM](OOM.md)
 
 1. -XX:PermSize=20.75M 'JDK7及以前设置PermanentGenerationSpace 初始值 默认20.75M'
 2. -XX:MaxPermSize=82M 'JDK7及以前设置PermanentGenerationSpace 最大可分配空间，32位机器默认是64M，64位机器默认是82M'

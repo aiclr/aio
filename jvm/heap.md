@@ -17,7 +17,7 @@
 - java heap area在JVM启动时即被创建，其空间大小也就确定了，是JVM管理的最大一块内存空间
     - heap area size是可以调节的
 - java虚拟机规范 规定 heap可以处于物理上不连续的内存空间中，但在逻辑上它应该被视为连续的
-- 所有线程共享java heap area 在这里还可以划分线程私有的缓冲区[TLAB：Thread local allocation buffer](TLAB.md)
+- 所有线程共享java heap area 在这里还可以划分线程私有的缓冲区[TLAB](https://bougainvilleas.github.io/lotus/jvm/tlab.html)<sub>Thread local allocation buffer</sub>
 - JVM规范对Java Heap描述为：所有对象实例以及数组都应当在运行时分配在堆上（The heap is the run-time data area from which memory for all class instances
   and arrays is allocated）
     - 几乎所有的对象实例都在这里分配内存，almost 不是 all
