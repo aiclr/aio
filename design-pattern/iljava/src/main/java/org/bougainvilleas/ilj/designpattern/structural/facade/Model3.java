@@ -23,7 +23,6 @@ public class Model3 {
 
   public void on(){
     log.info("Model3 is ON");
-    play();
   }
 
   public void off(){
