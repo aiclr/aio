@@ -6,7 +6,7 @@ import java.util.logging.Logger;
 
 import static org.junit.jupiter.api.Assertions.assertSame;
 
-public class BuilderTest {
+class BuilderTest {
   private static final Logger log = Logger.getLogger(BuilderTest.class.getSimpleName());
 
   @Test

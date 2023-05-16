@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 import static org.junit.jupiter.api.Assertions.assertNotSame;
 import static org.junit.jupiter.api.Assertions.assertSame;
 
-public class SingletonTest {
+class SingletonTest {
 
   Supplier<String> msgSup=()->"单例模式";
 
