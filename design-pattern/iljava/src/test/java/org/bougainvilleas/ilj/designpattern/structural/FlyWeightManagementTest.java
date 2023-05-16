@@ -3,10 +3,12 @@ package org.bougainvilleas.ilj.designpattern.structural;
 import org.bougainvilleas.ilj.designpattern.structural.flyweight.FlyWeight;
 import org.bougainvilleas.ilj.designpattern.structural.flyweight.FlyWeightManagement;
 import org.bougainvilleas.ilj.designpattern.structural.flyweight.StateUnshared;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+@DisplayName("享元模式/蝇量模式")
 class FlyWeightManagementTest {
 
   @Test

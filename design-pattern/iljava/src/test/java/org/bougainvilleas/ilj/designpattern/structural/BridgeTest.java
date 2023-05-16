@@ -6,8 +6,10 @@ import org.bougainvilleas.ilj.designpattern.structural.bridge.BrandXiaomi;
 import org.bougainvilleas.ilj.designpattern.structural.bridge.Phone;
 import org.bougainvilleas.ilj.designpattern.structural.bridge.PhoneFolded;
 import org.bougainvilleas.ilj.designpattern.structural.bridge.PhoneUpRight;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+@DisplayName("桥接模式")
 class BridgeTest {
 
   @Test
