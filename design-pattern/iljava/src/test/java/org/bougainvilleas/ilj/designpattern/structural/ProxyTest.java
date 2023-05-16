@@ -1,5 +1,7 @@
 package org.bougainvilleas.ilj.designpattern.structural;
 
+import org.bougainvilleas.ilj.designpattern.structural.proxy.proxycglib.Dog;
+import org.bougainvilleas.ilj.designpattern.structural.proxy.proxycglib.ProxtCglibFactory;
 import org.bougainvilleas.ilj.designpattern.structural.proxy.proxydynamic.ProxyFactory;
 import org.bougainvilleas.ilj.designpattern.structural.proxy.proxydynamic.Student;
 import org.bougainvilleas.ilj.designpattern.structural.proxy.proxydynamic.StudentImpl;
@@ -38,5 +40,18 @@ class ProxyTest {
     log.info(proxy.getClass().toString());
     proxy.study();
     assertEquals("How do fish learn to swim?",proxy.ask("How do fish learn to swim?"));
+  }
+
+  @Test
+  @DisplayName("cglib 动态代理")
+  void cglibProxyTest() {
+    Dog dog = new Dog();
+    ProxtCglibFactory factory = new ProxtCglibFactory(dog);
+    Dog proxy =(Dog)factory.getProxyInstance();
+    log.info(proxy.getClass().toString());
+    proxy.bark();
+    proxy.bark2();
+    proxy.bark3();
+
   }
 }

@@ -12,6 +12,8 @@ repositories {
 }
 
 dependencies {
+    // cglib
+    implementation("cglib:cglib:3.3.0")
     // Use JUnit Jupiter for testing.
     testImplementation 'org.junit.jupiter:junit-jupiter:5.9.1'
 }
