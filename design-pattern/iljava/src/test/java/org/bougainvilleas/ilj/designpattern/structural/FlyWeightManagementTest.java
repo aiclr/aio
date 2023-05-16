@@ -1,5 +1,8 @@
-package org.bougainvilleas.ilj.designpattern.structural.flyweight;
+package org.bougainvilleas.ilj.designpattern.structural;
 
+import org.bougainvilleas.ilj.designpattern.structural.flyweight.FlyWeight;
+import org.bougainvilleas.ilj.designpattern.structural.flyweight.FlyWeightManagement;
+import org.bougainvilleas.ilj.designpattern.structural.flyweight.StateUnshared;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;

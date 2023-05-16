@@ -11,7 +11,7 @@ public class StateShared extends FlyWeight{
   }
 
   @Override
-  void use(StateUnshared unshared) {
+  public void use(StateUnshared unshared) {
     log.info("当前共享的状态为： "+data+"。不共享的内部状态为： "+unshared.getData());
   }
 }

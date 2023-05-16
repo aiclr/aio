@@ -7,5 +7,5 @@ import java.util.logging.Logger;
  */
 public abstract class FlyWeight {
   protected static final Logger log = Logger.getLogger(FlyWeight.class.getSimpleName());
-  abstract void use(StateUnshared unshared);
+  public abstract void use(StateUnshared unshared);
 }
