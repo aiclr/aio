@@ -1,8 +1,11 @@
-package org.bougainvilleas.ilj.designpattern.creation.singleton;
+package org.bougainvilleas.ilj.designpattern.creation;
 
+import org.bougainvilleas.ilj.designpattern.creation.singleton.SingletonEnum;
+import org.bougainvilleas.ilj.designpattern.creation.singleton.StaticInnerClass;
 import org.bougainvilleas.ilj.designpattern.creation.singleton.hungry.StaticBlock;
 import org.bougainvilleas.ilj.designpattern.creation.singleton.hungry.StaticVariable;
 import org.bougainvilleas.ilj.designpattern.creation.singleton.lazy.SyncMethod;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.RepeatedTest;
 import org.junit.jupiter.api.Test;
@@ -64,7 +67,7 @@ class SingletonTest {
   @DisplayName("利用静态内部类实现单例模式")
   @Test
   void testStaticInnerClass() {
-    assertSame(StaticInnerClass.getInstance(), StaticInnerClass.getInstance(), msgSup);
+    Assertions.assertSame(StaticInnerClass.getInstance(), StaticInnerClass.getInstance(), msgSup);
   }
 
   @DisplayName("利用静态代码块实现恶汉式单例模式")

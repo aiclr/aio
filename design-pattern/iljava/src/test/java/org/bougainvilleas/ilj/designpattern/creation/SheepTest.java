@@ -1,7 +1,8 @@
-package org.bougainvilleas.ilj.designpattern.creation.prototype.shallow;
+package org.bougainvilleas.ilj.designpattern.creation;
 
 import org.bougainvilleas.ilj.designpattern.creation.prototype.deep.Dog;
 import org.bougainvilleas.ilj.designpattern.creation.prototype.deep.SheepPro;
+import org.bougainvilleas.ilj.designpattern.creation.prototype.shallow.Sheep;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

@@ -9,7 +9,7 @@ public enum SingletonEnum {
   INSTANCE2(new Singleton()),
   INSTANCE3(new Singleton2());
 
-  Object instance;
+  public Object instance;
 
   SingletonEnum(Object instance) {
     this.instance=instance;

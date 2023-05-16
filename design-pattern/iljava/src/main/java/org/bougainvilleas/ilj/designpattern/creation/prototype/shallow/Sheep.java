@@ -30,7 +30,7 @@ public class Sheep implements Cloneable{
    * @throws CloneNotSupportedException
    */
   @Override
-  protected Object clone() throws CloneNotSupportedException {
+  public Object clone() throws CloneNotSupportedException {
     return super.clone();
   }
 
