@@ -36,8 +36,6 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 @DisplayName("工厂模式")
 class FactoryTest {
 
-  private static final Logger log = Logger.getLogger(FactoryTest.class.getSimpleName());
-
   @DisplayName("静态工厂模式-正常参数")
   @ParameterizedTest
   @ValueSource(strings = {"BJCheesePizza", "BJGreekPizza", "LDCheesePizza", "LDGreekPizza"})
