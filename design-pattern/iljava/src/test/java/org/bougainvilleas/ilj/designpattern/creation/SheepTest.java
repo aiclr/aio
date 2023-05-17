@@ -12,6 +12,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotSame;
 import static org.junit.jupiter.api.Assertions.assertSame;
 
+@DisplayName("原型模式")
 class SheepTest {
 
   private static final Logger log= Logger.getLogger(SheepTest.class.getSimpleName());

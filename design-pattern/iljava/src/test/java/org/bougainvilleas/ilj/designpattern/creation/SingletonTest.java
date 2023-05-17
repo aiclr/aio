@@ -18,6 +18,11 @@ import java.util.logging.Logger;
 import static org.junit.jupiter.api.Assertions.assertNotSame;
 import static org.junit.jupiter.api.Assertions.assertSame;
 
+/**
+ * @see <a href="https://junit.org/junit5/docs/current/user-guide/#writing-tests-parallel-execution-synchronization">@Execution</a>
+ * @see <a href="https://junit.org/junit5/docs/current/user-guide/#writing-tests-repeated-tests">@RepeatedTest</a>
+ */
+@DisplayName("单例模式")
 class SingletonTest {
 
   Supplier<String> msgSup=()->"单例模式";

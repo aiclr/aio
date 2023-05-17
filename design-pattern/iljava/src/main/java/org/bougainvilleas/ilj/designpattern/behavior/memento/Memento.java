@@ -13,9 +13,4 @@ public class Memento {
   public String getState() {
     return state;
   }
-
-  public void getStateMemento(Memento memento) {
-    state = memento.state;
-  }
-
 }

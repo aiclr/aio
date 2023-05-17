@@ -4,12 +4,14 @@ import org.bougainvilleas.ilj.designpattern.creation.builder.BuildHouseDirect;
 import org.bougainvilleas.ilj.designpattern.creation.builder.CommonBuilder;
 import org.bougainvilleas.ilj.designpattern.creation.builder.HighBuilder;
 import org.bougainvilleas.ilj.designpattern.creation.builder.House;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.logging.Logger;
 
 import static org.junit.jupiter.api.Assertions.assertSame;
 
+@DisplayName("建造者模式")
 class BuilderTest {
   private static final Logger log = Logger.getLogger(BuilderTest.class.getSimpleName());
 

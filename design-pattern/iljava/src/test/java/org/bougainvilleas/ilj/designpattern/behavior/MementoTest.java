@@ -19,10 +19,10 @@ import java.util.logging.Logger;
  * 数据库事务管理
  * 备忘录加原型模式配合节约内存
  */
+@DisplayName("备忘录模式")
 class MementoTest {
   private static final Logger log = Logger.getLogger(MementoTest.class.getSimpleName());
 
-  @DisplayName("备忘录模式- memento pattern")
   @Test
   void mementoTest() {
     Originator originator = new Originator();
@@ -34,10 +34,10 @@ class MementoTest {
     caretaker.add(originator.saveStateMemento());
     originator.setState("third");
     caretaker.add(originator.saveStateMemento());
-    log.info("当前状态"+originator.getState());
+    log.info("当前状态" + originator.getState());
     Assertions.assertEquals("third", originator.getState());
     originator.getStateMemento(caretaker.get(1));
-    log.info("当前状态"+originator.getState());
+    log.info("当前状态" + originator.getState());
     Assertions.assertEquals("second", originator.getState());
 
   }

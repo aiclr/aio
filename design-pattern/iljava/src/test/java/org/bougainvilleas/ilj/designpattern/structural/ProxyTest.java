@@ -15,6 +15,7 @@ import java.util.logging.Logger;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
+@DisplayName("代理模式")
 class ProxyTest {
   private static final Logger log = Logger.getLogger(ProxyTest.class.getSimpleName());
 

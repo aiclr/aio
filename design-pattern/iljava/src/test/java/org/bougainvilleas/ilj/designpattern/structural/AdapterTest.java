@@ -12,6 +12,11 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullAndEmptySource;
 import org.junit.jupiter.params.provider.ValueSource;
 
+/**
+ * @see <a href="https://junit.org/junit5/docs/current/user-guide/#writing-tests-parameterized-tests-sources-ValueSource">@ValueSource</a>
+ * @see <a href="https://junit.org/junit5/docs/current/user-guide/#writing-tests-parameterized-tests-sources-null-and-empty">@NullAndEmptySource</a>
+ */
+@DisplayName("适配器模式")
 class AdapterTest {
 
   @DisplayName("类适配器")

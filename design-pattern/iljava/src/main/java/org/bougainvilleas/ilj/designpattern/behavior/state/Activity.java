@@ -4,9 +4,9 @@ package org.bougainvilleas.ilj.designpattern.behavior.state;
  * 抽奖活动
  */
 public class Activity {
-  private State state = null;
+  private State state;
 
-  private int count = 0;
+  private int count;
   private State noRaffle = new StateNoRaffle(this);
   private State canRaffle = new StateCanRaffle(this);
   private State dispense = new StateDispense(this);
@@ -35,10 +35,6 @@ public class Activity {
     this.count = count;
   }
 
-  public State getState() {
-    return state;
-  }
-
   public void setState(State state) {
     this.state = state;
   }
@@ -47,31 +43,16 @@ public class Activity {
     return noRaffle;
   }
 
-  public void setNoRaffle(State noRaffle) {
-    this.noRaffle = noRaffle;
-  }
-
   public State getCanRaffle() {
     return canRaffle;
-  }
-
-  public void setCanRaffle(State canRaffle) {
-    this.canRaffle = canRaffle;
   }
 
   public State getDispense() {
     return dispense;
   }
 
-  public void setDispense(State dispense) {
-    this.dispense = dispense;
-  }
-
   public State getDispenseOut() {
     return dispenseOut;
   }
 
-  public void setDispenseOut(State dispenseOut) {
-    this.dispenseOut = dispenseOut;
-  }
 }
