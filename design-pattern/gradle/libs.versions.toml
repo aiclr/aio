@@ -1,0 +1,26 @@
+[versions]
+groovy = "3.0.13"
+ivy = "2.5.1"
+junit4 = "4.13.2"
+spock = "2.2-groovy-3.0"
+cglib = "3.3.0"
+junit5 = "5.9.1"
+checkstyle = "8.37"
+
+[libraries]
+# @Grab 注解需要 apache ivy
+ivy = {module="org.apache.ivy:ivy",version.ref="ivy"}
+# Use the latest Groovy version for building this library
+groovy-all = { module = "org.codehaus.groovy:groovy-all", version.ref = "groovy" }
+junit4 = { module = "junit:junit", version.ref = "junit4" }
+#  Use the awesome Spock testing and specification framework even with Java
+spock-core = { module = "org.spockframework:spock-core", version.ref = "spock" }
+# cglib
+cglib = { module = "cglib:cglib", version.ref = "cglib" }
+junit5 = { module = "org.junit.jupiter:junit-jupiter", version.ref = "junit5" }
+
+#[bundles]
+#groovy = ["groovy-all"]
+
+[plugins]
+jmh = { id = "me.champeau.jmh", version = "0.7.1" }

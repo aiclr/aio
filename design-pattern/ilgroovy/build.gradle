@@ -13,13 +13,13 @@ repositories {
 
 dependencies {
     // Use the latest Groovy version for building this library
-    implementation 'org.codehaus.groovy:groovy-all:3.0.13'
+    implementation libs.groovy.all
     // @Grab 需要 apache ivy
-    implementation 'org.apache.ivy:ivy:2.5.1'
+    implementation libs.ivy
 
     // Use the awesome Spock testing and specification framework even with Java
-    testImplementation 'org.spockframework:spock-core:2.2-groovy-3.0'
-    testImplementation 'junit:junit:4.13.2'
+    testImplementation libs.spock.core
+    testImplementation libs.junit4
 }
 tasks.named('test') {
     // Use JUnit Platform for unit tests.
