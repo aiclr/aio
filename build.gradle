@@ -136,7 +136,6 @@ tasks.register('clean-java-records') {
     dependsOn gradle.includedBuild('java-records').task(':java-151:clean')
     dependsOn gradle.includedBuild('java-records').task(':java-io:clean')
     dependsOn gradle.includedBuild('java-records').task(':java-juc:clean')
-    dependsOn gradle.includedBuild('java-records').task(':java-design-pattern:clean')
     dependsOn gradle.includedBuild('java-records').task(':java-data-structure-algorithm:clean')
 }
 
@@ -145,7 +144,6 @@ tasks.register('build-java-records') {
     dependsOn gradle.includedBuild('java-records').task(':java-151:build')
     dependsOn gradle.includedBuild('java-records').task(':java-io:build')
     dependsOn gradle.includedBuild('java-records').task(':java-juc:build')
-    dependsOn gradle.includedBuild('java-records').task(':java-design-pattern:build')
     dependsOn gradle.includedBuild('java-records').task(':java-data-structure-algorithm:build')
 }
 

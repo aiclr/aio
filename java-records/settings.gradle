@@ -2,5 +2,4 @@ rootProject.name = 'java-records'
 include('java-151')
 include('java-io')
 include('java-juc')
-include('java-design-pattern')
 include('java-data-structure-algorithm')
