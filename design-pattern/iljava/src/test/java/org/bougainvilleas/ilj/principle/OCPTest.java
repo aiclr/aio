@@ -12,7 +12,7 @@ import org.junit.jupiter.api.Test;
 @DisplayName("开闭原则")
 class OCPTest {
 
-  @DisplayName("开闭原则-符合")
+  @DisplayName("符合")
   @Test
   void ocpTest() {
     OCPGraphicEditor editor = new OCPGraphicEditor();
@@ -20,7 +20,7 @@ class OCPTest {
     editor.drawShape(new OCPShapeRectangle());
   }
 
-  @DisplayName("开闭原则-不符合")
+  @DisplayName("不符合")
   @Test
   void noneOCPTest() {
     NoneGraphicEditor editor = new NoneGraphicEditor();
