@@ -25,7 +25,7 @@ testing {
         // Configure the built-in test suite
         test {
             // Use JUnit Jupiter test framework
-            useJUnitJupiter("5.8.1")
+            useJUnitJupiter(libs.versions.junit5)
         }
     }
 }

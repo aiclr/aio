@@ -1,0 +1,17 @@
+[versions]
+jfx = "17.0.4"
+fxgl = "17.3"
+junit5 = "5.9.1"
+javafxplugin = "0.0.14"
+
+[libraries]
+# jdk 带 javafx 可以不需要 exclude
+fxgl = { module = "com.github.almasb:fxgl", version.ref = "fxgl"}
+junit5-api = { module = "org.junit.jupiter:junit-jupiter-api", version.ref = "junit5" }
+junit5-engine = { module = "org.junit.jupiter:junit-jupiter-engine", version.ref = "junit5" }
+
+#[bundles]
+#junit5 = ["junit5-api", "junit5-engine"]
+
+[plugins]
+openjfx = { id = "org.openjfx.javafxplugin", version.ref = "javafxplugin" }

@@ -1,7 +1,7 @@
 plugins {
     id 'java'
     id 'application'
-    id 'org.openjfx.javafxplugin' version '0.0.10'
+    alias(libs.plugins.openjfx)
 }
 
 group 'org.bougainvilleas.tank'
@@ -27,20 +27,20 @@ repositories {
 }
 //openjdk 不带 javafx 需要引入 javafx 且 com.github.almasb 需要 exclude
 javafx {
-    version = '17.0.2'
+    version = libs.versions.jfx
     modules = ['javafx.controls', 'javafx.fxml', 'javafx.media']
 }
 
 dependencies {
 
     // jdk 带 javafx 可以不需要 exclude
-    implementation ("com.github.almasb:fxgl:17.1") {
-        exclude group: 'org.openjfx',module: 'javafx-base'
-        exclude group: 'org.openjfx',module: 'javafx-graphics'
+    implementation(libs.fxgl) {
+        exclude group: 'org.openjfx', module: 'javafx-base'
+        exclude group: 'org.openjfx', module: 'javafx-graphics'
     }
 
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.2'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.2'
+    testImplementation libs.junit5.api
+    testRuntimeOnly libs.junit5.engine
 }
 
 test {

@@ -1,0 +1,12 @@
+[versions]
+groovy = "3.0.15"
+commons = "1.9"
+junit5 = "5.9.1"
+
+[libraries]
+# Use the latest Groovy version for building this library
+commons-text = { module = "org.apache.commons:commons-text", version.ref = "commons" }
+groovy-all = { module = "org.codehaus.groovy:groovy-all", version.ref = "groovy" }
+
+[plugins]
+jmh = { id = "me.champeau.jmh", version = "0.7.1" }
