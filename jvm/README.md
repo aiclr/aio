@@ -102,7 +102,7 @@
     - [Normal Method Invocation Completion](https://bougainvilleas.github.io/lotus/jvm/jvmstacks.html#normal-method-invocation-completion)
     - [Abrupt Method Invocation Completion](https://bougainvilleas.github.io/lotus/jvm/jvmstacks.html#abrupt-method-invocation-completion)
 - [native method stacks](https://bougainvilleas.github.io/lotus/jvm/nativemethodstacks.html)
-- [heap.md](heap.md)
+- [heap](https://bougainvilleas.github.io/lotus/jvm/heap.html)
 - [method_area](https://bougainvilleas.github.io/lotus/jvm/methodarea.html)
 - [Java 对象的实例化](https://bougainvilleas.github.io/lotus/jvm/对象的实例化.html)
 
