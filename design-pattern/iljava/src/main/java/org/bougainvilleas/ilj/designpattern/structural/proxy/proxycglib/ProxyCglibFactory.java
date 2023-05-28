@@ -11,13 +11,13 @@ import java.util.logging.Logger;
  * cglib 动态代理
  * 使用代理对象继承被代理对象实现
  */
-public class ProxtCglibFactory implements MethodInterceptor {
-  private static final Logger log = Logger.getLogger(ProxtCglibFactory.class.getSimpleName());
+public class ProxyCglibFactory implements MethodInterceptor {
+  private static final Logger log = Logger.getLogger(ProxyCglibFactory.class.getSimpleName());
   //维护一个目标对象
   Object target;
 
   //构造器传入目标对象
-  public ProxtCglibFactory(Object target) {
+  public ProxyCglibFactory(Object target) {
     this.target = target;
   }
 
