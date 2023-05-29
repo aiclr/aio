@@ -1,6 +1,17 @@
 //tasks.register('run') {
 //    dependsOn gradle.includedBuild('my-app').task(':app:run')
 //}
+tasks.register('clean-spring-cloud-alibaba') {
+    group 'build'
+    dependsOn gradle.includedBuild('spring-cloud-alibaba').task(':nacos-provider:clean')
+    dependsOn gradle.includedBuild('spring-cloud-alibaba').task(':nacos-consumer:clean')
+}
+
+tasks.register('build-spring-cloud-alibaba'){
+    group 'build'
+    dependsOn gradle.includedBuild('spring-cloud-alibaba').task(':nacos-provider:build')
+    dependsOn gradle.includedBuild('spring-cloud-alibaba').task(':nacos-consumer:build')
+}
 
 tasks.register('clean-spring-dependency'){
     group 'build'
@@ -156,6 +167,7 @@ tasks.register('clean') {
     dependsOn 'clean-spring-guides'
     dependsOn 'clean-spring-demo'
     dependsOn 'clean-spring-dependency'
+    dependsOn 'clean-spring-cloud-alibaba'
 
 
 //    dependsOn gradle.includedBuild('java-modular-gradle').task(':clean')
@@ -174,6 +186,7 @@ tasks.register('build') {
     dependsOn 'build-groovy-java'
     dependsOn 'build-spring-dependency'
     dependsOn 'build-spring-demo'
+    dependsOn 'build-spring-cloud-alibaba'
 
 
 //    dependsOn gradle.includedBuild('java-modular-gradle').task(':build')

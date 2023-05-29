@@ -1,0 +1,8 @@
+${AnsiColor.YELLOW}
+                             ( \---/ )
+                              ) . . (
+${AnsiColor.BLUE}________________________${AnsiColor.YELLOW},--.${AnsiColor.BLUE}_${AnsiColor.YELLOW}(${AnsiColor.BLUE}___${AnsiColor.YELLOW}Y${AnsiColor.BLUE}___${AnsiColor.YELLOW})${AnsiColor.BLUE}_${AnsiColor.YELLOW},--.${AnsiColor.BLUE}_______________________
+                        ${AnsiColor.YELLOW}`--'           `--'
+
+Spring-Boot ${spring-boot.version}
+${application.title} ${application.version}

@@ -1,0 +1,29 @@
+spring:
+  application:
+    name: nacos-provider
+  main:
+    banner-mode: log
+  cloud:
+    nacos:
+      username: nacos
+      password: nacos
+      discovery:
+        server-addr: 127.0.0.1:8848
+        enabled: true
+#        instance-enabled: true
+#        ip-type: IPv4 # only register IPv4 instance
+#        ip-type: IPv6 # only register IPv6 instance
+
+server:
+  port: ${PORT:10000}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+#  server:
+#    port: 10001
+#    address: 127.0.0.1
+
+#debug: true
