@@ -7,32 +7,30 @@
 
 ### 获取属性 `Field`
 
-|方法|描述|
-|:---|:---| 
-|Field	getField(String name)|获取名称为 name 的 **public** 属性对象|
-|Field[]    getFields()|获取全部 **public** 的属性对象|
-|Field	getDeclaredField(String name)|获取名称为 name 的 **public和非public** 属性对象|
-|Field[]    getDeclaredFields()|获取全部 **public和非public** 的属性对象|
+| 方法                                  | 描述                                   |
+|:------------------------------------|:-------------------------------------| 
+| Field	getField(String name)         | 获取名称为 name 的 **public** 属性对象         |
+| Field[]    getFields()              | 获取全部 **public** 的属性对象                |
+| Field	getDeclaredField(String name) | 获取名称为 name 的 **public和非public** 属性对象 |
+| Field[]    getDeclaredFields()      | 获取全部 **public和非public** 的属性对象        |
 
 ### 获取方法 `Method`
 
-|方法|描述|
-|:---|:---| 
-|Method	getMethod(String name, Class<?>... parameterTypes)|获取名称为 name,与参数类型parameterTypes匹配 的 **public** 方法对象|
-|Method[]    getMethods()|获取全部 **public** 方法对象|
-|Method	getDeclaredMethod(String name, Class<?>... parameterTypes)|获取名称为 name,与参数类型parameterTypes匹配 的 **
-public和非public** 方法对象|
-|Method[]    getDeclaredMethods()|获取全部 **public和非public** 方法对象|
+| 方法                                                                | 描述                                                         |
+|:------------------------------------------------------------------|:-----------------------------------------------------------| 
+| Method	getMethod(String name, Class<?>... parameterTypes)         | 获取名称为 name,与参数类型parameterTypes匹配 的 **public** 方法对象         |
+| Method[]    getMethods()                                          | 获取全部 **public** 方法对象                                       |
+| Method	getDeclaredMethod(String name, Class<?>... parameterTypes) | 获取名称为 name,与参数类型parameterTypes匹配 的 **public和非public** 方法对象 |
+| Method[]    getDeclaredMethods()                                  | 获取全部 **public和非public** 方法对象                               |
 
 ### 获取构造器 `Constructor<T>`
 
-|方法|描述|
-|:---|:---| 
-|Constructor<T>    getConstructor(Class<?>... parameterTypes)|获取与参数类型parameterTypes匹配 的 **public** 构造器对象|
-|Constructor<?>[]    getConstructors()|获取全部 **public** 构造器对象|
-|Constructor<T>    getDeclaredConstructor(Class<?>... parameterTypes))|获取与参数类型parameterTypes匹配 的 **
-public和非public** 构造器对象|
-|Constructor<?>[]    getDeclaredConstructors()|获取全部 **public和非public** 构造器对象|
+| 方法                                                                    | 描述                                                 |
+|:----------------------------------------------------------------------|:---------------------------------------------------| 
+| Constructor<T>    getConstructor(Class<?>... parameterTypes)          | 获取与参数类型parameterTypes匹配 的 **public** 构造器对象         |
+| Constructor<?>[]    getConstructors()                                 | 获取全部 **public** 构造器对象                              |
+| Constructor<T>    getDeclaredConstructor(Class<?>... parameterTypes)) | 获取与参数类型parameterTypes匹配 的 **public和非public** 构造器对象 |
+| Constructor<?>[]    getDeclaredConstructors()                         | 获取全部 **public和非public** 构造器对象                      |
 
 ## java 注解
 
