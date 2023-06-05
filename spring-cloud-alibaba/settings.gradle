@@ -1,3 +1,4 @@
 rootProject.name = 'spring-cloud-alibaba'
 include('nacos-provider')
 include('nacos-consumer')
+include('nacos-config')

@@ -5,12 +5,14 @@ tasks.register('clean-spring-cloud-alibaba') {
     group 'build'
     dependsOn gradle.includedBuild('spring-cloud-alibaba').task(':nacos-provider:clean')
     dependsOn gradle.includedBuild('spring-cloud-alibaba').task(':nacos-consumer:clean')
+    dependsOn gradle.includedBuild('spring-cloud-alibaba').task(':nacos-config:clean')
 }
 
 tasks.register('build-spring-cloud-alibaba'){
     group 'build'
     dependsOn gradle.includedBuild('spring-cloud-alibaba').task(':nacos-provider:build')
     dependsOn gradle.includedBuild('spring-cloud-alibaba').task(':nacos-consumer:build')
+    dependsOn gradle.includedBuild('spring-cloud-alibaba').task(':nacos-config:build')
 }
 
 tasks.register('clean-spring-dependency'){
