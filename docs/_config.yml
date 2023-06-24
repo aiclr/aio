@@ -9,108 +9,22 @@ collections:
   docs:
     permalink: "/:collection/:path/"
     output: true
-#  jvm:
-#    permalink: "/:collection/:path/"
-##    output: true
-#  java:
-#    permalink: "/:collection/:path/"
-#  #    output: true
-#  groovy:
-#    permalink: "/:collection/:path/"
-#  #    output: true
-#  c:
-#    permalink: "/:collection/:path/"
-#  #    output: true
-#  cpp:
-#    permalink: "/:collection/:path/"
-#  #    output: true
-#  rust:
-#    permalink: "/:collection/:path/"
-#  #    output: true
-#  go:
-#    permalink: "/:collection/:path/"
-#  #    output: true
-#  designpattern:
-#    permalink: "/:collection/:path/"
-#  #    output: true
-#  linux:
-#    permalink: "/:collection/:path/"
-##    output: true
-#  podman:
-#    permalink: "/:collection/:path/"
-#  #    output: true
-#  k8s:
-#    permalink: "/:collection/:path/"
-#    output: true
-#  posts:
-#    permalink: "/news/:year/:month/:day/:title/"
-#    output: true
 
-defaults:
-  - scope:
-      path: _docs
-      type: "docs"
-    values:
-      layout: default
-  - scope:
-      path: _docs/jvm
-      type: "jvm"
-    values:
-      layout: default
+#defaults:
 #  - scope:
 #      path: _docs
-#      type: "java"
+#      type: "docs"
 #    values:
-#      layout: docs
+#      layout: default
 #  - scope:
-#      path: _docs
-#      type: "groovy"
+#      path: _docs/jvm
+#      type: "jvm"
 #    values:
-#      layout: docs
+#      layout: default
 #  - scope:
-#      path: _docs
-#      type: "c"
+#      path: ""
 #    values:
-#      layout: docs
-#  - scope:
-#      path: _docs
-#      type: "cpp"
-#    values:
-#      layout: docs
-#  - scope:
-#      path: _docs
-#      type: "rust"
-#    values:
-#      layout: docs
-#  - scope:
-#      path: _docs
-#      type: "go"
-#    values:
-#      layout: docs
-#  - scope:
-#      path: _docs
-#      type: "designpattern"
-#    values:
-#      layout: docs
-#  - scope:
-#      path: _docs
-#      type: "linux"
-#    values:
-#      layout: docs
-#  - scope:
-#      path: _docs
-#      type: "podman"
-#    values:
-#      layout: docs
-#  - scope:
-#      path: _docs
-#      type: "k8s"
-#    values:
-#      layout: docs
-  - scope:
-      path: ""
-    values:
-      layout: "default"
+#      layout: "default"
 
 plugins:
   - jekyll-feed
