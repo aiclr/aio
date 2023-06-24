@@ -1,0 +1,87 @@
+html {
+  background: #eae5c9; /* For browsers that do not support gradients */
+  background: -webkit-linear-gradient(#6cc6cb, #eae5c9); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(#6cc6cb, #eae5c9); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(#6cc6cb, #eae5c9); /* For Firefox 3.6 to 15 */
+  //background: linear-gradient(#6cc6cb,#eae5c9); /* Standard syntax */
+  //background: linear-gradient(to right,#6cc6cb,#eae5c9); /* Standard syntax */
+  //background: linear-gradient(to bottom right,#6cc6cb,#eae5c9); /* 右下 */
+  //background: linear-gradient(to bottom left,#9fa5d5,#e8f5c8); /* 左下 */
+  background: linear-gradient(-120deg, #6cc6cb, #eae5c9); /* 角度 */
+  background-size: 250%;
+  animation: bgAnimation 6s linear infinite;
+}
+
+@keyframes bgAnimation {
+  0% {
+    background-position: 0 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0 50%;
+  }
+}
+
+#logo {
+  display: block;
+  -webkit-animation: rotation 15s linear infinite;
+  animation: rotation 15s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+#time {
+  width: 95%;
+  float: left;
+  text-align: center;
+  font-size: 2rem;
+  color: darkcyan;
+  animation: time 5s ease-in-out infinite alternate;
+}
+
+@keyframes time {
+  0% {
+    transform: scale(1);
+    opacity: 0.1;
+  }
+  25% {
+    transform: scale(1);
+    opacity: 0.25;
+  }
+  50% {
+    transform: scale(1);
+    opacity: 0.5;
+  }
+  75% {
+    transform: scale(1);
+    opacity: 0.75;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+}
+
+body {
+  margin: 0;
+  background-color: #6cc6cb00;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  opacity: 1;
+}

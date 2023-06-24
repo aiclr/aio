@@ -1,0 +1,120 @@
+---
+name: All In One
+description: study records static sites
+url: https://bougainvilleas.github.io/aio/
+repository: https://github.com/bougainvilleas/aio
+timezone: Asia/Shanghai
+logo: "/assets/img/bougainvillea.png"
+collections:
+  docs:
+    permalink: "/:collection/:path/"
+    output: true
+#  jvm:
+#    permalink: "/:collection/:path/"
+##    output: true
+#  java:
+#    permalink: "/:collection/:path/"
+#  #    output: true
+#  groovy:
+#    permalink: "/:collection/:path/"
+#  #    output: true
+#  c:
+#    permalink: "/:collection/:path/"
+#  #    output: true
+#  cpp:
+#    permalink: "/:collection/:path/"
+#  #    output: true
+#  rust:
+#    permalink: "/:collection/:path/"
+#  #    output: true
+#  go:
+#    permalink: "/:collection/:path/"
+#  #    output: true
+#  designpattern:
+#    permalink: "/:collection/:path/"
+#  #    output: true
+#  linux:
+#    permalink: "/:collection/:path/"
+##    output: true
+#  podman:
+#    permalink: "/:collection/:path/"
+#  #    output: true
+#  k8s:
+#    permalink: "/:collection/:path/"
+#    output: true
+#  posts:
+#    permalink: "/news/:year/:month/:day/:title/"
+#    output: true
+
+defaults:
+  - scope:
+      path: _docs
+      type: "docs"
+    values:
+      layout: default
+  - scope:
+      path: _docs/jvm
+      type: "jvm"
+    values:
+      layout: default
+#  - scope:
+#      path: _docs
+#      type: "java"
+#    values:
+#      layout: docs
+#  - scope:
+#      path: _docs
+#      type: "groovy"
+#    values:
+#      layout: docs
+#  - scope:
+#      path: _docs
+#      type: "c"
+#    values:
+#      layout: docs
+#  - scope:
+#      path: _docs
+#      type: "cpp"
+#    values:
+#      layout: docs
+#  - scope:
+#      path: _docs
+#      type: "rust"
+#    values:
+#      layout: docs
+#  - scope:
+#      path: _docs
+#      type: "go"
+#    values:
+#      layout: docs
+#  - scope:
+#      path: _docs
+#      type: "designpattern"
+#    values:
+#      layout: docs
+#  - scope:
+#      path: _docs
+#      type: "linux"
+#    values:
+#      layout: docs
+#  - scope:
+#      path: _docs
+#      type: "podman"
+#    values:
+#      layout: docs
+#  - scope:
+#      path: _docs
+#      type: "k8s"
+#    values:
+#      layout: docs
+  - scope:
+      path: ""
+    values:
+      layout: "default"
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+#theme: jekyll-theme-hacker

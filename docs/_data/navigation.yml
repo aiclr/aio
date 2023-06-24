@@ -1,0 +1,58 @@
+- name: Docs
+  link: /docs.html
+- name: JAVA
+  link: /blog.html
+- name: C
+  link: /staff.html
+- name: GO
+  link: /staff.html
+- name: Groovy
+  link: /staff.html
+- name: Rust
+  link: /staff.html
+- name: JVM
+  link: /
+- name: Linux
+  link: /about.html
+- name: JAVA
+  link: /blog.html
+- name: C
+  link: /staff.html
+- name: GO
+  link: /staff.html
+- name: Groovy
+  link: /staff.html
+- name: shortcut
+  link: /docs/intellijidea
+- name: JVM
+  dropdown:
+    - name: JVM
+      link: /docs/jvm/jvm
+    - name: The pc Register
+      link: /docs/jvm/pcregister
+    - name: JVM Stacks
+      link: /docs/jvm/jvmstacks
+    - name: Native Method Stacks
+      link: /docs/jvm/nativemethodstacks
+    - name: Heap Area
+      link: /docs/jvm/heap
+    - name: Method Area
+      link: /docs/jvm/methodarea
+    - name: ClassLoader SubSystem
+      link: /docs/jvm/classloadersubsystem
+    - name: 对象的实例化
+      link: /docs/jvm/对象的实例化
+    - name: GC
+      link: /docs/jvm/gc
+    - name: jvm监控工具
+      link: /docs/jvm/tools
+    - name: VisualVM
+      link: /docs/jvm/visualvm
+    - name: jvm参数
+      link: /docs/jvm/jvmoptions
+    - name: jvm线程
+      link: /docs/jvm/jvm#线程
+    - name: OOM
+      link: /docs/jvm/oom
+    - name: Thread Local Allocation Buffer
+      link: /docs/jvm/tlab
