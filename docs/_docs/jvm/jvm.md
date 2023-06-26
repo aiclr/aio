@@ -1,6 +1,6 @@
 ---
-layout: content
 title: JVM
+permalink: /jvm
 targets:
   - name: Top
     link: jvm
@@ -27,9 +27,9 @@ targets:
 > >    - **代码缓存**<sub>`JIT`编译产物</sub>
 >
 > > 线程私有区域
-> > - [program counter registers](../pcregister)
-> > - [jvm stacks](../jvmstacks)
-> > - [native stacks](../nativemethodstacks)
+> > - [program counter registers](pcregister)
+> > - [jvm stacks](jvmstacks)
+> > - [native stacks](nativemethodstacks)
 >
 > `public class Runtime extends Object`
 > > 每个JVM只有一个`Runtime`实例。即为**运行时环境**\

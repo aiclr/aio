@@ -1,8 +1,7 @@
 ---
-layout: content
 title: Method Area
 targets:
-  - name: TOP
+  - name: Top
     link: method-area
   - name: 设置 method area 大小与 oom
     link: 设置method-area大小与oom
@@ -60,7 +59,7 @@ targets:
 > >
 > > `Method area`生命周期与`JVM`一致，`JVM`启动时分配，关闭后释放。
 
-## [设置method area大小](../jvmoptions)与[OOM](../oom)
+## [设置method area大小](jvmoptions)与[OOM](oom)
 
 > `JDK7`及之前
 > > `-XX:PermSize=20.75M` 设置`PermanentGenerationSpace` 初始值。默认`20.75M`\
@@ -138,7 +137,7 @@ targets:
 >
 > 字节码文件为什么需要`Constant Pool Table`<sub>常量池表</sub>
 > > 一个Java源文件，编译后产生一个字节码文件。字节码需要数据支持，通常这种数据会很大，以至于不能直接存在字节码里，而是换另一种存储方式存在`Constant Pool Table`，字节码使用指向`Constant Pool Table`的**符号引用**。这样可以大大减小字节码文件的大小\
-> > 在`JVM stack`的[Dynamic Linking](../jvmstacks#dynamic-linking)的时候会将**符号引用**转换为指向`run-time constant pool`的**直接引用**\
+> > 在`JVM stack`的[Dynamic Linking](jvmstacks#dynamic-linking)的时候会将**符号引用**转换为指向`run-time constant pool`的**直接引用**\
 > > `Constant Pool Table`，可以看作是一张表，**虚拟机指令**根据这张表找到要执行的**类名、方法名、参数类型、字面量**等类型
 
 ## 运行时常量池vs常量池

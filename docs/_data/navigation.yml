@@ -23,36 +23,36 @@
 - name: Groovy
   link: /staff.html
 - name: shortcut
-  link: /docs/intellijidea
+  link: /aio/intellijidea
 - name: JVM
   dropdown:
     - name: JVM
-      link: /aio/docs/jvm/jvm
+      link: /aio/jvm
     - name: The pc Register
-      link: /aio/docs/jvm/pcregister
+      link: /aio/jvm/pcregister
     - name: JVM Stacks
-      link: /aio/docs/jvm/jvmstacks
+      link: /aio/jvm/jvmstacks
     - name: Native Method Stacks
-      link: /aio/docs/jvm/nativemethodstacks
+      link: /aio/jvm/nativemethodstacks
     - name: Heap Area
-      link: /aio/docs/jvm/heap
+      link: /aio/jvm/heap
     - name: Method Area
-      link: /aio/docs/jvm/methodarea
+      link: /aio/jvm/methodarea
     - name: ClassLoader SubSystem
-      link: /aio/docs/jvm/classloadersubsystem
+      link: /aio/jvm/classloadersubsystem
     - name: 对象的实例化
-      link: /aio/docs/jvm/对象的实例化
+      link: /aio/jvm/对象的实例化
     - name: GC
-      link: /aio/docs/jvm/gc
+      link: /aio/jvm/gc
     - name: jvm监控工具
-      link: /aio/docs/jvm/tools
+      link: /aio/jvm/tools
     - name: VisualVM
-      link: /aio/docs/jvm/visualvm
+      link: /aio/jvm/visualvm
     - name: jvm参数
-      link: /aio/docs/jvm/jvmoptions
+      link: /aio/jvm/jvmoptions
     - name: jvm线程
-      link: /aio/docs/jvm/jvm#线程
+      link: /aio/jvm/jvm#线程
     - name: OOM
-      link: /aio/docs/jvm/oom
+      link: /aio/jvm/oom
     - name: Thread Local Allocation Buffer
-      link: /aio/docs/jvm/tlab
+      link: /aio/jvm/tlab

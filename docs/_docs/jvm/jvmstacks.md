@@ -1,5 +1,4 @@
 ---
-layout: content
 title: Java Virtual Machine Stacks
 targets:
   - name: Top
@@ -26,7 +25,7 @@ targets:
 
 # Java Virtual Machine Stacks
 
-![image](/assets/images/jvm/运行时数据区jdk8.svg)
+![image]({{'/assets/images/jvm/运行时数据区jdk8.svg'|relative_url}})
 > [Oracle 官方文档](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-2.html#jvms-2.5.2)
 > > 2.5.2. Java Virtual Machine Stacks
 > > > Each Java Virtual Machine thread has a private Java Virtual Machine stack, created at the same time as the thread.\
@@ -220,7 +219,7 @@ targets:
 > > 但是在大多虚拟机的实现里都会进行一些优化处理，令两个`Stack frame`出现一部分重叠。\
 > > 让下面`stack frame`的部分`operand stack`与上面`stack frame`的部分`local variables`重叠在一起，这样做不仅节约了一些空间，\
 > > 更重要的是在进行方法调用时就可以直接共用一部分数据，无须进行额外的参数复制传递\
-> > ![两个stack frame数据共享](/assets/images/jvm/%E4%B8%A4%E4%B8%AAstack%20frame%E6%95%B0%E6%8D%AE%E5%85%B1%E4%BA%AB.svg)
+> > ![两个stack frame数据共享]({{'/assets/images/jvm/%E4%B8%A4%E4%B8%AAstack%20frame%E6%95%B0%E6%8D%AE%E5%85%B1%E4%BA%AB.svg'|relative_url}})
 >
 > `operand stack` 在方法执行过程中，根据**字节码指令**，往栈中写入数据或提取数据，即入栈<sub>`push`</sub>或出栈<sub>`pop`</sub>\
 > > 某些字节码指令将值压入`operand stack`，其余的字节码指令将操作数取出`operand stack`，使用<sub>复制、交换、求和</sub>后把结果压入`operand stack`

@@ -1,5 +1,4 @@
 ---
-layout: content
 title: Class Loader SubSystem
 targets:
   - name: Top
@@ -134,7 +133,7 @@ targets:
 
 ### Prepare
 
-- 为[类变量](./jvmstacks.md#拓展)分配内存并且设置该**类变量的默认初始值**<sub>`static int iClass=1;` 此时赋默认初始值`iClass=0`</sub>
+- 为[类变量](jvmstacks#拓展)分配内存并且设置该**类变量的默认初始值**<sub>`static int iClass=1;` 此时赋默认初始值`iClass=0`</sub>
 - 不包含用`final`修饰的`static`静态常量，因为`final`在**编译时**分配，`prepare`阶段会**显示初始化**
 - 这里**不会**为**实例变量**分配初始化，**类变量**会分配在`Method Area`，而**实例变量随着对象**一起分配到`Heap Area`
 
@@ -161,8 +160,11 @@ targets:
 
 > JVM对class文件采用的是**按需加载**的方式，当需要使用该类时才会将它的class文件加载到内存，生成`Class对象`\
 > JVM采用**双亲委派机制**，即把加载类的请求交给`parent`<sub>父类加载器</sub>处理，是一种任务委派模式\
-> ![image](/assets/images/jvm/双亲委派.svg)\
-> ![image](/assets/images/jvm/双亲委派加载jdbc.jar.svg)\
+> 
+> ![image]({{'assets/images/jvm/双亲委派.svg'|relative_url}})
+> 
+> ![image]({{'assets/images/jvm/双亲委派加载jdbc.jar.svg'|relative_url}})
+> 
 > 工作原理
 >   1. 如果一个类加载器A收到了类加载的请求，并不会立即去执行加载，而是把这个请求委托给`parent`<sub>父类加载器B</sub>加载
 >   2. 如果该`parent`<sub>父类加载器B</sub>还存在`parent`<sub>父类加载器C</sub>，则类加载器C继续向上委托，直到请求到达顶层的`BootstrapClassloader`

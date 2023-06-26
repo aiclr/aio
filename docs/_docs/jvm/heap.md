@@ -1,5 +1,4 @@
 ---
-layout: content
 title: heap area
 targets:
   - name: Top
@@ -32,8 +31,8 @@ targets:
 
 # heap area
 
-> [Garbage Collection 参考](../gc)\
-> [内存分析工具参考](../tools)\
+> [Garbage Collection 参考](gc)\
+> [内存分析工具参考](tools)\
 > [Oracle 官网文档](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-2.html#jvms-2.5.3)
 >
 > The Java Virtual Machine has a heap that is shared among all Java Virtual Machine threads. The heap is the `run-time data area` from which memory for `all class instances` and `arrays` is allocated<sub>分配</sub>.
@@ -50,7 +49,7 @@ targets:
 - 一个`JVM进程`只存在一个`heap area`，是`java`内存管理的**核心区域**
 - `heap area`在JVM启动时即被创建，其空间大小也随即确定<sub>`heap area size`是可以调节的</sub>，是JVM管理的最大一块内存空间
 - `jvm规范`规定`heap area`可以处于物理上**不连续**的内存空间中，但在**逻辑上**它应该被视为**连续的**
-- 所有线程共享 `heap area`. 在这里还可以划分线程私有的**缓冲区**[TLAB](../tlab)<sub>Thread local allocation buffer</sub>
+- 所有线程共享 `heap area`. 在这里还可以划分线程私有的**缓冲区**[TLAB](tlab)<sub>Thread local allocation buffer</sub>
 - **数组**和**对象实例**可能永远不会存储在`jvm stack`上，因为`stack frame`中保存**指向对象或者数组在堆中的位置的引用**
 - 在方法结束后，`heap area`中对象实例不会马上被移除，仅仅在垃圾收集的时候才会被移除
 - `heap area` 是`Garbage Collection`执行垃圾回收的重点区域
@@ -60,7 +59,7 @@ targets:
 - `YoungGenerationSpace`是对象**诞生、成长、消亡**的区域，一个对象在这里产生、应用，最后被垃圾回收器收集、结束生命
 - `TenureGenerationSpace`放置**长生命周期**的对象，通常都是从`Survivor区`筛选拷贝过来的Java实例对象
   - 特殊情况
-    - 普通的对象优先尝试分配在[TLAB](../tlab)<sub>Thread local allocation buffer</sub>上
+    - 普通的对象优先尝试分配在[TLAB](tlab)<sub>Thread local allocation buffer</sub>上
     - 对象较大`JVM`试图直接分配在`Eden`区
     - 对象太大无法在`Yong区`找到足够长的**连续空闲**空间，`JVM`直接分配到`Old区`
 - `MinorGC`只发生在`Young区`，发生频率比`MajorGC`高很多，效率也比`MajorGC`高`10`倍以上
@@ -87,15 +86,15 @@ targets:
 > - `Old` == 养老区 == 老年区 == 老年代
 > - `method area` == 永久区 == 永久代
 
-| heap area 逻辑上分为三部分 | `java7`及之前  | `java8`及之后 |
-|:---|:---|:---|
-| `Young` | `Yong Generation Space` 新生区 `Young/New` | 同左 |
-|| `Eden区` | 同左 |
-|| `Survivor区`<sub>只有一个存放数据，当`jvm`计算容量时只会考虑**一个**，所以`Runtime.getRuntime().totalMemory()`和`Runtime.getRuntime().maxMemory()`的值会少一个`survivor区`的大小</sub> | 同左 |
-|| `Survivor from区` | 同左 |
-|| `Survivor to区`  | 同左 |
-| `Old` | `Tenure Generation Space` 养老区 `Old/Tenure` | 同左 |
-| `Method Area`  | `Permanent Space`  永久区 `Perm` | `Meta Space` 元空间 `Meta` |
+| heap area 逻辑上分为三部分 | `java7`及之前                                                                                                                                         | `java8`及之后              |
+|:-------------------|:---------------------------------------------------------------------------------------------------------------------------------------------------|:------------------------|
+| `Young`            | `Yong Generation Space` 新生区 `Young/New`                                                                                                            | 同左                      |
+|                    | `Eden区`                                                                                                                                            | 同左                      |
+|                    | `Survivor区`<sub>只有一个存放数据，当`jvm`计算容量时只会考虑**一个**，所以`Runtime.getRuntime().totalMemory()`和`Runtime.getRuntime().maxMemory()`的值会少一个`survivor区`的大小</sub> | 同左                      |
+|                    | `Survivor from区`                                                                                                                                   | 同左                      |
+|                    | `Survivor to区`                                                                                                                                     | 同左                      |
+| `Old`              | `Tenure Generation Space` 养老区 `Old/Tenure`                                                                                                         | 同左                      |
+| `Method Area`      | `Permanent Space`  永久区 `Perm`                                                                                                                      | `Meta Space` 元空间 `Meta` |
 
 ### 新生代
 
@@ -113,7 +112,7 @@ targets:
 
 ### 对象分配内存过程
 
-![image](/assets/images/jvm/GC.svg)
+![image]({{'/assets/images/jvm/GC.svg'|relative_url}})
 
 > 1. `new`的对象优先尝试放`Eden`区，`Eden`区可能已有对象
 > 2. 如果`Eden`区剩余空间放得下，则直接在`Eden`区为对象分配内存

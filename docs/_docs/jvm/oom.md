@@ -1,8 +1,7 @@
 ---
-layout: content
 title: OutOfMemoryError
 targets:
-  - name: TOP
+  - name: Top
     link: javalangoutofmemoryerror
 ---
 

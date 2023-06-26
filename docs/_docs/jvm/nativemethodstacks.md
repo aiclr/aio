@@ -1,8 +1,7 @@
 ---
-layout: content
 title: Native Method Stacks
 targets:
-  - name: TOP
+  - name: Top
     link: native-method-stacks
   - name: Native Method
     link: native-method

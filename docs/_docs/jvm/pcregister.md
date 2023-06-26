@@ -1,8 +1,7 @@
 ---
-layout: content
 title: The pc Register
 targets:
-  - name: TOP
+  - name: Top
     link: the-pc-register
   - name: 面试题
     link: 面试题
@@ -13,8 +12,9 @@ targets:
 
 # The pc Register
 
-![image](/assets/images/jvm/运行时数据区jdk8.svg)
-![The pc Register](/assets/images/jvm/program_counter_register.svg)
+![image]({{'/assets/images/jvm/运行时数据区jdk8.svg'|relative_url}})
+
+![The pc Register]({{'/assets/images/jvm/program_counter_register.svg'|relative_url}})
 
 > [Oracle 官方文档](https://docs.oracle.com/javase/specs/jvms/se8/html/jvms-2.html#jvms-2.5.1)
 > > 2.5.1 The pc Register

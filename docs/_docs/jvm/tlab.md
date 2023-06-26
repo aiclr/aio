@@ -1,8 +1,7 @@
 ---
-layout: content
 title: Thread Local Allocation Buffer
 targets:
-  - name: TOP
+  - name: Top
     link: tlab
   - name: 指针碰撞
     link: 指针碰撞

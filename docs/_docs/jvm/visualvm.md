@@ -1,8 +1,7 @@
 ---
-layout: content
 title: VisualVM
 targets:
-  - name: TOP
+  - name: Top
     link: visualvm
   - name: 运行参数配置文件
     link: 运行参数配置文件

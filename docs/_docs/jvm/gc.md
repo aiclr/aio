@@ -1,5 +1,4 @@
 ---
-layout: content
 title: Garbage Collection
 targets:
   - name: Top
@@ -14,7 +13,7 @@ targets:
 
 ### Garbage Collection
 
-![gc.svg](/assets/images/jvm/GC.svg)
+![gc.svg]({{'/assets/images/jvm/GC.svg'|relative_url}})
 
 > [java8 hotspot 官网文档](https://docs.oracle.com/javase/8/docs/technotes/guides/vm/gctuning/toc.html)\
 > [java17 hotspot 官网文档](https://docs.oracle.com/en/java/javase/17/gctuning/introduction-garbage-collection-tuning.html)

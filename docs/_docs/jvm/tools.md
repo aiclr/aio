@@ -1,8 +1,7 @@
 ---
-layout: content
 title: 调优工具
 targets:
-  - name: TOP
+  - name: Top
     link: jdk自带工具
   - name: jps
     link: jps
@@ -46,11 +45,9 @@ targets:
     link: jmeter
 ---
 
-<div style="text-align: center;font-size: 40px;">调优工具</div>
-
 ## JDK自带工具
 
-> 如果java进程关闭了默认开启的UsePerfData参数（-XX:-UsePerfData），那么jps命令和jstat命令无法探知该Java进程
+> 如果java进程**关闭**了默认开启的`UsePerfData`参数<sub>`-XX:-UsePerfData`</sub>，那么[jps](#jps)命令和[jstat](#jstat)命令无法探知该Java进程
 
 ### jps
 

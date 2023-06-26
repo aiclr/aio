@@ -1,5 +1,4 @@
 ---
-layout: content
 title: JVM Options
 targets:
   - name: Top
@@ -44,7 +43,7 @@ targets:
 
 > `-XX:MaxTenuringThreshold=15` 设置`Promotion`<sub>晋升Old区阈值</sub>。默认值`15`。
 
-> 开启 or 关闭 [TLAB](../tlab)<sub>`Thread Local Allocation Buffer`</sub>。
+> 开启 or 关闭 [TLAB](tlab)<sub>`Thread Local Allocation Buffer`</sub>。
 > > `-XX:+UseTLAB` 默认开启
 > > `-XX:-UseTLAB` 关闭'
 >

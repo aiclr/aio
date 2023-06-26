@@ -5,30 +5,31 @@ url: https://bougainvilleas.github.io/aio/
 repository: https://github.com/bougainvilleas/aio
 timezone: Asia/Shanghai
 logo: "/assets/img/bougainvillea.png"
+baseurl: /aio
+
+relative_links:
+  enabled: true
+
 collections:
   docs:
-    permalink: "/:collection/:path/"
+    permalink: "/:path"
     output: true
 
-#defaults:
-#  - scope:
-#      path: _docs
-#      type: "docs"
-#    values:
-#      layout: default
-#  - scope:
-#      path: _docs/jvm
-#      type: "jvm"
-#    values:
-#      layout: default
-#  - scope:
-#      path: ""
-#    values:
-#      layout: "default"
+defaults:
+  - scope:
+      path: _docs
+      type: "docs"
+    values:
+      layout: content
+  - scope:
+      path: ""
+    values:
+      layout: "default"
 
 plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
+  - jekyll-relative-links
 
 #theme: jekyll-theme-hacker
