@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<style>
+    .moon {
+        margin: auto;
+        margin-top: 100px;
+        width: 100px;
+        height: 100px;
+        /*background-color: #ffff00;*/
+        background-color: #ffff0000;
+        /* 圆角边框大于50%时，正方形会变成圆*/
+        border-radius: 70%;
+        /* 水平位移 垂直位移 模糊距离(可选) 颜色*/
+        box-shadow: 50px 0 0 orange;
+    }
+
+    .heart{
+        margin: auto;
+        margin-top: 100px;
+        width: 100px;
+        height: 100px;
+        transform: rotate(-45deg);
+        border-radius: 5%;
+        background-color: pink;
+        /* 心动 */
+        /* 动作名 */
+        animation-name: beat;
+        /* 动作持续时间 */
+        animation-duration: 1s;
+        /* 动作循环次数 infinite=无限次*/
+        animation-iteration-count: infinite;
+    }
+    /* 帧动作 在持续的时间里对应百分比 css 属性变化*/
+    @keyframes beat {
+        0%{
+            /* scale 放大倍数 */
+            transform: scale(0.8) rotate(-45deg);
+        }
+        50%{
+            transform: scale(1.1) rotate(-45deg);
+        }
+        100%{
+            transform: scale(0.8) rotate(-45deg);
+        }
+    }
+    /* 伪类 before、after 在元素前后插入*/
+    .heart:before{
+        /* 定位要取 absolute 相对于 heart 的div位置调整 */
+        position: absolute;
+        /* 必填字段 */
+        content: "";
+        width: 100px;
+        height: 100px;
+        /*向上延伸*/
+        top: -50px;
+        left: 0;
+        /*border-radius: 50%;*/
+        background-color: deeppink;
+    }
+    .heart:after{
+        position: absolute;
+        content: "";
+        width: 100px;
+        height: 100px;
+        top: 0;
+        /*向右延伸*/
+        left: 50px;
+        border-radius: 50%;
+        background-color: pink;
+    }
+
+    .colorful-ball{
+        position: absolute;
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: linear-gradient(90deg,blue,white,yellow,orange);
+        top: 50px;
+        left: 300px;
+        animation-name: fall-down;
+        animation-duration:1s;
+        animation-iteration-count: infinite;
+        /* 动作播放速度 ease-in 先慢后快 ease-out 先快后慢 ease-in-out 先慢后快再慢 cubic-bezier(x1,y1,x2,y2)自定义曲线速度*/
+        animation-timing-function: ease-in;
+    }
+    @keyframes fall-down {
+        50%{
+            top: 200px;
+        }
+        100%{
+            top: 50px;
+        }
+    }
+
+    .diamond{
+        margin: auto;
+        margin-top: 100px;
+        width: 100px;
+        height: 100px;
+        background-color: lemonchiffon;
+        transform: skewX(-45deg);
+    }
+</style>
+画月亮：先画一个圆，然后利用box-shadow属性生成阴影，再将圆的颜色变为透明即可
+<div class="moon"></div>
+画爱心：利用before after伪类在菱形（正方形旋转45°）两侧伸出，并设定圆形边框。
+心动：应用动画属性animation-name、animation-duration、animation-iteration-count、@keyframes等让爱心间歇性变大缩小
+<div class="heart"></div>
+彩色弹跳球： 上下移动
+<div class="colorful-ball"></div>
+
+<div class="diamond"></div>
+</body>
+</html>
