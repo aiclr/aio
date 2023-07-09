@@ -1,5 +1,4 @@
 ---
-#layout: content
 title: IntelliJ IDEA
 targets:
   - shortcut keys

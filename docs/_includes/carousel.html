@@ -1,0 +1,13 @@
+<!-- Three columns of text below the carousel -->
+<div class="row">
+{% for item in site.data.index %}
+<div class="col-3">
+    <img src="{{ item.img | relative_url}}"
+         class="d-inline-block align-text-center"
+         alt="..." width="150" height="150">
+    <h2 class="fw-normal">{{item.name}}</h2>
+    <p>{{item.lead}}</p>
+    <p><a class="btn btn-secondary" href="{{item.link}}">{{item.name}}{{item.muted}} &raquo;</a></p>
+</div>
+{% endfor %}
+</div><!-- /.row -->
