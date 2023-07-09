@@ -1,0 +1,24 @@
+{% assign i = 0 %}
+
+{% for item in site.data.index %}
+
+{% assign j=i|modulo:2 %}
+
+<hr class="featurette-divider">
+<!-- plus + minus - times * divided_by / modulo-->
+<div class="row featurette">
+    <div class="col-10 order-{{1|plus:j}}">
+        <h2 class="featurette-heading fw-normal lh-1">{{item.name}} <span class="text-muted">{{item.muted}}</span></h2>
+        <p class="lead">{{item.lead}}</p>
+        <p><a class="btn btn-secondary" href="{{item.link}}">{{item.name}}{{item.muted}} &raquo;</a></p>
+    </div>
+    <div class="col-2 order-{{2|minus:j}}">
+        <img src="{{ item.img | relative_url}}"
+             class="d-inline-block align-text-center"
+             alt="..." width="150" height="150">
+    </div>
+</div>
+
+{% assign i=i | plus:1 %}
+
+{% endfor %}

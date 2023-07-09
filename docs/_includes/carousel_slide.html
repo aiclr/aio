@@ -1,0 +1,64 @@
+<div id="myCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+        {% assign i = 0 %}
+        {% for item in site.data.index %}
+        {% if i == 0 %}
+        <button type="button" data-bs-target="{{item.link}}" data-bs-slide-to="0" class="active" aria-current="true"
+                aria-label="Slide 1"></button>
+        {% else %}
+        <button type="button" data-bs-target="{{item.link}}" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        {% endif %}
+        {% assign i=i | plus:1 %}
+        {% endfor %}
+    </div>
+    <div class="carousel-inner">
+        {% assign i = 0 %}
+        {% for item in site.data.index %}
+        {% if i == 0 %}
+        <div class="carousel-item active">
+            <img src="{{ item.img | relative_url}}"
+                 class="d-inline-block align-text-center"
+                 alt="..." width="150" height="150"
+                 aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+            <rect width="100%" height="100%" fill="#777"/>
+            </img>
+
+            <div class="container">
+                <div class="carousel-caption text-start">
+                    <h1>{{item.name}}</h1>
+                    <p>{{item.lead}}</p>
+                    <p><a class="btn btn-lg btn-primary" href="{{item.link}}">{{item.name}}{{item.muted}} &raquo;</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% else %}
+        <div class="carousel-item">
+            <img src="{{ item.img | relative_url}}"
+                 class="d-inline-block align-text-center"
+                 alt="..." width="150" height="150"
+                 aria-hidden="true" preserveAspectRatio="xMidYMid slice" focusable="false">
+            <rect width="100%" height="100%" fill="#777"/>
+            </img>
+            <div class="container">
+                <div class="carousel-caption">
+                    <h1>{{item.name}}</h1>
+                    <p>{{item.lead}}</p>
+                    <p><a class="btn btn-lg btn-primary" href="{{item.link}}">{{item.name}}{{item.muted}} &raquo;</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+        {% assign i=i | plus:1 %}
+        {% endfor %}
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#myCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#myCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+    </button>
+</div>
