@@ -7,7 +7,7 @@ name: All In One
 description: study records static sites
 url: https://bougainvilleas.github.io/aio/
 repository: https://github.com/bougainvilleas/aio
-timezone: Asia/Shanghai
+timezone: "Asia/Shanghai"
 logo: "/assets/img/bougainvillea.png"
 baseurl: /aio
 
