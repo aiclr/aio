@@ -1,0 +1,12 @@
+hide,name,link
+0,gradle-升级版本,/aio/gradle#upgrade
+0,gradle-jvm参数配置,/aio/gradle#gradleproperties
+0,gradle-构建环境,/aio/gradle#build-environment
+0,mvn-安装目录说明,/aio/maven#安装目录说明
+0,mvn-生命周期,/aio/maven#生命周期
+0,mvn-生命周期与命令,/aio/maven#生命周期与命令
+0,mvn-总结,/aio/maven#总结
+0,mvn-插件,/aio/maven#plugins
+0,mvn-传递性依赖和依赖范围,/aio/maven#传递性依赖和依赖范围
+0,mvn-多模块,/aio/maven#多模块
+0,mvn-错误记录,/aio/maven#错误记录
