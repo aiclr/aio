@@ -1,7 +1,12 @@
+/**
+ * 一般优先使用 border-box，因为它可同时指定padding、width、border
+ * 起手可写如下代码
+ */
 * {
   margin: 0;
   padding: 0;
-  line-height: 1.2;
+  box-sizing: border-box;
+  line-height: 1.4;
 }
 
 html {
@@ -10,8 +15,6 @@ html {
 
 body {
   height: 100%;
-  /* body 默认 8px */
-  margin: 0;
   background-color: #f6f9fc;
 }
 
@@ -56,30 +59,68 @@ img {
   height: 100%;
 }
 
+/* 隐藏所有滚动条 */
+::-webkit-scrollbar {
+  display: none;
+}
+
 .main {
   font-size: 0.2rem;
-  margin: 0;
+  //margin: 0;
   //padding: 5% 5% 0 5%;
   width: 100%;
   height: 100%;
   background-color: #f6f9fc;
   /* 加滚动条 限制内容超出组件范围 */
   overflow: auto;
+  /* 调试小技巧 加个border */
+  //border: 1px solid red;
+  /*布局时使用border调试法会占用内部空间造成显示问题，可用以下代码替换*/
+  outline: 1px solid red;
+  /* 将一个元素变为flex容器 */
+  display: flex;
+  //flex-direction: row; /*从左到右*/
+  //flex-direction:row-reverse;/*从右到左*/
+  //flex-direction:column;/*从上到下*/
+  //flex-direction:column-reverse;/*从下到上*/
+  //flex-wrap: nowrap; /*不折行*/
+  //flex-wrap: wrap; /*折行*/
+  //flex-wrap: wrap-reverse; /*上下倒置*/
+  /*flex-direction flex-wrap 合并写法*/
+  flex-flow: row wrap;
+  /*主轴对齐*/
+  //justify-content:flex-start;
+  //justify-content:flex-end;
+  //justify-content:center;
+  //justify-content: space-between;
+  justify-content: space-around;
+  //justify-content:space-evenly;
+  /*次轴对齐*/
+  //align-items: flex-start;
+  //align-items: flex-end;
+  //align-items: center;
+  align-items: stretch;
+  /* 多行内容 */
+  //align-content:flex-start;
+  //align-content:flex-end;
+  //align-content:center;
+  //align-content:stretch;
+  //align-content:space-between;
+  //align-content:space-around;
 }
 
-/* 隐藏所有滚动条 */
-::-webkit-scrollbar {
-  display: none;
-}
 
 /* index page */
 .card {
-  float: left;
-  width: 20%;
+  outline: 1px solid red;
+  max-width: 15%;
+  min-width: 10%;
   min-height: 60%;
-  border: 0.05rem dashed rgba(43, 32, 100, 0.38);
-  margin: 0.3rem auto 0.15rem 2.5%;
-  padding: 0.2rem;
+  max-height: 80%;
+  /* flex 搭配使用*/
+  //border: 0.05rem dashed rgba(43, 32, 100, 0.38);
+  margin: 0.4rem auto 0.2rem auto;
+  padding: 0.18rem;
   /* 右移 下移 模糊 扩大*/
   box-shadow: -0.075rem -0.05rem 0.1rem 0.05rem #2f4052;
   border-radius: 0.2rem;
@@ -87,6 +128,7 @@ img {
   word-wrap: break-word;
   word-break: break-all;
   background-color: #2f405210;
+  overflow: auto;
 }
 
 ul {

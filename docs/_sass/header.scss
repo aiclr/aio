@@ -1,7 +1,6 @@
 .header {
   font-size: 0.25rem;
-  min-height: 0.5rem;
-  height: 5%;
+  min-height: 40px!important;
   background: -webkit-linear-gradient(#b1b1b1, #2f4052); /* For Safari 5.1 to 6.0 */
   background: -o-linear-gradient(#b1b1b1, #2f4052); /* For Opera 11.1 to 12.0 */
   background: -moz-linear-gradient(#b1b1b1, #2f4052); /* For Firefox 3.6 to 15 */
@@ -14,18 +13,20 @@
   border-bottom: 0.1rem solid rgba(255, 255, 255, 0.38);
   text-align: center;
   overflow: auto;
+  //outline: 1px solid red;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: flex-start;
 }
 
 .header .github {
   min-height: 0.25rem;
-  float: left;
   margin: 0.25rem 0.25rem;
 }
 
 .header .logo {
   min-height: 0.25rem;
-  float: left;
-  margin: 0.25rem 0.25rem 0.25rem 0;
+  margin: 0.25rem 0.25rem;
   -webkit-animation: rotation 15s linear infinite;
   animation: rotation 15s linear infinite;
 }
@@ -35,12 +36,10 @@
   font-size: 0.2rem;
   color: #b1b1b1;
   min-height: 0.25rem;
-  float: left;
   margin: 0.25rem 0.25rem;
 }
 
 #header-time {
-  float: left;
   min-height: 0.25rem;
   margin: 0.25rem 0.25rem;
   text-align: center;
