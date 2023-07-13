@@ -76,7 +76,7 @@ img {
   /* 调试小技巧 加个border */
   //border: 1px solid red;
   /*布局时使用border调试法会占用内部空间造成显示问题，可用以下代码替换*/
-  outline: 1px solid red;
+  //outline: 1px solid red;
   /* 将一个元素变为flex容器 */
   display: flex;
   //flex-direction: row; /*从左到右*/
@@ -112,14 +112,12 @@ img {
 
 /* index page */
 .card {
-  outline: 1px solid red;
-  max-width: 15%;
-  min-width: 10%;
-  min-height: 60%;
-  max-height: 80%;
+  //outline: 1px solid red;
+  max-width: 24%;
+  max-height: 92%;
   /* flex 搭配使用*/
   //border: 0.05rem dashed rgba(43, 32, 100, 0.38);
-  margin: 0.4rem auto 0.2rem auto;
+  margin: 1% auto 0.2rem auto;
   padding: 0.18rem;
   /* 右移 下移 模糊 扩大*/
   box-shadow: -0.075rem -0.05rem 0.1rem 0.05rem #2f4052;
