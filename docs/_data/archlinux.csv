@@ -14,9 +14,9 @@ hide,name,link
 0,xrandr 小米游戏本多屏输出,/archlinux#xrandr
 0,nmap,/archlinux#nmap
 0,samba,/archlinux#samba
-0,podman,/podman
+0,podman,podman
 0,docker 局域网访问,/archlinux#局域网访问
-0,rabbitmq,/rabbitmq
-0,rabbitmqadmin,/rabbitmq#rabbitmqadmin
+0,rabbitmq,rabbitmq
+0,rabbitmqadmin,rabbitmq#rabbitmqadmin
 0,nginx,/archlinux#nginx
 0,vue & react nginx image,/archlinux#nginx-for-vue-and-react
