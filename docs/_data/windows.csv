@@ -1,2 +1,3 @@
 hide,name,link
-0,处理端口占用,/aio/windows
+0,windows 处理端口占用,windows#windows-kill-process
+0,linux lsof 处理端口占用,windows#lsof

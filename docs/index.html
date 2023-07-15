@@ -7,7 +7,7 @@ title: Home
     {% for home in site.data.home %}
     {% if home.hide == "0" %}
     <div class="card">
-        <h2>{{home.name}}</h2>
+        <h3>{{home.name}}</h3>
         <ul>
             {% for file in site.data %}
             {% if file[0] == home.file %}

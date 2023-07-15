@@ -1,7 +1,11 @@
 ---
 title: IntelliJ IDEA
 targets:
-  - shortcut keys
+  - name: Top
+    link: shortcut-keys
+  - name: shortcut keys
+    link: shortcut-keys
+  - 
 ---
 
 ## shortcut keys
@@ -32,14 +36,14 @@ targets:
 > `Alt Shift J` to deselect the last occurrence<sub>出现</sub> \
 > `Ctrl Alt Shift J` select all occurrence<sub>出现</sub> in the file
 >
-> Find `Ctrl F` and replace `Ctrl R`
-> > Press `Ctrl F` to display the search bar. In the Find in Files dialog, you can switch to **replace** by pressing `Ctrl Shift R`.\
-> > Press `Ctrl R` to add another field where you can type the replace string. Press `Ctrl Shift F` to hide the **Replace** with field and switch to regular **search**.
+> Find `Ctrl F` and replace `Ctrl R`
+> > Press `Ctrl F` to display the search bar. In the Find in Files dialog, you can switch to **replace** by pressing `Ctrl Shift R`.\
+> > Press `Ctrl R` to add another field where you can type the replace string. Press `Ctrl Shift F` to hide the **Replace** with field and switch to regular **search**.
 >
-> Show usages `Ctrl Alt F7` (Edit | Find Usages | Show Usages) . To jump to a usage, select it from the list and press `Enter`.
+> Show usages `Ctrl Alt F7` (Edit | Find Usages | Show Usages) . To jump to a usage, select it from the list and press `Enter`.
 >
-> Show file structure `Ctrl F12`
-> > You can quickly navigate<sub>导航</sub> within the current file with  `Ctrl F12` (Navigate | File Structure).
+> Show file structure `Ctrl F12`
+> > You can quickly navigate<sub>导航</sub> within the current file with  `Ctrl F12` (Navigate | File Structure).
 > > File structure shows the list of members of the current class. To navigate to an element, select it and press `Enter` or `F4`.
 > > To easily locate<sub>定位</sub> an item in the list, start typing its name
 
