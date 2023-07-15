@@ -7,6 +7,7 @@
   padding: 0;
   box-sizing: border-box;
   line-height: 1.4;
+  outline: 1px solid red;
 }
 
 html {
@@ -19,32 +20,32 @@ body {
 }
 
 h1 {
-  font-size: 0.75rem;
-  text-align: center;
-}
-
-h2 {
-  font-size: 0.65rem;
-  text-align: center;
-}
-
-h3 {
-  font-size: 0.55rem;
-  text-align: center;
-}
-
-h4 {
   font-size: 0.45rem;
   text-align: center;
 }
 
-h5 {
+h2 {
+  font-size: 0.4rem;
+  text-align: center;
+}
+
+h3 {
   font-size: 0.35rem;
   text-align: center;
 }
 
-h6 {
+h4 {
+  font-size: 0.3rem;
+  text-align: center;
+}
+
+h5 {
   font-size: 0.25rem;
+  text-align: center;
+}
+
+h6 {
+  font-size: 0.2rem;
   text-align: center;
 }
 
@@ -69,7 +70,7 @@ img {
   //margin: 0;
   //padding: 5% 5% 0 5%;
   width: 100%;
-  height: 100%;
+  min-height: 90%;
   background-color: #f6f9fc;
   /* 加滚动条 限制内容超出组件范围 */
   overflow: auto;
@@ -113,7 +114,7 @@ img {
 /* index page */
 .card {
   //outline: 1px solid red;
-  max-width: 24%;
+  max-width: 32%;
   max-height: 92%;
   /* flex 搭配使用*/
   //border: 0.05rem dashed rgba(43, 32, 100, 0.38);
@@ -137,6 +138,22 @@ ul {
   list-style-position: inside;
 }
 
+li{
+  max-width: 5rem;
+  /* 超出隐藏 */
+  overflow: hidden;
+  /* 禁止换行 */
+  white-space: nowrap;
+  /* 超出使用省略号代替 */
+  text-overflow: ellipsis;
+  //animation: 5s wordsLoop linear infinite normal;
+}
+
+li:hover{
+  text-overflow: inherit;
+  overflow: visible;
+}
+
 a:link {
   color: #148982;
 }
@@ -154,18 +171,17 @@ a:active {
 }
 
 a {
+  /* 取消下划线*/
   text-decoration-line: none;
 }
 
-
 /* blog page*/
 .docs {
-  float: left;
   font-size: 0.2rem;
   margin: 0;
   //padding: 0.2rem 5% 0 5%;
-  width: 75%;
-  height: 88%;
+  max-width: 70%;
+  max-height: 100%;
   background-color: #f6f9fc;
   /* 加滚动条 限制内容超出组件范围 */
   overflow: auto;
