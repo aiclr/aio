@@ -1,0 +1,36 @@
+<nav class="navbar navbar-expand sticky-top rounded-bottom-3" style="background-color: #b7c7c7;">
+    <div class="container-fluid">
+        <a href="{{ '/' | relative_url}}" class="navbar-brand">
+            <img src="{{ 'assets/images/bougainvillea.png' | relative_url}}"
+                 id="logo"
+                 class="d-inline-block align-text-center"
+                 alt="..." width="50" height="50">
+            Bougainvilleas
+        </a>
+        <ul class="navbar-nav nav-pills">
+            {% for item in site.data.navigation %}
+                {% if item.name == "JVM" %}
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"
+                       aria-expanded="false">{{item.name}}</a>
+                    <ul class="dropdown-menu">
+                        {% for dropdown in item.dropdown %}
+                        <li><a class="dropdown-item" href="{{ dropdown.link }}">{{ dropdown.name }}</a></li>
+                        {% endfor %}
+                    </ul>
+                </li>
+                {% else %}
+                <li class="nav-item">
+                    <a href="{{ item.link }}"
+                       {% if page.url== item.link %}
+                       class="nav-link active" aria-current="page"
+                       {% else %}
+                       class="nav-link"
+                       {% endif %}
+                    >{{ item.name }}</a>
+                </li>
+                {% endif %}
+            {% endfor %}
+        </ul>
+    </div>
+</nav>

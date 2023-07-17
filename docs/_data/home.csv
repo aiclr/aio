@@ -3,7 +3,6 @@ hide,name,file
 1,c++,cpp
 1,gtk,gtk
 0,JVM,jvm
-0,Java,java
 0,go,go
 1,rust,rust
 0,archlinux,archlinux

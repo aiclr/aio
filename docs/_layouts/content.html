@@ -1,0 +1,33 @@
+---
+layout: default
+---
+<main>
+    <div class="row g-5">
+        <div class="col-md-9">
+            {{ content }}
+        </div>
+        <div class="col-md-3">
+            <div class="position-sticky" style="top: 5rem;">
+                <div class="p-4">
+                    <p class="mb-0 fst-italic">{{page.title}}</p>
+                    <ol class="list-unstyled mb-0">
+                        {% for item in page.targets %}
+                        <li class="nav-item">
+                            <a href="#{{ item.link }}" class="text-decoration-none">{{ item.name }}</a>
+                        </li>
+                        {% endfor %}
+                    </ol>
+                </div>
+
+<!--                <div class="p-4">-->
+<!--                    <h4 class="fst-italic">Elsewhere</h4>-->
+<!--                    <ol class="list-unstyled">-->
+<!--                        <li><a href="#">GitHub</a></li>-->
+<!--                        <li><a href="#">Twitter</a></li>-->
+<!--                        <li><a href="#">Facebook</a></li>-->
+<!--                    </ol>-->
+<!--                </div>-->
+            </div>
+        </div>
+    </div>
+</main>
