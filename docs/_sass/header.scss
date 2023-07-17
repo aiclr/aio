@@ -2,13 +2,6 @@
   font-size: 0.25rem;
   min-height: 0.5rem;
   height: 5%;
-  background: -webkit-linear-gradient(#b1b1b1, #2f4052); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(#b1b1b1, #2f4052); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(#b1b1b1, #2f4052); /* For Firefox 3.6 to 15 */
-  //background: linear-gradient(#b1b1b1, #2f4052); /* Standard syntax */
-  //background: linear-gradient(to right,#b1b1b1, #2f4052); /* Standard syntax */
-  //background: linear-gradient(to bottom right,#b1b1b1, #2f4052); /* 右下 */
-  //background: linear-gradient(to bottom left,#b1b1b1, #2f4052); /* 左下 */
   background: linear-gradient(-120deg, #b1b1b1, #2f4052); /* 角度 */
   border-bottom-right-radius: 20% 1rem;
   border-bottom: 0.1rem solid rgba(255, 255, 255, 0.38);
