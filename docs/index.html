@@ -3,23 +3,64 @@ title: Home
 ---
 
 <div class="main">
-
-    {% for home in site.data.home %}
-    {% if home.hide == "0" %}
     <div class="card">
-        <h2>{{home.name}}</h2>
+
+        <h1>AaBb</h1>
+        <h2>AaBb</h2>
+        <h3>AaBb</h3>
+        <h4>AaBb</h4>
+        <h5>AaBb</h5>
+        <h6>AaBb</h6>
+
+        <span class="time">123456</span>
+        <div class="pic">&nbsp;</div>
+        <div class="pic">A</div>
+        <p>
+            xxxxxxxXXXXXXXXXXXXXXXXXXXnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx
+            xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXxx</p>
+        <span class="sub">Hirono<br/>The other one</span>
+    </div>
+    <div class="card">
+
+        <h2>JVM</h2>
         <ul>
-            {% for file in site.data %}
-            {% if file[0] == home.file %}
-            {% for item in file[1]%}
-            {% if item.hide == "0" %}
-            <li><a href="{{ item.link | relative_url}}">{{ item.name }}&emsp;&raquo;</a></li>
-            {% endif %}
-            {% endfor %}
-            {% endif %}
-            {% endfor %}
+            <li><a href="{{ '/intellijidea' | relative_url}}">intellijidea&emsp;&raquo;</a></li>
+            <li><a href="{{ '/jvm' | relative_url}}">jvm</a></li>
+            <li><a href="{{ 'jvm/pcregister' | relative_url}}">pcregister</a></li>
+            <li><a href="{{ 'jvm/jvmstacks' | relative_url}}">jvmstacks</a></li>
         </ul>
     </div>
-    {% endif %}
-    {% endfor %}
+    <div class="card">
+        <span class="time">123456</span>
+        <div class="pic">&nbsp;</div>
+        <div class="pic">A</div>
+        <p>
+            xxxxxxxXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXxx</p>
+        <span class="sub">Hirono<br/>The other one</span>
+    </div>
+    <div class="card">
+        <span class="time">123456</span>
+        <div class="pic">&nbsp;</div>
+        <div class="pic">A</div>
+        <p>
+            xxxxxxxXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXxx</p>
+        <span class="sub">Hirono<br/>The other one</span>
+    </div>
+    <div class="card">
+        <span class="time">123456</span>
+        <div class="pic">&nbsp;</div>
+        <div class="pic">A</div>
+        <p>
+            xxxxxxxXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXxx</p>
+        <span class="sub">Hirono<br/>The other one</span>
+    </div>
+    <div class="card">
+        <span class="time">123456</span>
+        <div class="pic">&nbsp;</div>
+        <div class="pic">A</div>
+        <p>
+            xxxxxxxXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXxx</p>
+        <span class="sub">Hirono<br/>The other one</span>
+    </div>
 </div>

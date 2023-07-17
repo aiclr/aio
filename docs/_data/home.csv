@@ -1,14 +1,14 @@
 hide,name,file
-0,C,c
-1,c++,cpp
-1,gtk,gtk
-0,JVM,jvm
-0,go,go
-1,rust,rust
-0,archlinux,archlinux
-0,git,git
-0,redis,redis
-0,mysql,mysql
-0,build tools,build
-0,windows,windows
-0,shortcut keys,shortcut
+0,C,c.csv
+1,c++,cpp.csv
+1,gtk,gtk.csv
+0,JVM,jvm.csv
+0,go,go.csv
+1,rust,rust.csv
+0,archlinux,archlinux.csv
+0,git,git.csv
+0,redis,redis.csv
+0,mysql,mysql.csv
+0,build tools,build.csv
+0,windows,windows.csv
+0,shortcut keys,shortcut.csv
