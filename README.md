@@ -1,7 +1,5 @@
 # aio
 
-[:compass:](https://bougainvilleas.github.io/lotus/)
-
 > all in one \
 > gradle 8.0 includeBuild 支持复合项目 \
 > 相互依赖模块可以不发布到本地maven仓库进行关联

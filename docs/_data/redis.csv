@@ -1,11 +1,11 @@
 hide,name,link
-0,官网,redis#official
-0,docker,redis#docker
-0,podman,podman#redis
-0,k8s,redis#k8s
-0,commands,redis#podman
-0,redis-json,redis#redisjson
-0,redis-json docker & podman,redis#docker-or-podman
-0,rejson k8s,redis#rejson-k8s
-0,rejson commands,redis#redisjson-commands
-0,java client,redis#jrejson
+0,官网,/aio/redis#official
+0,docker,/aio/redis#docker
+0,podman,/aio/podman#redis
+0,k8s,/aio/redis#k8s
+0,commands,/aio/redis#podman
+0,redis-json,/aio/redis#redisjson
+0,redis-json docker & podman,/aio/redis#docker-or-podman
+0,rejson k8s,/aio/redis#rejson-k8s
+0,rejson commands,/aio/redis#redisjson-commands
+0,java client,/aio/redis#jrejson
