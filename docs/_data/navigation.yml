@@ -1,5 +1,5 @@
-- name: Home
-  link: /aio
+- name: Docs
+  link: /docs.html
 - name: JAVA
   link: /blog.html
 - name: C
@@ -44,14 +44,14 @@
       link: /aio/jvm/对象的实例化
     - name: GC
       link: /aio/jvm/gc
-    - name: jvm 监控工具
+    - name: jvm监控工具
       link: /aio/jvm/tools
     - name: VisualVM
       link: /aio/jvm/visualvm
-    - name: jvm 参数
+    - name: jvm参数
       link: /aio/jvm/jvmoptions
-    - name: jvm 线程
-      link: /aio/jvm#线程
+    - name: jvm线程
+      link: /aio/jvm/jvm#线程
     - name: OOM
       link: /aio/jvm/oom
     - name: Thread Local Allocation Buffer

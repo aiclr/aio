@@ -23,8 +23,7 @@ function time() {
 
     secondsText = s < 10 ? '0' + s.toString() : s.toString()
 
-    document.getElementById("footer-time").innerHTML = daysText + hoursText + minutesText + secondsText + ' seconds have passed';
-    document.getElementById("header-time").innerHTML = daysText + hoursText + minutesText + secondsText + ' seconds have passed';
+    document.getElementById("time").innerHTML = daysText + hoursText + minutesText + secondsText + ' seconds have passed';
 }
 
 setInterval(time, 1000);

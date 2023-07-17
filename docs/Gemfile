@@ -4,21 +4,9 @@ source "https://rubygems.org"
 
 gem 'jekyll'
 
-# install command
-# gem install jekyll-coffeescript
 group :jekyll_plugins do
   gem 'jekyll-sitemap'
   gem 'jekyll-feed'
   gem 'jekyll-seo-tag'
-  gem 'jemoji'
-  gem 'jekyll-coffeescript'
-  gem 'jekyll-default-layout'
-  gem 'jekyll-gist'
-  gem 'jekyll-github-metadata'
-  gem 'jekyll-optional-front-matter'
-  gem 'jekyll-paginate'
-  gem 'jekyll-readme-index'
   gem 'jekyll-relative-links'
-  gem 'jekyll-titles-from-headings'
-
 end

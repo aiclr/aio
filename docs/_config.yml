@@ -1,8 +1,4 @@
 ---
-safe: true
-gist:
-  noscript: false
-
 name: All In One
 description: study records static sites
 url: https://bougainvilleas.github.io/aio/
@@ -18,12 +14,13 @@ collections:
   docs:
     permalink: "/:path"
     output: true
+
 defaults:
   - scope:
       path: _docs
       type: "docs"
     values:
-      layout: page
+      layout: content
   - scope:
       path: ""
     values:
@@ -33,18 +30,6 @@ plugins:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-seo-tag
-  - jemoji
-  - jekyll-coffeescript
-  - jekyll-default-layout
-  - jekyll-gist
-  - jekyll-github-metadata
-  - jekyll-optional-front-matter
-  - jekyll-paginate
-  - jekyll-readme-index
   - jekyll-relative-links
-  - jekyll-titles-from-headings
 
-strict_front_matter: true
-
-sass:
-  style: compressed
+#theme: jekyll-theme-hacker
