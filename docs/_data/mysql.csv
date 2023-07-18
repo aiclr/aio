@@ -1,7 +1,7 @@
 hide,name,link
-0,podman,/aio/podman#mysql
-0,commands,/aio/mysql#commands
-0,延迟关联优化分页查询,/aio/mysql#分页查询
-0,mysql5.7 类型隐式转换,/aio/mysql#type-conversion
-0,mysql5.7 sql_mode 默认开启 ONLY_FULL_GROUP_BY 问题,/aio/mysql#only_full_group_by
+0,podman,podman#mysql
+0,commands,mysql#commands
+0,延迟关联优化分页查询,mysql#分页查询
+0,mysql5.7 类型隐式转换,mysql#type-conversion
+0,mysql5.7 sql_mode 默认开启 ONLY_FULL_GROUP_BY 问题,mysql#only_full_group_by
 0,MySQL错误码官方文档,https://dev.mysql.com/doc/mysql-errors/5.7/en/server-error-reference.html

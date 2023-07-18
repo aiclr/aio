@@ -9,6 +9,8 @@ markdown: kramdown
 kramdown:
   math_engine: mathjax
   syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    default_lang: bash
 
 name: All In One
 description: study records static sites
@@ -50,6 +52,7 @@ plugins:
   - jekyll-readme-index
   - jekyll-relative-links
   - jekyll-titles-from-headings
+  - rouge
 
 strict_front_matter: true
 
