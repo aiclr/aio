@@ -23,10 +23,9 @@
 > `jekyll serve`\
 > [http://localhost:4000](http://localhost:4000)
 
-
 ## highlighter
 
-Themes::Base16, Themes::BlackWhiteTheme, Themes::Colorful, Themes::Github, Themes::Gruvbox, Themes::IgorPro, Themes::Magritte, Themes::Molokai, Themes::Monokai, Themes::MonokaiSublime, Themes::Pastie, Themes::ThankfulEyes, Themes::Tulip
+[Rouge's documentation](https://rouge-ruby.github.io/docs/Rouge/CSSTheme.html)
 
 > 语法高亮\
 > `rougify style github > _sass/syntax.scss`\
