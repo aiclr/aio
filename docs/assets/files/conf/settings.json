@@ -1,0 +1,26 @@
+{
+    "workbench.colorTheme": "Monokai",
+    "workbench.editor.enablePreview":false,
+    "window.restoreWindows": "none",
+    "workbench.list.openMode": "doubleClick",
+    
+    "editor.fontFamily": "'JetBrains Mono', 'JetBrains Mono', JetBrains Mono",
+    "editor.fontWeight": "500",
+    "editor.fontSize": 15,
+    "editor.mouseWheelZoom": true,
+    "editor.minimap.enabled": true,
+    "editor.guides.bracketPairs": "active",
+    "editor.bracketPairColorization.enabled": true,
+
+
+    "files.exclude": {
+        "**/.git": false,
+        "**/.project":false,
+        "**/.setting":false,
+        "**/.classpath":false,
+        "**/.factorypath":true
+    },
+    "files.eol": "\n",
+    "files.autoSave": "afterDelay",
+    "files.autoSaveDelay": 5000
+}
