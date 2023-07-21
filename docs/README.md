@@ -1,3 +1,5 @@
+[![Jekyll gh Pages](https://github.com/bougainvilleas/aio/actions/workflows/jekyll-gh-pages.yml/badge.svg)](https://github.com/bougainvilleas/aio/actions/workflows/jekyll-gh-pages.yml)
+
 # jekyll
 
 ## install
@@ -6,12 +8,14 @@
 > [Jekyll on Linux](https://jekyllrb.com/docs/installation/other-linux/)\
 > [Jekyll on Ubuntu](https://jekyllrb.com/docs/installation/ubuntu/)\
 > `sudo pacman -S ruby base-devel`
+> 
 > ```shell
 > echo '# Install Ruby Gems to ~/gems' >> ~/.zshrc
 > echo 'export GEM_HOME="$HOME/gems"' >> ~/.zshrc
 > echo 'export PATH="$HOME/gems/bin:$PATH"' >> ~/.zshrc
 > source ~/.zshrc
 > ```
+> 
 > `gem install jekyll bundler`\
 > `echo 'export PATH="$HOME/.local/share/gem/ruby/3.0.0/bin:$PATH"' >> ~/.zshrc`
 > `source ~/.zshrc`
@@ -23,10 +27,9 @@
 > `jekyll serve`\
 > [http://localhost:4000](http://localhost:4000)
 
-
 ## highlighter
 
-Themes::Base16, Themes::BlackWhiteTheme, Themes::Colorful, Themes::Github, Themes::Gruvbox, Themes::IgorPro, Themes::Magritte, Themes::Molokai, Themes::Monokai, Themes::MonokaiSublime, Themes::Pastie, Themes::ThankfulEyes, Themes::Tulip
+[Rouge's documentation](https://rouge-ruby.github.io/docs/Rouge/CSSTheme.html)
 
 > 语法高亮\
 > `rougify style github > _sass/syntax.scss`\
