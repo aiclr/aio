@@ -1,3 +1,5 @@
+[![Jekyll gh Pages](https://github.com/bougainvilleas/aio/actions/workflows/jekyll-gh-pages.yml/badge.svg)](https://github.com/bougainvilleas/aio/actions/workflows/jekyll-gh-pages.yml)
+
 # aio
 
 [:compass:](https://bougainvilleas.github.io/lotus/)
