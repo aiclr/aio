@@ -1,6 +1,4 @@
-![jekyll-gh-pages](https://github.com/bougainvilleas/aio/actions/workflows/jekyll-gh-pages.yml/badge.svg?branch=snapshot&event=pull_request)
-![jekyll-gh-pages](https://github.com/bougainvilleas/aio/actions/workflows/jekyll-gh-pages.yml/badge.svg?branch=snapshot)
-![jekyll-gh-pages](https://github.com/bougainvilleas/aio/actions/workflows/jekyll-gh-pages.yml/badge.svg?branch=feature)
+[![Deploy Jekyll with GitHub Pages dependencies preinstalled](https://github.com/bougainvilleas/aio/actions/workflows/jekyll-gh-pages.yml/badge.svg)](https://github.com/bougainvilleas/aio/actions/workflows/jekyll-gh-pages.yml)
 
 # aio
 
