@@ -7,7 +7,7 @@ on:
     types:
       - closed
     branches: 
-      - $default-branch
+      - 'snapshot/**'
       - 'feature/**'
     paths:
       - '**.md'
