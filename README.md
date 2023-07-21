@@ -2,7 +2,7 @@
 
 # aio
 
-[:compass:](https://bougainvilleas.github.io/lotus/)
+[:compass:](https://bougainvilleas.github.io/aio/)
 
 > all in one \
 > gradle 8.0 includeBuild 支持复合项目 \
