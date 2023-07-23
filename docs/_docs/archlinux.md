@@ -1,17 +1,49 @@
-# arch linux
-
-| [home](index.md#archlinux)                                             | Tools                                                                 |
-| :--------------------------------------------------------------------- | :-------------------------------------------------------------------- |
-| [systemd](#systemd)                                                    | [nmap](#nmap)                                                         |
-| [systemd/User](#systemduser)                                           | [samba](#samba)                                                       |
-| [systemd/Timers](#systemdtimers) //  [OnCalendar](#oncalendar)         | [podman](podman.md)                                                   |
-| [systemd/Journal](#systemdjournal)                                     | [docker 局域网访问](#局域网访问)                                         |
-| [开机时间检查](#boot)                                                    | [多个X视窗会话](#startx)                                                |
-| [pacman](#pacman) // [AUR](#aur)  //[降级软件包](#降级)                  | [rabbitmq](rabbitmq.md) // [rabbitmqadmin](rabbitmq.md#rabbitmqadmin) |
-| [nginx](#nginx) // [vue & react nginx image](#nginx-for-vue-and-react) | [xrandr 小米游戏本多屏输出](#xrandr)                                     |
-| [GRUB](#grub)                                                          | [Oh My Zsh](#oh-my-zsh)                                               |
-
-[top](#arch-linux) | [home](index.md#archlinux)
+---
+title: archlinux
+targets:
+  - name: systemd
+    link: archlinux#systemd
+  - name: systemd User
+    link: archlinux#systemduser
+  - name: systemd Timers
+    link: archlinux#systemdtimers
+  - name: systemd Timers OnCalendar
+    link: archlinux#oncalendar
+  - name: systemd Journal
+    link: archlinux#systemdjournal
+  - name: 开机时间检查
+    link: archlinux#boot
+  - name: GRUB
+    link: archlinux#grub
+  - name: pacman
+    link: archlinux#pacman
+  - name: AUR
+    link: archlinux#aur
+  - name: 降级软件包
+    link: archlinux#降级
+  - name: 多个X视窗会话
+    link: archlinux#startx
+  - name: xrandr 小米游戏本多屏输出
+    link: archlinux#xrandr
+  - name: Oh My Zsh
+    link: archlinux#oh-my-zsh
+  - name: nmap
+    link: archlinux#nmap
+  - name: samba
+    link: archlinux#samba
+  - name: podman
+    link: podman
+  - name: docker 局域网访问
+    link: archlinux#局域网访问
+  - name: nginx
+    link: archlinux#nginx
+  - name: vue & react nginx image
+    link: archlinux#nginx-for-vue-and-react
+  - name: rabbitmq
+    link: rabbitmq
+  - name: rabbitmqadmin
+    link: rabbitmq#rabbitmqadmin
+---
 
 ## Oh My Zsh
 
@@ -70,8 +102,6 @@
 > plugins=(git docker-compose kubectl)
 > ```
 
-[top](#oh-my-zsh) | [home](index.md#archlinux)
-
 ### [docker-compose plugins](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/docker-compose)
 
 | Alias     | Command                   | Description                                                      |
@@ -93,8 +123,6 @@
 | dcpull    | docker-compose pull       | Pull image of a service                                          |
 | dcstart   | docker-compose start      | Start a container                                                |
 | dck       | docker-compose kill       | Kills containers                                                 |
-
-[top](#oh-my-zsh) | [home](index.md#archlinux)
 
 ### [kubectl plugins](https://github.com/ohmyzsh/ohmyzsh/tree/master/plugins/kubectl)
 
@@ -208,8 +236,6 @@
 | kdcj    | kubectl describe cronjob                         | Describe a CronJob in details                                                                    |
 | kdelcj  | kubectl delete cronjob                           | Delete the CronJob                                                                               |
 
-[top](#oh-my-zsh) | [home](index.md#archlinux)
-
 ## startx
 
 > Linux提供虚拟控制台的功能，一组终端设备共享PC电脑的屏幕、键盘和鼠标。 \
@@ -221,8 +247,6 @@
 > 命令`startx -- :1`, Linux 将在下一个未使用的虚拟控制台上启动X服务器 \
 > 在一个Xsession中启动gkrellm，并让其在另一个Xsession中显示 `DISPLAY=:1 gkrellm &` \
 > `KDE的SDDM`和`GNOME的GDM`是显示管理器<sub>display manager</sub>，默认使用第一个未使用的虚拟控制台，通常是`/dev/tty7`。
-
-[top](#arch-linux) | [home](index.md#archlinux)
 
 ## GRUB
 
@@ -262,8 +286,6 @@
 > > 查看日志文件大小40M `journalctl -b -u systemd-journald`\
 > > 查看启动耗时 `journalctl -b -u systemd-journal-flush.service`
 
-[top](#arch-linux) | [home](index.md#archlinux)
-
 ## boot
 
 > 开机启动树 `systemd-cgls`\
@@ -274,8 +296,6 @@
 > 小米游戏本开机变慢发现是 `systemd-journal-flush.service` 耗时30秒+
 > > 查看日志文件大小40M `journalctl -b -u systemd-journald`\
 > > 查看启动耗时 `journalctl -b -u systemd-journal-flush.service`
-
-[top](#arch-linux) | [home](index.md#archlinux)
 
 ## xrandr
 
@@ -308,8 +328,6 @@
 > fi
 > ```
 
-[top](#arch-linux) | [home](index.md#archlinux)
-
 ## nginx
 
 > 挂载外部配置文件时，注意先创建 `nginx.conf` \
@@ -335,12 +353,10 @@
 > 复制容器内文件 `nginx.conf` 到宿主机 `/root/nginx/conf/nginx.conf`
 > > `docker cp containerID:/etc/nginx/nginx.conf /root/nginx/conf/nginx.conf `
 
-[top](#arch-linux) | [home](index.md#archlinux)
-
 ### nginx for vue and react
 
-> [nginx.conf](dockerfiles/nginx/nginx.conf) \
-> [Dockerfile](dockerfiles/nginx/Dockerfile)
+> [nginx.conf]({{'assets/files/dockerfiles/nginx/nginx.conf'|relative_url}}) \
+> [Dockerfile]({{'assets/files/dockerfiles/nginx/Dockerfile'|relative_url}})
 > ```dockerfile
 > FROM nginx:stable-alpine
 > 
@@ -357,7 +373,7 @@
 > 
 > RUN echo 'echo init ok!!'
 > ```
-> [build 脚本](dockerfiles/nginx/build.sh)
+> [build 脚本]({{'assets/files/dockerfiles/nginx/build.sh'|relative_url}})
 > ```shell
 > #!/bin/bash
 > 
@@ -395,14 +411,10 @@
 > docker load < $image_name-$version.tar
 > ```
 
-[nginx](#nginx) | [top](#arch-linux) | [home](index.md#archlinux)
-
 ## docker
 
 > [Guides](https://docs.docker.com/get-started/overview/)\
 > [Reference](https://docs.docker.com/reference/)
-
-[top](#arch-linux) | [home](index.md#archlinux)
 
 ### 局域网访问
 
@@ -420,8 +432,6 @@
 > firewall-cmd 开启端口
 > > `firewall-cmd --zone=public --add-port=2375/tcp --permanent`
 
-[docker](#docker) | [top](#arch-linux) | [home](index.md#archlinux)
-
 ## samba
 
 > [参考arch wiki](https://wiki.archlinux.org/title/Samba)
@@ -429,7 +439,7 @@
 > 注意：优先配置 配置文件 `/etc/samba/smb.conf` \
 > 配置文件官方样例 [smb.conf.default](https://git.samba.org/samba.git/?p=samba.git;a=blob_plain;f=examples/smb.conf.default;hb=HEAD) \
 > [smb.conf](https://man.archlinux.org/man/smb.conf.5) 文档说明 \
-> 自用配置文件[smb.conf](conf/smb.conf)
+> 自用配置文件[smb.conf]({{'assets/files/conf/smb.conf'|relative_url}})
 > 
 > 配置完毕 进行安装:
 > ```shell
@@ -452,13 +462,11 @@
 > ***Linux 客户端挂载 samba*** \
 > `sudo mount //192.168.1.165/work /mnt -o username=fly,password=fly,iocharset=utf8`
 
-[top](#arch-linux) | [home](index.md#archlinux)
-
 ## pacman
 
 > 下载的包本地保存目录 `/var/cache/pacman/pkg/`\
 > mirrorlist `/etc/pacman.d/mirrorlist` \
-> [配置文件](conf/pacman.conf) `/etc/pacman.conf` 
+> [配置文件]({{'assets/files/conf/pacman.conf'|relative_url}}) `/etc/pacman.conf` 
 > > 更新时忽略包 `vim /etc/pacman.conf` 进行如下配置
 > > ```properties
 > > # Pacman won't upgrade packages listed in IgnorePkg and members of IgnoreGroup
@@ -502,8 +510,6 @@
 > > > `pacman -Sc` \
 > > > `pacman -Scc`
 
-[top](#arch-linux) | [home](index.md#archlinux)
-
 ### 降级
 
 > `pacman -U xxx` 不建议乱来 可以先在虚拟机上实验 
@@ -517,8 +523,6 @@
 > 
 > Install a 'remote' package 
 > > `pacman -U https://archive.archlinux.org/packages/f/ffmpeg/ffmpeg-2%3A4.4.1-1-x86_64.pkg.tar.zst`
-
-[pacman](#pacman) | [top](#arch-linux) | [home](index.md#archlinux)
 
 ### AUR
 
@@ -548,8 +552,6 @@
 > > makepkg -sirc
 > > ```
 
-[pacman](#pacman) | [top](#arch-linux) | [home](index.md#archlinux)
-
 ## nmap
 
 > [arch wiki](https://wiki.archlinux.org/title/Nmap)\
@@ -570,8 +572,6 @@
 > > `unfiltered` 目标端口可以访问，但无法判断开启与否 \
 > > `open|filtered` 无法确定端口是开启还是filtered \
 > > `closed|filtered` 无法确定端口是关闭还是filtered
-
-[top](#arch-linux) | [home](index.md#archlinux)
 
 #### 端口分类
 
@@ -652,8 +652,6 @@ RPC扫描，和其他不同的端口扫描方法结合使用
 ```text
 FTP 反弹攻击(FTP Bounce attack)外网用户通过 FTP渗透内网
 ```
-
-[nmap](#nmap) | [top](#arch-linux) | [home](index.md#archlinux)
 
 #### 通用选项
 
@@ -751,15 +749,11 @@ nmap扫描TCP/IP指纹特征，确定目标主机系统类型
     -p 20-30,139,60000- 扫描20~30端口，139端口，所有大于60000的端口
 ```
 
-[nmap](#nmap) | [top](#arch-linux) | [home](index.md#archlinux)
-
 #### 扫描目标
 
 > 192.168.1.25 \
 > 192.168.1.0/24 表示：192.168.1 网段所有ip \
 > 192.168.*.* 表示 192.168.1.1~ 192.168.255.255 所有ip
-
-[nmap](#nmap) | [top](#arch-linux) | [home](index.md#archlinux)
 
 ## systemd
 
@@ -796,13 +790,11 @@ nmap扫描TCP/IP指纹特征，确定目标主机系统类型
 > > > `systemctl --user enable mpd` \
 > > > `systemctl --user start mpd`
 
-[top](#arch-linux) | [home](index.md#archlinux)
-
 ### systemd/User
 
 > [systemd](#systemd) offers the ability to manage services under the user's control with a per-user systemd instance,enabling them to start, stop, enable, and disable their own user units\
 > [archlinux Wiki](https://wiki.archlinux.org/title/Systemd/User)\
-> 参考[mpd](linux/arch/mpd.md)
+> 参考[mpd](linux/arch/mpd)
 
 ### systemd/Timers
 
@@ -866,23 +858,21 @@ ExecStart=pacman -S -y --noconfirm -u
 > `systemd-analyze calendar "Mon *-*-* 00:00:00"`
 > 注意 `/` 仅用于月份
 
-| desc                                  |       word       |    周 年-月-日 时:分:秒     |
-| :------------------------------------ | :--------------: | :-------------------------: |
-| 每分钟                                |     minutely     |       `*-*-* *:*:00`        |
-| 从0分钟起每5分钟                      |     minutely     |      `*-*-* *:00/5:00`      |
-| 每小时                                |      hourly      |       `*-*-* *:00:00`       |
-| 每天                                  |      daily       |      `*-*-* 00:00:00`       |
-| 每月                                  |     monthly      |      `*-*-01 00:00:00`      |
-| 每周                                  |      weekly      |    `Mon *-*-* 00:00:00`     |
-| 每年                                  | yearly /annually |     `*-01-01 00:00:00`      |
-| 每季度                                |    quarterly     | `*-01,04,07,10-01 00:00:00` |
-| 每半年                                |   semiannually   |    `*-01,07-01 00:00:00`    |
-| 九月倒数第一天0点                     |                  |     `*-09~01 00:00:00`      |
+| desc                |       word       |        周 年-月-日 时:分:秒        |
+|:--------------------|:----------------:|:---------------------------:|
+| 每分钟                 |     minutely     |       `*-*-* *:*:00`        |
+| 从0分钟起每5分钟           |     minutely     |      `*-*-* *:00/5:00`      |
+| 每小时                 |      hourly      |       `*-*-* *:00:00`       |
+| 每天                  |      daily       |      `*-*-* 00:00:00`       |
+| 每月                  |     monthly      |      `*-*-01 00:00:00`      |
+| 每周                  |      weekly      |    `Mon *-*-* 00:00:00`     |
+| 每年                  | yearly /annually |     `*-01-01 00:00:00`      |
+| 每季度                 |    quarterly     | `*-01,04,07,10-01 00:00:00` |
+| 每半年                 |   semiannually   |    `*-01,07-01 00:00:00`    |
+| 九月倒数第一天0点           |                  |     `*-09~01 00:00:00`      |
 | 每年的九月倒数第七天起每过4天后的周一 |                  |  `Mon *-09~07/4 00:00:00`   |
-| 下一个周一或周五                      |                  |  `Mon,Fri *-*-* 00:00:00`   |
-| 周一到周五每天0点                     |                  |  `Mon..Fri *-*-* 00:00:00`  |
-
-[timer](#systemdtimers) | [systemd](#systemd) | [top](#arch-linux) | [home](index.md#archlinux)
+| 下一个周一或周五            |                  |  `Mon,Fri *-*-* 00:00:00`   |
+| 周一到周五每天0点           |                  |  `Mon..Fri *-*-* 00:00:00`  |
 
 ### systemd/Journal
 
@@ -924,5 +914,3 @@ ExecStart=pacman -S -y --noconfirm -u
 >
 > > 查看进程号=28097 的 kubelet服务的日志 ***交集***
 > > > `journalctl _SYSTEMD_UNIT=kubelet.service _PID=28097`
-
-[systemd](#systemd) | [top](#arch-linux) | [home](index.md#archlinux)

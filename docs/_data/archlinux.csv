@@ -1,22 +1,22 @@
 hide,name,link
-0,systemd,/archlinux#systemd
-0,systemd User,/archlinux#systemduser
-0,systemd Timers,/archlinux#systemdtimers
-0,systemd Timers OnCalendar,/archlinux#oncalendar
-0,systemd Journal,/archlinux#systemdjournal
-0,systemd Journal 开机时间检查,/archlinux#boot
-0,pacman,/archlinux#pacman
-0,pacman 降级软件包,/archlinux#降级
-0,AUR,/archlinux#aur
-0,GRUB,/archlinux#grub
-0,Oh My Zsh,/archlinux#oh-my-zsh
-0,多个X视窗会话,/archlinux#startx
-0,xrandr 小米游戏本多屏输出,/archlinux#xrandr
-0,nmap,/archlinux#nmap
-0,samba,/archlinux#samba
+0,systemd,archlinux#systemd
+0,systemd User,archlinux#systemduser
+0,systemd Timers,archlinux#systemdtimers
+0,systemd Timers OnCalendar,archlinux#oncalendar
+0,systemd Journal,archlinux#systemdjournal
+0,systemd Journal 开机时间检查,archlinux#boot
+0,pacman,archlinux#pacman
+0,pacman 降级软件包,archlinux#降级
+0,AUR,archlinux#aur
+0,GRUB,archlinux#grub
+0,Oh My Zsh,archlinux#oh-my-zsh
+0,多个X视窗会话,archlinux#startx
+0,xrandr 小米游戏本多屏输出,archlinux#xrandr
+0,nmap,archlinux#nmap
+0,samba,archlinux#samba
 0,podman,podman
-0,docker 局域网访问,/archlinux#局域网访问
+0,docker 局域网访问,archlinux#局域网访问
 0,rabbitmq,rabbitmq
 0,rabbitmqadmin,rabbitmq#rabbitmqadmin
-0,nginx,/archlinux#nginx
-0,vue & react nginx image,/archlinux#nginx-for-vue-and-react
+0,nginx,archlinux#nginx
+0,vue & react nginx image,archlinux#nginx-for-vue-and-react
