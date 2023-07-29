@@ -1,6 +1,6 @@
 hide,name,link
-0,linux,/linux/btrfs
-0,btrfs,/linux/btrfs
+0,Linux基础,linux/linux
+0,btrfs,linux/btrfs
 0,lvm,/linux/btrfs
 0,ohmyzsh,/linux/btrfs
 0,awk,/linux/btrfs

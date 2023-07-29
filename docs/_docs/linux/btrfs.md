@@ -1,4 +1,31 @@
-<div style="text-align: center;font-size: 40px;">btrfs</div>
+---
+title: btrfs
+targets:
+- name: 格式化并创建
+  link: linux/btrfs#格式化并创建
+- name: 挂载 btrfs
+  link: linux/btrfs#挂载
+- name: 添加 移除磁盘
+  link: linux/btrfs#添加移除
+- name: 多个磁盘数据平衡
+  link: linux/btrfs#多个磁盘数据平衡
+- name: 查看文件系统
+  link: linux/btrfs#查看文件系统
+- name: 多磁盘可以使用raid
+  link: linux/btrfs#raid
+- name: 多设备修改大小
+  link: linux/btrfs#多设备修改大小
+- name: 子卷
+  link: linux/btrfs#subvolume
+- name: 子卷快照
+  link: linux/btrfs#子卷快照
+- name: 删除子卷
+  link: linux/btrfs#删除子卷
+- name: 文件系统转换
+  link: linux/btrfs#文件系统转换
+- name: 磁盘碎片整理
+  link: linux/btrfs#磁盘碎片整理
+---
 
 > Btrfs 文件系统特性 `Btrfs (B-tree FS,Butter FS, Better FS)`
 > > SUSE12/15 支持生产环境 \
@@ -13,7 +40,9 @@
 > > 热移除设备
 
 
-## `mkfs.btrfs` 格式化并创建 btrfs 
+## 格式化并创建
+
+`mkfs.btrfs` 格式化并创建 btrfs 
 
 ```shell
 ## eg
@@ -63,7 +92,7 @@ Options:
 	-l|--leafsize SIZE          deprecated, alias for nodesize
 ```
 
-## 挂载 btrfs
+## 挂载
 
 ```shell
 # 挂载
@@ -79,7 +108,6 @@ mount /dev/sdc /mnt
 umount /mnt
 # 卸载 方式2
 umount /dev/sdc
-
 ```
 
 ## `df -Th`
@@ -91,6 +119,7 @@ Filesystem     Type      Size  Used Avail Use% Mounted on
 /dev/sda       btrfs     932G  195G  737G  21% /data
 /dev/sda       btrfs     932G  195G  737G  21% /code
 ```
+
 ## `mount`
 
 ```text
@@ -98,12 +127,9 @@ Filesystem     Type      Size  Used Avail Use% Mounted on
 /dev/sda on /home type btrfs (rw,relatime,space_cache=v2,subvolid=256,subvol=/home)
 /dev/sda on /data type btrfs (rw,relatime,space_cache=v2,subvolid=258,subvol=/data)
 /dev/sda on /code type btrfs (rw,relatime,space_cache=v2,subvolid=259,subvol=/code)
-
 ```
 
-
-
-## 往 btrfs 添加 磁盘 移除磁盘
+## 添加移除
 
 ```shell
 # 查看帮助
@@ -136,7 +162,6 @@ mount /dev/sdc /mnt
 btrfs device delete /dev/sdc /mnt
 # 查看 btrfs
 btrfs filesystem show
-
 ```
 
 ## 多个磁盘数据平衡
@@ -146,12 +171,10 @@ mount /dev/sda /mnt
 
 btrfs filesystem show
 
-
 # 带提示 倒数10s 开平衡数据
 btrfs balance start /mnt
 # 直接执行平衡
 btrfs balance start --full-balance /mnt
-
 
 btrfs filesystem show
 ```
@@ -167,8 +190,11 @@ Metadata,       DUP:     total=1.00GiB,    used=570.69MiB
 GlobalReserve,  single:  total=238.36MiB,  used=0.00B
 ```
 
+## raid
 
-## `raid` 多磁盘可以使用 `raid`, `raid5` 最少需要`三块磁盘`
+多磁盘可以使用 `raid`
+
+`raid5` 最少需要`三块磁盘`
 
 ```shell
 # btrfs filesystem df /mnt | column -t
@@ -178,12 +204,9 @@ btrfs balance start -dconvert=raidX /mnt
 # -mconvert ====> Metadata,       DUP:     total=1.00GiB,    used=570.69MiB
 # 同时会修改 System,         DUP:     total=32.00MiB,   used=48.00KiB
 btrfs balance start -mconvert=raidX /mnt
-
-
 ```
 
-
-## 多设备 修改 大小
+## 多设备修改大小
 
 ```shell
 # 挂载主卷 
@@ -239,8 +262,7 @@ Label: 'disk'  uuid: 6ccbdbf6-54b2-49be-ad73-7736146ea43a
 
 ```
 
-
-## 子卷 `subvolume`
+## subvolume
 
 > 挂载主卷 可以访问子卷内容
 > 
@@ -287,7 +309,6 @@ code
 	Snapshot(s):
 
 
-
 # 卸载 主卷
 umount /mnt
 # 创建子卷挂载目录
@@ -302,7 +323,6 @@ lsblk
 
 ```
 
-
 ## 子卷快照
 
 ```shell
@@ -315,7 +335,6 @@ btrfs subvolume snapshot /mnt/code /mnt/code_snapshot
 
 # 删除快照
 btrfs subvolume delete /mnt/code_snapshot
-
 ```
 
 ## 删除子卷
@@ -327,7 +346,6 @@ mount /dev/sda /mnt
 umount /mnt/data
 # 删除子卷
 btrfs subvolume delete /mnt/data
-
 ```
 
 ## 文件系统转换
@@ -346,7 +364,6 @@ blkid /dev/sdc
 btrfs-convert -r /dev/sdc
 # 查看
 blkid /dev/sdc
-
 ```
 
 

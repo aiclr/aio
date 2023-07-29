@@ -1,10 +1,13 @@
-# gradle
-
-| [home](index.md#build-tools)      |
-| :-------------------------------- |
-| [升级gradle版本](#upgrade)       |
-| [jvm参数配置](#gradleproperties) |
-| [构建环境](#build-environment)   |
+---
+title: gradle
+targets:
+  - name: gradle-升级版本
+    link: gradle#upgrade
+  - name: gradle-jvm参数配置
+    link: gradle#gradleproperties
+  - name: gradle-构建环境
+    link: gradle#build-environment
+---
 
 > [官方文档](https://docs.gradle.org/current/userguide/userguide.html) \
 > [支持java版本对照](https://docs.gradle.org/current/userguide/compatibility.html) \
@@ -155,5 +158,3 @@ gradle wrapper --gradle-version 7.4.2
 > org.gradle.jvmargs=-Xmx2g -XX:MaxMetaspaceSize=512m -XX:+HeapDumpOnOutOfMemoryError -Dfile.encoding=UTF-8
 > org.gradle.parallel=true
 > ```
-
-[top](#gradle) | [home](index.md#build-tools)

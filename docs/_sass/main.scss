@@ -7,15 +7,15 @@
   padding: 0;
   box-sizing: border-box;
   line-height: 1.4;
- // outline: 1px solid red;
+  //outline: 1px solid red;
 }
 
 html {
-  height: 100%;
+  height: auto;
 }
 
 body {
-  height: 100%;
+  height: auto;
   background-color: #f6f9fc;
 }
 
@@ -57,7 +57,7 @@ img {
 }
 
 .container {
-  height: 100%;
+  height: auto;
 }
 
 /* 隐藏所有滚动条 */

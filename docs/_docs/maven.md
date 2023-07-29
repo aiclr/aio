@@ -1,15 +1,23 @@
-# maven
-
-| [home](index.md#build-tools)                  |
-| :-------------------------------------------- |
-| [安装目录说明](#安装目录说明)                 |
-| [生命周期](#生命周期)                         |
-| [命令行与生命周期](#命令行与生命周期)         |
-| [总结](#总结)                                 |
-| [插件](#插件)                                 |
-| [传递性依赖和以来范围](#传递性依赖和以来范围) |
-| [多模块](#多模块)                             |
-| [一些错误](#error)                            |
+---
+title: maven
+targets:
+  - name: 安装目录说明
+    link: maven#安装目录说明
+  - name: 生命周期
+    link: maven#生命周期
+  - name: 生命周期与命令
+    link: maven#命令行与生命周期
+  - name: 总结
+    link: maven#总结
+  - name: 插件
+    link: maven#插件
+  - name: 传递性依赖和依赖范围
+    link: maven#传递性依赖和依赖范围
+  - name: 多模块
+    link: maven#多模块
+  - name: 错误记录
+    link: maven#error
+---
 
 > Java不仅是一门编程语言，还是一个平台通过JRuby和Jython我们可以在Java平台上编写和运行Ruby和Python程序。 
 > 
@@ -65,8 +73,6 @@
 > NOTICE.txt： 记录了Maven包含的第三方软件 \
 > README.txt： 包含了Maven的简要介绍，包括安装需求以及如何安装简要指令
 
-[top](#maven) | [home](index.md#build-tools)
-
 ### 生命周期
 
 > Maven有三套相互独立的生命周期，clean， default ，site \
@@ -118,8 +124,6 @@
 > > - Post-site：执行一些在生成项目站点之后需要完成的工作
 > > - Site-deploy：将生成项目站点发布到服务器上
 
-[top](#maven) | [home](index.md#build-tools)
-
 ### 命令行与生命周期
 
 > 命令行执行maven任务的最主要方式就是调用maven的生命周期阶段， \
@@ -137,8 +141,6 @@
 - `mvn clean package` 打包 执行package之前会先执行test
 - `mvn clean install` 安装 执行install之前会执行package
 - 任何maven项目中都可以执行这些命令
-
-[top](#maven) | [home](index.md#build-tools)
 
 ## error
 
@@ -180,8 +182,6 @@
 > > 运行jar
 > > > 默认打包生成的jar不能够直接运行的，因为带有main方法的类信息不会添加到`manifest`中（打开jar文件中的`META-INF/MANIFEST.MF`文件，将无法看到`Main-Class`行）。 \
 > > > 借助`maven-shade-plugin`生成可执行的jar文件，在pom中配置该插件
-
-[top](#maven) | [home](index.md#build-tools)
 
 ## 插件
 
@@ -264,21 +264,19 @@
 > > > > > > </build>
 > > > > > > ```
 
-[top](#maven) | [home](index.md#build-tools)
-
-## 传递性依赖和以来范围
+## 传递性依赖和依赖范围
 
 > 依赖范围不仅可以控制依赖与三种classpath的关系，还对传递性依赖产生影响 \
 > A依赖于B，B依赖于C，我们说A对于B是第一直接依赖，B对于C是第二直接依赖，A对于C是传递性依赖 \
 > 第一直接依赖的范围和第二直接依赖的范围决定了传递性依赖的范围
 
 | 传递性依赖的范围 | 第二直接依赖→ | compile  | test | provided | runtime  |
-| :--------------- | :------------ | :------- | :--- | :------- | :------- |
-| 第一直接依赖↓    |               |
-| compile          |               | compile  | *-*  | *-*      | runtime  |
-| test             |               | test     | *-*  | *-*      | test     |
-| provided         |               | provided | *-*  | provided | provided |
-| runtime          |               | runtime  | *-*  | *-*      | runtime  |
+|:---------|:--------|:---------|:-----|:---------|:---------|
+| 第一直接依赖↓  |
+| compile  |         | compile  | *-*  | *-*      | runtime  |
+| test     |         | test     | *-*  | *-*      | test     |
+| provided |         | provided | *-*  | provided | provided |
+| runtime  |         | runtime  | *-*  | *-*      | runtime  |
 
 > 依赖调解
 > > 引入传递性依赖机制，大大简化和方便依赖声明，大部分情况只需要关心项目的直接依赖是什么，而不用考虑这些直接依赖会引入什么传递性依赖 \
@@ -436,8 +434,6 @@
 > 查看依赖树`mvn dependency:tree`
 > 分析当前项目依赖`mvn dependency:analyze`
 
-[top](#maven) | [home](index.md#build-tools)
-
 ## 多模块
 
 > `DepencyManagement`
@@ -455,5 +451,3 @@
 > > 如果不在子项目中声明依赖，是不会从父项目中继承下来的 \
 > > 只有在子项目中写了该依赖项，并且没有指定具体版本，才会从父项目中继承该项，并且`version`和`scope`都读取自父pom \
 > > 另外如果子项目中指定了版本号，那么会使用子项目中指定的jar版本
-
-[top](#maven) | [home](index.md#build-tools)

@@ -1,30 +1,55 @@
-# git
-
-| [home](index.md)  | [reference](https://git-scm.com/docs/) | [frequently](#frequently) |
-| :---------------- | :------------------------------------- | :------------------------ |
-| [clone](#clone)   | [查看其他分支文件](#show)              | [ssh](#ssh)               |
-| [branch](#branch) | [初始化仓库](#init)                    | [gpg](#gpg)               |
-| [commit](#commit) | [gitlab新建仓库](#gitlab)              | [config](#config)         |
-| [merge](#merge)   | [git-flow](#git-flow)                  |
-| [rebase](#rebase) | [reflog](#reflog)                      |
-| [push](#push)     |
-| [tag](#tag)       |
+---
+title: git
+targets:
+  - name: 官方文档
+    link: https://git-scm.com/docs/
+  - name: 常用命令
+    link: git#frequently
+  - name: ssh
+    link: git#ssh
+  - name: gpg
+    link: git#gpg
+  - name: config
+    link: git#config
+  - name: 查看其他分支文件
+    link: git#show
+  - name: 初始化仓库
+    link: git#init
+  - name: gitlab新建仓库
+    link: git#gitlab
+  - name: git-flow
+    link: git#git-flow
+  - name: reflog
+    link: git#reflog
+  - name: clone
+    link: git#clone
+  - name: branch
+    link: git#branch
+  - name: commit
+    link: git#commit
+  - name: merge
+    link: git#merge
+  - name: rebase
+    link: git#rebase
+  - name: push
+    link: git#push
+  - name: tag
+    link: git#tag
+---
 
 ## frequently
 
-| [top](#git)                                              | [home](index.md)                          |
-| :------------------------------------------------------- | :---------------------------------------- |
-| 提交记录                                                 | `git log --pretty=oneline`                |
-| 仓库状态                                                 | `git status`                              |
-| 追加修改到仓库                                           | `git add .`                               |
-| 提交commit                                               | `git commit -m "feat: init"`              |
-| fetch 更新 origin 仓库 的指定分支                        | `git fetch origin remote:local`           |
+|                                               |                                           |
+|:----------------------------------------------|:------------------------------------------|
+| 提交记录                                          | `git log --pretty=oneline`                |
+| 仓库状态                                          | `git status`                              |
+| 追加修改到仓库                                       | `git add .`                               |
+| 提交commit                                      | `git commit -m "feat: init"`              |
+| fetch 更新 origin 仓库 的指定分支                      | `git fetch origin remote:local`           |
 | push 提交 本地 develop 分支 到 origin 仓库 develop2 分支 | `git push origin develop:develop2`        |
-| 查看其他分支文件                                         | `git show develop:README.md`              |
+| 查看其他分支文件                                      | `git show develop:README.md`              |
 | 刷新以应用新的配置文件                                   | `git rm --cached -r` & `git reset --hard` |
-| 远程分支删除后，本地同步清理                              | `git remote prune origin` |
-
-[top](#git) | [home](index.md)
+| 远程分支删除后，本地同步清理                                | `git remote prune origin`                 |
 
 ## git-flow
 
@@ -66,8 +91,6 @@
 > > `ci` CI配置，脚本文件相关\
 > > `chore` c库或测试文件相关\
 > > `revert` commit 回退
-
-[top](#git) | [home](index.md)
 
 ## config
 
@@ -120,14 +143,38 @@
 
 ***当添加配置文件或使用参数配置后，并不会生效。配置文件方式重新clone代码即可生效，`git config` 删掉除.git的全部文件,手动下载仓库代码，然后解压把代码放进去即可***
 
-> 配置 core.autocrlf
+<br/>
 
-- 全局
-    - linux & mac `git config --global core.autocrlf input`
-    - windows `git config --global core.autocrlf true` 安装时默认设置为 true ![image](img/crlf_lf.gif)
-- 单库
-    - linux & mac `git config --local core.autocrlf input`
-    - windows `git config --local core.autocrlf true`
+配置 core.autocrlf
+
+**全局**
+
+linux & mac
+```shell
+git config --global core.autocrlf input
+```
+
+windows
+```shell
+git config --global core.autocrlf true
+```
+
+安装时默认设置为 true
+
+![crlf_lf.gif]({{'/assets/images/crlf_lf.gif'|relative_url}})
+
+**单库**
+
+linux & mac
+```
+git config --local core.autocrlf input
+```
+
+windows
+```shell
+git config --local core.autocrlf true
+```
+<br/>
 
 > .git/config file 配置
 > ```text
@@ -187,9 +234,6 @@
 > git reset --hard
 > ```
 
-
-[top](#git) | [home](index.md)
-
 ## tag
 
 > **tag name 与 branch name 不能相同** \
@@ -205,8 +249,6 @@
 > `git tag -d 0.0.1` 删除标签 \
 > `git push origin --delete 0.0.1` 删除远程仓库上的标签
 
-[top](#git) | [home](index.md)
-
 ## push
 
 > `gitlab` 默认将 `master` 分支设置为 `protect` 不允许强制 `push -f`
@@ -218,8 +260,6 @@
 > > `git push origin HEAD:remote` 推送 HEAD 当前分支到远程 remote 分支\
 > > `git push origin local_develop:remote_develop` 推送 local_develop 分支到远程 remote_develop 分支\
 > > `git push -f origin develop` 强制提交 风险极高 本地commit会强制覆盖远程commit
-
-[top](#git) | [home](index.md)
 
 ## gpg
 
@@ -239,8 +279,6 @@
 > > > `gpg>save`   保存
 > >
 > > `gpg --armor --export xxxx(pub key)` 打印公钥字符串，删除旧的，复制添加到git仓库即可
-
-[top](#git) | [home](index.md)
 
 ## ssh
 
@@ -281,16 +319,12 @@
 > ssh git@bougainvilleas
 > ```
 
-[top](#git) | [home](index.md)
-
 ## reflog
 
 > [参考文档](https://git-scm.com/docs/git-reflog)\
 > 查看本地git操作日志 `git reflog`\
 > 回滚到02a3260 `git reset --hard 02a3260`\
 > 远程提交回退 `git push origin HEAD --force`
-
-[top](#git) | [home](index.md)
 
 ## rebase
 
@@ -321,8 +355,6 @@
 > > > 4. 编辑 git message 作为合并后的 commit message，wq保存
 > > > 5. 有冲突手动解决后执行`git add .`和`git --continue`,直到所有冲突解决完成，则选择的commit会合并为一个commit
 
-[top](#git) | [home](index.md)
-
 ## merge
 
 > [参考文档](https://git-scm.com/docs/git-merge)\
@@ -331,8 +363,6 @@
 1. 当前分支 develop 将 temp 分支合并到develop `git merge temp`
 2. 产生冲突（IDEA工具更方便处理冲突）
 3. 手动处理冲突代码执行`git add 冲突文件` 然后 `git commit -m "feat: merge temp into develop"`
-
-[top](#git) | [home](index.md)
 
 ## init
 
@@ -360,8 +390,6 @@ git fetch origin
 # git push -f 强制提交 风险极高 本地commit会强制覆盖远程commit
 git push -f origin develop
 ```
-
-[init](#init) | [top](#git) | [home](index.md)
 
 ### gitlab
 
@@ -397,8 +425,6 @@ git push -u origin --all
 git push -u origin --tags
 ```
 
-[init](#init) | [top](#git) | [home](index.md)
-
 ## commit
 
 > 修改 `commit message`
@@ -410,19 +436,13 @@ git push -u origin --tags
 > > > git push -f origin branchname
 > > > ```
 
-[top](#git) | [home](index.md)
-
 ## show
 
 > 查看其他分支文件 `git show develop:README.md`
 
-[top](#git) | [home](index.md)
-
 ## clone
 
 > `git clone xxx`
-
-[top](#git) | [home](index.md)
 
 ## branch
 
@@ -455,5 +475,3 @@ git push -u origin --tags
 > 改
 > > Rename your local `master` branch into `main` with: `git branch --move master main`\
 > > 将当前分支与远程`main`分支绑定`git push --set-upstream origin main`
-
-[top](#git) | [home](index.md)
