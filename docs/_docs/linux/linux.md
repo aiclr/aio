@@ -1,9 +1,82 @@
 ---
 title: Linux基础
 targets:
-- name: Shell:即工作环境
-  link: linux/linux#shell即工作环境
+  - name: top
+    link: linux/linux
+  - name: Shell:即工作环境
+    link: linux/linux#shell即工作环境
+  - name: tar
+    link: linux/linux#tar
+  - name: jar
+    link: linux/linux#jar
+  - name: gunzip
+    link: linux/linux#gunzip
+  - name: zip
+    link: linux/linux#zip
 ---
+
+## gunzip
+
+解压
+```shell
+gunzip -c xxx.log.gz > ./xxx.log
+```
+
+压缩
+```shell
+gzip -c xxx.log > ./xxx.log.gz
+```
+
+## zip
+
+解压
+```shell
+unzip xxx.zip -d ./unzip/
+```
+
+解压 windows 中文乱码
+```shell
+unzip -O CP936 xxx.zip -d ./unzip/
+```
+
+压缩
+```shell
+zip -r xxx.zip ./xxx
+```
+
+## jar
+
+解压war包
+```shell
+jar -xvf **.war
+```
+
+解压jar包
+```shell
+jar -xvf flyos-dev-2.1.9.3.jar
+```
+
+压缩jar包
+```shell
+jar -cfM0 flyos-dev-2.1.9.3.jar BOOT-INF META-INF org
+```
+ 
+## tar
+
+不解压列出tar内容
+```shell
+tar -tvf **.tar
+```
+
+将file文件夹添加到**.tar
+```shell
+tar -cvf **.tar ./file/
+```
+
+解压tar 到file
+```shell
+tar -xvf **.tar ./file
+```
 
 ## Shell:即工作环境
 

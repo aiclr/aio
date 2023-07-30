@@ -1,30 +1,32 @@
 ---
 title: btrfs
 targets:
-- name: 格式化并创建
-  link: linux/btrfs#格式化并创建
-- name: 挂载 btrfs
-  link: linux/btrfs#挂载
-- name: 添加 移除磁盘
-  link: linux/btrfs#添加移除
-- name: 多个磁盘数据平衡
-  link: linux/btrfs#多个磁盘数据平衡
-- name: 查看文件系统
-  link: linux/btrfs#查看文件系统
-- name: 多磁盘可以使用raid
-  link: linux/btrfs#raid
-- name: 多设备修改大小
-  link: linux/btrfs#多设备修改大小
-- name: 子卷
-  link: linux/btrfs#subvolume
-- name: 子卷快照
-  link: linux/btrfs#子卷快照
-- name: 删除子卷
-  link: linux/btrfs#删除子卷
-- name: 文件系统转换
-  link: linux/btrfs#文件系统转换
-- name: 磁盘碎片整理
-  link: linux/btrfs#磁盘碎片整理
+  - name: top
+    link: linux/btrfs
+  - name: 格式化并创建
+    link: linux/btrfs#格式化并创建
+  - name: 挂载 btrfs
+    link: linux/btrfs#挂载
+  - name: 添加 移除磁盘
+    link: linux/btrfs#添加移除
+  - name: 多个磁盘数据平衡
+    link: linux/btrfs#多个磁盘数据平衡
+  - name: 查看文件系统
+    link: linux/btrfs#查看文件系统
+  - name: 多磁盘可以使用raid
+    link: linux/btrfs#raid
+  - name: 多设备修改大小
+    link: linux/btrfs#多设备修改大小
+  - name: 子卷
+    link: linux/btrfs#subvolume
+  - name: 子卷快照
+    link: linux/btrfs#子卷快照
+  - name: 删除子卷
+    link: linux/btrfs#删除子卷
+  - name: 文件系统转换
+    link: linux/btrfs#文件系统转换
+  - name: 磁盘碎片整理
+    link: linux/btrfs#磁盘碎片整理
 ---
 
 > Btrfs 文件系统特性 `Btrfs (B-tree FS,Butter FS, Better FS)`

@@ -1,4 +1,9 @@
-<div style="text-align: center;font-size: 40px;">shell</div>
+---
+title: shell
+targets:
+  - name: top
+    link: linux/shell
+---
 
 ## 条件 test & []
 

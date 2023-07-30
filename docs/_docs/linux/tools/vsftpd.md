@@ -1,4 +1,27 @@
-<div style="text-align: center;font-size: 40px;">Centos7 vsftpd服务器搭建</div>
+---
+title: vsftpd
+targets:
+  - name: top
+    link: linux/tools/vsftpd
+  - name: install
+    link: linux/tools/vsftpd#install
+  - name: config
+    link: linux/tools/vsftpd#config
+  - name: 创建ftp用户
+    link: linux/tools/vsftpd#创建ftp用户
+  - name: 禁用ssh
+    link: linux/tools/vsftpd#禁用ssh
+  - name: 开放防火墙策略
+    link: linux/tools/vsftpd#开放防火墙策略
+  - name: 修改sshd配置
+    link: linux/tools/vsftpd#修改sshd配置
+  - name: 权限设置
+    link: linux/tools/vsftpd#权限设置
+  - name: 重启
+    link: linux/tools/vsftpd#重启
+---
+
+vsftpd<sub>Very Secure FTP Daemon</sub> 文件服务器 Centos7 搭建
 
 ## install
 
@@ -24,7 +47,9 @@ useradd ftpuser
 passwd password
 ```
 
-#### 不允许用户ssh登录系统，但是能登陆vsftpd
+#### 禁用ssh
+
+不允许用户 **ssh** 登录系统，但是能登陆 **vsftpd**
 
 ```shell
 # 将which nologin 显示的内容加到shells文件末尾
@@ -70,7 +95,9 @@ chown root:root /home/ftpuser
 chmod 755 /home/ftpuser
 ```
 
-## 修改配置后要重启sshd 和vsftpd服务
+## 重启
+
+修改配置后要重启 **sshd** 和 **vsftpd** 服务
 
 ```shell script
 systemctl restart sshd

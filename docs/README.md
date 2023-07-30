@@ -32,6 +32,7 @@
 [Rouge's documentation](https://rouge-ruby.github.io/docs/Rouge/CSSTheme.html)
 
 > 语法高亮\
+> `rougify style tulip > _sass/syntax.scss`\
 > `rougify style github > _sass/syntax.scss`\
 > `rougify style magritte > _sass/syntax.scss`\
 > `rougify style pastie > _sass/syntax.scss`\
@@ -40,6 +41,13 @@
 > `rougify style igorpro > _sass/syntax.scss`\
 > `rougify style molokai > _sass/syntax.scss`\
 > `rougify style monokai > _sass/syntax.scss`\
+> `rougify style magritte > _sass/syntax.scss`\
+> `rougify style bw > _sass/syntax.scss`\
+> `rougify style base16 > _sass/syntax.scss`\
+> `rougify style colorful > _sass/syntax.scss`\
+> `rougify style gruvbox > _sass/syntax.scss`\
+> `rougify style igor_pro > _sass/syntax.scss`\
+> `rougify style thankful_eyes > _sass/syntax.scss`\
 > `rougify style monokai.sublime > _sass/syntax.scss`\
 > `rougify style tulip > _sass/syntax.scss`\
 > `echo "@import "syntax";" >> assets/css/styles.scss`
