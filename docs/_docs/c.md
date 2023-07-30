@@ -1,17 +1,25 @@
-# c
-
-| [home](index.md#c)                      |
-| :-------------------------------------- |
-| [gcc](#gcc)                             |
-| [gdb](#gdb)                             |
-| [keyword](#keyword)                     |
-| [链接`静态库`、`共享库`时搜索路径顺序](#lib)      |
-| [指针大乱斗](#pointer)                   |
-| [数据类型](#variable-types)              |
-| [格式化数据类型](#format-specifiers) |
-| [运算符](#operators) |
-| |
-| [cmake](#cmake) |
+---
+title: c
+targets:
+  - name: gcc
+    link: c#gcc
+  - name: gdb
+    link: c#gdb
+  - name: cmake
+    link: c#cmake
+  - name: 运算符
+    link: c#operators
+  - name: 数据类型
+    link: c#variable-types
+  - name: 格式化数据类型
+    link: c#format-specifiers
+  - name: 指针
+    link: c#pointer
+  - name: 链接静态库、共享库时搜索路径顺序
+    link: c#lib
+  - name: keyword
+    link: c#keyword
+---
 
 ## cmake
 
@@ -19,8 +27,7 @@
 > [CMake Tutorial](https://cmake.org/cmake/help/latest/guide/tutorial/index.html) \
 > [install](https://cmake.org/cmake/help/latest/command/install.html#targets)
 > > [CMAKE_INSTALL_PREFIX](https://cmake.org/cmake/help/latest/variable/CMAKE_INSTALL_PREFIX.html#variable:CMAKE_INSTALL_PREFIX+) \
-> > [GNUInstallDirs](https://cmake.org/cmake/help/latest/module/GNUInstallDirs.html#module:GNUInstallDirs) \
-> > 
+> > [GNUInstallDirs](https://cmake.org/cmake/help/latest/module/GNUInstallDirs.html#module:GNUInstallDirs)
 
 ## operators
 
@@ -62,32 +69,30 @@
 > the difference between `a++` and `++a` is that if they are used in a test, \
 > such as if(a++), \
 > `a++` tests the value and increments it, \
-> while `++a` increments the value first and then tests the incremented value;
-
-[top](#c) | [home](index.md#c)
+> while `++a` increments the value first and then tests the incremented value
 
 ## format specifiers
 
-| specifier | format/type                                                                 |
-|:----------|:----------------------------------------------------------------------------|
-| %c        | alphanumeric<sub>含有字母和数字的; 字母与数字并用的</sub> character/char         |
-| %d        | signed decimal value/int                                                    |
+| specifier | format/type                                                                                                                                     |
+|:----------|:------------------------------------------------------------------------------------------------------------------------------------------------|
+| %c        | alphanumeric<sub>含有字母和数字的; 字母与数字并用的</sub> character/char                                                                                        |
+| %d        | signed decimal value/int                                                                                                                        |
 | %i        | 与%d类似，但是`scanf("%i",&a)`时会将输入的`012`作为8进制，`0x12`作为十六进制 [参考](https://github.com/bougainvilleas/aio/blob/develop/c/cprimerplus/format_specifier.c) |
-| %ld       | signed decimal value/long int                                               |
-| %u        | unsigned decimal value/int                                                  |
-| %lu       | unsigned decimal value/long int                                             |
-| %o        | octal<sub>八进制</sub> value/int                                             |
-| %lo       | octal value/long int                                                        |
-| %x,%X     | hexadecimal<sub>十六进制</sub> value/int                                      |
-| %lx,%lX   | hexadeciaml value/long int                                                  |
-| %f        | floating-point<sub>浮点</sub> value/float                                  |
-| %e,%E     | exponential<sub>指数的</sub> value/float   浮点数，e记数法                   |
-| %g,%G     | 根据值的不同，自动选择`%f`或`%e`. `%e`格式用于指数小于`-4`或者大于或者等于精度时 |
-| %a,%A     | `C99` float/浮点数，十六进制 p/P计数法|
-| %s        | text string/char pointer |
-| %p        | pointer 指针 |
-| %%        | 打印`%` |
-| %zd       | `C99`新增的%zd/`size_t`,如果编译器不支持%zd 请将其改成 %u或%lu,[参考](https://github.com/bougainvilleas/aio/blob/develop/c/cprimerplus/chapter05/0508_sizeof.c) |
+| %ld       | signed decimal value/long int                                                                                                                   |
+| %u        | unsigned decimal value/int                                                                                                                      |
+| %lu       | unsigned decimal value/long int                                                                                                                 |
+| %o        | octal<sub>八进制</sub> value/int                                                                                                                   |
+| %lo       | octal value/long int                                                                                                                            |
+| %x,%X     | hexadecimal<sub>十六进制</sub> value/int                                                                                                            |
+| %lx,%lX   | hexadecimal value/long int                                                                                                                      |
+| %f        | floating-point<sub>浮点</sub> value/float                                                                                                         |
+| %e,%E     | exponential<sub>指数的</sub> value/float   浮点数，e记数法                                                                                                |
+| %g,%G     | 根据值的不同，自动选择`%f`或`%e`. `%e`格式用于指数小于`-4`或者大于或者等于精度时                                                                                               |
+| %a,%A     | `C99` float/浮点数，十六进制 p/P计数法                                                                                                                     |
+| %s        | text string/char pointer                                                                                                                        |
+| %p        | pointer 指针                                                                                                                                      |
+| %%        | 打印`%`                                                                                                                                           |
+| %zd       | `C99`新增的%zd/`size_t`,如果编译器不支持%zd 请将其改成 %u或%lu,[参考](https://github.com/bougainvilleas/aio/blob/develop/c/cprimerplus/chapter05/0508_sizeof.c)    |
 
 ### 格式字符和修饰符
 
@@ -119,8 +124,6 @@
   - `%4.2f` 3852.99 = 3852.99
   - `%3.1f` 3852.99 = 3853.0 四舍五入 整数位自动扩大
 
-[top](#c) | [home](index.md#c)
-
 ## variable types
 
 > depending on platform,**int** can be either a **short int**(16bits) or a **long int**(32bits); \
@@ -141,15 +144,13 @@
 | float              | floating-point value(+/- 3.402823x10<sup>38</sup>)         | 4           |
 | double             | double-precision floating-point value()+/-10<sup>308</sup> | 8           |
 
-[top](#c) | [home](index.md#c)
-
 ## pointer
 
-| 符号 | 含义         |
-| :--- | :----------- |
-| *    | 表示一个指针 |
-| ()   | 表示一个函数 |
-| []   | 表示一个数组 |
+| 符号 | 含义     |
+|:---|:-------|
+| *  | 表示一个指针 |
+| () | 表示一个函数 |
+| [] | 表示一个数组 |
 
 > `int board[8][9];`
 > > 声明一个包含8个含有9个int元素数组的数组 \
@@ -214,8 +215,6 @@
 > > 再看 `(int)` 指针指向函数 \
 > > 最后 `char` 函数返回类型 char
 
-[top](#c) | [home](index.md#c)
-
 ## gcc
 
 > `-D` 等于`xxx.c` 定义的`#define PI=3.14`. 例如：`gcc -DPI=3.14 xxx.c -o xxx`\
@@ -256,8 +255,6 @@
 > `ar tv` 列出归档的内容 `ar tv libfoo.a`\
 > `ar x` 解压所有归档目标文件 `ar x libfoo.a`\
 > `ar dv` 删除归档内的某一目标文件 `ar dv libfoo.a xx.o`
-
-[top](#c) | [home](index.md#c)
 
 ## gdb
 
@@ -334,42 +331,36 @@
 >
 > `cgdb`更强大的调试工具 `pacman -Syu cgdb`
 
-[top](#c) | [home](index.md#c)
-
 ## lib
 
 ### 静态库
 
-1. ld会先搜索GCC 命令中-L指定的目录
-2. 再搜索GCC的环境变量：LIBRARY_PATH
-3. 再搜索目录/lib、/usr/lib、/usr/local/lib
+1. `ld`会先搜索`gcc`命令中`-L`指定的目录
+2. 再搜索GCC的环境变量：`LIBRARY_PATH`
+3. 再搜索目录`/lib`、`/usr/lib`、`/usr/local/lib`
 
 ### 共享库
 
-1. 编译目标代码时-L指定的目录
-2. 环境变量 ：LD_LIBRARY_PATH
-3. 配置文件 /etc/ld.so.conf 中指定的共享库搜索路径
-4. 默认的共享库路径 /lib、/usr/lib
-
-[top](#c) | [home](index.md#c)
+1. 编译目标代码时`-L`指定的目录
+2. 环境变量`LD_LIBRARY_PATH`
+3. 配置文件`/etc/ld.so.conf`中指定的共享库搜索路径
+4. 默认的共享库路径`/lib`、`/usr/lib`
 
 ## keyword
 
 > 关键字和保留标识符,关键字是C语言的词汇，不能用他们作为标识符。 \
 > 粗体表示C90标准新增的关键字，斜体表示的C99标准新增的关键字，粗斜体表示的是C11标准新增的关键字
 
-|||||
-|:---|:---|:---|:---|
-|auto|extern|short|while|
-|break|float|**signed**|***_Alignas***|
-|case|for|sizeof|***_Alignof***|
-|char|goto|static|***_Atomic***|
-|**const**|if|struct|***_Bool***|
-|continue|inline|switch|***_Complex***|
-|defaut|int|typedef|***_Generic***|
-|do|long|union|***_Imaginary***|
-|double|register|unsigned|***_Noreturn***|
-|else|restrict|void|***_Static_assert***|
-|**enum**|return|**volatile**|***_Thread_local***|
-
-[top](#c) | [home](index.md#c)
+|           |          |              |                      |
+|:----------|:---------|:-------------|:---------------------|
+| auto      | extern   | short        | while                |
+| break     | float    | **signed**   | ***_Alignas***       |
+| case      | for      | sizeof       | ***_Alignof***       |
+| char      | goto     | static       | ***_Atomic***        |
+| **const** | if       | struct       | ***_Bool***          |
+| continue  | inline   | switch       | ***_Complex***       |
+| defaut    | int      | typedef      | ***_Generic***       |
+| do        | long     | union        | ***_Imaginary***     |
+| double    | register | unsigned     | ***_Noreturn***      |
+| else      | restrict | void         | ***_Static_assert*** |
+| **enum**  | return   | **volatile** | ***_Thread_local***  |

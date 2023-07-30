@@ -1,14 +1,31 @@
-<div style="text-align: center;font-size: 40px;">Logical Volume Manager (LVM) </div>
+---
+title: lvm
+targets:
+  - name: top
+    link: linux/tools/lvm
+  - name: archlinux 安装
+    link: linux/tools/lvm#archlinux
+  - name: Micro OS
+    link: linux/tools/lvm#archlinux
+  - name: virtualbox Micro OS 实操记录
+    link: linux/tools/lvm#virtualbox-micro-os
+  - name: 新建
+    link: linux/tools/lvm#新建
+  - name: 扩展
+    link: linux/tools/lvm#扩展
+  - name: 删除
+    link: linux/tools/lvm#删除
+---
 
-## ![LVM](img/lvm.gif)
+![LVM]({{'/assets/images/lvm.gif'|relative_url}})
 
-> LVM
-> > https://wiki.archlinux.org/title/LVM#Logical_volumes \
-> > https://wiki.archlinux.org/title/Install_Arch_Linux_on_LVM
+> Logical Volume Manager (LVM)
+> > [Logical volumes](https://wiki.archlinux.org/title/LVM#Logical_volumes)\
+> > [Install Arch Linux on LVM](https://wiki.archlinux.org/title/Install_Arch_Linux_on_LVM)
 >
 > btrfs
-> > https://btrfs.wiki.kernel.org/index.php/Main_Page
-> > https://wiki.archlinux.org/title/Btrfs
+> > [btrfs kernel wiki](https://btrfs.wiki.kernel.org/index.php/Main_Page)\
+> > [Btrfs archlinux wiki](https://wiki.archlinux.org/title/Btrfs)
 
 
 ## archlinux
@@ -46,8 +63,9 @@ vgremove lvm
 pvremove /dev/sdd /dev/sdb /dev/sdc
 ```
 
+### virtualbox Micro OS
 
-### virtualbox Micro OS 实操记录（openSUSE-Kubic-DVD-x86_64-Current.iso）
+virtualbox Micro OS 实操记录（openSUSE-Kubic-DVD-x86_64-Current.iso）
 
 #### 新建
 

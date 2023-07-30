@@ -1,27 +1,45 @@
-<div style="text-align: center;font-size: 40px;">firewald 防火墙策略</div>
+---
+title: firewalld
+targets:
+  - name: top
+    link: linux/tools/firewall-cmd
+  - name: Services
+    link: linux/tools/firewall-cmd#services
+  - name: ports
+    link: linux/tools/firewall-cmd#ports
+  - name: Zones
+    link: linux/tools/firewall-cmd#zones
+---
 
-> [Arch wiki](https://wiki.archlinux.org/title/Firewalld) \
-> 安装 `pacman -S firewalld` \
-> 启动 firewalld 服务,使用 `firewall-cmd` 配置规则 \
-> 不启动 firewalld 服务可以使用 `firewall-offline-cmd` 配置规则
->
+[Arch wiki](https://wiki.archlinux.org/title/Firewalld)
+
+安装
+```shell
+pacman -S firewalld
+```
+
+启动 firewalld 服务,使用 **firewall-cmd** 配置规则
+
+不启动 firewalld 服务可以使用 **firewall-offline-cmd** 配置规则
 
 ### 选项 `--permanent` 与 `--timeout` 互斥
 
-- 不使用 `--permanent` 选项配置规则，会直接修改运行时配置，但是重启服务后会被还原
-    - 使用 `firewall-cmd --runtime-to-permanent` 可将运行时规则持久化，重启后依然生效
-- 使用 `--permanent` 选项配置规则，当前运行时的配置不会被修改，可以使用下面任意操作应用规则
-    - 重启服务`systemctl restart firewalld`
-    - 重载规则`firewall-cmd --reload`
+> 不使用 `--permanent` 选项配置规则，会直接修改运行时配置，但是重启服务后会被还原
+> > 使用 `firewall-cmd --runtime-to-permanent` 可将运行时规则持久化，重启后依然生效
+> 
+> 使用 `--permanent` 选项配置规则，当前运行时的配置不会被修改，可以使用下面任意操作应用规则
+> > 重启服务`systemctl restart firewalld`\
+> > 重载规则`firewall-cmd --reload`
 
 ### 选项 `--timeout` 与 `--permanent` 互斥
 
-- 在有限的时间内添加服务或端口
-- `--timeout=value` 
-    - `--timeout=3h` 3 hours
-    - `--timeout=3m` 3 minutes
-    - `--timeout=3s` 3 seconds
-- 例如：开放 ssh服务 3小时 `firewall-cmd --add-service ssh --timeout=3h`
+> 在有限的时间内添加服务或端口\
+> `--timeout=value` 
+> > `--timeout=3h` 3 hours\
+> > `--timeout=3m` 3 minutes\
+> > `--timeout=3s` 3 seconds
+> 
+> 例如：开放 ssh服务 3小时 `firewall-cmd --add-service ssh --timeout=3h`
 
 
 ### Services

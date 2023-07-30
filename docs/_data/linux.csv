@@ -1,17 +1,15 @@
 hide,name,link
-0,linux,/linux/btrfs
-0,btrfs,/linux/btrfs
-0,lvm,/linux/btrfs
-0,ohmyzsh,/linux/btrfs
-0,awk,/linux/btrfs
-0,sed,/linux/btrfs
-0,tar,/linux/btrfs
-0,jar,/linux/btrfs
-0,zip & gzip,/linux/btrfs
-0,vim,/linux/btrfs
-0,firewald 防火墙策略,/linux/btrfs
-0,vsftd文件服务器,/linux/btrfs
-0,shell,/linux/btrfs
+0,Linux基础,linux/linux
+0,btrfs,linux/btrfs
+0,lvm,linux/tools/lvm
+0,tar,linux/linux#tar
+0,jar,linux/linux#jar
+0,gunzip,linux/linux#gunzip
+0,zip,linux/linux#zip
+0,vim,linux/tools/vim
+0,firewalld 防火墙策略,linux/tools/firewall-cmd
+0,vsftpd 文件服务器,linux/tools/vsftpd
+0,shell,linux/shell
 0,tmux,/linux/btrfs
 0,users & groups,/linux/user
 0,chmod,/linux/user
