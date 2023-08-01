@@ -1,4 +1,6 @@
 [![Jekyll gh Pages](https://github.com/bougainvilleas/aio/actions/workflows/jekyll-gh-pages.yml/badge.svg)](https://github.com/bougainvilleas/aio/actions/workflows/jekyll-gh-pages.yml)
+[![GitHub license](https://img.shields.io/github/license/bougainvilleas/aio.svg?style=flat-square)](https://github.com/bougainvilleas/aio/blob/snapshot/LICENSE)
+
 
 # aio
 
@@ -35,7 +37,7 @@
 > [java IO NIO](java-io/README.md) \
 > [java juc 多线程](java-juc/README.md) \
 > [设计模式 java](java-design-pattern/README.md) \
-> [数据结构与算法 java](java-data-structure-algorithm/README.md) \
+> [数据结构与算法 java](java-data-structure-algorithm/README.md)
 
 ## [Groovy](groovy-java/README.md)
 
