@@ -1,0 +1,17 @@
+databaseChangeLog:
+  - changeSet:
+      id: 20230802000001
+      author: caddy
+      changes:
+        - createTable:
+            tableName: liquibase_demo2
+            remarks: 表2
+            columns:
+              - column:
+                  name: id
+                  autoIncrement: true
+                  type: BIGINT
+                  remarks: 主键
+                  constraints:
+                    primaryKey: true
+                    nullable: false

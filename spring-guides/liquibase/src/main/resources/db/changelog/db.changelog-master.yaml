@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - include:
+      relativeToChangelogFile: false
+      file: classpath:/db/changelog/20230802000000.xml
+  - include:
+      relativeToChangelogFile: true
+      file: 20230802000001.yaml
