@@ -26,6 +26,7 @@
  * man 3 fputs
  * man 3 vsnprintf
  * man 3 snprintf
+ * man 3 printf
  */
 #include <stdio.h>
 
