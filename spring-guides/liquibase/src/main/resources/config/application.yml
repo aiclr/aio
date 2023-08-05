@@ -1,13 +1,8 @@
 spring:
   application:
-    name: batch
+    name: liquibase
   main:
     banner-mode: log
-  lifecycle:
-    timeout-per-shutdown-phase: 30s #缓冲期
-  batch:
-    jdbc:
-      initialize-schema: always # 创建 batch_job表
   datasource:
     enable: true
     druid:
@@ -39,6 +34,20 @@ spring:
       filter:
         config:
           enabled: false
+  jpa:
+    hibernate:
+      # create 每次 run 没有表格会新建，表内数据会清空
+      # create-drop 每次程序结束时候清空表
+      # update 每次 run 没有表格会新建，表内数据不会清空，会更新表格
+      # create 每次 run 校验 Entity 与 数据库的字段 是否匹配 不匹配则报错
+      # none  Disable DDL handling
+      ddl-auto: create-drop
+    show-sql: true
+  liquibase:
+    enabled: true
+    change-log: classpath:/db/changelog/db.changelog-master.yaml
+
+
 
 mysql:
   ip: ${MYSQL_IP:localhost}
@@ -46,6 +55,3 @@ mysql:
   database: ${MYSQL_DB:demo}
   user: ${MYSQL_USER:root}
   pwd: ${MYSQL_PWD:toor}
-
-server:
-  port: ${PORT:30000}

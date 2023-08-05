@@ -57,6 +57,7 @@ tasks.register('clean-spring-guides'){
     dependsOn gradle.includedBuild('spring-guides').task(':testing-restdocs:clean')
     dependsOn gradle.includedBuild('spring-guides').task(':reactive-rest-service:clean')
     dependsOn gradle.includedBuild('spring-guides').task(':graphql-server:clean')
+    dependsOn gradle.includedBuild('spring-guides').task(':liquibase:clean')
 }
 
 tasks.register('build-spring-guides'){
@@ -81,6 +82,7 @@ tasks.register('build-spring-guides'){
     dependsOn gradle.includedBuild('spring-guides').task(':testing-restdocs:build')
     dependsOn gradle.includedBuild('spring-guides').task(':reactive-rest-service:build')
     dependsOn gradle.includedBuild('spring-guides').task(':graphql-server:build')
+    dependsOn gradle.includedBuild('spring-guides').task(':liquibase:build')
 }
 
 tasks.register('clean-groovy-java'){
