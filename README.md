@@ -6,7 +6,7 @@
 [forks]: https://github.com/bougainvilleas/aio/forks
 [Jekyll gh pages]: https://github.com/bougainvilleas/aio/actions/workflows/jekyll-gh-pages.yml
 [deployments]: https://github.com/bougainvilleas/aio/deployments
-[gh pages]: https://github.com/bougainvilleas/aio/actions/workflows/jekyll-gh-pages.yml
+[gh pages]: https://bougainvilleas.github.io/aio
 [license]: LICENSE
 <!----------------------------------{ Badges }--------------------------------->
 [Badge language count]: https://img.shields.io/github/languages/count/bougainvilleas/aio
