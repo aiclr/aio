@@ -8,12 +8,18 @@ title: AIO
     {% if home.hide == "0" %}
     <div class="card">
         <h3>{{home.name}}</h3>
-        <ul>
+        <ul class="list">
             {% for file in site.data %}
             {% if file[0] == home.file %}
             {% for item in file[1]%}
             {% if item.hide == "0" %}
-            <li><a href="{{ item.link | relative_url}}">{{ item.name }}&emsp;&raquo;</a></li>
+            <li class="item">
+                <a href="{{ item.link | relative_url}}">&raquo;&emsp;{{ item.name }}</a>
+            </li>
+            {% else %}
+            <li class="item_l">
+                <a href="{{ item.link | relative_url}}">&raquo;&emsp;{{ item.name }}</a>
+            </li>
             {% endif %}
             {% endfor %}
             {% endif %}

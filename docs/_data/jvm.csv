@@ -13,4 +13,4 @@ hide,name,link
 0,jvm参数,jvm/jvmoptions
 0,jvm线程,jvm#线程
 0,OOM,jvm/oom
-0,Thread Local Allocation Buffer,jvm/tlab
+1,Thread Local Allocation Buffer,jvm/tlab

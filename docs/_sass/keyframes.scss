@@ -19,3 +19,20 @@
     opacity: 1;
   }
 }
+
+/* ul li 过长滚动 */
+@keyframes item_l_visible {
+
+  0%{
+    transform: translateX(0);
+  }
+  90%{
+    transform: translateX(-25rem);
+  }
+  90.01%{
+    transform: translateX(0);
+  }
+  100%{
+    transform: translateX(0);
+  }
+}

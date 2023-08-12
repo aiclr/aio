@@ -2,7 +2,7 @@ hide,name,link
 0,spring-framework,spring-framework
 0,设计模式原则,/linux/btrfs
 0,代理,/linux/btrfs
-0,Functional Programming & Currying,/linux/btrfs
+1,Functional Programming & Currying,/linux/btrfs
 0,jshell java REPL,/linux/btrfs
 0,RESTful API,/linux/btrfs
 0,TDD测试驱动开发,/linux/btrfs
@@ -17,9 +17,9 @@ hide,name,link
 0,Jaccard 相似系数,/linux/btrfs
 0,Sorensen Dice 相似度系数,/linux/btrfs
 0,Levenshtein 莱文斯距离,/linux/btrfs
-0,Springboot Layering Docker Images,/linux/btrfs
+1,Springboot Layering Docker Images,/linux/btrfs
 0,spring cloud,/linux/btrfs
 0,spring cloud nacos,/linux/btrfs
 0,eureka 配置说明,/linux/btrfs
 0,spring 循环依赖,/linux/btrfs
-0,MultipartFile isEmpty spring源码,/linux/btrfs
+1,MultipartFile isEmpty spring源码,/linux/btrfs
