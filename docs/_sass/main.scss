@@ -114,11 +114,12 @@ img {
 /* index page */
 .card {
   //outline: 1px solid red;
-  max-width: 32%;
+  //max-width: 32%;
   max-height: 92%;
+  width: 6rem;
   /* flex 搭配使用*/
   //border: 0.05rem dashed rgba(43, 32, 100, 0.38);
-  margin: 1% auto 0.2rem auto;
+  margin: 1% auto 1% auto;
   padding: 0.18rem;
   /* 右移 下移 模糊 扩大*/
   box-shadow: -0.075rem -0.05rem 0.1rem 0.05rem #2f4052;
@@ -130,15 +131,17 @@ img {
   overflow: auto;
 }
 
-ul {
+.list {
   margin: 0.3rem;
   font-size: 0.25rem;
   text-align: left;
-  list-style-type: circle;
+  //list-style-type: circle;
+  list-style-type: none;
   list-style-position: inside;
 }
 
-li{
+
+.list .item{
   max-width: 5rem;
   /* 超出隐藏 */
   overflow: hidden;
@@ -149,9 +152,26 @@ li{
   //animation: 5s wordsLoop linear infinite normal;
 }
 
-li:hover{
-  text-overflow: inherit;
+.list .item_l{
+  max-width: 5rem;
+  /* 超出隐藏 */
+  overflow: hidden;
+  /* 禁止换行 */
+  white-space: nowrap;
+  /* 超出使用省略号代替 */
+  text-overflow: ellipsis;
+}
+
+.list .item_l:hover{
+  /* 超出隐藏 */
   overflow: visible;
+  /* 超出使用省略号代替 */
+  text-overflow: unset;
+  //过长隐藏
+  animation-name: item_l_visible;
+  animation-duration: 25s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
 }
 
 a:link {

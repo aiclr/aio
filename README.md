@@ -1,10 +1,43 @@
-[![Jekyll gh Pages](https://github.com/bougainvilleas/aio/actions/workflows/jekyll-gh-pages.yml/badge.svg)](https://github.com/bougainvilleas/aio/actions/workflows/jekyll-gh-pages.yml)
-[![GitHub license](https://img.shields.io/github/license/bougainvilleas/aio.svg?style=flat-square)](https://github.com/bougainvilleas/aio/blob/snapshot/LICENSE)
+<!----------------------------------{ URL }--------------------------------->
+[pull requests]: https://github.com/bougainvilleas/aio/pulls
+[issues]: https://github.com/bougainvilleas/aio/issues
+[stars]: https://github.com/bougainvilleas/aio/stargazers
+[watchers]: https://github.com/bougainvilleas/aio/watchers
+[forks]: https://github.com/bougainvilleas/aio/forks
+[Jekyll gh pages]: https://github.com/bougainvilleas/aio/actions/workflows/jekyll-gh-pages.yml
+[deployments]: https://github.com/bougainvilleas/aio/deployments
+[gh pages]: https://github.com/bougainvilleas/aio/actions/workflows/jekyll-gh-pages.yml
+[license]: LICENSE
+<!----------------------------------{ Badges }--------------------------------->
+[Badge language count]: https://img.shields.io/github/languages/count/bougainvilleas/aio
+[Badge language]: https://img.shields.io/github/languages/top/bougainvilleas/aio
+[Badge pull requests]: https://img.shields.io/github/issues-pr/bougainvilleas/aio?style=flat-square
+[Badge issues]: https://img.shields.io/github/issues/bougainvilleas/aio
+[Badge stars]: https://img.shields.io/github/stars/bougainvilleas/aio
+[Badge watchers]: https://img.shields.io/github/watchers/bougainvilleas/aio
+[Badge forks]: https://img.shields.io/github/forks/bougainvilleas/aio
+[Badge workflow]: https://github.com/bougainvilleas/aio/actions/workflows/jekyll-gh-pages.yml/badge.svg?style=flat-square
+[Badge deployments]: https://img.shields.io/github/deployments/bougainvilleas/aio/github-pages?style=flat-square
+[Badge gh pages]: https://img.shields.io/website/https/bougainvilleas.github.io/aio?style=flat-square
+[Badge license]: https://img.shields.io/github/license/bougainvilleas/aio?style=flat-square
+<!----------------------------------------------------------------------------->
+![Badge language count]
+![Badge language]
 
+[![Badge pull requests]][pull requests]
+[![Badge issues]][issues]
+[![Badge stars]][stars]
+[![Badge watchers]][watchers]
+[![Badge forks]][forks]
+
+[![Badge workflow]][Jekyll gh pages]
+[![Badge deployments]][deployments]
+[![Badge gh pages]][gh pages]
+
+[![Badge license]][license]
+<!----------------------------------------------------------------------------->
 
 # aio
-
-[:compass:](https://bougainvilleas.github.io/lotus/)
 
 > all in one \
 > gradle 8.0 includeBuild 支持复合项目 \

@@ -24,20 +24,20 @@ hide,name,link
 0,mpd mpc 音频播放,/linux/btrfs
 0,系统监控工具,/linux/btrfs
 0,wifi爆破,/linux/btrfs
-0,《Linux 驱动程序开发实例（第2版）》,/linux/btrfs
+1,《Linux 驱动程序开发实例（第2版）》,/linux/btrfs
 0,SUSE 发行版,/linux/user
 0,zypper,/linux/user
 0,自启动脚本,/linux/user
 0,默认凌晨三点六重启系统,/linux/user
 0,Network file system,/linux/user
 0,java version 管理工具,/linux/user
-0,Docker registry 部署 与 自签证书,/linux/kubic
+1,Docker registry 部署 与 自签证书,/linux/kubic
 0,rabbitmq,/linux/kubic
 0,nginx,/linux/kubic
 0,nginx for react & vue,/linux/kubic
 0,jre8 for alpine,/linux/kubic
 0,jre7 for alpine,/linux/kubic
-0,Springboot Layering Docker Images,/linux/kubic
+1,Springboot Layering Docker Images,/linux/kubic
 0,kubic 安装 k8s,/linux/kubic
 0,kubectl 用法,/linux/kubectl
 0,Dashboard UI 部署,/linux/dashbord-ui

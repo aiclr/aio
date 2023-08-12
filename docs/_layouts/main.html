@@ -3,23 +3,22 @@ layout: default
 ---
 <div class="main">
     <div class="left">
-        <p>广告位招租...</p>
-        <p>广告位招租...</p>
-        <p>广告位招租...</p>
-        <p>广告位招租...</p>
-        <p>广告位招租...</p>
-        <p>广告位招租...</p>
-        <p>广告位招租...</p>
-        <p>广告位招租...</p>
-        <p>广告位招租...</p>
+        <ul class="list">
+            {% for item in page.targets %}
+            <li class="item_l">
+                <a href="{{ item.link | relative_url}}">&raquo;&emsp;{{ item.name }}</a>
+            </li>
+            {% endfor %}
+        </ul>
     </div>
     {{ content }}
     <div class="right">
-        <ul class="list-unstyled mb-0">
+        <ul class="list">
             {% for item in page.targets %}
-            <li><a href="{{ item.link | relative_url}}">{{ item.name }}&emsp;&raquo;</a></li>
+            <li class="item_l">
+                <a href="{{ item.link | relative_url}}">&raquo;&emsp;{{ item.name }}</a>
+            </li>
             {% endfor %}
         </ul>
-
     </div>
 </div>
