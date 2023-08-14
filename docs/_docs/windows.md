@@ -16,7 +16,7 @@ targets:
   - name: 提升cmd/powershell权限
     link: runas
   - name: powershell脚本执行权限
-    link: ExecutionPolicy
+    link: executionpolicy
   - name: 新建文件/文件夹
     link: ni
   - name: powershell内运行vim
