@@ -1,6 +1,11 @@
 package org.bougainvilleas.ilg.study.chapter17
 
+import groovy.json.JsonBuilder
+import groovy.json.JsonOutput
 import groovy.json.JsonSlurper
+import groovy.json.StringEscapeUtils
+
+import java.nio.charset.Charset
 
 /**
  * JsonBuilder 可以从 JavaBean HashMap 和列表生成 JSON格式的输出
@@ -45,3 +50,32 @@ println("从文件读取json 转换为 POGO")
 def slurper = new JsonSlurper()
 def person=slurper.parse(new FileReader('Person.json'))
 println "$person.first $person.last is interested in ${person.sigs.join(", ")}"
+
+
+/**
+ * 中文 unicode 问题
+ */
+
+chen=new Person(first: '彩灵',last: '陈',sigs: ['Java','Groovy'],tools: ['script':'Groovy','test':'Spock'])
+jbr=new JsonBuilder(chen)
+writer=new StringWriter()
+jbr.writeTo(writer)
+println writer
+
+/**
+ * 中文 unicode 转换
+ */
+jsonStr=JsonOutput.toJson(chen)
+writer=new StringWriter()
+StringEscapeUtils.unescapeJava(writer,jsonStr)
+println writer
+
+/**
+ * 输出到文件
+ */
+fileWriter=new FileWriter('Person.json',Charset.forName("UTF-8"),false)
+StringEscapeUtils.unescapeJava(fileWriter,jsonStr)
+fileWriter.flush()
+fileWriter.close()
+
+println("cat Person.json".execute().text)
