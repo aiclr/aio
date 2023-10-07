@@ -3,6 +3,8 @@
 .vscode/
 .gradle/
 
+*.settings/
+*.project
 *.iml
 
 # Compiled class dir
